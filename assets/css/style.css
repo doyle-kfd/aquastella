@@ -89,7 +89,7 @@ main {
 
 /* Footer */
 footer {
-    background-color: yellow;
+    background-color: #1b4332; /* Set header bg color */
     position: sticky; /* keep footer at bottom  during scrolling */
     z-index: 99; /* raise header to keep it on top of any other elements */
 }
