@@ -89,9 +89,22 @@ main {
 /* Footer */
 footer {
     background-color: #1b4332; /* Set header bg color */
-    position: sticky; /* keep footer at bottom  during scrolling */
-    z-index: 99; /* raise header to keep it on top of any other elements */
 }
+
+#social-networks {
+    text-align: center; /* align icons as text along center */
+    padding: 20px 0; /* add space above and below */
+    display: flex; /* align icons along footer */
+    justify-content: space-evenly; /* Space icons evenly */
+    list-style-type: none; /* remove bullet points from list icons */
+}
+
+#social-networks i {
+    font-size: 120%;
+    padding: 5%;
+    color:#ffffff;
+}
+
 
 /* Media Query Section */
 
@@ -128,11 +141,24 @@ footer {
     main {
         margin-top: 75px; /* pushh main down to prevent nav covering */
     }
+
+    footer {
+        position: fixed; /* keep footer at bottom  during scrolling */
+        bottom: 0;
+        z-index: 99; /* raise header to keep it on top of any other elements */
+        width: 100%;
+    }
+
+
+
+
+
 }
 
 @media screen and (min-width: 992px) {
     #menu a:hover {
         border-bottom: 1px solid #ffffff;
     }
+
 
 }
