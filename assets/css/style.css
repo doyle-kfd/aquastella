@@ -9,9 +9,7 @@
     box-sizing: border-box;
 }
 
-h1, h2, h3 {
-    font-family: 'Syne', sans-serif;
-}
+
 
 
 /* General style section */
@@ -29,7 +27,17 @@ body {
 
 /* Header */
 header {
-    background-color: green;
+    background-color: #1b4332; /* Set header bg color */
+    padding: 0 1rem; /* add padding left and right to text */
+    position: fixed; /* keep nav at top during scrolling */
+    z-index: 99; /* raise header to keep it on top of any other elements */
+    width: 100%; /* take up full width of screen */ 
+    box-shadow: 0px 2px 2px 0px #919EAA;
+}
+
+/* set default font style for h tags */
+h1, h2, h3 {
+    font-family: 'Syne', sans-serif;
 }
 
 /* Main */
