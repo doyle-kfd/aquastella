@@ -37,12 +37,30 @@ header {
 header a {
     text-decoration: none; /* remove underline from nav items */
     color: #ffffff;
+    letter-spacing: 2px; /* space out the logo text */
 }
 
 /* set default font style for h tags */
 h1, h2, h3 {
     font-family: 'Syne', sans-serif;
-    letter-spacing: 2px; /* space out the logo text */
+
+}
+
+/* style menu bar */
+#menu   {
+    font-size: 110%; /* Make ment text larger */
+    letter-spacing: 4px; /* space menu text out */
+    list-style-type: none; /* remove disc from list item */
+}
+
+/* style menu items */
+#menu > li {
+    margin-top: .5em;    /* Space out menu items */
+    margin-bottom: .5em; /* Space out menu items */
+}
+
+.active {
+    border-bottom: 1px solid #ffffff;
 }
 
 /* Main */
