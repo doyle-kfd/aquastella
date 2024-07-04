@@ -123,4 +123,14 @@ footer {
     .reserv {
         padding-right: 3rem;
     }
+
+    #logo {
+        font-size: 280%; /* Increase font size for tablet */
+        line-height: 75px; /* Increase line heighj */
+        margin: 0 0.5rem; /* add margin */
+    }
+
+    main {
+        margin-top: 75px; /* pushh main down to prevent nav covering */
+    }
 }
