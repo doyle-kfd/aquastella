@@ -83,8 +83,8 @@ nav {
 /* Main */
 main {
     background-color: rgb(217, 0, 255);
-    flex: 1 0 auto;
-    /* make main element take up all surplus space */
+    flex: 1 0 auto;   /* make main element take up all surplus space */
+    margin-top: 38px; /* Push down main content hidden by header */
 }
 
 /* Footer */
