@@ -1,3 +1,7 @@
+/* Import google fonts Syne, Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap');
+
+
 /*  Asterisk wildcard selector to override browser style defaults */
 * {
     padding: 0;
@@ -7,22 +11,27 @@
 
 /* General style section */
 body {
-    min-height: 100vh; /* Take full height of viewport */
-    display: flex; /* enable flex for responsiveness */
+    min-height: 100vh;
+    /* Take full height of viewport */
+    display: flex;
+    /* enable flex for responsiveness */
     flex-direction: column;
-    color: #3a3a3a; /* set text color */
+    color: #3a3a3a;
+    /* set text color */
+    font-family: 'Montserrat', sans-serif;
 
 }
 
 /* Header */
 header {
-    background-color: red;
+    background-color: green;
 }
 
 /* Main */
 main {
-    background-color: blue;
-    flex: 1 0 auto; /* make main element take up all surplus space */
+    background-color: rgb(217, 0, 255);
+    flex: 1 0 auto;
+    /* make main element take up all surplus space */
 }
 
 /* Footer */
