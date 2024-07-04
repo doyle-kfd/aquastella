@@ -93,3 +93,34 @@ footer {
     position: sticky; /* keep footer at bottom  during scrolling */
     z-index: 99; /* raise header to keep it on top of any other elements */
 }
+
+/* Media Query Section */
+
+@media screen and (min-width: 768px) {
+    /* Header */
+    nav {
+        display: block; /* Always display nav */
+        position: relative; /* Bring nav inside header */
+        width: fit-content; /* Dont take up all the space */
+        padding-right: 1rem; /* move content from the right side */
+    }
+
+    /* show menu items side by side instead of a block */
+    #menu {
+        display: flex;
+    }
+
+    #menu > li {
+        padding-left: 1rem;
+    }
+
+    /* hide mobile nav icon */
+    #mobileMenu {
+        display: none;
+    }
+
+    /* move reservation button away from other menu items */
+    .reserv {
+        padding-right: 3rem;
+    }
+}
