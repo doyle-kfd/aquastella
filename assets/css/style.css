@@ -5,6 +5,15 @@
     box-sizing: border-box;
 }
 
+/* General style section */
+body {
+    min-height: 100vh; /* Take full height of viewport */
+    display: flex; /* enable flex for responsiveness */
+    flex-direction: column;
+    color: #3a3a3a; /* set text color */
+
+}
+
 /* Header */
 header {
     background-color: red;
@@ -13,6 +22,7 @@ header {
 /* Main */
 main {
     background-color: blue;
+    flex: 1 0 auto; /* make main element take up all surplus space */
 }
 
 /* Footer */
