@@ -9,6 +9,11 @@
     box-sizing: border-box;
 }
 
+h1, h2, h3 {
+    font-family: 'Syne', sans-serif;
+}
+
+
 /* General style section */
 body {
     min-height: 100vh;
