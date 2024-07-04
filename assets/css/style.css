@@ -32,6 +32,9 @@ header {
     position: fixed; /* keep nav at top during scrolling */
     z-index: 99; /* raise header to keep it on top of any other elements */
     width: 100%; /* take up full width of screen */ 
+    display: flex; /* show header elements in a row */
+    justify-content: space-between; /* Space out elements */
+    align-items: baseline; /* Aline along baseline */
 }
 
 header a {
@@ -51,6 +54,7 @@ h1, h2, h3 {
     font-size: 110%; /* Make ment text larger */
     letter-spacing: 4px; /* space menu text out */
     list-style-type: none; /* remove disc from list item */
+    display: none;
 }
 
 /* style menu items */
@@ -62,6 +66,19 @@ h1, h2, h3 {
 .active {
     border-bottom: 1px solid #ffffff;
 }
+
+/* Navbar styling */
+nav {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    padding: 0 1rem;
+    background-color:#1b4332;
+    display: block; 
+    top:100%; /* Tell navbar to start at bottom of parent element */
+}
+
+
 
 /* Main */
 main {
