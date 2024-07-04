@@ -119,10 +119,6 @@ footer {
         display: none;
     }
 
-    /* move reservation button away from other menu items */
-    .reserv {
-        padding-right: 3rem;
-    }
 
     #logo {
         font-size: 280%; /* Increase font size for tablet */
@@ -133,4 +129,11 @@ footer {
     main {
         margin-top: 75px; /* pushh main down to prevent nav covering */
     }
+}
+
+@media screen and (min-width: 992px) {
+    #menu a:hover {
+        border-bottom: 1px solid #ffffff;
+    }
+
 }
