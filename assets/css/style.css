@@ -195,7 +195,14 @@ footer {
 
 
 /* Media Query Section */
+/*--------- Mobile phone breakpoint -------------*/
 @media screen and (min-width: 280px) {
+
+    #hero {
+        height: 500px; /* Hero image fit to screen - dont take full height */
+    }
+
+    /* make footer stick to bottom of page on mobile phone */
     footer {
         position: fixed;
         z-index: 99;
