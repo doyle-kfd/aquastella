@@ -189,6 +189,12 @@ main {
     
 }
 
+/*--------------- Gallery Specific Styling ----------------*/
+#photos img {
+    width: 100%; /* give all images 100% of screen width */
+    line-height: 1em; /* add line height in case of broken link */
+}
+
 
 /*------------ Footer specific styling across site ----------*/
 /* Footer */
