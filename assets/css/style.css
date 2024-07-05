@@ -81,10 +81,20 @@ nav {
 
 /* Main */
 main {
-    background-color: rgb(217, 0, 255);
     flex: 1 0 auto;   /* make main element take up all surplus space */
     margin-top: 38px; /* Push down main content hidden by header */
 }
+
+/**************       Index page specific    *****************/
+
+/* Hero section */
+#hero {
+    height: 600px;
+    width: 100%;
+    background: url("../images/hero-image-aquastella.webp") no-repeat center center/cover;/* give hero section a background image */
+    position: relative;
+}
+
 
 /* Footer */
 footer {
