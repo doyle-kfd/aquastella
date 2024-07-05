@@ -237,12 +237,19 @@ footer {
 
 }
 
-
+/*-------------- Specif to tablets --------------*/
 @media screen and (min-width: 768px) {
 
+    /*   Standard element settings */
     p {
         font-size: 20px;
-        padding: 0px;
+        padding: 5px;
+    }
+
+    h2 {
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     /* Header */
