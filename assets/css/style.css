@@ -291,6 +291,7 @@ footer {
     /* show menu items side by side instead of a block */
     #menu {
         display: flex;
+        align-items: center;
     }
 
     #menu > li {
