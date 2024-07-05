@@ -31,6 +31,10 @@ h1, h2, h3 {
     letter-spacing: 2px; /* space out text */
 }
 
+/* add padding around paragraph text */
+p {
+    padding: 5px;
+}
 
 /* Header */
 header {
@@ -48,6 +52,7 @@ header a {
     text-decoration: none; /* remove underline from nav items */
     color: #ffffff;
     letter-spacing: 2px; /* space out the logo text */
+    font-style: italic;
 }
 
 
@@ -124,6 +129,7 @@ main {
     padding: 5px; /* add padding around text */
 }
 
+
 #our-story-image {
     height: 500px;
     width: 100%;
@@ -167,7 +173,7 @@ main {
 }
 
 
-
+/*------------ Footer specific styling across site ----------*/
 /* Footer */
 footer {
     background-color: #1b4332; /* Set header bg color */
@@ -189,6 +195,17 @@ footer {
 
 
 /* Media Query Section */
+@media screen and (min-width: 280px) {
+    footer {
+        position: fixed;
+        z-index: 99;
+        width: 100%;
+        box-shadow: 0px -2px 6px 0px #3A3A3A;
+        bottom: 0;
+
+
+}
+
 
 @media screen and (min-width: 768px) {
     /* Header */
@@ -230,16 +247,6 @@ footer {
         left: 10px; /* position hero-text div 10px from left */
         padding-top: 20px;
     }
-
-    footer {
-        position: fixed; /* keep footer at bottom  during scrolling */
-        bottom: 0;
-        z-index: 99; /* raise header to keep it on top of any other elements */
-        width: 100%;
-    }
-
-
-
 
 
 }
