@@ -100,6 +100,7 @@ nav {
     background-color:#18263d;
     display: block; 
     top:100%; /* Tell navbar to start at bottom of parent element */
+    box-shadow: 0px 2px 6px 0px #3a3a3a;
 }
 
 
@@ -216,6 +217,11 @@ footer {
     /* remove h2 letter spacing on movile phones */
     h2 {
         letter-spacing: 0px;
+    }
+
+    /* style menu */
+    #menu {
+        text-align: center;
     }
 
     #hero {
