@@ -101,11 +101,14 @@ main {
 #hero-text {
     background-color: #1b4332a6; /* create transparent bg for overlay text */
     position: absolute; /* position hero text relative to hero section */
-    bottom: 30px;/* position of text off bottom */
+    bottom: 10px;/* position of text off bottom */
     width: 80%; /* set width of cover textv */
+    min-height: 100px; /* give text a minimum height */
+    padding-top: 10px; /* prevent text sticking to top */
+    padding-left: 10px; /* prevent text sticking to left */
 }
 
-#hero h2, h3 {
+#hero-text > h2, #hero-text > h3 {
     color: #ffffff;
 }
 
@@ -163,6 +166,13 @@ footer {
 
     main {
         margin-top: 75px; /* pushh main down to prevent nav covering */
+    }
+
+    #hero-text {
+        width: 300px; /* change width of hero-text div */
+        bottom: 250px;/* position of text off bottom */
+        left: 10px; /* position hero-text div 10px from left */
+        padding-top: 20px;
     }
 
     footer {
