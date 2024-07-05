@@ -31,6 +31,11 @@ h1, h2, h3 {
     letter-spacing: 2px; /* space out text */
 }
 
+/* style h2 text */
+h2 {
+    color: #18263d;
+}
+
 /* add padding around paragraph text */
 p {
     padding: 5px;
@@ -38,7 +43,7 @@ p {
 
 /* Header */
 header {
-    background-color: #1b4332; /* Set header bg color */
+    background-color: #18263d; /* Set header bg color */
     padding: 0 1rem; /* add padding left and right to text */
     position: fixed; /* keep nav at top during scrolling */
     z-index: 99; /* raise header to keep it on top of any other elements */
@@ -75,13 +80,24 @@ header a {
     border-bottom: 1px solid #ffffff;
 }
 
+#make-reservation {
+    margin-top: 10px;
+    margin-bottom:10px;
+    border: 2px solid #ffffff;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #18263d;
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
 /* Navbar styling */
 nav {
     width: 100%;
     position: absolute;
     left: 0;
     padding: 0 1rem;
-    background-color:#1b4332;
+    background-color:#18263d;
     display: block; 
     top:100%; /* Tell navbar to start at bottom of parent element */
 }
@@ -104,7 +120,7 @@ main {
 }
 
 #hero-text {
-    background-color: #1b4332a6; /* create transparent bg for overlay text */
+    background-color: #18263dcc; /* create transparent bg for overlay text */
     position: absolute; /* position hero text relative to hero section */
     bottom: 10px;/* position of text off bottom */
     width: 80%; /* set width of cover textv */
@@ -159,8 +175,8 @@ main {
 }
 
 /* What matters section index page */
-#what-matters {
-    padding: 5px; /* add padding around text */
+#what-matters-text {
+   padding: 5px; /*  add padding around text */
 }
 
 /* Add image to div as bg and style */
@@ -176,7 +192,7 @@ main {
 /*------------ Footer specific styling across site ----------*/
 /* Footer */
 footer {
-    background-color: #1b4332; /* Set header bg color */
+    background-color: #18263d; /* Set header bg color */
 }
 
 #social-networks {
