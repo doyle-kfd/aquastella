@@ -112,6 +112,33 @@ main {
     color: #ffffff;
 }
 
+
+/*---------  Welcome Section Index Page  ------------*/
+.welcome-text {
+    padding: 5px;   /* add padding around text */
+}
+
+/* Our Story section styling */
+#our-story {
+    padding: 5px; /* add padding around text */
+}
+
+/* our story div styling */
+#our-story-image {
+    height: 500px;
+    width: 100%;
+    background: url("../images/aquastella-table-setting.webp") no-repeat center center/cover;/* give our story section a background image */
+    position: relative; /* make image relative to container */
+    
+}
+
+#our-story img {
+    display:block;
+    width:80%; 
+    margin: 0 auto; 
+}
+
+
 /* Footer */
 footer {
     background-color: #1b4332; /* Set header bg color */
