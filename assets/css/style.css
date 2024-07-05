@@ -197,13 +197,33 @@ footer {
 /* Media Query Section */
 /*--------- Mobile phone breakpoint -------------*/
 @media screen and (min-width: 280px) {
+    /* remove h2 letter spacing on movile phones */
+    h2 {
+        letter-spacing: 0px;
+    }
 
     #hero {
         height: 500px; /* Hero image fit to screen - dont take full height */
     }
 
+    /* Terget h2 welcome message h2 text specifically */
     .welcome-text  h2 {
         text-align: center;
+        letter-spacing: 2px;
+    }
+
+    /* Use flexbox to re-order image and text on mobile devices */
+    #what-matters {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #what-matters-image {
+        order: 1;
+    }
+
+    #what-matters-text {
+        order: 0;
     }
 
     /* make footer stick to bottom of page on mobile phone */
@@ -213,7 +233,7 @@ footer {
         width: 100%;
         box-shadow: 0px -2px 6px 0px #3A3A3A;
         bottom: 0;
-
+    }
 
 }
 
