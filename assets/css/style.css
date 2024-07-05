@@ -25,6 +25,13 @@ body {
 
 }
 
+/* set default font style for h tags */
+h1, h2, h3 {
+    font-family: 'Syne', sans-serif; /* set font family */
+    letter-spacing: 2px; /* space out text */
+}
+
+
 /* Header */
 header {
     background-color: #1b4332; /* Set header bg color */
@@ -43,11 +50,7 @@ header a {
     letter-spacing: 2px; /* space out the logo text */
 }
 
-/* set default font style for h tags */
-h1, h2, h3 {
-    font-family: 'Syne', sans-serif;
 
-}
 
 /* style menu bar */
 #menu   {
@@ -95,6 +98,16 @@ main {
     position: relative;
 }
 
+#hero-text {
+    background-color: #1b4332a6; /* create transparent bg for overlay text */
+    position: absolute; /* position hero text relative to hero section */
+    bottom: 30px;/* position of text off bottom */
+    width: 80%; /* set width of cover textv */
+}
+
+#hero h2, h3 {
+    color: #ffffff;
+}
 
 /* Footer */
 footer {
