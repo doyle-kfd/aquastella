@@ -328,6 +328,11 @@ footer {
         font-size: 18px;
     }
 
+    /* Gallery Specefic */
+    #photos {
+        column-count: 2;
+        column-gap: 5px;
+    }
 
 }
 
@@ -336,5 +341,10 @@ footer {
         border-bottom: 1px solid #ffffff;
     }
 
+    /* Gallery Specefic */
+     #photos {
+         column-count: 3;
+        column-gap: 5px;
+    }
 
 }
