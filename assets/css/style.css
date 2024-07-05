@@ -231,7 +231,7 @@ footer {
     }
 
     #hero {
-        height: 500px; /* Hero image fit to screen - dont take full height */
+        height: 450px; /* Hero image fit to screen - dont take full height */
     }
 
     /* Target h2 welcome message h2 text specifically */
@@ -319,6 +319,44 @@ footer {
         bottom: 150px;/* position of text off bottom */
         left: 10px; /* position hero-text div 10px from left */
         padding-top: 20px;
+    }
+
+    /* style page sections side by side using flex */
+    #welcome {
+        display: flex;
+        flex-direction: row; /* align divs in row */
+    }
+
+    #our-story, #our-story-image {
+        flex-direction: row; /* align divs in row */
+        align-items: center; /* align divs along center */
+        flex: 50%; /* make sure the width is spilt 50/50 */
+    }
+
+    #about-chef {
+        display: flex;
+        flex-direction: row;
+        align-items: center; /* align divs in row */
+    }
+
+    #chef-bio, #about-chef-image {
+        flex: 50%; /* make sure the width is spilt 50/50 */
+    }
+
+    #what-matters {
+        display: flex;
+        flex-direction: row; /* align divs in row */
+    }
+
+    #what-matters-image {
+        order: 0; /* Make this div second in flexbox */
+        flex: 50%; /* make sure the width is spilt 50/50 */
+    }
+
+    #what-matters-text {
+        order: 1; /* make this div first in flexbox */
+        flex: 50%; /* make sure the width is spilt 50/50 */
+        
     }
 
     #welcome-text {
