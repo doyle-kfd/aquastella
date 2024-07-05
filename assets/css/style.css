@@ -206,8 +206,8 @@ footer {
         height: 500px; /* Hero image fit to screen - dont take full height */
     }
 
-    /* Terget h2 welcome message h2 text specifically */
-    .welcome-text  h2 {
+    /* Target h2 welcome message h2 text specifically */
+    #welcome-text  h2 {
         text-align: center;
         letter-spacing: 2px;
     }
@@ -219,11 +219,11 @@ footer {
     }
 
     #what-matters-image {
-        order: 1;
+        order: 1; /* Make this div second in flexbox */
     }
 
     #what-matters-text {
-        order: 0;
+        order: 0; /* make this div first in flexbox */
     }
 
     /* make footer stick to bottom of page on mobile phone */
@@ -239,6 +239,12 @@ footer {
 
 
 @media screen and (min-width: 768px) {
+
+    p {
+        font-size: 20px;
+        padding: 0px;
+    }
+
     /* Header */
     nav {
         display: block; /* Always display nav */
@@ -274,9 +280,17 @@ footer {
 
     #hero-text {
         width: 300px; /* change width of hero-text div */
-        bottom: 250px;/* position of text off bottom */
+        bottom: 150px;/* position of text off bottom */
         left: 10px; /* position hero-text div 10px from left */
         padding-top: 20px;
+    }
+
+    #welcome-text {
+        padding: 10px;
+    }
+
+    #welcome-text > p {
+        font-size: 18px;
     }
 
 
