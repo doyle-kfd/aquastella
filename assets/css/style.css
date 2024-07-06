@@ -321,6 +321,16 @@ footer {
         padding-top: 20px;
     }
 
+    /* --- Style section breaks ------ */
+    #section-break {
+        margin-top:10px;
+        margin-bottom:10px;
+        border-bottom: 1px solid #18263d;
+        height:1px;
+        width: 80%;
+    }
+
+
     /* style page sections side by side using flex */
     #welcome {
         display: flex;
