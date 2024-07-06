@@ -358,6 +358,8 @@ footer {
     #what-matters {
         display: flex;
         flex-direction: row; /* align divs in row */
+        padding-bottom: 60px; /* add padding to bottom to prevent footer covering section */
+        align-items: center;
     }
 
     #what-matters-image {
