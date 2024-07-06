@@ -240,6 +240,11 @@ footer {
         letter-spacing: 2px;
     }
 
+    /* target text to center it */
+    #welcome-text > p {
+        text-align: center; /* align content to center */
+    }
+
     /* Use flexbox to re-order image and text on mobile devices */
     #what-matters {
         display: flex;
@@ -359,7 +364,7 @@ footer {
         display: flex;
         flex-direction: row; /* align divs in row */
         padding-bottom: 60px; /* add padding to bottom to prevent footer covering section */
-        align-items: center;
+        align-items: center; /* align divs along center */
     }
 
     #what-matters-image {
@@ -379,6 +384,7 @@ footer {
 
     #welcome-text > p {
         font-size: 18px;
+        text-align: center; /* align content to center */
     }
 
     /* Gallery Specefic */
@@ -396,8 +402,12 @@ footer {
 
     /* Gallery Specefic */
      #photos {
-         column-count: 3;
+        column-count: 3;
         column-gap: 5px;
+    }
+
+    #what-matters {
+        padding-bottom: 70px; /* add padding to bottom of section to uncover from behind footer */
     }
 
 }
