@@ -37,74 +37,76 @@
 
     <!-- Main -->
     <main>
-        <!-- Create a modal reservation form -->
-        <!-- give form id of "reservation-form" and a class of "modal" to target -->
-        <div id="reservation-form">
-            <div id="reserv-head">
-                <h3>Reservations</h3>
-                <span id="close-reservation-form" onclick="closeReservation()">X</span>
-            </div>
-            <!-- Create two tabs for creating multi page reservation form -->
-            <!-- tab 1 checks number of guests, date and sitting to see availability-->
-            <!-- TAB 1 -->
-            <div id="tab-1" class="res-tab">
-                <!-- Get number of people from dropdown-->
-                <div class="guestNum">
-                    <label for="guestNum">Number of guests:</label>
-                    <select id="guestNum">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="4">4</option>
-                        <option value="6">6</option>
-                    </select>
+        <section id="reservation-container">
+            <!-- Create a modal reservation form -->
+            <!-- give form id of "reservation-form" and a class of "modal" to target -->
+            <div id="reservation-form">
+                <div id="reserv-head">
+                    <h3>Reservations</h3>
+                    <span id="close-reservation-form" onclick="closeReservation()">X</span>
                 </div>
+                <!-- Create two tabs for creating multi page reservation form -->
+                <!-- tab 1 checks number of guests, date and sitting to see availability-->
+                <!-- TAB 1 -->
+                <div id="tab-1" class="res-tab">
+                    <!-- Get number of people from dropdown-->
+                    <div class="guestNum">
+                        <label for="guestNum">Number of guests:</label>
+                        <select id="guestNum">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
 
-                <!-- Get date from date picker -->
-                <div class="ddate">
-                    <label for="ddate">Date:</label>
-                    <input type="date" id="ddate" name="ddate" min="01-07-24">
-                </div>
+                    <!-- Get date from date picker -->
+                    <div class="ddate">
+                        <label for="ddate">Date:</label>
+                        <input type="date" id="ddate" name="ddate" min="01-07-24">
+                    </div>
 
-                <!-- Get sit down time from dropdown -->
-                <div class="dtime">
-                    <label for="dtime">Sitting Time:</label>
-                    <select id="dtime">
-                        <option value="17:00">17:00</option>
-                        <option value="20:30">20:30</option>
-                    </select>
+                    <!-- Get sit down time from dropdown -->
+                    <div class="dtime">
+                        <label for="dtime">Sitting Time:</label>
+                        <select id="dtime">
+                            <option value="17:00">17:00</option>
+                            <option value="20:30">20:30</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button id="ftable">Find Table</button>
+                    </div>
                 </div>
-                <div>
-                    <button id="ftable">Find Table</button>
+                <!-- Create two tabs for creating multi page reservation form -->
+                <!-- tab 2 takes customer details once there is booking available -->
+                <div id="tab-2" class="res-tab">
+                    <!-- Get first name-->
+                    <div class="fname">
+                        <label for="fname">First Name:</label>
+                        <input type="text" id="fname" name="fname">
+                    </div>
+
+                    <!-- Get last name-->
+                    <div class="lname">
+                        <label for="lname">Last Name:</label>
+                        <input type="text" id="lname" name="lname">
+                    </div>
+                    <div class="phone">
+                        <label for="telephone">T:</label>
+                        <input type="number" id="telephone" name="telephone">
+                    </div>
+                    <div class="email">
+                        <label for="email">E:</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div>
+                        <!-- Make Reservation-->
+                        <button id="make-booking">Make Booking</button>
+                    </div>
                 </div>
             </div>
-            <!-- Create two tabs for creating multi page reservation form -->
-            <!-- tab 2 takes customer details once there is booking available -->
-            <div id="tab-2" class="res-tab">
-                <!-- Get first name-->
-                <div class="fname">
-                    <label for="fname">First Name:</label>
-                    <input type="text" id="fname" name="fname">
-                </div>
-
-                <!-- Get last name-->
-                <div class="lname">
-                    <label for="lname">Last Name:</label>
-                    <input type="text" id="lname" name="lname">
-                </div>
-                <div class="phone">
-                    <label for="telephone">T:</label>
-                    <input type="number" id="telephone" name="telephone">
-                </div>
-                <div class="email">
-                    <label for="email">E:</label>
-                    <input type="email" id="email" name="email">
-                </div>
-                <div>
-                    <!-- Make Reservation-->
-                    <button id="make-booking">Make Booking</button>
-                </div>
-            </div>
-        </div>
+        </section>
         <!-- Set up hero section on idex page -->
         <section id="hero">
             <div id="hero-text">
