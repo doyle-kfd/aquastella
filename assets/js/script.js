@@ -31,9 +31,10 @@ function makeReservation(){
   }
   }
 
-  // close reservation form
+  // close reservation form if close button pressed
   const reservForm = document.getElementById("reservation-form");
   function closeReservation() {
     console.log("captured close reserv form");
     reservForm.style.display = "none";
   }
+
