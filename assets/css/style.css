@@ -262,10 +262,33 @@ footer {
     padding-bottom: 15px;
 }
 
+/* style find table button container */
+#findtable-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top:20px;
+}
+
+/* style find table button */
+#ftable {
+    color: gold;
+    background-color:#18263d;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid gold;
+    border-radius: 8px;
+}
+
 /* target div's with tab1 and tab2 */
 #tab-1 > div, #tab-2 > div {
     margin: 10px;
 }
+
+
+
 
 /* Media Query Section */
 /*--------- Mobile phone breakpoint -------------*/
