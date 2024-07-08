@@ -223,6 +223,8 @@ footer {
 }
 
 
+
+
 /*--------------  Reservation modal form specific ------------------*/
 
 /* set default modal hidden styling */
@@ -260,6 +262,7 @@ footer {
     align-items: baseline; /* Aline along baseline */
     padding-top: 15px;
     padding-bottom: 15px;
+    border-bottom: 1px solid #ffffff;
 }
 
 /* style find table button container */
@@ -268,6 +271,7 @@ footer {
     flex-direction: row;
     justify-content: space-around;
     padding-top:20px;
+    border-top: 1px solid #ffffff;
 }
 
 /* style find table button */
