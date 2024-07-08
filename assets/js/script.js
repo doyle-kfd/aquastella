@@ -28,6 +28,20 @@ function makeReservation(){
   } else {
     // open if closed 
     reservForm.style.display = "block";
+    // create variable to store reservation tabs
+    const resTab = 0;
+    console.log("defining resTab");
+    // run function to display tab 1
+    showresTab(resTab);
+    function showresTab(n) {
+      console.log("trying to display tab");
+      // create variable to store tab contents
+      const x = document.getElementsByClassName("res-tab");
+      // Display tab 1
+      x[n].style.display = "block";
+      // hide tab 2 while content is being filled in and reservation checked
+      x[n+1].style.display = "none";
+    }
   }
   }
 
@@ -37,4 +51,7 @@ function makeReservation(){
     console.log("captured close reserv form");
     reservForm.style.display = "none";
   }
+
+
+ 
 

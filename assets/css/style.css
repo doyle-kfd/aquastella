@@ -221,6 +221,8 @@ footer {
 
 /* set default modal hidden styling */
 #reservation-form {
+    display: flex;
+
     display: none;    /*  Hide */
     position: fixed; /* fix the position */
     z-index: 99; /* Keep on top */
@@ -232,6 +234,24 @@ footer {
     color: #ffffff;
 }
 
+
+
+/* Reservation form h3 specific */
+#reservation-form > h3 {
+    color:#ffffff;
+    flex-direction: row;
+
+}
+
+/* Reservation form header */
+#reserv-head {
+    display: flex; /* enable flex control */
+    flex-direction: row; /* align in a row */
+    justify-content: space-around; /* Space out elements */
+    align-items: baseline; /* Aline along baseline */
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
 
 /* Media Query Section */
 /*--------- Mobile phone breakpoint -------------*/
