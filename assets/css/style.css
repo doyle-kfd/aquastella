@@ -217,6 +217,22 @@ footer {
 }
 
 
+/* Reservation modal form specific */
+
+/* set default modal hidden styling */
+#reservation-form {
+    display: none;    /*  Hide */
+    position: fixed; /* fix the position */
+    z-index: 99; /* Keep on top */
+    width: 100%;
+    height: 50%;
+    left:25;
+    top:20;
+    background-color: #18263d;
+    color: #ffffff;
+}
+
+
 /* Media Query Section */
 /*--------- Mobile phone breakpoint -------------*/
 @media screen and (min-width: 280px) {

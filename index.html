@@ -25,17 +25,25 @@
         </a>
         <nav>
             <ul id="menu">
-                <button id="make-reservation">Reservation</button>
+                <button id="make-reservation" onclick="makeReservation()">Reservation</button>
                 <li><a href="index.html" class="active link-hover">Home</a></li>
                 <li><a href="gallery.html">gallery</a></li>
             </ul>
         </nav>
+        <!-- Capture mobile menu open click -->
         <a href="#" id="mobileMenu" onclick="toggleMenu()"><i class="fa-solid fa-lg fa-bars"
                 style="color: #ffffff;"></i></a>
     </header>
 
     <!-- Main -->
     <main>
+        <!-- Create a modal reservation form -->
+        <!-- give form id of "reservation-form" and a class of "modal" to target -->
+        <div id="reservation-form">
+            <span id="close-reservation-form" onclick="closeReservation()">X</span>
+            <h2>Reservations</h2>
+            <p>spacer text</p>
+        </div>
         <section id="hero">
             <div id="hero-text">
                 <h3>Your Michelin Star Seafood Restaraunt</h3>
@@ -134,7 +142,7 @@
     <footer>
         
         <ul id="social-networks">
-            <button id="make-reservation-footer">Reservation</button>
+            <button id="make-reservation-footer" onclick="makeReservation()">Reservation</button>
             <li><a href="https://www.facebook.com/" target="_blank" rel="noopener"
                     aria-label="visit our facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"
                         style="color: #ffffff;"></i></a></li>
