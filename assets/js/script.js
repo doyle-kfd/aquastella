@@ -55,21 +55,25 @@ function makeReservation(){
 
  // Initialise the reservation form variables
 
-const numGuests = document.getElementById('guestNum'); // number of guests
-const dateInput = document.getElementById('ddate'); // reservation date
-const timeInput = document.getElementById('dtime'); // reservation time
-const fnamInput = document.getElementById('fname'); // first name
-const lnameInput = document.getElementById('lname'); // last name
-const emailInput = document.getElementById('email'); // Email Address
-const teleInput = document.getElementById('telephone'); // last name
+const numGuests = document.getElementById('guestNum').value; // number of guests from form
+const dateInput = document.getElementById('ddate').value; // reservation date from form
+const timeInput = document.getElementById('dtime').value; // reservation time from form
+const fnamInput = document.getElementById('fname').value; // first name from form
+const lnameInput = document.getElementById('lname').value; // last name from form
+const emailInput = document.getElementById('email').value; // Email Address from form
+const teleInput = document.getElementById('telephone').valueAsDate; // last name
 const reservNum = 1000; // Reservation Number
 const mkreserv = document.getElementById('ftable'); // find table button - used by listner
 
 
 console.log(typeof(ddate));
 
-// Initalise array for bookings
+// Initialise array for reservation
 const reservationDays = 30; // set the number of days you want to include in reservations
+
+const todaysDate = new Date().toLocaleDateString('en-GB');
+console.log(todaysDate);
+const reserVation = [];
 
 
 
@@ -77,11 +81,13 @@ const reservationDays = 30; // set the number of days you want to include in res
 // Add a listner for the submit button
 mkreserv.addEventListener("click", () => {
   console.log("picked up find table button click");
-  const guestNum = numGuests.value;
-  const ddate = dateInput.valueAsDate; // get value of date input as date
-  const dtime = timeInput.value;
+  const guestNum = numGuests.value; // get the numver of guests
+  const ddate = dateInput.valueAsDate; // convert value of date input as date
+  const dtime = timeInput.value; // assign selected time
 
+  let convDate = ddate.toLocaleDateString('en-GB'); // assign converted date format of form date
 
+  console.log(convDate);
   console.log(guestNum);
   console.log(ddate.toLocaleDateString('en-GB')); // convert yyyy-mm-dd to dd-mm-yy
   console.log(dtime);
