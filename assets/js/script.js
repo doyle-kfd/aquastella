@@ -66,20 +66,25 @@ const reservNum = 1000; // Reservation Number
 const mkreserv = document.getElementById('ftable'); // find table button - used by listner
 
 
+console.log(typeof(ddate));
+
+// Initalise array for bookings
+const reservationDays = 30; // set the number of days you want to include in reservations
+
+
+
+
 // Add a listner for the submit button
 mkreserv.addEventListener("click", () => {
   console.log("picked up find table button click");
   const guestNum = numGuests.value;
-  const ddate = dateInput.value;
+  const ddate = dateInput.valueAsDate; // get value of date input as date
   const dtime = timeInput.value;
-  const fname = fnamInput.value;
-  const lname = lnameInput.value;
-
 
 
   console.log(guestNum);
-  console.log(ddate);
+  console.log(ddate.toLocaleDateString('en-GB')); // convert yyyy-mm-dd to dd-mm-yy
   console.log(dtime);
-  console.log(fname);
-  console.log(lname);
+
+
 });
