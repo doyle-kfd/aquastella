@@ -20,15 +20,22 @@ function toggleMenu(){
  *    It displays tab 1 first. guestnum, sitting, date
  *    When reservation is available it shows tab 2. firstname, lastname, email, telephone.
  */
-function makeReservation(){
+function openReservation(){
   console.log("Entering reservation popup");
   // Get reservation item by element id
   const reservForm = document.getElementById("reservation-form");
   // Get tab1 elements
   const tab1 = document.getElementById("tab-1");
-  reservForm.style.display = "block";
-  tab1.style.display = "block";
+  const tab2 = document.getElementById("tab-2");
+
+  reservForm.style.display = "block"; // Display the reservation form
+  tab1.style.display = "block"; // Display the stage 1 form
+  tab2.style.display = "none"; // Hide the stage 2 form until completing reservation
   
+
+
+
+  /* ////////////////////////// Look to delete before finishing project /////////////// */
   /* // Get reservation item by element id
   const reservForm = document.getElementById("reservation-form");
   // check to see if reservation form is already open
@@ -74,8 +81,11 @@ let lnameInput = document.getElementById('lname'); // last name from form
 let emailInput = document.getElementById('email'); // Email Address from form
 let teleInput = document.getElementById('telephone'); // last name
 let findTable = document.getElementById('ftable'); // find table button - used by listner
-const reservations = [];
-const max_sitting_Seats = 16;
+
+
+
+
+
 
 /**
  *  Create Listner for "find a table button click"
@@ -98,6 +108,8 @@ findTable.addEventListener("click", () => {
   if (reservations.length === 0) {
     console.log("no records in the data")
     // Go to second form page and get name, email and telephone - then write the reservation to the array
+    completeReservation();
+
   };
 
 
@@ -112,6 +124,21 @@ findTable.addEventListener("click", () => {
 
 });
 
+
+/**
+ *  Function to close tab 1 and show tab 2 when reservation is being made
+ */
+function completeReservation(){
+  console.log("Entering reservation popup");
+  // Get reservation item by element id
+  // const reservForm = document.getElementById("reservation-form");
+  // Get tab 1 elements
+  let tab1 = document.getElementById("tab-1");
+  // Get tab1 elements
+  const tab2 = document.getElementById("tab-2"); // Get tabt element
+  tab1.style.display = "none"; // Hide tab1
+  tab2.style.display = "block"; // Display tab2
+}
 
 
 
@@ -131,6 +158,18 @@ function convertDate () {
   console.log(newDate);
 }
 
+/**
+ * Initialse values for reservation checks.
+ */
+let guestNumbers = 0;
+let sitting = "";
+let firstname = "";
+let lastname = "";
+let email = "";
+let phone = "";
+let confirmationNumber = 0;
+const reservations = [];
+const max_sitting_Seats = 16;
 
 /**
  * Function to create new reservation object
