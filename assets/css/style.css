@@ -227,7 +227,7 @@ footer {
 
 /*--------------  Reservation modal form specific ------------------*/
 
-/* set default modal hidden styling */
+/* set default modal hidden styling  */
 #reservation-form {
     display: none;    /*  Hide */
     position: fixed; /* fix the position */

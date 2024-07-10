@@ -15,11 +15,21 @@ function toggleMenu(){
      }
 }
 
-// Function called when reservation button is clicked
-
+/**
+ *    Function opens form tab 1 when "reservation" button is clicked.
+ *    It displays tab 1 first. guestnum, sitting, date
+ *    When reservation is available it shows tab 2. firstname, lastname, email, telephone.
+ */
 function makeReservation(){
-  console.log("capturing reservation click");
+  console.log("Entering reservation popup");
   // Get reservation item by element id
+  const reservForm = document.getElementById("reservation-form");
+  // Get tab1 elements
+  const tab1 = document.getElementById("tab-1");
+  reservForm.style.display = "block";
+  tab1.style.display = "block";
+  
+  /* // Get reservation item by element id
   const reservForm = document.getElementById("reservation-form");
   // check to see if reservation form is already open
   if (reservForm.style.display === "block") {
@@ -42,8 +52,9 @@ function makeReservation(){
       // hide tab 2 while content is being filled in and reservation checked
       x[n+1].style.display = "none";
     }
-  }
-  }
+  } */
+  };
+
 
   // close reservation form if close button pressed
   const reservForm = document.getElementById("reservation-form");
@@ -79,7 +90,8 @@ const max_sitting_Seats = 16;
  */
 findTable.addEventListener("click", () => {
    console.log("picked up find table button click");
-
+   // create reservation object for storing values
+   createreservationObj();
 
   // Check to see if the date is available, then if there are seats available at that sitting
   // Check if there are any bookings yet
@@ -123,7 +135,7 @@ function convertDate () {
 /**
  * Function to create new reservation object
  */
-function makeReservation() {
+function createreservationObj() {
   const newReservation = {
     guestNumbers: guestNumbers,
     sitting: sitting,
@@ -133,7 +145,6 @@ function makeReservation() {
     phone: phone,
     confirmationNumber: generateConfirmationNumber() //generate reservation number function
   };
-  reservations.push(newReservation);
 }
 
 
