@@ -52,8 +52,9 @@ function makeReservation(){
     reservForm.style.display = "none";
   }
 
- // Initialise the reservation form variables
-
+/**
+ * Get form field Values
+ */
 let numGuests = document.getElementById('guestNum'); // number of guests from form
 let dateInput = document.getElementById('ddate');// reservation date from form
 let timeInput = document.getElementById('dtime'); // reservation time from form
@@ -61,30 +62,65 @@ let fnamInput = document.getElementById('fname'); // first name from form
 let lnameInput = document.getElementById('lname'); // last name from form
 let emailInput = document.getElementById('email'); // Email Address from form
 let teleInput = document.getElementById('telephone'); // last name
-let reservNum = 1000; // Reservation Number
-let mkreserv = document.getElementById('ftable'); // find table button - used by listner
-
-
-
-
+let findTable = document.getElementById('ftable'); // find table button - used by listner
+const reservations = [];
 /**
  *  Create Listner for "find a table button click"
  */
-mkreserv.addEventListener("click", () => {
+findTable.addEventListener("click", () => {
   console.log("picked up find table button click");
 
-  // Get the date from the form select
-  let dateObj = new Date(dateInput.value); // define object as date value
-  let month   = dateObj.getUTCMonth() + 1; // months from 1-12
-  month = month < 10 ? '0' + month : month;
-  let  day     = dateObj.getUTCDate();
-  day  = day < 10 ? '0' + day : day;
-  let year    = dateObj.getUTCFullYear();
-  let newDate = day + "/" + month + "/" + year;
-  console.log(newDate);
+  
+  // Convert date from yyyy-mm-dd to dd-mm-yy - will be needed to display in dashboard
+  convertDate();
+
 
 
  
 
 
 });
+
+
+
+
+
+/**
+ * Create function to change input date from format yyyy-mm-dd to dd-mm-yy
+ */
+function convertDate () {
+  console.log("date conversion function complete")
+  let dateObj = new Date(dateInput.value);  // define object as date value
+  let month   = dateObj.getUTCMonth() + 1;  // get the month part of the date
+  month = month < 10 ? '0' + month : month; // to display month as mm may need to add leading 0
+  let  day     = dateObj.getUTCDate();      // get day part of the date object
+  day  = day < 10 ? '0' + day : day;        // to display day as dd may need to add leading 0
+  let year    = dateObj.getUTCFullYear();   // get year part of the date
+  let newDate = day + "/" + month + "/" + year; // create new variable newDate in format dd/mm/yy
+  console.log(newDate);
+}
+
+
+/**
+ * Function to create new reservation
+ */
+function makeReservation() {
+  const newReservation = {
+    guestNumbers: guestNumbers,
+    sitting: sitting,
+    firstName: firstname,
+    lastName: lastname,
+    email: email,
+    phone: phone,
+    confirmationNumber: generateConfirmationNumber() //generate reservation number function
+  };
+  reservations.push(newReservation);
+}
+
+
+/**
+ *  Function to create reservation confirmation number
+ */
+function generateConfirmationNumber(){
+  return reservations.length + 1;
+}
