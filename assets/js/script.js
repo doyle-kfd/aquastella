@@ -64,11 +64,30 @@ let emailInput = document.getElementById('email'); // Email Address from form
 let teleInput = document.getElementById('telephone'); // last name
 let findTable = document.getElementById('ftable'); // find table button - used by listner
 const reservations = [];
+const max_sitting_Seats = 16;
+
 /**
  *  Create Listner for "find a table button click"
+ *
+ *  Step 1:
+ *        it takes, number of guests, sitting and date and checks to see if there are seats available.
+ *        If there are seats it goes to step 2
+ * 
+ *  Step 2:
+ *        produce form part 2 and get firstname, lastname, email and telephone number
+ *        write reservation to array and give customer reservation number
  */
 findTable.addEventListener("click", () => {
-  console.log("picked up find table button click");
+   console.log("picked up find table button click");
+
+
+  // Check to see if the date is available, then if there are seats available at that sitting
+  // Check if there are any bookings yet
+  if (reservations.length === 0) {
+    console.log("no records in the data")
+    // Go to second form page and get name, email and telephone - then write the reservation to the array
+  };
+
 
   
   // Convert date from yyyy-mm-dd to dd-mm-yy - will be needed to display in dashboard
@@ -102,7 +121,7 @@ function convertDate () {
 
 
 /**
- * Function to create new reservation
+ * Function to create new reservation object
  */
 function makeReservation() {
   const newReservation = {
