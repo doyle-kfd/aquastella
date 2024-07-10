@@ -266,7 +266,7 @@ footer {
 }
 
 /* style find table button container */
-#findtable-btn {
+#findtable-btn-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -276,6 +276,25 @@ footer {
 
 /* style find table button */
 #ftable {
+    color: gold;
+    background-color:#18263d;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid gold;
+    border-radius: 8px;
+}
+/* style make reservation button */
+#make-res-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top:20px;
+    border-top: 1px solid #ffffff;
+}
+
+#make-booking {
     color: gold;
     background-color:#18263d;
     padding-top: 5px;
