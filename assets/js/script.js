@@ -52,45 +52,39 @@ function makeReservation(){
     reservForm.style.display = "none";
   }
 
-
  // Initialise the reservation form variables
 
-const numGuests = document.getElementById('guestNum').value; // number of guests from form
-const dateInput = document.getElementById('ddate').value; // reservation date from form
-const timeInput = document.getElementById('dtime').value; // reservation time from form
-const fnamInput = document.getElementById('fname').value; // first name from form
-const lnameInput = document.getElementById('lname').value; // last name from form
-const emailInput = document.getElementById('email').value; // Email Address from form
-const teleInput = document.getElementById('telephone').valueAsDate; // last name
-const reservNum = 1000; // Reservation Number
-const mkreserv = document.getElementById('ftable'); // find table button - used by listner
-
-
-console.log(typeof(ddate));
-
-// Initialise array for reservation
-const reservationDays = 30; // set the number of days you want to include in reservations
-
-const todaysDate = new Date().toLocaleDateString('en-GB');
-console.log(todaysDate);
-const reserVation = [];
+let numGuests = document.getElementById('guestNum'); // number of guests from form
+let dateInput = document.getElementById('ddate');// reservation date from form
+let timeInput = document.getElementById('dtime'); // reservation time from form
+let fnamInput = document.getElementById('fname'); // first name from form
+let lnameInput = document.getElementById('lname'); // last name from form
+let emailInput = document.getElementById('email'); // Email Address from form
+let teleInput = document.getElementById('telephone'); // last name
+let reservNum = 1000; // Reservation Number
+let mkreserv = document.getElementById('ftable'); // find table button - used by listner
 
 
 
 
-// Add a listner for the submit button
+/**
+ *  Create Listner for "find a table button click"
+ */
 mkreserv.addEventListener("click", () => {
   console.log("picked up find table button click");
-  const guestNum = numGuests.value; // get the numver of guests
-  const ddate = dateInput.valueAsDate; // convert value of date input as date
-  const dtime = timeInput.value; // assign selected time
 
-  let convDate = ddate.toLocaleDateString('en-GB'); // assign converted date format of form date
+  // Get the date from the form select
+  let dateObj = new Date(dateInput.value); // define object as date value
+  let month   = dateObj.getUTCMonth() + 1; // months from 1-12
+  month = month < 10 ? '0' + month : month;
+  let  day     = dateObj.getUTCDate();
+  day  = day < 10 ? '0' + day : day;
+  let year    = dateObj.getUTCFullYear();
+  let newDate = day + "/" + month + "/" + year;
+  console.log(newDate);
 
-  console.log(convDate);
-  console.log(guestNum);
-  console.log(ddate.toLocaleDateString('en-GB')); // convert yyyy-mm-dd to dd-mm-yy
-  console.log(dtime);
+
+ 
 
 
 });
