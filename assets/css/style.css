@@ -127,6 +127,9 @@ nav {
     color: red;
 }
 
+#adminPagelink {
+    display: none;
+}
 
 
 

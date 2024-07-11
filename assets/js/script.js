@@ -23,7 +23,7 @@ function toggleMenu(){
  */
 const adminUsername = 'admin';
 const adminPassword = '12345';
-const adminpage = document.getElementById("adminlogin");
+const adminPage = document.getElementById("adminPagelink");
 const loginForm = document.getElementById("admin-menu-form");
 loginForm.style.display = "none"; // Keep login form closed at start
 
@@ -68,11 +68,12 @@ function login(){
   // check to see if userID and password are correct
   if ( userId === adminUsername && password === adminPassword){
       // If yes then display admin page in menu
-      adminpage.style.display = "block";
-      console.log("login details accepted");}
-  else {
-      adminpage.style.display = "none";
-      const loginError = document.getElementById(errorLogin);
+      adminPage.style.display = "block"; // Display the admin page
+      console.log("login details accepted");
+      closeloginForm(); // Close the login form
+  } else {
+      adminPage.style.display = "none";
+      const loginError = document.getElementById("errorLogin");
       message.loginError.textContent = "Incorrect Details";
       console.log("login details not accepted");
   }
