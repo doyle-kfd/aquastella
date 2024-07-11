@@ -229,9 +229,9 @@ footer {
 
 /* set default modal hidden styling  */
 #reservation-form {
-    display: none;    /*  Hide */
+    display: none;   /*   Hide */
     position: fixed; /* fix the position */
-    z-index: 99; /* Keep on top */
+    z-index: 99; /* Keep on top */ 
     width: 250px;
     height: 350px;
     top:30%;
@@ -265,15 +265,34 @@ footer {
     border-bottom: 1px solid #ffffff;
 }
 
+/* style tab 1 form input fields */
+#guestNum {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 1.15rem;
+}
+
+#date {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 1.15rem;
+}
+
+#sitting {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 1.15rem;
+}
+
+
+
 /* style find table button container */
 #findtable-btn-container {
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-around; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     padding-top:20px;
     border-top: 1px solid #ffffff;
-    position:absolute;
-    bottom: 0;
 }
 
 /* style find table button */
@@ -319,7 +338,8 @@ footer {
 /* target div's with tab1 and tab2 */
 #tab-1 > div, #tab-2 > div {
     margin: 10px;
-
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -375,6 +395,12 @@ footer {
         box-shadow: 0px -2px 6px 0px #3A3A3A;
         bottom: 0;
     }
+
+    /* Style reservation form tab 1 */
+    #tab-1 {
+        height: 300px;
+    }
+
 
     /* style reservation button in footer on mobile */
     #make-reservation-footer {
