@@ -128,6 +128,7 @@ const reservationSuccessful = document.getElementById("reservation-completed");
 
 
 
+
 /**
  *  Create Listner for "find a table button click"
  *
@@ -241,6 +242,7 @@ alert('Reservation completed successfully!');
 
 displayReservationdetails(); // Show the reservation details to the guest
 console.log(reservations);
+
 resetForm();
 
 });
@@ -323,6 +325,18 @@ function resetForm() {
   document.getElementById('telephone').value = '';
 
 }
+
+
+/**
+ * 
+ * 
+ * Function that retrieves the reservations array from local storage,
+ * if the array is empty it uses a blank array.
+ * 
+ * 
+ */
+
+
 
 
 

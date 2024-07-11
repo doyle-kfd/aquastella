@@ -275,6 +275,27 @@ main {
 }
 
 
+
+/*--------------------- Admin Page Specific Styling -------------------------------*/
+#reservations-table  table { 
+    width: 100%; 
+    border-collapse:  collapse; margin-top: 20px; 
+}
+
+#reservations-table  th  { 
+    border: 1px solid #ccc; 
+    padding: 8px; 
+    text-align: center; 
+    width: 100px;
+}
+
+#reservations-tavle  td {
+    border: 1px solid #ccc; 
+    padding: 8px; 
+    text-align: left; 
+    width: 100px;
+}
+
 /*------------ Footer specific styling across site ----------*/
 /* Footer */
 footer {
@@ -450,6 +471,7 @@ footer {
 }
 
 /* Media Query Section */
+
 /*--------- Mobile phone breakpoint -------------*/
 @media screen and (min-width: 280px) {
     /* remove h2 letter spacing on movile phones */
@@ -564,7 +586,7 @@ footer {
     }
 
     main {
-        margin-top: 75px; /* pushh main down to prevent nav covering */
+        margin-top: 75px; /* push main down to prevent nav covering */
     }
 
     #hero-text {
