@@ -37,6 +37,21 @@
 
     <!-- Main -->
     <main>
+        <!-- Add login form for admin. Authentication gives access to admin page with dashboard -->
+        <section id="admin">
+            <div id="admin-menu-form">
+                <h1>Home</h1>
+                <form id="loginForm">
+                    <h2>Login</h2>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required><br><br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required><br><br>
+                    <button type="button" onclick="login()">Login</button>
+                    <p class="error" id="errorLogin"></p>
+                </form>
+            </div>
+        </section>
         <section id="reservation-container">
             <!-- Create a modal reservation form -->
             <!-- give form id of "reservation-form" and a class of "modal" to target -->
@@ -70,8 +85,8 @@
                     <div class="sitting">
                         <label for="sitting">Sitting Time:</label>
                         <select id="sitting">
-                            <option value="first">17:00 - First</option>
-                            <option value="second">20:30 - second</option>
+                            <option value="First - 17:00">17:00 - First</option>
+                            <option value="Second - 20:30">20:30 - Second</option>
                         </select>
                     </div>
                     <div id="findtable-btn-container">

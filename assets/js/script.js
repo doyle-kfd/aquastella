@@ -141,13 +141,13 @@ alert('Reservation completed successfully!');
 
   // Get values for reservation success tab
   let successName = document.getElementById('reservation-name'); // Success Customer First Name
-  let successDate = document.getElementById('reservation-date'); // Success Customer First Name
-  let successTime = document.getElementById('reservation-time'); // Success Customer First Name
-  let successNumber = document.getElementById('reservation-number'); // Success Customer First Name
+  let successDate = document.getElementById('reservation-date'); // Success Date
+  let successTime = document.getElementById('reservation-time'); // Success Sitting
+  let successNumber = document.getElementById('reservation-number'); // Success reservation number
 
   // Display reservation values in reservation success tab
   successName.textContent =  firstName + ",";
-  successDate.textContent =   "Date: " + date;
+  successDate.textContent =   "Date: "  + date;
   successTime.textContent =   "Sitting: " + sitting;
   successNumber.textContent = "Reservation No: " + reservation.confirmationNumber;
 
