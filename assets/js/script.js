@@ -27,28 +27,21 @@ function toggleMenu(){
 
 /**
  * Get form field Values
- */
+ 
 
 let fnamInput = document.getElementById('fname'); // first name from form
 let lnameInput = document.getElementById('lname'); // last name from form
 let emailInput = document.getElementById('email'); // Email Address from form
-let teleInput = document.getElementById('telephone'); // last name
+let teleInput = document.getElementById('telephone'); // last name */
 let findTable = document.getElementById('ftable'); // find table button - used by listner
+let makeReservation = document.getElementById('make-booking'); // find make reservation button - used by listner
 
 
 
 /**
  * Initialse values for reservation checks.
  */
-let guestNumbers = 0;
-let sitting = "";
-let date = "";
-let firstname = "";
-let lastname = "";
-let email = "";
-let phone = "";
-let confirmationNumber = 0;
-const reservations = [];
+let reservations = [];
 const max_sitting_Seats = 16;
 
 
@@ -76,17 +69,83 @@ findTable.addEventListener("click", () => {
   openReservation(); // Open Form Tab 1
 
   // Get values from form tab1
-  let numGuests = document.getElementById('guestNum').value; // number of guests from form
-  let dateInput = document.getElementById('ddate').value;// reservation date from form
-  let timeInput = document.getElementById('dtime').value; // reservation time from form
+  let guests = document.getElementById('guestNum').value; // number of guests from form
+  let date = document.getElementById('date').value;// reservation date from form
+  let sitting = document.getElementById('sitting').value; // reservation time from form
+  let message = document.getElementById('message'); // message area under find table button for displaying feedback
 
-  // Check to see if a reservation exists
-  if (reservations.length === 0){
-    console.log("numguests contains " + numGuests);
-    console.log("Date of reservation " + dateInput);
-    console.log("Sitting " + timeInput);
+
+  // Check to see that the the fields have been filled in
+  if (!guests || !sitting || !date) {
+    alert("Please fill in all fields!");
+    return;
   }
 
+  // Check to see if a reservation exists taking date and sitting.
+  let seatsAvailable = checkreservations(date, sitting);
+
+  if (seatsAvailable >= guests) {
+    completeReservation();                  // if seats available display form part 2 to complete reservation.
+  } else {
+    message.textContent = "Sitting Full!."; // Message to be displayed to booker
+    message.classList.remove = 'hidden'; // remove the class hidden
+  }
+
+  
+  function checkreservations(date, sitting) {
+    // Create a new array existingReservations filtering only reservations matching the date and sitting provided.  
+    let existingReservations = reservations.filter(r => r.date === date && r.sitting === sitting);
+    // Take the existingReservations array and see how many seats are available using reduce method. 
+    let bookedSeats = existingReservations.reduce((total, reservation) => total + reservation.guests, 0);
+    return max_sitting_Seats - bookedSeats;
+  }
+
+  console.log("numguests contains " + guests);
+  console.log("Date of reservation " + date);
+  console.log("Sitting " + sitting);
+});
+
+/** 
+ * Create listner function for making a reservation
+ * This is the second part of the reservation making process
+ * It hides the first form with the number of guests, date and sitting
+ * then it shows the first name, last name, email, and telephone number form
+ */
+makeReservation.addEventListener("click", () => {
+  // Second form tab 2 details
+  let firstName = document.getElementById('fname').value;
+  let lastName = document.getElementById('lname').value;
+  let email = document.getElementById('email').value;
+  let phone = document.getElementById('telephone').value;
+  // First form tab 1 details
+  let guests = document.getElementById('guestNum').value;
+  let sitting = document.getElementById('sitting').value;
+  let date = document.getElementById('date').value;
+
+
+  if (!firstName || !lastName || !email || !phone) {
+    alert('Please fill in all fields.');
+    return;
+  }
+
+  
+  // Create reservation object
+  const reservation = {
+    date,
+    sitting,
+    guests,
+    firstName,
+    lastName,
+    email,
+    phone,
+    confirmationNumber: generateConfirmationNumber() // Add generated confirmation number
+  };
+
+// push the reservation date, sitting, guestnumbers,  first name, last name email, telephone reservation number to array 
+reservations.push(reservation);
+alert('Reservation completed successfully!');
+console.log(reservations);
+resetForm();
 
 });
 
@@ -168,11 +227,23 @@ function createreservationObj() {
  *  Function to create reservation confirmation number
  */
 function generateConfirmationNumber(){
-  return reservations.length + 1;
+  return reservations.length + 1; // get length of reservations array and increment by 1
 }
 
 
+/**
+ * Function to reset form after reservation made
+ */
+function resetForm() {
+  document.getElementById('guestNum').value = '';
+  document.getElementById('sitting').value = 'first';
+  document.getElementById('date').value = '';
+  document.getElementById('fname').value = '';
+  document.getElementById('lname').value = '';
+  document.getElementById('email').value = '';
+  document.getElementById('telephone').value = '';
 
+}
 
 
 

@@ -61,15 +61,15 @@
                     </div>
 
                     <!-- Get date from date picker -->
-                    <div class="ddate">
-                        <label for="ddate">Date:</label>
-                        <input type="date" id="ddate" name="ddate" min="01-07-24">
+                    <div class="date">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" min="01-07-24">
                     </div>
 
                     <!-- Get sit down time from dropdown -->
-                    <div class="dtime">
-                        <label for="dtime">Sitting Time:</label>
-                        <select id="dtime">
+                    <div class="sitting">
+                        <label for="sitting">Sitting Time:</label>
+                        <select id="sitting">
                             <option value="first">17:00</option>
                             <option value="second">20:30</option>
                         </select>
@@ -77,6 +77,8 @@
                     <div id="findtable-btn-container">
                         <button id="ftable">Find Table</button>
                     </div>
+                    <!-- Hidden message box for displaying feedback-->
+                    <p id="message" class="hidden"></p>
                 </div>
                 <!-- Create two tabs for creating multi page reservation form -->
                 <!-- tab 2 takes customer details once there is booking available -->
