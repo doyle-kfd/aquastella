@@ -75,7 +75,7 @@ findTable.addEventListener("click", () => {
   if (seatsAvailable >= guests) {
     completeReservation();                  // if seats available display form part 2 to complete reservation.
   } else {
-    message.textContent = "Sitting Full! Please Enter A Different Day/Sittng"; // Message to be displayed to guest
+    message.textContent = "Sitting Full! Please Enter A Different Day"; // Message to be displayed to guest
     message.classList.remove = 'hidden'; // remove the class hidden
   }
 

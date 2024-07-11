@@ -337,7 +337,7 @@ footer {
 /* Create hidden attribute for messages in form */
 #message {
     color: #ffffff;
-    font-size: 1rem;
+    font-size: .8rem;
     text-align: center;
 }
 
