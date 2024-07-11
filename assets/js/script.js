@@ -210,6 +210,7 @@ makeReservation.addEventListener("click", () => {
   
   // Create reservation object
   const reservation = {
+    confirmationNumber: generateConfirmationNumber(), // Add generated confirmation number
     date,
     sitting,
     guests,
@@ -217,7 +218,7 @@ makeReservation.addEventListener("click", () => {
     lastName,
     email,
     phone,
-    confirmationNumber: generateConfirmationNumber() // Add generated confirmation number
+    
   };
 
 // push the reservation date, sitting, guestnumbers,  first name, last name email, telephone reservation number to array 
@@ -242,8 +243,9 @@ alert('Reservation completed successfully!');
 
 displayReservationdetails(); // Show the reservation details to the guest
 console.log(reservations);
-
-resetForm();
+// Update admin page
+updateAdminPage();
+// remove gor testing resetForm();
 
 });
 
@@ -329,12 +331,50 @@ function resetForm() {
 
 /**
  * 
+ *  Function to write reservation to array local storage
+ * 
+ */
+function updateAdminPage() {
+  localStorage.setItem('reservations', JSON.stringify(reservations));
+}
+
+/**
+ * 
  * 
  * Function that retrieves the reservations array from local storage,
  * if the array is empty it uses a blank array.
  * 
  * 
  */
+document.addEventListener('DOMContentLoaded', function() {
+  // Retrieve the 'reservations' array from localStorage and parse it from JSON.
+  // If 'reservations' is not found in localStorage, use an empty array as the default value.
+  const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+
+  // Get the table body element where the reservations will be displayed.
+  const tableBody = document.getElementById('reservationsTableBody');
+
+  // Loop through each reservation in the 'reservations' array.
+  reservations.forEach(reservation => {
+      // Create a new table row element for each reservation.
+      const row = document.createElement('tr');
+
+      // Loop through each key (property) in the reservation object.
+      for (const key in reservation) {
+          // Create a new table cell element for each property.
+          const cell = document.createElement('td');
+          
+          // Set the text content of the cell to the value of the current property.
+          cell.innerText = reservation[key];
+          
+          // Append the cell to the current row.
+          row.appendChild(cell);
+      }
+
+      // Append the completed row to the table body.
+      tableBody.appendChild(row);
+  });
+});
 
 
 
