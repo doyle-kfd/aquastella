@@ -359,8 +359,16 @@ footer {
     flex-direction: column;
 }
 
+#reservation-completed {
+    display: none;
+}
 
-
+#reservation-completed h2 {
+    color:#ffffff;
+    font-size: 1rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 
 /* Media Query Section */
 /*--------- Mobile phone breakpoint -------------*/

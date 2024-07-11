@@ -37,6 +37,10 @@ let makeReservation = document.getElementById('make-booking'); // find make rese
  */
 let reservations = [];
 const max_sitting_Seats = 16;
+const tab1 = document.getElementById("tab-1"); // Get the elements of tab-1
+const tab2 = document.getElementById("tab-2"); // Get the elements of tab-2
+const reservationSuccessful = document.getElementById("reservation-completed");
+
 
 
 /**
@@ -133,6 +137,24 @@ makeReservation.addEventListener("click", () => {
 // push the reservation date, sitting, guestnumbers,  first name, last name email, telephone reservation number to array 
 reservations.push(reservation);
 alert('Reservation completed successfully!');
+
+
+  // Get values for reservation success tab
+  let successName = document.getElementById('reservation-name'); // Success Customer First Name
+  let successDate = document.getElementById('reservation-date'); // Success Customer First Name
+  let successTime = document.getElementById('reservation-time'); // Success Customer First Name
+  let successNumber = document.getElementById('reservation-number'); // Success Customer First Name
+
+  // Display reservation values in reservation success tab
+  successName.textContent =  firstName + ",";
+  successDate.textContent =   "Date: " + date;
+  successTime.textContent =   "Sitting: " + sitting;
+  successNumber.textContent = "Reservation No: " + reservation.confirmationNumber;
+
+
+
+
+displayReservationdetails(); // Show the reservation details to the guest
 console.log(reservations);
 resetForm();
 
@@ -148,10 +170,6 @@ function openReservation(){
   console.log("Entering reservation popup");
   // Get reservation item by element id
   const reservForm = document.getElementById("reservation-form");
-  // Get tab1 elements
-  const tab1 = document.getElementById("tab-1");
-  const tab2 = document.getElementById("tab-2");
-
   reservForm.style.display = "block"; // Display the reservation form
   tab1.style.display = "block"; // Display the stage 1 form
   tab2.style.display = "none"; // Hide the stage 2 form until completing reservation
@@ -165,14 +183,17 @@ function openReservation(){
  */
 function completeReservation(){
   console.log("Entering reservation popup");
-  // Get reservation item by element id
-  // const reservForm = document.getElementById("reservation-form");
-  // Get tab 1 elements
-  let tab1 = document.getElementById("tab-1");
-  // Get tab1 elements
-  const tab2 = document.getElementById("tab-2"); // Get tabt element
   tab1.style.display = "none"; // Hide tab1
   tab2.style.display = "block"; // Display tab2
+}
+
+/**
+ *   Function to display reservation details on success
+ */
+function displayReservationdetails(){
+  tab1.style.display = "none"; // Hide tab-1
+  tab2.style.display = "none"; // Hide tab-2
+  reservationSuccessful.style.display = "block"; // Display Confirmation tab
 }
 
 
