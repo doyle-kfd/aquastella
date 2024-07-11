@@ -284,6 +284,23 @@ footer {
     font-size: 1.15rem;
 }
 
+/* style tab 2 form input fields */
+#fname {
+    margin-top: 1px;
+}
+
+#lname {
+    margin-top: 1px;
+}
+
+#telephone {
+    margin-top: 1px;
+}
+
+#email {
+    margin-top: 1px;
+}
+
 
 
 /* style find table button container */
