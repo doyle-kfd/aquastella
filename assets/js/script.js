@@ -33,11 +33,21 @@ loginForm.style.display = "none"; // Keep login form closed at start
  *  Function to open login form
  * 
  */
-function openloginMenu() {
+function openloginForm() {
   console.log("Login form button clicked")
   const resForm = document.getElementById("menu"); // get meny by id
   resForm.style.display = "none"; // Close the menu
   loginForm.style.display = "block"; // display the login form
+}
+
+/**
+ * 
+ *  Function to close login form
+ * 
+ */
+function closeloginForm(){
+    console.log("close login form button click");
+    loginForm.style.display = "none"; // display the login form
 }
 
 
@@ -52,16 +62,19 @@ function login(){
   // Get userId and password values from form
   const userId = document.getElementById('userId').value;
   const password = document.getElementById('password').value;
+  console.log(userId);
+  console.log(password);
 
   // check to see if userID and password are correct
-  if ( userId === adminUsername && password === adminPassword)
+  if ( userId === adminUsername && password === adminPassword){
       // If yes then display admin page in menu
       adminpage.style.display = "block";
+      console.log("login details accepted");}
   else {
       adminpage.style.display = "none";
       const loginError = document.getElementById(errorLogin);
-      message.loginError.textContent = "Incorrect Details"
-
+      message.loginError.textContent = "Incorrect Details";
+      console.log("login details not accepted");
   }
 }
 
