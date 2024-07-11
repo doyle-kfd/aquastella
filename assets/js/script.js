@@ -25,7 +25,7 @@ function toggleMenu(){
 const adminUsername = 'admin';
 const adminPassword = '12345';
 const adminPage = document.getElementById("adminPagelink");
-const loginForm = document.getElementById("admin-menu-form");
+const loginForm = document.getElementById("admin-login-form");
 const loginMenulink = document.getElementById("adminlogin");// Get login menu link
 const logoutMenulink = document.getElementById("adminlogout");
 loginForm.style.display = "none"; // Keep login form closed at start

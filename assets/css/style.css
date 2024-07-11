@@ -103,14 +103,14 @@ nav {
     box-shadow: 0px 2px 6px 0px #3a3a3a;
 }
 
-/* Admin login form styling */
+/*--------------- Admin login specific form styling ------------------*/
 #admin-login-container {
     display: flex;
     justify-content: space-around;
 }
 
 
-#admin-menu-form {
+#admin-login-form {
     display: none;
         display: none;   /*   Hide */
         position: fixed; /* fix the position */
@@ -121,6 +121,50 @@ nav {
         background-color: #18263d;
         color: #ffffff;
         padding:10px;
+}
+
+
+/* style admin login form div */
+#admin-login-form > div {
+    padding:10px;
+}
+
+
+
+/* admin login h3 specific */
+#admin-login-form > h3 {
+    color:#ffffff;
+    flex-direction: row;
+
+}
+
+
+#login-head {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+}
+
+#loginForm > label {
+    padding-bottom: 5px;
+}
+
+#login-btn {
+    background-color: #18263d;
+    color: gold;
+    padding: 5px 15px;
+    border: 1px solid gold;
+    border-radius: 8px;
 }
 
 #admin-menu-form .error {
