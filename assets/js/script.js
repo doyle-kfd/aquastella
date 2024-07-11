@@ -75,7 +75,7 @@ findTable.addEventListener("click", () => {
   if (seatsAvailable >= guests) {
     completeReservation();                  // if seats available display form part 2 to complete reservation.
   } else {
-    message.textContent = "Sitting Full!."; // Message to be displayed to guest
+    message.textContent = "Sitting Full! Please Enter A Different Day/Sittng"; // Message to be displayed to guest
     message.classList.remove = 'hidden'; // remove the class hidden
   }
 
@@ -112,7 +112,8 @@ makeReservation.addEventListener("click", () => {
 
 
   if (!firstName || !lastName || !email || !phone) {
-    alert('Please fill in all fields.');
+    message.textContent = "Please fill in all fields."; // Message to be displayed to booker
+    message.style = "block"; // Show message content
     return;
   }
 
