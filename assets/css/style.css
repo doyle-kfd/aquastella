@@ -289,10 +289,10 @@ main {
     width: 100px;
 }
 
-#reservations-tavle  td {
+#reservations-table  td {
     border: 1px solid #ccc; 
     padding: 8px; 
-    text-align: left; 
+    text-align: center; 
     width: 100px;
 }
 

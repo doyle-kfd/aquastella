@@ -120,11 +120,12 @@ let makeReservation = document.getElementById('make-booking'); // find make rese
 /**
  * Initialse values for reservation checks.
  */
-let reservations = [];
+let reservations = JSON.parse(localStorage.getItem('reservations')) || []; // Initialise reservations array set to local storate. If not found use empty array/
 const max_sitting_Seats = 16;
 const tab1 = document.getElementById("tab-1"); // Get the elements of tab-1
 const tab2 = document.getElementById("tab-2"); // Get the elements of tab-2
 const reservationSuccessful = document.getElementById("reservation-completed");
+
 
 
 
@@ -224,6 +225,8 @@ makeReservation.addEventListener("click", () => {
 // push the reservation date, sitting, guestnumbers,  first name, last name email, telephone reservation number to array 
 reservations.push(reservation);
 alert('Reservation completed successfully!');
+updateAdminPage(); // call function to write reservation to array and trigger update event.
+
 
 
   // Get values for reservation success tab
@@ -243,9 +246,7 @@ alert('Reservation completed successfully!');
 
 displayReservationdetails(); // Show the reservation details to the guest
 console.log(reservations);
-// Update admin page
-updateAdminPage();
-// remove gor testing resetForm();
+resetForm();
 
 });
 
@@ -335,8 +336,23 @@ function resetForm() {
  * 
  */
 function updateAdminPage() {
-  localStorage.setItem('reservations', JSON.stringify(reservations));
+  localStorage.setItem('reservations', JSON.stringify(reservations)); // write reservations to localstorage
+  window.dispatchEvent(new Event('storage')); // trigger event to check for updates in local storage
 }
+
+
+
+
+// Add event listner to check when DOM is fully loaded.
+document.addEventListener('DOMContentLoaded', function() {
+  updateReservationsTable();
+
+  // Listen for storage events
+  window.addEventListener('storage', function() {
+      updateReservationsTable();
+  });
+});
+
 
 /**
  * 
@@ -346,35 +362,28 @@ function updateAdminPage() {
  * 
  * 
  */
-document.addEventListener('DOMContentLoaded', function() {
-  // Retrieve the 'reservations' array from localStorage and parse it from JSON.
-  // If 'reservations' is not found in localStorage, use an empty array as the default value.
+function updateReservationsTable() {
   const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
-
-  // Get the table body element where the reservations will be displayed.
   const tableBody = document.getElementById('reservationsTableBody');
 
-  // Loop through each reservation in the 'reservations' array.
-  reservations.forEach(reservation => {
-      // Create a new table row element for each reservation.
-      const row = document.createElement('tr');
+  // Clear the existing table rows
+  tableBody.innerHTML = '';
 
-      // Loop through each key (property) in the reservation object.
-      for (const key in reservation) {
-          // Create a new table cell element for each property.
-          const cell = document.createElement('td');
-          
-          // Set the text content of the cell to the value of the current property.
-          cell.innerText = reservation[key];
-          
-          // Append the cell to the current row.
-          row.appendChild(cell);
+  // Populate the table with reservations
+  // For every reservation in the array
+  reservations.forEach(reservation => {
+      const row = document.createElement('tr'); // create a new table row element
+
+      // for each property key - eg date, sitting guests
+      for (const key in reservation) { 
+          const cell = document.createElement('td'); // create a new table cell element
+          cell.innerText = reservation[key]; // set the value in the table cell to the reservation key value eg. date 2024-07-12
+          row.appendChild(cell); // append the cell to the current table row
       }
 
-      // Append the completed row to the table body.
-      tableBody.appendChild(row);
+      tableBody.appendChild(row); // append the row to the table in admin page
   });
-});
+}
 
 
 
