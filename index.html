@@ -30,7 +30,7 @@
                 <li><a href="gallery.html">Gallery</a></li>
                         <!-- Capture mobile menu open click -->
                 <li><a href="#" id="adminlogin" onclick="openloginForm()"><i class="fa-solid fa-user-tie" style="color: #ffffff;"></i> Login</a></li>
-                <li><a href="#" id="adminlogout" onclick="logout()"><i class="fa-solid fa-user-tie" style="color: #ffffff;"></i> Logout</a></li>
+                <li><a href="#" id="adminlogout" onclick="adminLogout()"><i class="fa-solid fa-user-tie" style="color: #ffffff;"></i> Logout</a></li>
                 <li id="adminPagelink"><a href="admin.html">Admin</a></li>
             </ul>
         </nav>
@@ -38,7 +38,6 @@
         <a href="#" id="reservationMenu" onclick="toggleMenu()"><i class="fa-solid fa-lg fa-bars"
                 style="color: #ffffff;"></i></a>
     </header>
-
     <!-- Main -->
     <main>
         <!-- Add login form for admin. Authentication gives access to admin page with dashboard -->
@@ -55,7 +54,7 @@
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required><br><br>
                     <button type="button" onclick="login()">Login</button>
-                    <p class="error" id="errorLogin"></p>
+                    <p id="errorLogin" class="error"></p>
                 </form>
             </div>
         </section>

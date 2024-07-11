@@ -131,7 +131,13 @@ nav {
     display: none;
 }
 
+#adminlogin {
+    display: block;
+}
 
+#adminlogout {
+    display: none;
+}
 
 /* Main */
 main {

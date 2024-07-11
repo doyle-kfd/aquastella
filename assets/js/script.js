@@ -25,6 +25,8 @@ const adminUsername = 'admin';
 const adminPassword = '12345';
 const adminPage = document.getElementById("adminPagelink");
 const loginForm = document.getElementById("admin-menu-form");
+const loginMenulink = document.getElementById("adminlogin");// Get login menu link
+const logoutMenulink = document.getElementById("adminlogout");
 loginForm.style.display = "none"; // Keep login form closed at start
 
 
@@ -71,16 +73,34 @@ function login(){
       adminPage.style.display = "block"; // Display the admin page
       console.log("login details accepted");
       closeloginForm(); // Close the login form
+      logoutMenulink.style.display = "block"; // Show the logout link in the menu
+      loginMenulink.style.display = "none"; // Hide the Login menu link
+
   } else {
       adminPage.style.display = "none";
       const loginError = document.getElementById("errorLogin");
-      message.loginError.textContent = "Incorrect Details";
+      loginError.textContent = "Incorrect Cridentials";
       console.log("login details not accepted");
+      document.getElementById('userId').value = "";
+      document.getElementById('password').value = "";
   }
 }
 
-
-
+/**
+ *  Function to logout, on logout remove admin link from menu and add login link
+ */
+function adminLogout() {
+  logoutMenulink.style.display = "none"; // Hide the logout link in the menu
+  loginMenulink.style.display = "block"; // Show the Login menu link
+  // Reset the login credentials
+  let adminUsername = 'anyone';
+  let adminPassword = 'nothing';
+  // Close the menu
+  const menu = document.getElementById("menu");
+  menu.style.display = "none";
+  console.log(adminUsername);
+  console.log(adminPassword);
+}
 
   // close reservation form if close button pressed
   const reservForm = document.getElementById("reservation-form");
