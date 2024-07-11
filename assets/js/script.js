@@ -200,6 +200,18 @@ makeReservation.addEventListener("click", () => {
   let guests = document.getElementById('guestNum').value;
   let sitting = document.getElementById('sitting').value;
   let date = document.getElementById('date').value;
+  // Function to convert date
+
+
+    let dateObj = new Date(date);  // define object as date value
+    let month   = dateObj.getUTCMonth() + 1;  // get the month part of the date
+    month = month < 10 ? '0' + month : month; // to display month as mm may need to add leading 0
+    let  day     = dateObj.getUTCDate();      // get day part of the date object
+    day  = day < 10 ? '0' + day : day;        // to display day as dd may need to add leading 0
+    let year    = dateObj.getUTCFullYear();   // get year part of the date
+    let newDate = day + "/" + month + "/" + year; // create new variable newDate in format dd/mm/yy
+    console.log("New date displayed " + newDate);
+
 
 
   if (!firstName || !lastName || !email || !phone) {
@@ -289,14 +301,12 @@ function displayReservationdetails(){
 }
 
 
-
-
 /**
  * Create function to change input date from format yyyy-mm-dd to dd-mm-yy
  */
 function convertDate () {
   console.log("date conversion function complete")
-  let dateObj = new Date(dateInput.value);  // define object as date value
+  let dateObj = new Date(date.value);  // define object as date value
   let month   = dateObj.getUTCMonth() + 1;  // get the month part of the date
   month = month < 10 ? '0' + month : month; // to display month as mm may need to add leading 0
   let  day     = dateObj.getUTCDate();      // get day part of the date object
