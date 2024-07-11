@@ -104,6 +104,12 @@ nav {
 }
 
 /* Admin login form styling */
+#admin-login-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+
 #admin-menu-form {
     display: none;
         display: none;   /*   Hide */

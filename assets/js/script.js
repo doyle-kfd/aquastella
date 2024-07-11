@@ -35,9 +35,9 @@ loginForm.style.display = "none"; // Keep login form closed at start
  */
 function openloginMenu() {
   console.log("Login form button clicked")
-  const resForm = document.getElementById("menu");
-  resForm.style.display = "none";
-  loginForm.style.display = "block";
+  const resForm = document.getElementById("menu"); // get meny by id
+  resForm.style.display = "none"; // Close the menu
+  loginForm.style.display = "block"; // display the login form
 }
 
 
