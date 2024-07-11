@@ -26,16 +26,10 @@ function toggleMenu(){
   }
 
 /**
- * Get form field Values
- 
-
-let fnamInput = document.getElementById('fname'); // first name from form
-let lnameInput = document.getElementById('lname'); // last name from form
-let emailInput = document.getElementById('email'); // Email Address from form
-let teleInput = document.getElementById('telephone'); // last name */
+ * Get form button Values
+ */
 let findTable = document.getElementById('ftable'); // find table button - used by listner
 let makeReservation = document.getElementById('make-booking'); // find make reservation button - used by listner
-
 
 
 /**
@@ -44,14 +38,6 @@ let makeReservation = document.getElementById('make-booking'); // find make rese
 let reservations = [];
 const max_sitting_Seats = 16;
 
-
-
-
-
-/**
- *  create reservation object for storing values
- */ 
-// createreservationObj();
 
 /**
  *  Create Listner for "find a table button click"
@@ -77,7 +63,9 @@ findTable.addEventListener("click", () => {
 
   // Check to see that the the fields have been filled in
   if (!guests || !sitting || !date) {
-    alert("Please fill in all fields!");
+    // alert("Please fill in all fields!");
+    message.textContent = "Please fill in all fields."; // Message to be displayed to booker
+    message.style = "block"; // Show message content
     return;
   }
 
@@ -87,7 +75,7 @@ findTable.addEventListener("click", () => {
   if (seatsAvailable >= guests) {
     completeReservation();                  // if seats available display form part 2 to complete reservation.
   } else {
-    message.textContent = "Sitting Full!."; // Message to be displayed to booker
+    message.textContent = "Sitting Full!."; // Message to be displayed to guest
     message.classList.remove = 'hidden'; // remove the class hidden
   }
 
@@ -204,24 +192,6 @@ function convertDate () {
   console.log(newDate);
 }
 
-
-
-/**
- * Function to create new reservation object
-
-function createreservationObj() {
-  const newReservation = {
-    guestNumbers: numGuests.value,
-    date: dateInput.value,
-    sitting: timeInput.value,
-    firstName: fnamInput.value,
-    lastName: lnameInput.value,
-    email: emailInput.value,
-    phone: teleInput.value,
-    confirmationNumber: generateConfirmationNumber() //generate reservation number function
-  };
-}
- */
 
 /**
  *  Function to create reservation confirmation number

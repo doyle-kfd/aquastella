@@ -297,8 +297,10 @@ footer {
 
 
 /* Create hidden attribute for messages in form */
-.hidden {
-    display: none;
+#message {
+    color: #ffffff;
+    font-size: 1rem;
+    text-align: center;
 }
 
 #make-booking {
