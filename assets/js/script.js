@@ -1,27 +1,46 @@
 console.log("Script file open");
 
-// Function called when toggle menu item is clicked 
+// Function called when reservation menu item is clicked 
 function toggleMenu(){
   console.log("menu button click captured")
     // Get menu item by element id
-    const x = document.getElementById("menu");
+    const resForm = document.getElementById("menu");
     // check to see if the menu is already drop down
-    if (x.style.display === "block") {
+    if (resForm.style.display === "block") {
     // Hide menu if its open
-      x.style.display = "none";
+      resForm.style.display = "none";
      } else {
     // Open menu if closed
-     x.style.display = "block";
+     resForm.style.display = "block";
      }
 }
 
 
+
+
 /* 
- *   Initailse login vatiables
+ *   Initailse login form variables
  */
 const adminUsername = 'admin';
 const adminPassword = '12345';
 const adminpage = document.getElementById("adminlogin");
+const loginForm = document.getElementById("admin-menu-form");
+loginForm.style.display = "none"; // Keep login form closed at start
+
+
+/**
+ * 
+ *  Function to open login form
+ * 
+ */
+function openloginMenu() {
+  console.log("Login form button clicked")
+  const resForm = document.getElementById("menu");
+  resForm.style.display = "none";
+  loginForm.style.display = "block";
+}
+
+
 
 
 /**

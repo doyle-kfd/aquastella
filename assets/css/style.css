@@ -106,11 +106,23 @@ nav {
 /* Admin login form styling */
 #admin-menu-form {
     display: none;
+        display: none;   /*   Hide */
+        position: fixed; /* fix the position */
+        z-index: 99; /* Keep on top */ 
+        width: 250px;
+        height: 350px;
+        top:30%;
+        background-color: #18263d;
+        color: #ffffff;
+        padding:10px;
 }
 
 #admin-menu-form .error {
     color: red;
 }
+
+
+
 
 /* Main */
 main {
