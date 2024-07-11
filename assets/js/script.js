@@ -12,6 +12,7 @@ function toggleMenu(){
      } else {
     // Open menu if closed
      resForm.style.display = "block";
+     
      }
 }
 
@@ -257,6 +258,8 @@ function openReservation(){
   reservForm.style.display = "block"; // Display the reservation form
   tab1.style.display = "block"; // Display the stage 1 form
   tab2.style.display = "none"; // Hide the stage 2 form until completing reservation
+  const menu = document.getElementById("menu");
+  menu.style.display = "none";
    
   };
 

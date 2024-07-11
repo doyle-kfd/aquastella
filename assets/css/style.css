@@ -269,7 +269,7 @@ footer {
     z-index: 99; /* Keep on top */ 
     width: 250px;
     height: 350px;
-    top:30%;
+    top: 20%;
     background-color: #18263d;
     color: #ffffff;
     padding:10px;
