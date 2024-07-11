@@ -16,6 +16,37 @@ function toggleMenu(){
 }
 
 
+/* 
+ *   Initailse login vatiables
+ */
+const adminUsername = 'admin';
+const adminPassword = '12345';
+const adminpage = document.getElementById("adminlogin");
+
+
+/**
+ *  Function to submit userId and password
+ *  If correct then show admin page in menu, otherwise keep hidden
+ */
+function login(){
+
+  // Get userId and password values from form
+  const userId = document.getElementById('userId').value;
+  const password = document.getElementById('password').value;
+
+  // check to see if userID and password are correct
+  if ( userId === adminUsername && password === adminPassword)
+      // If yes then display admin page in menu
+      adminpage.style.display = "block";
+  else {
+      adminpage.style.display = "none";
+      const loginError = document.getElementById(errorLogin);
+      message.loginError.textContent = "Incorrect Details"
+
+  }
+}
+
+
 
 
   // close reservation form if close button pressed

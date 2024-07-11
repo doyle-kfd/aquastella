@@ -108,6 +108,9 @@ nav {
     display: none;
 }
 
+#admin-menu-form .error {
+    color: red;
+}
 
 /* Main */
 main {
