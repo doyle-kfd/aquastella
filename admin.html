@@ -25,30 +25,172 @@
         </a>
         <nav>
             <ul id="menu">
-                <button id="make-reservation">Reservation</button>
+                <button id="make-reservation" onclick="openReservation()">Reservation</button>
                 <li><a href="index.html" class="active link-hover">Home</a></li>
-                <li><a href="gallery.html">gallery</a></li>
-                <li><a href="admin.html" class="active link-hover">Admin</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <!-- Capture mobile menu open click -->
+                <li><a href="#" id="adminlogin" onclick="openloginForm()"><i class="fa-solid fa-user-tie"
+                            style="color: #ffffff;"></i> Login</a></li>
+                <li><a href="#" id="adminlogout" onclick="adminLogout()"><i class="fa-solid fa-user-tie"
+                            style="color: #ffffff;"></i> Logout</a></li>
+                <li id="adminPagelink"><a href="admin.html">Admin</a></li>
             </ul>
         </nav>
-        <a href="#" id="mobileMenu" onclick="toggleMenu()"><i class="fa-solid fa-lg fa-bars" style="color: #ffffff;"></i></a>
+        <!-- Capture  menu open click -->
+        <a href="#" id="reservationMenu" onclick="toggleMenu()"><i class="fa-solid fa-lg fa-bars"
+                style="color: #ffffff;"></i></a>
     </header>
 
     <!-- Main -->
-    <main>Main Content</main>
+    <main>
+        <!-- Add login form for admin. Authentication gives access to admin page with dashboard -->
+        <section id="admin-login-container">
+            <div id="admin-login-form">
+                <form id="loginForm">
+                    <div id="login-head">
+                        <h3>Admin login</h3>
+                        <span id="close-login-form" onclick="closeloginForm()">X</span>
+                    </div>
+                    <h2>Login</h2>
+                    <label for="userId">Username:</label>
+                    <input type="text" id="userId" name="userId" required><br><br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required><br><br>
+                    <button type="button" id="login-btn" onclick="login()">Login</button>
+                    <p id="errorLogin" class="error"></p>
+                </form>
+            </div>
+        </section>
+        <section id="reservation-container">
+            <!-- Create a modal reservation form -->
+            <!-- give form id of "reservation-form" and a class of "modal" to target -->
+            <div id="reservation-form">
+                <div id="reserv-head">
+                    <h3>Reservations</h3>
+                    <span id="close-reservation-form" onclick="closeReservation()">X</span>
+                </div>
+                <!-- Create two tabs for creating multi page reservation form -->
+                <!-- tab 1 checks number of guests, date and sitting to see availability-->
+                <!-- TAB 1 -->
+                <div id="tab-1" class="res-tab">
+                    <!-- Get number of people from dropdown-->
+                    <div class="guestNum">
+                        <label for="guestNum">Number of guests:</label>
+                        <select id="guestNum">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+
+                    <!-- Get date from date picker -->
+                    <div class="date">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" min="01-07-24">
+                    </div>
+
+                    <!-- Get sit down time from dropdown -->
+                    <div class="sitting">
+                        <label for="sitting">Sitting Time:</label>
+                        <select id="sitting">
+                            <option value="First - 17:00">17:00 - First</option>
+                            <option value="Second - 20:30">20:30 - Second</option>
+                        </select>
+                    </div>
+                    <div id="findtable-btn-container">
+                        <button id="ftable">Find Table</button>
+                        <div id="msg-box">
+                            <!-- Hidden message box for displaying feedback-->
+                            <p id="message"></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Create two tabs for creating multi page reservation form -->
+                <!-- tab 2 takes customer details once there is booking available -->
+                <div id="tab-2" class="res-tab">
+                    <!-- Get first name-->
+                    <div class="fname">
+                        <label for="fname">First Name:</label>
+                        <input type="text" id="fname" name="fname">
+                    </div>
+
+                    <!-- Get last name-->
+                    <div class="lname">
+                        <label for="lname">Last Name:</label>
+                        <input type="text" id="lname" name="lname">
+                    </div>
+                    <div class="phone">
+                        <label for="telephone">Telephone:</label>
+                        <input type="number" id="telephone" name="telephone">
+                    </div>
+                    <div class="email">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div id="make-res-container">
+                        <!-- Make Reservation-->
+                        <button id="make-booking">Make Reservation</button>
+                    </div>
+                </div>
+                <!-- Create a third tab to display conformation details when reservation made-->
+                <div id="reservation-completed">
+                    <div>
+                        <h2>Reservation Successful</h2>
+                    </div>
+                    <div>
+                        <p id="reservation-name"></p>
+                        <p>Your Reservation has been made successfully</p>
+                        <p id="reservation-date"></p>
+                        <p id="reservation-time"></p>
+                        <p id="reservation-number"></p>
+                        <p>Please ensure you arrive 15 minutes before your booking time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="reservations-table">
+            <h1>Reservations</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Sitting</th>
+                        <th>Guests</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Telephone</th>
+                    </tr>
+                </thead>
+                <tbody id="reservationsTableBody">
+                    <!-- Reservations will be populated here -->
+                </tbody>
+            </table>
+
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <ul id="social-networks">
-            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="visit our facebook page (opens in a new tab)"><i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a></li>
-            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="visit our insta page (opens in a new tab)"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a></li>
-            <li><a href="https://www.whatsapp.com/" target="_blank" rel="noopener" aria-label="opening whatsApp in new tab"><i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i></a></li>
-            <li><a href="tel:5555555555" target="_blank" rel="noopener" aria-label="Opening phone app to call directly"><i class="fa-solid fa-phone-flip" style="color: #ffffff;"></i></a></li>
+            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                    aria-label="visit our facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"
+                        style="color: #ffffff;"></i></a></li>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                    aria-label="visit our insta page (opens in a new tab)"><i class="fa-brands fa-instagram"
+                        style="color: #ffffff;"></i></a></li>
+            <li><a href="https://www.whatsapp.com/" target="_blank" rel="noopener"
+                    aria-label="opening whatsApp in new tab"><i class="fa-brands fa-whatsapp"
+                        style="color: #ffffff;"></i></a></li>
+            <li><a href="tel:5555555555" target="_blank" rel="noopener"
+                    aria-label="Opening phone app to call directly"><i class="fa-solid fa-phone-flip"
+                        style="color: #ffffff;"></i></a></li>
         </ul>
     </footer>
-    
+
     <!-- Add javascript -->
-     <!-- load local js scripts here -->
+    <!-- load local js scripts here -->
     <script src="assets/js/script.js"></script>
     <!-- Font Awesome js -->
     <script src="https://kit.fontawesome.com/bb14665003.js" crossorigin="anonymous"></script>
