@@ -267,11 +267,13 @@ footer {
 
 /* style find table button container */
 #findtable-btn-container {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-around; */
     padding-top:20px;
     border-top: 1px solid #ffffff;
+    position:absolute;
+    bottom: 0;
 }
 
 /* style find table button */
@@ -317,6 +319,7 @@ footer {
 /* target div's with tab1 and tab2 */
 #tab-1 > div, #tab-2 > div {
     margin: 10px;
+
 }
 
 
