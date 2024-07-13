@@ -277,23 +277,46 @@ main {
 
 
 /*--------------------- Admin Page Specific Styling -------------------------------*/
+#stat-counters h2 {
+    text-align: center;
+}
+
+#daily-stats {
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#daily-stats > div {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #18263d;
+    border-radius: 8px;
+}
+
+
+
 #reservations-table  table { 
     width: 100%; 
-    border-collapse:  collapse; margin-top: 20px; 
+    border-collapse:  collapse; 
+    margin-top: 20px;
+    border: 1px solid black; 
 }
 
 #reservations-table  th  { 
     border: 1px solid #ccc; 
     padding: 8px; 
-    text-align: center; 
-    width: 100px;
+    text-align: center;
+    border: 1px solid black;
 }
 
 #reservations-table  td {
     border: 1px solid #ccc; 
     padding: 8px; 
     text-align: center; 
-    width: 100px;
+    border: 1px solid black;
 }
 
 #charting {
@@ -481,6 +504,9 @@ footer {
     padding-bottom: 5px;
 }
 
+
+
+
 /* Media Query Section */
 
 /*--------- Mobile phone breakpoint -------------*/
@@ -550,6 +576,42 @@ footer {
     }
 
 }
+
+
+/*----- Responsive to devices e.g. phone in landscape 653px >= -------- */
+@media screen and (max-width:653px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    
+    thead tr {
+        display: none;
+    }
+    
+    tr {
+        margin-bottom: 10px;
+    }
+    
+    td {
+        position: relative;
+        padding-left: 50%;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+    
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        white-space: nowrap;
+        word-wrap: normal;
+    }
+}
+
+
 
 /*-------------- Specif to tablets --------------*/
 @media screen and (min-width: 768px) {
