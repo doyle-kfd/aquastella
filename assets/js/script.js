@@ -341,11 +341,11 @@ function resetForm() {
 }
 
 // Initialise google charts
-google.charts.load('current', {'packages':['corechart']});
+google.charts.load('current', {'packages':['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawCharts);
 
 function drawCharts() {
-  updateAdminPage();  
+  updateReservationsTable();  
 }
 
 /**
@@ -463,7 +463,6 @@ function updateStats(reservations) {
 
   drawDailyChart(totalToday, firstSittingToday, secondSittingToday);
   drawWeeklyChart(totalNext7Days, firstSittingNext7Days, secondSittingNext7Days);
-
 }
 
 function drawDailyChart(total, firstSitting, secondSitting) {
@@ -476,10 +475,17 @@ function drawDailyChart(total, firstSitting, secondSitting) {
 
   const options = {
       title: 'Today\'s Reservations',
-      pieHole: 0.4,
+      chartArea: {width: '50%'},
+      hAxis: {
+          title: 'Total Reservations',
+          minValue: 0
+      },
+      vAxis: {
+          title: 'Sitting'
+      }
   };
 
-  const chart = new google.visualization.PieChart(document.getElementById('dailyChart'));
+  const chart = new google.visualization.BarChart(document.getElementById('dailyChart'));
   chart.draw(data, options);
 }
 
@@ -493,10 +499,17 @@ function drawWeeklyChart(total, firstSitting, secondSitting) {
 
   const options = {
       title: 'Next 7 Days Reservations',
-      pieHole: 0.4,
+      chartArea: {width: '50%'},
+      hAxis: {
+          title: 'Total Reservations',
+          minValue: 0
+      },
+      vAxis: {
+          title: 'Sitting'
+      }
   };
 
-  const chart = new google.visualization.PieChart(document.getElementById('weeklyChart'));
+  const chart = new google.visualization.BarChart(document.getElementById('weeklyChart'));
   chart.draw(data, options);
 }
 

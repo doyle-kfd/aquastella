@@ -296,6 +296,11 @@ main {
     width: 100px;
 }
 
+#charting {
+    margin-bottom: 30px;
+}
+
+
 /*------------ Footer specific styling across site ----------*/
 /* Footer */
 footer {
