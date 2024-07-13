@@ -338,7 +338,9 @@ main {
 }
 
 #charting {
-    margin-bottom: 130px;
+    width: 90%;
+    margin: 20px auto;
+    padding-bottom: 50px;
 }
 
 #charts {
