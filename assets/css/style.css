@@ -291,9 +291,11 @@ main {
 
 #daily-stats > div {
     margin: 5px;
-    padding: 5px;
-    border: 1px solid #18263d;
+    padding: 10px 25px;
     border-radius: 8px;
+    background-color: #18263d;
+    color: #ffffff;
+    box-shadow: 0px 2px 5px 0px #717271;
 }
 
 #weekly-stats {
@@ -304,6 +306,14 @@ main {
     justify-content: space-around;
 }
 
+#weekly-stats > div {
+    margin: 5px;
+    padding: 10px 25px;
+    border-radius: 8px;
+    background-color: #18263d;
+    color: #ffffff;
+    box-shadow: 0px 2px 5px 0px #717271;
+}
 
 
 #reservations-table  table { 

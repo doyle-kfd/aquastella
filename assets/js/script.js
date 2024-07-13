@@ -454,10 +454,10 @@ function updateStats(reservations) {
   });
 
   // Update the counter text inner with the incremented counter values
-  document.getElementById('totalReservationsToday').innerText = `Total Today: ${totalToday}`;
+  document.getElementById('totalReservationsToday').innerText = `Total: ${totalToday}`;
   document.getElementById('firstSittingToday').innerText = `First Sitting: ${firstSittingToday}`;
   document.getElementById('secondSittingToday').innerText = `Second Sitting: ${secondSittingToday}`;
-  document.getElementById('totalReservationsNext7Days').innerText = `Total Next 7 Days: ${totalNext7Days}`;
+  document.getElementById('totalReservationsNext7Days').innerText = `Total: ${totalNext7Days}`;
   document.getElementById('firstSittingNext7Days').innerText = `First Sitting: ${firstSittingNext7Days}`;
   document.getElementById('secondSittingNext7Days').innerText = `Second Sitting: ${secondSittingNext7Days}`;
   
