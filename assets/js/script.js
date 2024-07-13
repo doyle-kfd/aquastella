@@ -345,7 +345,7 @@ google.charts.load('current', {'packages':['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawCharts);
 
 function drawCharts() {
-  updateReservationsTable();  
+  updateReservationsTable();
 }
 
 /**
@@ -460,10 +460,15 @@ function updateStats(reservations) {
   document.getElementById('totalReservationsNext7Days').innerText = `Total Reservations Next 7 Days: ${totalNext7Days}`;
   document.getElementById('firstSittingNext7Days').innerText = `First Sitting Next 7 Days: ${firstSittingNext7Days}`;
   document.getElementById('secondSittingNext7Days').innerText = `Second Sitting Next 7 Days: ${secondSittingNext7Days}`;
-
+  
+  
   drawDailyChart(totalToday, firstSittingToday, secondSittingToday);
-  drawWeeklyChart(totalNext7Days, firstSittingNext7Days, secondSittingNext7Days);
+  //drawWeeklyChart(totalNext7Days, firstSittingNext7Days, secondSittingNext7Days);
+  drawWeeklyChart(reservations);
+
 }
+
+
 
 function drawDailyChart(total, firstSitting, secondSitting) {
   const data = google.visualization.arrayToDataTable([
@@ -489,29 +494,46 @@ function drawDailyChart(total, firstSitting, secondSitting) {
   chart.draw(data, options);
 }
 
-function drawWeeklyChart(total, firstSitting, secondSitting) {
-  const data = google.visualization.arrayToDataTable([
-      ['Sitting', 'Reservations'],
-      ['Total', total],
-      ['First Sitting', firstSitting],
-      ['Second Sitting', secondSitting]
-  ]);
 
-  const options = {
-      title: 'Next 7 Days Reservations',
-      chartArea: {width: '50%'},
-      hAxis: {
-          title: 'Total Reservations',
-          minValue: 0
-      },
-      vAxis: {
-          title: 'Sitting'
-      }
-  };
+  function drawWeeklyChart(reservations) {
+    const data = new google.visualization.DataTable();
+    data.addColumn('string', 'Date');
+    data.addColumn('number', 'Reservations');
 
-  const chart = new google.visualization.BarChart(document.getElementById('weeklyChart'));
-  chart.draw(data, options);
+    // Prepare data for the next 7 days
+    const today = new Date();
+    for (let i = 0; i < 7; i++) {
+        const date = new Date(today);
+        date.setDate(today.getDate() + i);
+        const dateString = date.toISOString().split('T')[0];
+
+        let count = 0;
+        reservations.forEach(reservation => {
+            if (reservation.date === dateString) {
+                count++;
+            }
+        });
+
+        data.addRow([dateString, count]);
+    }
+
+    const options = {
+        title: 'Next 7 Days Reservations',
+        chartArea: {width: '50%'},
+        hAxis: {
+            title: 'Date'
+        },
+        vAxis: {
+            title: 'Reservations',
+            minValue: 0
+        }
+    };
+
+    const chart = new google.visualization.ColumnChart(document.getElementById('weeklyChart'));
+    chart.draw(data, options);
 }
+ 
+ 
 
 
 //////////////////////////////   Use as needed ////////////////////////////
