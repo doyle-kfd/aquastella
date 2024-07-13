@@ -150,14 +150,21 @@
                 </div>
             </div>
         </section>
-        <section id="totals">
+        <!-- Create siection to display stat  counters -->
+        <section>
+            <!-- display daily stats-->
             <div class="stats">
-                <div id="totalReservationsToday" class="stat">Total Reservations Today: 0</div>
-                <div id="firstSittingToday" class="stat">First Sitting Today: 0</div>
-                <div id="secondSittingToday" class="stat">Second Sitting Today: 0</div>
-                <div id="totalReservationsNext7Days" class="stat">Total Reservations Next 7 Days: 0</div>
-                <div id="firstSittingNext7Days" class="stat">First Sitting Next 7 Days: 0</div>
-                <div id="secondSittingNext7Days" class="stat">Second Sitting Next 7 Days: 0</div>
+                <div id="daily">
+                    <div id="totalReservationsToday" class="stat">Total Reservations Today: 0</div>
+                    <div id="firstSittingToday" class="stat">First Sitting Today: 0</div>
+                    <div id="secondSittingToday" class="stat">Second Sitting Today: 0</div>
+                </div>
+                <!-- display weekly stats -->
+                <div id="weekly">
+                    <div id="totalReservationsNext7Days" class="stat">Total Reservations Next 7 Days: 0</div>
+                    <div id="firstSittingNext7Days" class="stat">First Sitting Next 7 Days: 0</div>
+                    <div id="secondSittingNext7Days" class="stat">Second Sitting Next 7 Days: 0</div>
+                </div>
             </div>
         </section>
         <section id="reservations-table">
@@ -181,10 +188,11 @@
             </table>
 
         </section>
+        <!-- Create section to display charts -->
         <section id="charting">
             <div class="charts">
-                <div id="dailyChart" style="width: 100%; height: 400px;"></div>
-                <div id="weeklyChart" style="width: 100%; height: 400px;"></div>
+                <div id="dailyChart"></div>
+                <div id="weeklyChart"></div>
             </div>
         </section>
     </main>

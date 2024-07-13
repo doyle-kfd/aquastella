@@ -463,13 +463,11 @@ function updateStats(reservations) {
   
   
   drawDailyChart(totalToday, firstSittingToday, secondSittingToday);
-  //drawWeeklyChart(totalNext7Days, firstSittingNext7Days, secondSittingNext7Days);
   drawWeeklyChart(reservations);
 
 }
 
-
-
+// function to create daily chart
 function drawDailyChart(total, firstSitting, secondSitting) {
   const data = google.visualization.arrayToDataTable([
       ['Sitting', 'Reservations'],
@@ -480,7 +478,7 @@ function drawDailyChart(total, firstSitting, secondSitting) {
 
   const options = {
       title: 'Today\'s Reservations',
-      chartArea: {width: '50%'},
+      chartArea: {width: '100%'},
       hAxis: {
           title: 'Total Reservations',
           minValue: 0
@@ -494,44 +492,52 @@ function drawDailyChart(total, firstSitting, secondSitting) {
   chart.draw(data, options);
 }
 
-
+// function to create weekly graph by day
   function drawWeeklyChart(reservations) {
     const data = new google.visualization.DataTable();
     data.addColumn('string', 'Date');
     data.addColumn('number', 'Reservations');
 
-    // Prepare data for the next 7 days
-    const today = new Date();
-    for (let i = 0; i < 7; i++) {
-        const date = new Date(today);
-        date.setDate(today.getDate() + i);
-        const dateString = date.toISOString().split('T')[0];
+        //function to format dates
+        function formatDate(date) {
+          const options = { weekday: 'short', month: 'short', day: 'numeric' };
+          return date.toLocaleDateString(undefined, options);
+      }
 
-        let count = 0;
-        reservations.forEach(reservation => {
-            if (reservation.date === dateString) {
-                count++;
-            }
-        });
+// Prepare data for the next 7 days
+const today = new Date();
+for (let i = 0; i < 7; i++) {
+    const date = new Date(today);
+    date.setDate(today.getDate() + i);
+    const dateString = date.toISOString().split('T')[0];
+    const formattedDate = formatDate(date);  // Format the date to display the day
 
-        data.addRow([dateString, count]);
-    }
-
-    const options = {
-        title: 'Next 7 Days Reservations',
-        chartArea: {width: '50%'},
-        hAxis: {
-            title: 'Date'
-        },
-        vAxis: {
-            title: 'Reservations',
-            minValue: 0
+    let count = 0;
+    reservations.forEach(reservation => {
+        if (reservation.date === dateString) {
+            count++;
         }
-    };
+    });
 
-    const chart = new google.visualization.ColumnChart(document.getElementById('weeklyChart'));
-    chart.draw(data, options);
+    data.addRow([formattedDate, count]);
 }
+
+const options = {
+    title: 'Next 7 Days Reservations',
+    chartArea: {width: '100%'},
+    hAxis: {
+        title: 'Reservations',
+        minValue: 0
+    },
+    vAxis: {
+        title: 'Date'
+    }
+};
+
+const chart = new google.visualization.ColumnChart(document.getElementById('weeklyChart'));
+chart.draw(data, options);
+}
+
  
  
 

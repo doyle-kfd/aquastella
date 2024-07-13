@@ -297,8 +297,14 @@ main {
 }
 
 #charting {
-    margin-bottom: 30px;
+    margin-bottom: 130px;
 }
+
+#charts {
+    display: flex;
+}
+
+
 
 
 /*------------ Footer specific styling across site ----------*/
