@@ -325,6 +325,7 @@ function generateConfirmationNumber(){
 }
 
 
+
 /**
  * Function to reset form after reservation made
  */
@@ -339,6 +340,13 @@ function resetForm() {
 
 }
 
+// Initialise google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawCharts);
+
+function drawCharts() {
+  updateAdminPage();  
+}
 
 /**
  * 
@@ -452,12 +460,45 @@ function updateStats(reservations) {
   document.getElementById('totalReservationsNext7Days').innerText = `Total Reservations Next 7 Days: ${totalNext7Days}`;
   document.getElementById('firstSittingNext7Days').innerText = `First Sitting Next 7 Days: ${firstSittingNext7Days}`;
   document.getElementById('secondSittingNext7Days').innerText = `Second Sitting Next 7 Days: ${secondSittingNext7Days}`;
+
+  drawDailyChart(totalToday, firstSittingToday, secondSittingToday);
+  drawWeeklyChart(totalNext7Days, firstSittingNext7Days, secondSittingNext7Days);
+
 }
 
+function drawDailyChart(total, firstSitting, secondSitting) {
+  const data = google.visualization.arrayToDataTable([
+      ['Sitting', 'Reservations'],
+      ['Total', total],
+      ['First Sitting', firstSitting],
+      ['Second Sitting', secondSitting]
+  ]);
 
+  const options = {
+      title: 'Today\'s Reservations',
+      pieHole: 0.4,
+  };
 
+  const chart = new google.visualization.PieChart(document.getElementById('dailyChart'));
+  chart.draw(data, options);
+}
 
+function drawWeeklyChart(total, firstSitting, secondSitting) {
+  const data = google.visualization.arrayToDataTable([
+      ['Sitting', 'Reservations'],
+      ['Total', total],
+      ['First Sitting', firstSitting],
+      ['Second Sitting', secondSitting]
+  ]);
 
+  const options = {
+      title: 'Next 7 Days Reservations',
+      pieHole: 0.4,
+  };
+
+  const chart = new google.visualization.PieChart(document.getElementById('weeklyChart'));
+  chart.draw(data, options);
+}
 
 
 //////////////////////////////   Use as needed ////////////////////////////
