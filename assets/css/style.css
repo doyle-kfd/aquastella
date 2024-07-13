@@ -296,6 +296,14 @@ main {
     border-radius: 8px;
 }
 
+#weekly-stats {
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 
 
 #reservations-table  table { 
