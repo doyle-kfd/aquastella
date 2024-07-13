@@ -315,27 +315,17 @@ main {
     box-shadow: 0px 2px 5px 0px #717271;
 }
 
-
-#reservations-table  table { 
-    width: 100%; 
-    border-collapse:  collapse; 
-    margin-top: 20px;
-    border: 1px solid black; 
+#table-wrapper {
+    overflow-x: auto;
 }
 
-#reservations-table  th  { 
-    border: 1px solid #ccc; 
-    padding: 8px; 
-    text-align: center;
-    border: 1px solid black;
+
+#table-wrapper  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #18263d;
 }
 
-#reservations-table  td {
-    border: 1px solid #ccc; 
-    padding: 8px; 
-    text-align: center; 
-    border: 1px solid black;
-}
 
 #charting {
     width: 90%;
@@ -759,6 +749,11 @@ footer {
     /* Hide reservation button in footer on devices larger than mobile */
     #make-reservation-footer {
         display:none;
+    }
+
+    #charting {
+        display: flex;
+        justify-content: space-around;
     }
 
 }
