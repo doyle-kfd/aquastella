@@ -356,6 +356,11 @@ th {
     color: gold;
 }
 
+/* shade every even row numver with a bg color */
+#table-wrapper tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
 #charting {
     width: 90%;
     margin: 20px auto;
@@ -772,7 +777,7 @@ footer {
     }
 
     #daily-stats h2, #weekly-stats h2 {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     #charting {
