@@ -277,6 +277,9 @@ main {
 
 
 /*--------------------- Admin Page Specific Styling -------------------------------*/
+#reservations-quick-count h2 {
+    text-align: center;
+}
 
 #stat-counters {
     display: flex;
@@ -327,6 +330,10 @@ main {
 }
 
 /*------------------------ Admin Page Table Specific -----------*/
+#reservations-table h2 {
+    text-align: center;
+}
+
 #table-wrapper {
     overflow-x: auto;
 }
@@ -344,15 +351,25 @@ table, th, td {
     text-align: center;
   }
 
+th {
+    background-color: #18263d;
+    color: gold;
+}
+
 #charting {
     width: 90%;
     margin: 20px auto;
     padding-bottom: 50px;
 }
 
-#charts {
-    display: flex;
+#chart {
+    margin-top: 20px;
 }
+
+#chart h2 {
+    text-align: center;
+}
+
 
 
 
