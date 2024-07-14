@@ -340,13 +340,16 @@ function resetForm() {
 
 }
 
+console.log("started google initialisation");
 // Initialise google charts
 google.charts.load('current', {'packages':['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawCharts);
+console.log("ended google initialisation");
 
 function drawCharts() {
   updateReservationsTable();
 }
+
 
 /**
  * 
@@ -381,6 +384,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function updateReservationsTable() {
   const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
   const tableBody = document.getElementById('reservationsTableBody');
+
+
 
   // Clear the existing table rows
   tableBody.innerHTML = '';
@@ -469,73 +474,87 @@ function updateStats(reservations) {
 
 // function to create daily chart
 function drawDailyChart(total, firstSitting, secondSitting) {
+  // create a data table from an array
   const data = google.visualization.arrayToDataTable([
-      ['Sitting', 'Reservations'],
-      ['Total', total],
-      ['First Sitting', firstSitting],
-      ['Second Sitting', secondSitting]
+      ['Sitting', 'Reservations'], // array header
+      ['Total', total], // total sittings
+      ['First Sitting', firstSitting], //total first sittings
+      ['Second Sitting', secondSitting] // total second sittings
   ]);
 
   const options = {
-      title: 'Today\'s Reservations',
-      chartArea: {width: '100%'},
+      title: 'Today\'s Reservations', // Title of chart
+      chartArea: {width: '100%'}, // give it full width
       hAxis: {
-          title: 'Total Reservations',
-          minValue: 0
+          title: 'Total Reservations', // Horizontal axis title
+          minValue: 0                  // give it a minimum value
       },
-      vAxis: {
-          title: 'Sitting'
+      vAxis: {                       
+          title: 'Sitting'             // vertical access heading
       }
   };
 
+  // create a BarChart object at the element dailyChart 
   const chart = new google.visualization.BarChart(document.getElementById('dailyChart'));
-  chart.draw(data, options);
+  chart.draw(data, options); // create the chart using defined data and options
 }
 
 // function to create weekly graph by day
   function drawWeeklyChart(reservations) {
+    // create a new DataTable object to hold the chart data
     const data = new google.visualization.DataTable();
-    data.addColumn('string', 'Date');
-    data.addColumn('number', 'Reservations');
+    data.addColumn('string', 'Date'); // add a column Date as a string
+    data.addColumn('number', 'Reservations'); // add a column Reservations as a number
 
         //function to format dates
         function formatDate(date) {
+          // specify how date should ve displayed
           const options = { weekday: 'short', month: 'short', day: 'numeric' };
+          // return formatted string as date
           return date.toLocaleDateString(undefined, options);
       }
 
 // Prepare data for the next 7 days
+// take todays date
 const today = new Date();
+//  for 7 iterations
 for (let i = 0; i < 7; i++) {
-    const date = new Date(today);
-    date.setDate(today.getDate() + i);
-    const dateString = date.toISOString().split('T')[0];
+    const date = new Date(today); // set the date value as today
+    date.setDate(today.getDate() + i); // get todays day/date and increment by 1
+    const dateString = date.toISOString().split('T')[0]; // get the long string date and split on T
     const formattedDate = formatDate(date);  // Format the date to display the day
 
-    let count = 0;
+    let count = 0;  // initialise the counter
+    
+    // for each reservation in the reservation array
     reservations.forEach(reservation => {
+
+        // if the reservation date is the same as the one in the date string
         if (reservation.date === dateString) {
-            count++;
+            count++; // increment the count
         }
     });
 
+    // add a new row to the Google charts data table
     data.addRow([formattedDate, count]);
 }
 
 const options = {
-    title: 'Next 7 Days Reservations',
-    chartArea: {width: '100%'},
+    title: 'Next 7 Days Reservations', // title of chart
+    chartArea: {width: '100%'},   // give it the full width
     hAxis: {
-        title: 'Reservations',
-        minValue: 0
+        title: 'Reservations',        // horizontal axis
+        minValue: 0                   // set the minimum value
     },
     vAxis: {
-        title: 'Date'
+        title: 'Date'                // vertical axis title
     }
 };
 
+
+// create a chart object at the element weeklyChart
 const chart = new google.visualization.ColumnChart(document.getElementById('weeklyChart'));
-chart.draw(data, options);
+chart.draw(data, options);  // create the chart using defined data and options
 }
 
  
