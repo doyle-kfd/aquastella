@@ -326,6 +326,7 @@ main {
     color:gold;
 }
 
+/*------------------------ Admin Page Table Specific -----------*/
 #table-wrapper {
     overflow-x: auto;
 }
@@ -337,6 +338,11 @@ main {
     border: 1px solid #18263d;
 }
 
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+  }
 
 #charting {
     width: 90%;
@@ -612,39 +618,6 @@ footer {
 
 }
 
-
-/*----- Responsive to devices e.g. phone in landscape 653px >= -------- */
-@media screen and (max-width:653px) {
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
-    
-    thead tr {
-        display: none;
-    }
-    
-    tr {
-        margin-bottom: 10px;
-    }
-    
-    td {
-        position: relative;
-        padding-left: 50%;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-    }
-    
-    td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        width: 50%;
-        padding-left: 15px;
-        font-weight: bold;
-        white-space: nowrap;
-        word-wrap: normal;
-    }
-}
 
 
 
