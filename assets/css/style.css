@@ -596,6 +596,20 @@ footer {
         border-radius: 8px; /* give border corners radius */
     }
 
+
+    /*--------- Admin page specific --------------------*/
+    #stat-counters {
+        flex-direction: column;
+    }
+
+    #daily-stats h2 {
+        font-size: 1rem;
+    }
+
+    #weekly-stats h2 {
+        font-size: 1rem;
+    }
+
 }
 
 
@@ -760,6 +774,15 @@ footer {
     /* Hide reservation button in footer on devices larger than mobile */
     #make-reservation-footer {
         display:none;
+    }
+
+
+    #stat-counters {
+        flex-direction: row;
+    }
+
+    #daily-stats h2, #weekly-stats h2 {
+        font-size: 1.5rem;
     }
 
     #charting {
