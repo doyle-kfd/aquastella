@@ -803,3 +803,15 @@ footer {
     }
 
 }
+
+@media screen and (min-width: 1200px) {
+    #daily-stats .stats {
+        padding-left: 240px;
+    }
+    
+    
+    
+    #weekly-stats .stats {
+        padding-left: 240px;
+    }
+}
