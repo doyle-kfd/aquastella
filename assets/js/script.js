@@ -16,21 +16,6 @@ function toggleMenu(){
      }
 }
 
-
-
-
-/* 
- *   Initailse login form variables
- */
-const adminUsername = 'admin';
-const adminPassword = '12345';
-const adminPage = document.getElementById("adminPagelink");
-const loginForm = document.getElementById("admin-login-form");
-const loginMenulink = document.getElementById("adminlogin");// Get login menu link
-const logoutMenulink = document.getElementById("adminlogout");
-loginForm.style.display = "none"; // Keep login form closed at start
-
-
 /**
  * 
  *  Function to open login form
@@ -49,11 +34,36 @@ function openloginForm() {
  * 
  */
 function closeloginForm(){
-    console.log("close login form button click");
-    loginForm.style.display = "none"; // display the login form
+  console.log("close login form button click");
+  loginForm.style.display = "none"; // display the login form
 }
 
+/**
+ * 
+ *  Complete login function for admin user
+ * 
+ */
 
+//  Initailse login form variables
+const adminUsername = 'admin';
+const adminPassword = '12345';
+const adminPage = document.getElementById("adminPagelink");
+const loginForm = document.getElementById("admin-login-form");
+const loginMenulink = document.getElementById("adminlogin");// Get login menu link
+const logoutMenulink = document.getElementById("adminlogout");
+loginForm.style.display = "none"; // Keep login form closed at start
+
+// Add listner to see if the admin user is authenticated
+document.addEventListener('DOMContentLoaded', () => {
+  // Check if the user is authenticated
+  if (isAuthenticated()) {
+      document.getElementById('adminPagelink').style.display = 'inline'; // show
+      document.getElementById('adminlogin').style.display = 'none';
+      document.getElementById('adminlogout').style.display = 'inline';
+  } else {
+    document.getElementById('adminlogin').style.display = 'inline';
+  }
+});
 
 
 /**
@@ -71,12 +81,12 @@ function login(){
   // check to see if userID and password are correct
   if ( userId === adminUsername && password === adminPassword){
       // If yes then display admin page in menu
+      localStorage.setItem('authenticated', 'true');
       adminPage.style.display = "block"; // Display the admin page
       console.log("login details accepted");
       closeloginForm(); // Close the login form
       logoutMenulink.style.display = "block"; // Show the logout link in the menu
       loginMenulink.style.display = "none"; // Hide the Login menu link
-
   } else {
       adminPage.style.display = "none";
       const loginError = document.getElementById("errorLogin");
@@ -86,6 +96,11 @@ function login(){
       document.getElementById('password').value = "";
   }
 }
+
+// Is the admin user authenticated
+const isAuthenticated = () => {
+  return localStorage.getItem('authenticated') === 'true';
+};
 
 /**
  *  Function to logout, on logout remove admin link from menu and add login link
