@@ -1,9 +1,10 @@
 console.log("Script file open");
+const resForm = document.getElementById("menu");
 
 // Function called when reservation menu item is clicked 
 function toggleMenu(){
   console.log("menu button click captured")
-    // Get menu item by element id
+    // Get menu item by el    const resForm = document.getElementById("menu");ement id
     const resForm = document.getElementById("menu");
     // check to see if the menu is already drop down
     if (resForm.style.display === "block") {
@@ -12,7 +13,6 @@ function toggleMenu(){
      } else {
     // Open menu if closed
      resForm.style.display = "block";
-     
      }
 }
 
@@ -154,6 +154,7 @@ const reservationSuccessful = document.getElementById("reservation-completed");
 
 
 
+
 /**
  *  Create Listner for "find a table button click"
  *
@@ -176,7 +177,6 @@ findTable.addEventListener("click", (event) => {
   let sitting = document.getElementById('sitting').value; // reservation time from form
   let message = document.getElementById('message'); // message area under find table button for displaying feedback
  
-
 
   // Check to see that the the fields have been filled in
   if (!guests || !sitting || !date) {
@@ -317,6 +317,18 @@ function openReservation(){
   tab2.style.display = "none"; // Hide the stage 2 form until completing reservation
   const menu = document.getElementById("menu");
   menu.style.display = "none";
+  let modal  = document.getElementById("resForm");
+  let reservBtn = document.getElementById("make-reservation");
+  reservBtn.onclick = function() {
+  modal.style.display = "flex";
+  modal.style.justifyContent= "space-around";
+  resForm.style.display = "none";
+  }
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
    
   };
 
