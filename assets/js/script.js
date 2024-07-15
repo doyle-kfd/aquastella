@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('adminlogout').style.display = 'inline';
   } else {
     document.getElementById('adminlogin').style.display = 'inline';
+    document.getElementById('adminPagelink').style.display = 'none'; // hide
   }
 });
 
@@ -106,6 +107,7 @@ const isAuthenticated = () => {
  *  Function to logout, on logout remove admin link from menu and add login link
  */
 function adminLogout() {
+  console.log("admin logout clicked");
   logoutMenulink.style.display = "none"; // Hide the logout link in the menu
   loginMenulink.style.display = "block"; // Show the Login menu link
   // Reset the login credentials
@@ -114,6 +116,8 @@ function adminLogout() {
   // Close the menu
   const menu = document.getElementById("menu");
   menu.style.display = "none";
+  localStorage.setItem('authenticated', 'false');
+  document.getElementById('adminPagelink').style.display = 'none'; // hide
   console.log(adminUsername);
   console.log(adminPassword);
 }
