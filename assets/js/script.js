@@ -181,10 +181,11 @@ findTable.addEventListener("click", (event) => {
     console.log("Number of guests looking for seats " + guests);
     console.log("Number of seats available " + seatsAvailable);
     console.log("The Date of the reservation");
-      message.textContent = "Sitting Full! Please Enter A Different Day"; // Message to be displayed to guest
+      message.textContent = "Sitting Full! Please Try Again; // Message to be displayed to guest
       message.classList.remove = 'hidden'; // remove the class hidden
       resetForm();
       console.log("form values should now be reset");
+
   }
 
   
@@ -359,6 +360,7 @@ document.getElementById('fname').value = '';
 document.getElementById('lname').value = '';
 document.getElementById('telephone').value = '';
 document.getElementById('email').value = '';
+
 }
 
 // Initialise google charts

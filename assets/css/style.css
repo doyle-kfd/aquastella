@@ -76,6 +76,9 @@ header a {
     margin-bottom: .5em; /* Space out menu items */
 }
 
+
+
+
 .active {
     border-bottom: 1px solid #ffffff;
 }
@@ -808,10 +811,13 @@ footer {
     #daily-stats .stats {
         padding-left: 240px;
     }
-    
-    
-    
+       
     #weekly-stats .stats {
         padding-left: 240px;
     }
+
+        /* hide mobile nav icon */
+        #mobileMenu {
+            display: none;
+        }
 }
