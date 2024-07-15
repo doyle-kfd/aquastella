@@ -284,9 +284,9 @@ updateAdminPage(); // call function to write reservation to array and trigger up
 
   // Display reservation values in reservation success tab
   successName.textContent =  firstName + ",";
-  successDate.textContent =   "Date: "  + date;
-  successTime.textContent =   "Sitting: " + sitting;
-  successNumber.textContent = "Reservation No: " + reservation.confirmationNumber;
+  successDate.textContent =   date;
+  successTime.textContent =   sitting;
+  successNumber.textContent =  reservation.confirmationNumber;
 
 
 

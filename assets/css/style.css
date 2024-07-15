@@ -132,6 +132,15 @@ header a {
     padding: 5px 10px;
 }
 
+#reservation-message p {
+    font-weight: 700;
+
+}
+#reservation-message .normal {
+    font-weight: 300;
+    color: gold;
+}
+
 /* Navbar styling */
 nav {
     width: 100%;
