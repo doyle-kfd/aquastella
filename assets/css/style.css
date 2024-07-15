@@ -26,9 +26,13 @@ body {
 }
 
 /* set default font style for h tags */
-h1, h2, h3 {
-    font-family: 'Syne', sans-serif; /* set font family */
-    letter-spacing: 2px; /* space out text */
+h1,
+h2,
+h3 {
+    font-family: 'Syne', sans-serif;
+    /* set font family */
+    letter-spacing: 2px;
+    /* space out text */
 }
 
 /* style h2 text */
@@ -43,37 +47,52 @@ p {
 
 /* Header */
 header {
-    background-color: #18263d; /* Set header bg color */
-    padding: 0 1rem; /* add padding left and right to text */
-    position: fixed; /* keep nav at top during scrolling */
-    z-index: 99; /* raise header to keep it on top of any other elements */
-    width: 100%; /* take up full width of screen */ 
-    display: flex; /* show header elements in a row */
-    justify-content: space-between; /* Space out elements */
-    align-items: baseline; /* Aline along baseline */
+    background-color: #18263d;
+    /* Set header bg color */
+    padding: 0 1rem;
+    /* add padding left and right to text */
+    position: fixed;
+    /* keep nav at top during scrolling */
+    z-index: 99;
+    /* raise header to keep it on top of any other elements */
+    width: 100%;
+    /* take up full width of screen */
+    display: flex;
+    /* show header elements in a row */
+    justify-content: space-between;
+    /* Space out elements */
+    align-items: baseline;
+    /* Aline along baseline */
 }
 
 header a {
-    text-decoration: none; /* remove underline from nav items */
+    text-decoration: none;
+    /* remove underline from nav items */
     color: #ffffff;
-    letter-spacing: 2px; /* space out the logo text */
+    letter-spacing: 2px;
+    /* space out the logo text */
     font-style: italic;
 }
 
 
 
 /* style menu bar */
-#menu   {
-    font-size: 110%; /* Make ment text larger */
-    letter-spacing: 4px; /* space menu text out */
-    list-style-type: none; /* remove disc from list item */
+#menu {
+    font-size: 110%;
+    /* Make ment text larger */
+    letter-spacing: 4px;
+    /* space menu text out */
+    list-style-type: none;
+    /* remove disc from list item */
     display: none;
 }
 
 /* style menu items */
-#menu > li {
-    margin-top: .5em;    /* Space out menu items */
-    margin-bottom: .5em; /* Space out menu items */
+#menu>li {
+    margin-top: .5em;
+    /* Space out menu items */
+    margin-bottom: .5em;
+    /* Space out menu items */
 }
 
 
@@ -85,7 +104,7 @@ header a {
 
 #make-reservation {
     margin-top: 10px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
     border: 2px solid #ffffff;
     font-size: 20px;
     color: #ffffff;
@@ -100,9 +119,10 @@ nav {
     position: absolute;
     left: 0;
     padding: 0 1rem;
-    background-color:#18263d;
-    display: block; 
-    top:100%; /* Tell navbar to start at bottom of parent element */
+    background-color: #18263d;
+    display: block;
+    top: 100%;
+    /* Tell navbar to start at bottom of parent element */
     box-shadow: 0px 2px 6px 0px #3a3a3a;
 }
 
@@ -115,28 +135,31 @@ nav {
 
 #admin-login-form {
     display: none;
-        display: none;   /*   Hide */
-        position: fixed; /* fix the position */
-        z-index: 99; /* Keep on top */ 
-        width: 250px;
-        height: 350px;
-        top:30%;
-        background-color: #18263d;
-        color: #ffffff;
-        padding:10px;
+    display: none;
+    /*   Hide */
+    position: fixed;
+    /* fix the position */
+    z-index: 99;
+    /* Keep on top */
+    width: 250px;
+    height: 350px;
+    top: 30%;
+    background-color: #18263d;
+    color: #ffffff;
+    padding: 10px;
 }
 
 
 /* style admin login form div */
-#admin-login-form > div {
-    padding:10px;
+#admin-login-form>div {
+    padding: 10px;
 }
 
 
 
 /* admin login h3 specific */
-#admin-login-form > h3 {
-    color:#ffffff;
+#admin-login-form>h3 {
+    color: #ffffff;
     flex-direction: row;
 
 }
@@ -158,7 +181,7 @@ nav {
     margin: auto;
 }
 
-#loginForm > label {
+#loginForm>label {
     padding-bottom: 5px;
 }
 
@@ -188,8 +211,10 @@ nav {
 
 /* Main */
 main {
-    flex: 1 0 auto;   /* make main element take up all surplus space */
-    margin-top: 38px; /* Push down main content hidden by header */
+    flex: 1 0 auto;
+    /* make main element take up all surplus space */
+    margin-top: 38px;
+    /* Push down main content hidden by header */
 }
 
 /**************       Index page specific    *****************/
@@ -198,83 +223,104 @@ main {
 #hero {
     height: 600px;
     width: 100%;
-    background: url("../images/hero-image-aquastella.webp") no-repeat center center/cover;/* give hero section a background image */
+    background: url("../images/hero-image-aquastella.webp") no-repeat center center/cover;
+    /* give hero section a background image */
     position: relative;
 }
 
 #hero-text {
-    background-color: #18263dcc; /* create transparent bg for overlay text */
-    position: absolute; /* position hero text relative to hero section */
-    bottom: 10px;/* position of text off bottom */
-    width: 80%; /* set width of cover textv */
-    min-height: 100px; /* give text a minimum height */
-    padding-top: 10px; /* prevent text sticking to top */
-    padding-left: 10px; /* prevent text sticking to left */
+    background-color: #18263dcc;
+    /* create transparent bg for overlay text */
+    position: absolute;
+    /* position hero text relative to hero section */
+    bottom: 10px;
+    /* position of text off bottom */
+    width: 80%;
+    /* set width of cover textv */
+    min-height: 100px;
+    /* give text a minimum height */
+    padding-top: 10px;
+    /* prevent text sticking to top */
+    padding-left: 10px;
+    /* prevent text sticking to left */
 }
 
-#hero-text > h2, #hero-text > h3 {
+#hero-text>h2,
+#hero-text>h3 {
     color: #ffffff;
 }
 
 
 /*---------  Welcome Section Index Page  ------------*/
 .welcome-text {
-    padding: 5px;   /* add padding around text */
+    padding: 5px;
+    /* add padding around text */
 }
 
 
 /* our story container styling index page */
 #our-story {
-    padding: 5px; /* add padding around text */
+    padding: 5px;
+    /* add padding around text */
 }
 
 
 #our-story-image {
     height: 500px;
     width: 100%;
-    background: url("../images/aquastella-table-setting.webp") no-repeat center center/cover;/* give our story section a background image */
-    position: relative; /* make image relative to container */
-    
+    background: url("../images/aquastella-table-setting.webp") no-repeat center center/cover;
+    /* give our story section a background image */
+    position: relative;
+    /* make image relative to container */
+
 }
 
 #our-story img {
-    display:block;
-    width:80%; 
-    margin: 0 auto; 
+    display: block;
+    width: 80%;
+    margin: 0 auto;
 }
 
 /* our chef container styling index page */
 #chef-bio {
-    padding: 5px; /* add padding around text */
+    padding: 5px;
+    /* add padding around text */
 }
 
 /* Add image to div as bg and style */
 #about-chef-image {
     height: 500px;
     width: 100%;
-    background: url("../images/chef-marco.webp") no-repeat center center/cover;/* give our story section a background image */
-    position: relative; /* make image relative to container */
-    
+    background: url("../images/chef-marco.webp") no-repeat center center/cover;
+    /* give our story section a background image */
+    position: relative;
+    /* make image relative to container */
+
 }
 
 /* What matters section index page */
 #what-matters-text {
-   padding: 5px; /*  add padding around text */
+    padding: 5px;
+    /*  add padding around text */
 }
 
 /* Add image to div as bg and style */
 #what-matters-image {
     height: 500px;
     width: 100%;
-    background: url("../images/local-fish-market.webp") no-repeat center center/cover;/* give our story section a background image */
-    position: relative; /* make image relative to container */
-    
+    background: url("../images/local-fish-market.webp") no-repeat center center/cover;
+    /* give our story section a background image */
+    position: relative;
+    /* make image relative to container */
+
 }
 
 /*--------------- Gallery Specific Styling ----------------*/
 #photos img {
-    width: 100%; /* give all images 100% of screen width */
-    line-height: 1em; /* add line height in case of broken link */
+    width: 100%;
+    /* give all images 100% of screen width */
+    line-height: 1em;
+    /* add line height in case of broken link */
 }
 
 
@@ -298,7 +344,7 @@ main {
 
 
 
-#daily-stats > div {
+#daily-stats>div {
     margin: 5px;
     padding: 10px 25px;
     border-radius: 8px;
@@ -319,7 +365,7 @@ main {
     justify-content: space-around;
 }
 
-#weekly-stats > div {
+#weekly-stats>div {
     margin: 5px;
     padding: 10px 25px;
     border-radius: 8px;
@@ -329,7 +375,7 @@ main {
 }
 
 #weekly-stats h2 {
-    color:gold;
+    color: gold;
 }
 
 /*------------------------ Admin Page Table Specific -----------*/
@@ -342,17 +388,19 @@ main {
 }
 
 
-#table-wrapper  table {
+#table-wrapper table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #18263d;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid black;
     padding: 5px;
     text-align: center;
-  }
+}
 
 th {
     background-color: #18263d;
@@ -360,7 +408,7 @@ th {
 }
 
 /* shade every even row numver with a bg color */
-#table-wrapper tr:nth-child(even){
+#table-wrapper tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
@@ -385,27 +433,34 @@ th {
 /*------------ Footer specific styling across site ----------*/
 /* Footer */
 footer {
-    background-color: #18263d; /* Set header bg color */
+    background-color: #18263d;
+    /* Set header bg color */
 }
 
 #social-networks {
-    text-align: center; /* align icons as text along center */
-    padding: 20px 0; /* add space above and below */
-    display: flex; /* align icons along footer */
-    justify-content: space-evenly; /* Space icons evenly */
-    list-style-type: none; /* remove bullet points from list icons */
+    text-align: center;
+    /* align icons as text along center */
+    padding: 20px 0;
+    /* add space above and below */
+    display: flex;
+    /* align icons along footer */
+    justify-content: space-evenly;
+    /* Space icons evenly */
+    list-style-type: none;
+    /* remove bullet points from list icons */
 }
 
 #social-networks i {
     font-size: 120%;
     padding: 5%;
-    color:#ffffff;
+    color: #ffffff;
 }
 
 /* style reservation container to center content */
 #reservation-container {
-    display:flex;
-    justify-content: space-around; /* add space around form */
+    display: flex;
+    justify-content: space-around;
+    /* add space around form */
 }
 
 
@@ -415,37 +470,44 @@ footer {
 
 /* set default modal hidden styling  */
 #reservation-form {
-    display: none;   /*   Hide */
-    position: fixed; /* fix the position */
-    z-index: 99; /* Keep on top */ 
+    display: none;
+    /*   Hide */
+    position: fixed;
+    /* fix the position */
+    z-index: 99;
+    /* Keep on top */
     width: 250px;
     height: 350px;
     top: 20%;
     background-color: #18263d;
     color: #ffffff;
-    padding:10px;
+    padding: 10px;
 }
 
 /* style reservation form div */
-#reservation-form > div {
-    padding:10px;
+#reservation-form>div {
+    padding: 10px;
 }
 
 
 
 /* Reservation form h3 specific */
-#reservation-form > h3 {
-    color:#ffffff;
+#reservation-form>h3 {
+    color: #ffffff;
     flex-direction: row;
 
 }
 
 /* Reservation form header */
 #reserv-head {
-    display: flex; /* enable flex control */
-    flex-direction: row; /* align in a row */
-    justify-content: space-around; /* Space out elements */
-    align-items: baseline; /* Aline along baseline */
+    display: flex;
+    /* enable flex control */
+    flex-direction: row;
+    /* align in a row */
+    justify-content: space-around;
+    /* Space out elements */
+    align-items: baseline;
+    /* Aline along baseline */
     padding-top: 15px;
     padding-bottom: 15px;
     border-bottom: 1px solid #ffffff;
@@ -494,14 +556,14 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding-top:20px;
+    padding-top: 20px;
     border-top: 1px solid #ffffff;
 }
 
 /* style find table button */
 #ftable {
     color: gold;
-    background-color:#18263d;
+    background-color: #18263d;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 15px;
@@ -515,7 +577,7 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding-top:20px;
+    padding-top: 20px;
     border-top: 1px solid #ffffff;
 }
 
@@ -529,7 +591,7 @@ footer {
 
 #make-booking {
     color: gold;
-    background-color:#18263d;
+    background-color: #18263d;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 15px;
@@ -539,7 +601,8 @@ footer {
 }
 
 /* target div's with tab1 and tab2 */
-#tab-1 > div, #tab-2 > div {
+#tab-1>div,
+#tab-2>div {
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -550,7 +613,7 @@ footer {
 }
 
 #reservation-completed h2 {
-    color:#ffffff;
+    color: #ffffff;
     font-size: 1rem;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -563,6 +626,7 @@ footer {
 
 /*--------- Mobile phone breakpoint -------------*/
 @media screen and (min-width: 280px) {
+
     /* remove h2 letter spacing on movile phones */
     h2 {
         letter-spacing: 0px;
@@ -574,18 +638,20 @@ footer {
     }
 
     #hero {
-        height: 450px; /* Hero image fit to screen - dont take full height */
+        height: 450px;
+        /* Hero image fit to screen - dont take full height */
     }
 
     /* Target h2 welcome message h2 text specifically */
-    #welcome-text  h2 {
+    #welcome-text h2 {
         text-align: center;
         letter-spacing: 2px;
     }
 
     /* target text to center it */
-    #welcome-text > p {
-        text-align: center; /* align content to center */
+    #welcome-text>p {
+        text-align: center;
+        /* align content to center */
     }
 
     /* Use flexbox to re-order image and text on mobile devices */
@@ -595,11 +661,13 @@ footer {
     }
 
     #what-matters-image {
-        order: 1; /* Make this div second in flexbox */
+        order: 1;
+        /* Make this div second in flexbox */
     }
 
     #what-matters-text {
-        order: 0; /* make this div first in flexbox */
+        order: 0;
+        /* make this div first in flexbox */
     }
 
     /* make footer stick to bottom of page on mobile phone */
@@ -619,12 +687,16 @@ footer {
 
     /* style reservation button in footer on mobile */
     #make-reservation-footer {
-        background-color: #18263d; /* adjust bg color */
-        color:#ffffff;
+        background-color: #18263d;
+        /* adjust bg color */
+        color: #ffffff;
         border: 1px solid #ffffff;
-        padding-left: 5px; /* add padding on left */
-        padding-right: 5px; /* add padding on right */
-        border-radius: 8px; /* give border corners radius */
+        padding-left: 5px;
+        /* add padding on left */
+        padding-right: 5px;
+        /* add padding on right */
+        border-radius: 8px;
+        /* give border corners radius */
     }
 
 
@@ -661,16 +733,20 @@ footer {
         padding-bottom: 10px;
     }
 
-header {
-    padding: 0px;
-}
+    header {
+        padding: 0px;
+    }
 
     /* Header */
     nav {
-        display: block; /* Always display nav */
-        position: relative; /* Bring nav inside header */
-        width: fit-content; /* Dont take up all the space */
-        padding-right: 1rem; /* move content from the right side */
+        display: block;
+        /* Always display nav */
+        position: relative;
+        /* Bring nav inside header */
+        width: fit-content;
+        /* Dont take up all the space */
+        padding-right: 1rem;
+        /* move content from the right side */
     }
 
     /* show menu items side by side instead of a block */
@@ -679,7 +755,7 @@ header {
         align-items: center;
     }
 
-    #menu > li {
+    #menu>li {
         padding-left: 1rem;
     }
 
@@ -690,30 +766,37 @@ header {
 
 
     #logo {
-        font-size: 280%; /* Increase font size for tablet */
-        line-height: 75px; /* Increase line heighj */
-        margin: 0 0.5rem; /* add margin */
+        font-size: 280%;
+        /* Increase font size for tablet */
+        line-height: 75px;
+        /* Increase line heighj */
+        margin: 0 0.5rem;
+        /* add margin */
     }
 
     main {
-        margin-top: 75px; /* push main down to prevent nav covering */
+        margin-top: 75px;
+        /* push main down to prevent nav covering */
     }
 
     #hero-text {
-        width: 300px; /* change width of hero-text div */
-        bottom: 150px;/* position of text off bottom */
-        left: 10px; /* position hero-text div 10px from left */
+        width: 300px;
+        /* change width of hero-text div */
+        bottom: 150px;
+        /* position of text off bottom */
+        left: 10px;
+        /* position hero-text div 10px from left */
         padding-top: 20px;
     }
 
     /* --- Style section breaks ------ */
     #section-break {
-        height:1px;
+        height: 1px;
         width: 80%;
         margin-top: 30px;
         margin-bottom: 30px;
         margin-left: auto;
-        margin-right:auto;
+        margin-right: auto;
         box-shadow: 0px 3px 0px 0px #967375;
     }
 
@@ -721,50 +804,66 @@ header {
     /* style page sections side by side using flex */
     #welcome {
         display: flex;
-        flex-direction: row; /* align divs in row */
+        flex-direction: row;
+        /* align divs in row */
     }
 
-    #our-story, #our-story-image {
-        flex-direction: row; /* align divs in row */
-        align-items: center; /* align divs along center */
-        flex: 50%; /* make sure the width is spilt 50/50 */
+    #our-story,
+    #our-story-image {
+        flex-direction: row;
+        /* align divs in row */
+        align-items: center;
+        /* align divs along center */
+        flex: 50%;
+        /* make sure the width is spilt 50/50 */
     }
 
     #about-chef {
         display: flex;
         flex-direction: row;
-        align-items: center; /* align divs in row */
+        align-items: center;
+        /* align divs in row */
     }
 
-    #chef-bio, #about-chef-image {
-        flex: 50%; /* make sure the width is spilt 50/50 */
+    #chef-bio,
+    #about-chef-image {
+        flex: 50%;
+        /* make sure the width is spilt 50/50 */
     }
 
     #what-matters {
         display: flex;
-        flex-direction: row; /* align divs in row */
-        padding-bottom: 60px; /* add padding to bottom to prevent footer covering section */
-        align-items: center; /* align divs along center */
+        flex-direction: row;
+        /* align divs in row */
+        padding-bottom: 60px;
+        /* add padding to bottom to prevent footer covering section */
+        align-items: center;
+        /* align divs along center */
     }
 
     #what-matters-image {
-        order: 0; /* Make this div second in flexbox */
-        flex: 50%; /* make sure the width is spilt 50/50 */
+        order: 0;
+        /* Make this div second in flexbox */
+        flex: 50%;
+        /* make sure the width is spilt 50/50 */
     }
 
     #what-matters-text {
-        order: 1; /* make this div first in flexbox */
-        flex: 50%; /* make sure the width is spilt 50/50 */
-        
+        order: 1;
+        /* make this div first in flexbox */
+        flex: 50%;
+        /* make sure the width is spilt 50/50 */
+
     }
 
     #welcome-text {
         padding: 10px;
     }
 
-    #welcome-text > p {
+    #welcome-text>p {
         font-size: 18px;
-        text-align: center; /* align content to center */
+        text-align: center;
+        /* align content to center */
     }
 
     /* Gallery Specefic */
@@ -775,7 +874,7 @@ header {
 
     /* Hide reservation button in footer on devices larger than mobile */
     #make-reservation-footer {
-        display:none;
+        display: none;
     }
 
 
@@ -783,7 +882,8 @@ header {
         flex-direction: row;
     }
 
-    #daily-stats h2, #weekly-stats h2 {
+    #daily-stats h2,
+    #weekly-stats h2 {
         font-size: 1.25rem;
     }
 
@@ -800,13 +900,14 @@ header {
     }
 
     /* Gallery Specefic */
-     #photos {
+    #photos {
         column-count: 3;
         column-gap: 5px;
     }
 
     #what-matters {
-        padding-bottom: 70px; /* add padding to bottom of section to uncover from behind footer */
+        padding-bottom: 70px;
+        /* add padding to bottom of section to uncover from behind footer */
     }
 
 }
@@ -815,13 +916,13 @@ header {
     #daily-stats .stats {
         padding-left: 240px;
     }
-       
+
     #weekly-stats .stats {
         padding-left: 240px;
     }
 
-        /* hide mobile nav icon */
-        #mobileMenu {
-            display: none;
-        }
+    /* hide mobile nav icon */
+    #mobileMenu {
+        display: none;
+    }
 }
