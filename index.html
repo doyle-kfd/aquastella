@@ -25,7 +25,7 @@
         </a>
         <nav>
             <ul id="menu">
-                <button id="make-reservation" onclick="openReservation()">Reservation</button>
+                <button id="make-reservation"    onclick="openReservation()">Reservation</button>
                 <li><a href="index.html" class="active link-hover">Home</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                         <!-- Capture mobile menu open click -->
@@ -61,7 +61,7 @@
         <section id="reservation-container">
             <!-- Create a modal reservation form -->
             <!-- give form id of "reservation-form" and a class of "modal" to target -->
-            <div id="reservation-form">
+            <form id="reservation-form">
                 <div id="reserv-head">
                     <h3>Reservations</h3>
                     <span id="close-reservation-form" onclick="closeReservation()">X</span>
@@ -96,7 +96,7 @@
                         </select>
                     </div>
                     <div id="findtable-btn-container">
-                        <button id="ftable">Find Table</button>
+                        <button id="ftable" type="button">Find Table</button>
                         <div id="msg-box">
                             <!-- Hidden message box for displaying feedback-->
                             <p id="message"></p>
@@ -127,7 +127,7 @@
                     </div>
                     <div id="make-res-container">
                         <!-- Make Reservation-->
-                        <button id="make-booking">Make Reservation</button>
+                        <button id="make-booking" type="button">Make Reservation</button>
                     </div>
                 </div>
                 <!-- Create a third tab to display conformation details when reservation made-->
@@ -144,7 +144,7 @@
                         <p>Please ensure you arrive 15 minutes before your booking time.</p>
                     </div>
                 </div>
-            </div>
+            </form>
         </section>
         <!-- Set up hero section on index page -->
         <section id="hero">

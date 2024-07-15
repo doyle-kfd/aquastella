@@ -130,6 +130,11 @@ const reservationSuccessful = document.getElementById("reservation-completed");
 
 
 
+
+
+
+
+
 /**
  *  Create Listner for "find a table button click"
  *
@@ -141,8 +146,9 @@ const reservationSuccessful = document.getElementById("reservation-completed");
  *        produce form part 2 and get firstname, lastname, email and telephone number
  *        write reservation to array and give customer reservation number
  */
-findTable.addEventListener("click", () => {
+findTable.addEventListener("click", (event) => {
   console.log("picked up find table button click");
+  event.preventDefault();
   openReservation(); // Open Form Tab 1
 
   // Get values from form tab1
@@ -150,6 +156,7 @@ findTable.addEventListener("click", () => {
   let date = document.getElementById('date').value;// reservation date from form
   let sitting = document.getElementById('sitting').value; // reservation time from form
   let message = document.getElementById('message'); // message area under find table button for displaying feedback
+ 
 
 
   // Check to see that the the fields have been filled in
@@ -164,24 +171,37 @@ findTable.addEventListener("click", () => {
   let seatsAvailable = checkreservations(date, sitting);
 
   if (seatsAvailable >= guests) {
-    completeReservation();                  // if seats available display form part 2 to complete reservation.
+      console.log("Seats are available");
+      console.log("Number of guests looking for seats " + guests);
+      console.log("Number of seats available " + seatsAvailable);
+      console.log("The Date of the reservation");
+      completeReservation();                  // if seats available display form part 2 to complete reservation.
   } else {
-    message.textContent = "Sitting Full! Please Enter A Different Day"; // Message to be displayed to guest
-    message.classList.remove = 'hidden'; // remove the class hidden
+    console.log("Seats are Not available");
+    console.log("Number of guests looking for seats " + guests);
+    console.log("Number of seats available " + seatsAvailable);
+    console.log("The Date of the reservation");
+      message.textContent = "Sitting Full! Please Enter A Different Day"; // Message to be displayed to guest
+      message.classList.remove = 'hidden'; // remove the class hidden
+      resetForm();
+      console.log("form values should now be reset");
   }
 
   
   function checkreservations(date, sitting) {
     // Create a new array existingReservations filtering only reservations matching the date and sitting provided.  
+    
     let existingReservations = reservations.filter(r => r.date === date && r.sitting === sitting);
+    console.log("Existing reservations: " + JSON.stringify(existingReservations, null, 2));
     // Take the existingReservations array and see how many seats are available using reduce method. 
-    let bookedSeats = existingReservations.reduce((total, reservation) => total + reservation.guests, 0);
+    let bookedSeats = existingReservations.reduce((total, reservation) => total + Number(reservation.guests), 0);
+    console.log("booked seats " + bookedSeats);
     return max_sitting_Seats - bookedSeats;
   }
 
-  console.log("numguests contains " + guests);
-  console.log("Date of reservation " + date);
-  console.log("Sitting " + sitting);
+  console.log("check reservations numguests contains " + guests);
+  console.log("check reservations Date of reservation " + date);
+  console.log("check reservations Sitting " + sitting);
 });
 
 /** 
@@ -330,17 +350,17 @@ function generateConfirmationNumber(){
  * Function to reset form after reservation made
  */
 function resetForm() {
-  document.getElementById('guestNum').value = '';
-  document.getElementById('sitting').value = 'first';
-  document.getElementById('date').value = '';
-  document.getElementById('fname').value = '';
-  document.getElementById('lname').value = '';
-  document.getElementById('email').value = '';
-  document.getElementById('telephone').value = '';
-
+ console.log("started google initialisation");
+document.getElementById('guestNum').value = 1;
+document.getElementById('date').value = null;
+document.getElementById('sitting').value = 'First - 17:00';
+document.getElementById('message').value = '';
+document.getElementById('fname').value = '';
+document.getElementById('lname').value = '';
+document.getElementById('telephone').value = '';
+document.getElementById('email').value = '';
 }
 
-console.log("started google initialisation");
 // Initialise google charts
 google.charts.load('current', {'packages':['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawCharts);
