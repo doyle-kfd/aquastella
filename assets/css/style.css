@@ -661,6 +661,10 @@ footer {
         padding-bottom: 10px;
     }
 
+header {
+    padding: 0px;
+}
+
     /* Header */
     nav {
         display: block; /* Always display nav */
