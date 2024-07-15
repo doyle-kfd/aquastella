@@ -2,7 +2,7 @@ console.log("Script file open");
 const resForm = document.getElementById("menu");
 
 // Function called when reservation menu item is clicked 
-function toggleMenu(){
+function mobileMenu(){
   console.log("menu button click captured")
     // Get menu item by el    const resForm = document.getElementById("menu");ement id
     const resForm = document.getElementById("menu");
@@ -122,12 +122,7 @@ function adminLogout() {
   console.log(adminPassword);
 }
 
-  // close reservation form if close button pressed
-  const reservForm = document.getElementById("reservation-form");
-  function closeReservation() {
-    console.log("captured close reserv form");
-    reservForm.style.display = "none";
-  }
+
 
 /**
  * Get form button Values
@@ -169,7 +164,7 @@ const reservationSuccessful = document.getElementById("reservation-completed");
 findTable.addEventListener("click", (event) => {
   console.log("picked up find table button click");
   event.preventDefault();
-  openReservation(); // Open Form Tab 1
+  openReservationForm(); // Open Form Tab 1
 
   // Get values from form tab1
   let guests = document.getElementById('guestNum').value; // number of guests from form
@@ -303,35 +298,63 @@ resetForm();
 });
 
 
+// Initialise reservations
+let modal = document.getElementById("resForm");
+
 /**
  *    Function opens form tab 1 when "reservation" button is clicked.
  *    It displays tab 1 first. guestnum, sitting, date
  *    When reservation is available it shows tab 2. firstname, lastname, email, telephone.
  */
-function openReservation(){
-  console.log("Entering reservation popup");
-  // Get reservation item by element id
-  const reservForm = document.getElementById("reservation-form");
-  reservForm.style.display = "block"; // Display the reservation form
-  tab1.style.display = "block"; // Display the stage 1 form
-  tab2.style.display = "none"; // Hide the stage 2 form until completing reservation
-  const menu = document.getElementById("menu");
-  menu.style.display = "none";
-  let modal  = document.getElementById("resForm");
-  let reservBtn = document.getElementById("make-reservation");
-  reservBtn.onclick = function() {
-  modal.style.display = "flex";
-  modal.style.justifyContent= "space-around";
-  resForm.style.display = "none";
-  }
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-   
-  };
+function openReservationForm() {
+    console.log("Entering reservation popup");
+    // Get reservation item by element id
+    let reservForm = document.getElementById("reservation-form");
+    reservForm.style.display = "block"; // Display the reservation form
+    console.log("the display value of form is set to block");
+    tab1.style.display = "block"; // Display the stage 1 form
+    console.log("Display form tab 1 ");
+    tab2.style.display = "none"; // Hide the stage 2 form until completing reservation
+    console.log("Hide tab 2");
+    const menu = document.getElementById("menu");
+    menu.style.display = "none";
+    console.log("hide the menu")
+    let modal = document.getElementById("resForm");
+    modal.style.backgroundColor = "rgba(0, 0, 0, 0.522)";
+        console.log("start modal");
+        modal.style.display = "flex";
+        console.log("set the reservation form to flex");
+        modal.style.justifyContent = "space-around";
+        console.log("justify the content space around");
+        resForm.style.display = "none";
+        console.log("hide the menu");
 
+    window.onclick = function (event) {
+        console.log("set the modal to none");
+        if (event.target == modal) {
+          reservForm.style.display = "none"; // Hide the reservation form
+            modal.style.display = "none";
+
+        } else {
+            console.log("modal set to flex");
+            modal.style.display = "flex";
+        }
+    }
+
+};
+
+
+
+    // close reservation form if close button pressed
+    const reservForm = document.getElementById("reservation-form");
+    function closeReservation() {
+      console.log("captured close reserv form");
+      reservForm.style.display = "none";
+      console.log("tried to reset the modal colour");
+      modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
+
+
+    }
 
 
 /**
