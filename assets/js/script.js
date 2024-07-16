@@ -315,42 +315,43 @@ let modal = document.getElementById("resForm");
  *    When reservation is available it shows tab 2. firstname, lastname, email, telephone.
  */
 function openReservationForm() {
-    console.log("Entering reservation popup");
-    // Get reservation item by element id
-    let reservForm = document.getElementById("reservation-form");
-    reservForm.style.display = "block"; // Display the reservation form
-    console.log("the display value of form is set to block");
-    tab1.style.display = "block"; // Display the stage 1 form
-    console.log("Display form tab 1 ");
-    tab2.style.display = "none"; // Hide the stage 2 form until completing reservation
-    console.log("Hide tab 2");
-    const menu = document.getElementById("menu");
-    menu.style.display = "none";
-    console.log("hide the menu")
-    let modal = document.getElementById("resForm");
-    modal.style.backgroundColor = "rgba(0, 0, 0, 0.522)";
-        console.log("start modal");
-        modal.style.display = "flex";
-        console.log("set the reservation form to flex");
-        modal.style.justifyContent = "space-around";
-        console.log("justify the content space around");
-        resForm.style.display = "none";
-        console.log("hide the menu");
+  console.log("Entering reservation popup");
+  // Get reservation item by element id
+  let reservForm = document.getElementById("reservation-form");
+  let tab1 = document.getElementById("tab-1");
+  let tab2 = document.getElementById("tab-2");
+  let modal = document.getElementById("resForm");
+  const menu = document.getElementById("menu");
 
-    window.onclick = function (event) {
-        console.log("set the modal to none");
-        if (event.target == modal) {
+  reservForm.style.display = "block"; // Display the reservation form
+  console.log("The display value of form is set to block");
+  modal.style.backgroundColor = "rgba(0, 0, 0, 0.522)"; // give the bg a color to bring focus to form
+  tab1.style.display = "block"; // Display the stage 1 form
+  console.log("Display form tab 1 ");
+  tab2.style.display = "none"; // Hide the stage 2 form until completing reservation
+  console.log("Hide tab 2");
+
+  menu.style.display = "none"; // Hide the menu now that the form is displayed
+  console.log("Hide the menu");
+
+  modal.style.display = "flex"; // set the modal style to flex 
+  console.log("Set the reservation form to flex");
+  modal.style.justifyContent = "space-around"; // show space around the form
+  console.log("Justify the content space around");
+
+  // Reset the window click event handler to ensure the form hides when clicking outside
+  window.onclick = function (event) {
+      // check to see if the button thats bein
+      if (event.target == modal) { 
+          console.log("Window onclick target == modal");
           reservForm.style.display = "none"; // Hide the reservation form
-            modal.style.display = "none";
-
-        } else {
-            console.log("modal set to flex");
-            modal.style.display = "flex";
-            resForm.style.display = "flex";
-        }
-    }
-
-};
+          modal.style.display = "none"; // hide the modal styling
+          console.log("Set the modal to none");
+          menu.style.display = "none"; // Show the menu again
+          console.log("Show the menu");
+      }
+  }
+}
 
 
 
