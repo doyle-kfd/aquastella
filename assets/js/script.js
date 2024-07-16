@@ -310,10 +310,14 @@ updateAdminPage(); // call function to write reservation to array and trigger up
   successTime.textContent =   sitting;
   successNumber.textContent =  reservation.confirmationNumber;
 
-
+  const reservationConfirmation = reservation.confirmationNumber;
+  
 
 displayReservationdetails(); // Show the reservation details to the guest
-sendEmail();
+
+console.log("first name for email is: " + firstName);
+
+sendEmail(firstName, date, sitting, reservationConfirmation);
 console.log("send email");
 console.log(reservations);
 resetForm();
@@ -687,20 +691,21 @@ chart.draw(data, options);  // create the chart using defined data and options
 })();
 */
 
-function sendEmail() {
+function sendEmail(firstName, date, sitting, reservationConfirmation) {
 
   console.log("trying to send confirmation email")
 
   const successName = document.getElementById('reservation-name').value;
+  console.log("Name of reservation" + successName);
   const successDate = document.getElementById('reservation-date').value;
   const successTime = document.getElementById('reservation-time').value;
   const successNumber = document.getElementById('reservation-number').value;
 
   const templateParams = {
-    successName: successName,
-    successDate: successDate,
-    successTime: successTime,
-    successNumber: successNumber
+    successName: firstName,
+    successDate: date,
+    successTime: sitting,
+    successNumber: reservationConfirmation
 };
 
 emailjs.send('service_lgiwr1r', 'template_0fj9hod', templateParams)
