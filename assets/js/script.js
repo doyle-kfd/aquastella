@@ -1,5 +1,5 @@
 console.log("Script file open");
-const resForm = document.getElementById("menu");
+//const resForm = document.getElementById("menu");
 
 // Function called when reservation menu item is clicked 
 
@@ -30,10 +30,11 @@ function mobileMenu(){
  * 
  */
 function openloginForm() {
-  console.log("Login form button clicked")
+  console.log("Login Form Opened")
   const resForm = document.getElementById("menu"); // get meny by id
   resForm.style.display = "none"; // Close the menu
   loginForm.style.display = "block"; // display the login form
+  modal.style.backgroundColor = "rgba(0, 0, 0, 0.522)"; // give the bg a color to bring focus to form
 }
 
 /**
