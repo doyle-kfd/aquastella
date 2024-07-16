@@ -2,6 +2,7 @@ console.log("Script file open");
 const resForm = document.getElementById("menu");
 
 // Function called when reservation menu item is clicked 
+
 function mobileMenu(){
   console.log("menu button click captured")
     // Get menu item by el    const resForm = document.getElementById("menu");ement id
@@ -10,11 +11,18 @@ function mobileMenu(){
     if (resForm.style.display === "block") {
     // Hide menu if its open
       resForm.style.display = "none";
+      console.log("menu hidden");
      } else {
     // Open menu if closed
      resForm.style.display = "block";
-     }
+     console.log("menu shown");
+     }  
 }
+
+
+  
+
+
 
 /**
  * 
@@ -115,7 +123,7 @@ function adminLogout() {
   let adminPassword = 'nothing';
   // Close the menu
   const menu = document.getElementById("menu");
-  menu.style.display = "none";
+  menu.style.display = "flex";
   localStorage.setItem('authenticated', 'false');
   document.getElementById('adminPagelink').style.display = 'none'; // hide
   console.log(adminUsername);
@@ -338,6 +346,7 @@ function openReservationForm() {
         } else {
             console.log("modal set to flex");
             modal.style.display = "flex";
+            resForm.style.display = "flex";
         }
     }
 

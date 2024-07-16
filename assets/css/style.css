@@ -773,20 +773,17 @@ footer {
 
     /* Header */
     nav {
-        display: block;
-        /* Always display nav */
-        position: relative;
-        /* Bring nav inside header */
-        width: fit-content;
-        /* Dont take up all the space */
-        padding-right: 1rem;
-        /* move content from the right side */
+        display: flex;          /* Always display nav */
+        position: relative;     /* Bring nav inside header */
+        /* width: fit-content;     /* Dont take up all the space */
+        padding-right: 1rem;    /* move content from the right side */
     }
 
     /* show menu items side by side instead of a block */
     #menu {
         display: flex;
         align-items: center;
+        padding-left: 0px;
     }
 
     #menu>li {
