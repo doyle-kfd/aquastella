@@ -660,9 +660,14 @@ footer {
         letter-spacing: 0px;
     }
 
+    nav {
+        padding-bottom: 15px;
+    }
+
     /* style menu */
     #menu {
-        text-align: center;
+        text-align: left;
+        padding-left: 50px;
     }
 
     #hero {
@@ -765,6 +770,7 @@ footer {
         padding: 0px;
     }
 
+
     /* Header */
     nav {
         display: block;
@@ -794,7 +800,7 @@ footer {
 
 
     #logo {
-        font-size: 280%;
+        font-size: 1.75rem;
         /* Increase font size for tablet */
         line-height: 75px;
         /* Increase line heighj */
