@@ -35,6 +35,18 @@ function openloginForm() {
   resForm.style.display = "none"; // Close the menu
   loginForm.style.display = "block"; // display the login form
   modal.style.backgroundColor = "rgba(0, 0, 0, 0.522)"; // give the bg a color to bring focus to form
+    // Reset the window click event handler to ensure the form hides when clicking outside
+    window.onclick = function (event) {
+      // check to see if the button thats bein
+      if (event.target == modal) { 
+          /*console.log("clicked outside the admin login form")
+          console.log("Window onclick target == modal");
+          loginForm.style.display = "none"; // Hide the login form
+          modal.style.display = "none"; // hide the modal styling */
+          console.log("Clicked outside the admin login form");
+          closeloginForm();
+      }
+  }
 }
 
 /**
@@ -45,6 +57,7 @@ function openloginForm() {
 function closeloginForm(){
   console.log("close login form button click");
   loginForm.style.display = "none"; // display the login form
+  modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
 }
 
 /**
