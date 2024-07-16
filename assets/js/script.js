@@ -312,8 +312,9 @@ updateAdminPage(); // call function to write reservation to array and trigger up
 
 
 
-
 displayReservationdetails(); // Show the reservation details to the guest
+sendEmail();
+console.log("send email");
 console.log(reservations);
 resetForm();
 
@@ -671,3 +672,43 @@ chart.draw(data, options);  // create the chart using defined data and options
     console.log("phone");
     console.log("confirmationNumber");
 */
+
+
+////////////////////////////////////////////////////////////////////
+////////
+///////////
+//////////           Setting up email conformation using emailJS
+///////
+//////
+////////////////////////////////////////////////////////////////
+/*
+(function() {
+  emailjs.init('FNSI1Krox9FkKTPMn'); // Replace 'YOUR_USER_ID' with your actual EmailJS user ID
+})();
+*/
+
+function sendEmail() {
+
+  console.log("trying to send confirmation email")
+
+  const successName = document.getElementById('reservation-name').value;
+  const successDate = document.getElementById('reservation-date').value;
+  const successTime = document.getElementById('reservation-time').value;
+  const successNumber = document.getElementById('reservation-number').value;
+
+  const templateParams = {
+    successName: successName,
+    successDate: successDate,
+    successTime: successTime,
+    successNumber: successNumber
+};
+
+emailjs.send('service_lgiwr1r', 'template_0fj9hod', templateParams)
+        .then((response) => {
+            console.log('SUCCESS!', response.status, response.text);
+            alert('Email sent successfully!');
+        }, (error) => {
+            console.log('FAILED...', error);
+            alert('Failed to send email. Please try again later.');
+        });
+}
