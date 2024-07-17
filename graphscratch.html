@@ -16,7 +16,109 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://www.gstatic.com/charts/loader.js"></script>
-    
+    <script type="text/javascript">
+        // Load Charts and the corechart package.
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        // Draw the pie chart for Sarah's pizza when Charts is loaded.
+        google.charts.setOnLoadCallback(drawDailyChart);
+
+        // Draw the pie chart for the Anthony's pizza when Charts is loaded.
+        google.charts.setOnLoadCallback(drawWeeklyChart);
+
+        // function to create daily chart
+        function drawDailyChart(total, firstSitting, secondSitting) {
+            // create a data table from an array
+            const data = google.visualization.arrayToDataTable([
+                ['Sitting', 'Reservations'], // array header
+                ['Total', total], // total sittings
+                ['First Sitting', firstSitting], //total first sittings
+                ['Second Sitting', secondSitting] // total second sittings
+            ]);
+
+            const options = {
+                title: 'Today\'s Reservations', // Title of chart
+                chartArea: {
+                    width: '100%'
+                }, // give it full width
+                hAxis: {
+                    title: 'Total Reservations', // Horizontal axis title
+                    minValue: 0 // give it a minimum value
+                },
+                vAxis: {
+                    title: 'Sitting' // vertical access heading
+                }
+            };
+
+            // create a BarChart object at the element dailyChart
+            const chart = new google.visualization.BarChart(document.getElementById('dailyChart'));
+            chart.draw(data, options); // create the chart using defined data and options
+        }
+
+        // function to create weekly graph by day
+        function drawWeeklyChart(reservations) {
+            // create a new DataTable object to hold the chart data
+            const data = new google.visualization.DataTable();
+            data.addColumn('string', 'Date'); // add a column Date as a string
+            data.addColumn('number', 'Reservations'); // add a column Reservations as a number
+
+            //function to format dates
+            function formatDate(date) {
+                // specify how date should ve displayed
+                const options = {
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric'
+                };
+                // return formatted string as date
+                return date.toLocaleDateString(undefined, options);
+            }
+
+            // Prepare data for the next 7 days
+            // take todays date
+            const today = new Date();
+            //  for 7 iterations
+            for (let i = 0; i < 7; i++) {
+                const date = new Date(today); // set the date value as today
+                date.setDate(today.getDate() + i); // get todays day/date and increment by 1
+                const dateString = date.toISOString().split('T')[0]; // get the long string date and split on T
+                const formattedDate = formatDate(date); // Format the date to display the day
+
+                let count = 0; // initialise the counter
+
+                // for each reservation in the reservation array
+                reservations.forEach(reservation => {
+
+                    // if the reservation date is the same as the one in the date string
+                    if (reservation.date === dateString) {
+                        count++; // increment the count
+                    }
+                });
+
+                // add a new row to the Google charts data table
+                data.addRow([formattedDate, count]);
+            }
+
+            const options = {
+                title: 'Next 7 Days Reservations', // title of chart
+                chartArea: {
+                    width: '100%'
+                }, // give it the full width
+                hAxis: {
+                    title: 'Reservations', // horizontal axis
+                    minValue: 0 // set the minimum value
+                },
+                vAxis: {
+                    title: 'Date' // vertical axis title
+                }
+            };
+
+            // create a chart object at the element weeklyChart
+            const chart = new google.visualization.ColumnChart(document.getElementById('weeklyChart'));
+            chart.draw(data, options); // create the chart using defined data and options
+        }
+    </script>
 </head>
 
 <body>
@@ -237,6 +339,9 @@
 
     <!-- load local js scripts here -->
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/adminpage.js"></script>
+
+
 
     <!-- Font Awesome js -->
     <script src="https://kit.fontawesome.com/bb14665003.js" crossorigin="anonymous"></script>
