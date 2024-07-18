@@ -381,7 +381,7 @@ function displayReservationdetails() {
  * Create function to change input date from format yyyy-mm-dd to dd-mm-yy
  */
 function convertDate() {
-    console.log("date conversion function complete")
+    console.log("date conversion function started")
     let dateObj = new Date(date.value); // define object as date value
     let month = dateObj.getUTCMonth() + 1; // get the month part of the date
     month = month < 10 ? '0' + month : month; // to display month as mm may need to add leading 0
@@ -450,7 +450,9 @@ function onlyOnAdminPage() {
 function loadAdminSpecificCode() {
 
     // Initialise google charts
-    google.charts.load('current', {packages: ['corechart']});
+    google.charts.load('current', {
+        packages: ['corechart']
+    });
 
     google.charts.setOnLoadCallback(drawCharts);
 
@@ -611,67 +613,74 @@ function loadAdminSpecificCode() {
     }
 
     // function to create weekly graph by day
-    function drawWeeklyChart(reservations) {
-        // create a new DataTable object to hold the chart data
-        const data = new google.visualization.DataTable();
-        data.addColumn('string', 'Date'); // add a column Date as a string
-        data.addColumn('number', 'Reservations'); // add a column Reservations as a number
+function drawWeeklyChart(reservations) {
+    // create a new DataTable object to hold the chart data
+    const data = new google.visualization.DataTable();
+    data.addColumn('string', 'Date'); // add a column Date as a string
+    data.addColumn('number', 'Reservations'); // add a column Reservations as a number
 
-        //function to format dates
-        function formatDate(date) {
-            // specify how date should ve displayed
-            const options = {
-                weekday: 'short',
-                month: 'short',
-                day: 'numeric'
-            };
-            // return formatted string as date
-            return date.toLocaleDateString(undefined, options);
-        }
-
-        // Prepare data for the next 7 days
-        // take todays date
-        const today = new Date();
-        //  for 7 iterations
-        for (let i = 0; i < 7; i++) {
-            const date = new Date(today); // set the date value as today
-            date.setDate(today.getDate() + i); // get todays day/date and increment by 1
-            const dateString = date.toISOString().split('T')[0]; // get the long string date and split on T
-            const formattedDate = formatDate(date); // Format the date to display the day
-
-            let count = 0; // initialise the counter
-
-            // for each reservation in the reservation array
-            reservations.forEach(reservation => {
-
-                // if the reservation date is the same as the one in the date string
-                if (reservation.date === dateString) {
-                    count++; // increment the count
-                }
-            });
-
-            // add a new row to the Google charts data table
-            data.addRow([formattedDate, count]);
-        }
-
+    // function to format dates
+    function formatDate(date) {
+        // specify how date should be displayed
         const options = {
-            title: 'Next 7 Days Reservations', // title of chart
-            chartArea: {
-                width: '100%'
-            }, // give it the full width
-            hAxis: {
-                title: 'Reservations', // horizontal axis
-                minValue: 0 // set the minimum value
-            },
-            vAxis: {
-                title: 'Date' // vertical axis title
-            }
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric'
         };
-
-        // create a chart object at the element weeklyChart
-        const chart = new google.visualization.ColumnChart(document.getElementById('weeklyChart'));
-        chart.draw(data, options); // create the chart using defined data and options
+        // return formatted string as date
+        return date.toLocaleDateString(undefined, options);
     }
+
+    // function to format dates to dd-mm-yyyy
+    function formatDateForComparison(date) {
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}-${month}-${year}`;
+    }
+
+    const today = new Date();
+
+    // Prepare data for the next 7 days
+    for (let i = 0; i < 7; i++) {
+        const date = new Date(today);
+        date.setDate(today.getDate() + i); // get today's date and increment by i
+        const dateString = formatDateForComparison(date); // format date as dd-mm-yyyy
+        const formattedDate = formatDate(date); // format the date to display the day
+
+        let count = 0; // initialise the counter
+
+        // for each reservation in the reservation array
+        reservations.forEach(reservation => {
+            // if the reservation date is the same as the one in the date string
+            if (reservation.date === dateString) {
+                count++; // increment the count
+            }
+        });
+
+        // add a new row to the Google charts data table
+        data.addRow([formattedDate, count]);
+    }
+
+    const options = {
+        title: 'Next 7 Days Reservations', // title of chart
+        chartArea: {
+            width: '100%' // give it the full width
+        },
+        hAxis: {
+            title: 'Date' // horizontal axis title
+        },
+        vAxis: {
+            title: 'Reservations', // vertical axis title
+            minValue: 0 // set the minimum value
+        }
+    };
+
+    // create a chart object at the element weeklyChart
+    const chart = new google.visualization.ColumnChart(document.getElementById('weeklyChart'));
+    chart.draw(data, options); // create the chart using defined data and options
+}
+
 }
 
 //////////////////////////////   Use as needed ////////////////////////////
