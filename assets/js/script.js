@@ -247,8 +247,8 @@ makeReservation.addEventListener("click", () => {
     let day = dateObj.getUTCDate(); // get day part of the date object
     day = day < 10 ? '0' + day : day; // to display day as dd may need to add leading 0
     let year = dateObj.getUTCFullYear(); // get year part of the date
-    let newDate = day + "/" + month + "/" + year; // create new variable newDate in format dd/mm/yy
-    console.log("New date displayed " + newDate);
+    let formattedDate = day + "-" + month + "-" + year; // create new variable formattedDate in format dd/mm/yy
+    console.log("New date displayed " + formattedDate);
 
     if (!firstName || !lastName || !email || !phone) {
         message.textContent = "Please fill in all fields."; // Message to be displayed to booker
@@ -259,7 +259,7 @@ makeReservation.addEventListener("click", () => {
     // Create reservation object
     const reservation = {
         confirmationNumber: generateConfirmationNumber(), // Add generated confirmation number
-        date,
+        date: formattedDate,
         sitting,
         guests,
         firstName,
@@ -283,17 +283,18 @@ makeReservation.addEventListener("click", () => {
 
     // Display reservation values in reservation success tab
     successName.textContent = firstName + ",";
-    successDate.textContent = date;
+    successDate.textContent = formattedDate;
     successTime.textContent = sitting;
     successNumber.textContent = reservation.confirmationNumber;
 
     const reservationConfirmation = reservation.confirmationNumber;
 
     displayReservationdetails(); // Show the reservation details to the guest
-
+    localStorage.setItem('reservations', JSON.stringify(reservations)); // write reservations to localstorage
+    console.log("writing the reservation to loacal storage");
     console.log("first name for email is: " + firstName);
 
-    sendEmail(firstName, date, sitting, reservationConfirmation);
+    sendEmail(firstName, formattedDate, sitting, reservationConfirmation);
     console.log("send email");
     console.log(reservations);
     resetForm();
@@ -387,8 +388,8 @@ function convertDate() {
     let day = dateObj.getUTCDate(); // get day part of the date object
     day = day < 10 ? '0' + day : day; // to display day as dd may need to add leading 0
     let year = dateObj.getUTCFullYear(); // get year part of the date
-    let newDate = day + "/" + month + "/" + year; // create new variable newDate in format dd/mm/yy
-    console.log(newDate);
+    let formattedDate = day + "/" + month + "/" + year; // create new variable formattedDate in format dd/mm/yy
+    console.log(formattedDate);
 }
 
 /**
@@ -465,7 +466,7 @@ function loadAdminSpecificCode() {
      *
      */
     function updateAdminPage() {
-        localStorage.setItem('reservations', JSON.stringify(reservations)); // write reservations to localstorage
+        // localStorage.setItem('reservations', JSON.stringify(reservations)); // write reservations to localstorage
         window.dispatchEvent(new Event('storage')); // trigger event to check for updates in local storage
     }
 
@@ -480,7 +481,7 @@ function loadAdminSpecificCode() {
     function updateReservationsTable() {
         const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
         const tableBody = document.getElementById('reservationsTableBody');
-
+        console.log("starting Update Reservations Display Table");
         // Clear the existing table rows
         tableBody.innerHTML = '';
 
@@ -496,6 +497,7 @@ function loadAdminSpecificCode() {
 
             tableBody.appendChild(row);
         });
+        console.log("completed Update Reservations Table");
 
         // Update the stats
         updateStats(reservations);
@@ -503,8 +505,22 @@ function loadAdminSpecificCode() {
 
     // Update the reservation stats for displaying
     function updateStats(reservations) {
+        console.log(reservations);
         // Get todays date and as an ISOString and split it on the T to give yyyy-mm-dd
         const today = new Date().toISOString().split('T')[0];
+        //console.log(today);
+
+        // Convert todays date to dd-mm-yy
+        let dateObj = new Date(today); // define object as date value
+        let month = dateObj.getUTCMonth() + 1; // get the month part of the date
+        month = month < 10 ? '0' + month : month; // to display month as mm may need to add leading 0
+        let day = dateObj.getUTCDate(); // get day part of the date object
+        day = day < 10 ? '0' + day : day; // to display day as dd may need to add leading 0
+        let year = dateObj.getUTCFullYear(); // get year part of the date
+        let formattedDate = day + "-" + month + "-" + year; // create new variable formattedDate in format dd/mm/yy
+        console.log("New date displayed " + formattedDate);
+
+
 
         // Initialise the variable next7Days
         const next7Days = new Date();
@@ -529,7 +545,7 @@ function loadAdminSpecificCode() {
         reservations.forEach(reservation => {
 
             // Check and see if the date is today
-            if (reservation.date === today) {
+            if (reservation.date === formattedDate) {
                 totalToday++; // If it is, increment todays date counter by 1
                 // Check to see of there are reservations for first sitting
                 if (reservation.sitting === 'First - 17:00') {
@@ -541,7 +557,7 @@ function loadAdminSpecificCode() {
 
             // Calculate counters for next 7 days
             // Check to see if the reservation date is greater than today and its less than the calculated ISO string
-            if (reservation.date > today && reservation.date <= next7DaysISOString) {
+            if (reservation.date > formattedDate && reservation.date <= next7DaysISOString) {
                 totalNext7Days++; // If it is then increment the counter for the total next 7 days.
                 // Check to see if the reservation is for the first sitting
                 if (reservation.sitting === 'First - 17:00') {
