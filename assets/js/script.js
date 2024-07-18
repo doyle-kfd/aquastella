@@ -195,12 +195,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 const domain = getRandomElement(domainNames);                                    // get a random domaion name from domainNames
                 return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;         // return value of firstname, last name and domain concatenated using template literals.
             }
+
+            function formatDate(date) {
+                const day = String(date.getDate()).padStart(2, '0');
+                const month = String(date.getMonth() + 1).padStart(2, '0'); // January is 0!
+                const year = date.getFullYear();
+                return `${day}-${month}-${year}`;
+            }
             
             // Start the loop for the next 30 days - starting today
             for (let day = 0; day < daysToGenerate; day++) {                                                       
                 const currentDate = new Date(startDate);                                                         // start date is today, set to current date
                 currentDate.setDate(startDate.getDate() + day);                                                  // set the current date to startdate + 1 , incrementing each day of 30
-                const formattedDate = currentDate.toLocaleDateString('en-GB').split('/').reverse().join('-');    // formatted date converts date string to dd-mm-yyyy
+                const formattedDate = formatDate(currentDate);                                                   // formatted date converts date string to dd-mm-yyyy
                 
                 // For each day, loop for sittings
                 sittings.forEach(sitting => {
