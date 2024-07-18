@@ -272,7 +272,7 @@ makeReservation.addEventListener("click", () => {
     // push the reservation date, sitting, guestnumbers,  first name, last name email, telephone reservation number to array
     reservations.push(reservation);
     alert('Reservation completed successfully!');
-    updateAdminPage(); // call function to write reservation to array and trigger update event.
+    onlyOnAdminPage(); // call function to write reservation to array and trigger update event.
 
 
     // Get values for reservation success tab
@@ -442,13 +442,17 @@ function onlyOnAdminPage() {
  * 
  * 
  */
+
+
+
+
 function loadAdminSpecificCode() {
 
     // Initialise google charts
-    google.charts.load('current', {
-        'packages': ['corechart', 'bar']
-    });
+    google.charts.load('current', {packages: ['corechart']});
+
     google.charts.setOnLoadCallback(drawCharts);
+
     console.log("ended google initialisation");
 
     function drawCharts() {
@@ -464,16 +468,6 @@ function loadAdminSpecificCode() {
         localStorage.setItem('reservations', JSON.stringify(reservations)); // write reservations to localstorage
         window.dispatchEvent(new Event('storage')); // trigger event to check for updates in local storage
     }
-
-    // Add event listner to check when DOM is fully loaded.
-    document.addEventListener('DOMContentLoaded', function () {
-        updateReservationsTable();
-
-        // Listen for storage events
-        window.addEventListener('storage', function () {
-            updateReservationsTable();
-        });
-    });
 
     /**
      *
