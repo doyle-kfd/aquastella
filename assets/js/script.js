@@ -155,9 +155,13 @@ let makeReservation = document.getElementById('make-reservation'); // find make 
 // Make sure that the web page has loaded completely
 document.addEventListener("DOMContentLoaded", function() {
           // When its loaded completly
+          console.log("Starting to check for existing reservations array");
 
           // Check to see if the reservations array exists... wont overwrite exising data
           if (!localStorage.getItem("reservations")) {
+
+            console.log("Array not found start creating now");
+
             const reservations = [];                               // Create a blank reservations array
             let confirmationNumber = 1;                            // Start with a reservation number of 1
             const maxSeatsPerSitting = 16;                         // set the max seating possible of 16, per sitting
@@ -215,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         
 
                         // Set up the reservations data construct
-                        const reservations = {                                                                         
+                        const reservation = {                                                                         
                             confirmationNumber: confirmationNumber++,
                             date: formattedDate,
                             sitting: sitting,
@@ -225,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             email: email,
                             phone: phone
                         };
-                        reservations.push(reservations);
+                        reservations.push(reservation);
                     }
                 });
             }
