@@ -131,7 +131,7 @@ function adminLogout() {
     let adminPassword = 'nothing';
     // Close the menu
     const menu = document.getElementById("menu");
-    menu.style.display = "flex";
+    menu.style.display = "none"; // Hide menu on logout
     localStorage.setItem('authenticated', 'false');
     document.getElementById('adminPagelink').style.display = 'none'; // hide
     console.log(adminUsername);
@@ -142,7 +142,103 @@ function adminLogout() {
  * Get form button Values
  */
 let findTable = document.getElementById('ftable'); // find table button - used by listner
-let makeReservation = document.getElementById('make-booking'); // find make reservation button - used by listner
+let makeReservation = document.getElementById('make-reservation'); // find make reservation button - used by listner
+
+
+/**
+ * 
+ * 
+ * Function to autofill some details into the reservations array in local storage on the very first use
+ * It only populates if the reservations array is empty.
+ * 
+ */
+// Make sure that the web page has loaded completely
+document.addEventListener("DOMContentLoaded", function() {
+          // When its loaded completly
+
+          // Check to see if the reservations array exists... wont overwrite exising data
+          if (!localStorage.getItem("reservations")) {
+            const reservations = [];                               // Create a blank reservations array
+            let confirmationNumber = 1;                            // Start with a reservation number of 1
+            const maxSeatsPerSitting = 16;                         // set the max seating possible of 16, per sitting
+            const daysToGenerate = 30;                             // set how many days i want to populate, 30 to start
+            const sittings = ["First - 17:00", "Second - 20:30"];  // sittings are First - 17:00 and Second - 20:30
+            const guestsOptions = [1, 2, 4, 6];                    // guest seats available
+            const startDate = new Date();                          // Date for reservation starts = today
+    
+            // Setup array details
+            const firstNames = ["John", "Jane", "Alice", "Bob", "Charlie", "Diana", "Eve", "Frank"];                // First names
+            const lastNames = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson"];      // Second names
+            const domainNames = ["example.com", "mail.com", "test.com", "demo.com"];                                // Email domains
+    
+            // Random number generator for repeated use
+            function getRandomElement(arr) {
+                return arr[Math.floor(Math.random() * arr.length)]; // Calculates a random number between 0 and 1 inclusive, and multiplies it by the length of the array.
+            }
+            
+            // Generate a random phone number
+            function generateRandomPhoneNumber() {
+                const digits = "0123456789";                       // Define the digits to be used
+                let phoneNumber = "";                              // Define phone number starting out as blank
+                for (let i = 0; i < 10; i++) {                     // start a loop that iterates 10 times, 0 -- 9.
+                    phoneNumber += getRandomElement(digits);       // take digits and pass it through the random generator and append the result to phoneNumber
+                }
+                return phoneNumber;                                // return the phone number generated.
+            }
+            
+            // Generate random email address using first name, last name and domain.
+            function generateRandomEmail(firstName, lastName) {
+                const domain = getRandomElement(domainNames);                                    // get a random domaion name from domainNames
+                return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;         // return value of firstname, last name and domain concatenated using template literals.
+            }
+            
+            // Start the loop for the next 30 days - starting today
+            for (let day = 0; day < daysToGenerate; day++) {                                                       
+                const currentDate = new Date(startDate);                                                         // start date is today, set to current date
+                currentDate.setDate(startDate.getDate() + day);                                                  // set the current date to startdate + 1 , incrementing each day of 30
+                const formattedDate = currentDate.toLocaleDateString('en-GB').split('/').reverse().join('-');    // formatted date converts date string to dd-mm-yyyy
+                
+                // For each day, loop for sittings
+                sittings.forEach(sitting => {
+                    let seatsFilled = 0;                                                                         // Seats counter set to 0
+     
+                    while (seatsFilled < maxSeatsPerSitting / 2) {                                               // while the number of seats filled < 8, only take up half the seats
+                        const guests = guestsOptions[Math.floor(Math.random() * guestsOptions.length)];          // pick a seat option from seat options array, 1,2,4,6
+                        if (seatsFilled + guests > maxSeatsPerSitting / 2) continue;                             // check to see if seatsFilled + guests > 8
+    
+                        seatsFilled += guests;                                                                   // Add guests to seatsFilled, for next loop check
+    
+                        const firstName = getRandomElement(firstNames);                                          // get a first name from the firstNames array
+                        const lastName = getRandomElement(lastNames);                                            // get a last name from the lastNames array
+                        const email = generateRandomEmail(firstName, lastName);                                  // get email address from firstName, lastName@domain
+                        const phone = generateRandomPhoneNumber();                                               // generate a random phone number from function
+                        
+
+                        // Set up the reservations data construct
+                        const reservations = {                                                                         
+                            confirmationNumber: confirmationNumber++,
+                            date: formattedDate,
+                            sitting: sitting,
+                            guests: guests,
+                            firstName: firstName,
+                            lastName: lastName,
+                            email: email,
+                            phone: phone
+                        };
+                        reservations.push(reservations);
+                    }
+                });
+            }
+    
+            // Save bookings to local storage
+            localStorage.setItem("reservations", JSON.stringify(reservations));                                    // write reservations to local string
+        }
+    });
+
+
+
+
+
 
 
 /**
