@@ -772,14 +772,16 @@ function drawWeeklyChart(reservations) {
     const options = {
         title: 'Next 7 Days Reservations', // title of chart
         chartArea: {
-            width: '100%' // give it the full width
+            width: '100%', // give it the full width
         },
+        
         hAxis: {
             title: 'Date' // horizontal axis title
         },
         vAxis: {
             title: 'Reservations', // vertical axis title
-            minValue: 0 // set the minimum value
+            minValue: 0, // set the minimum value
+            maxValue: 16
         }
     };
 
