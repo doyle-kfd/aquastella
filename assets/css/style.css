@@ -701,6 +701,20 @@ footer {
         /* make this div first in flexbox */
     }
 
+    #social-networks {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #social-networks > button {
+        font-size: 15px;
+    }
+
+    #can-hide-on-mobile {
+        display: none;
+    }
+
     /* make footer stick to bottom of page on mobile phone */
     footer {
         position: fixed;
