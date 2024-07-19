@@ -668,6 +668,10 @@ footer {
         padding-left: 50px;
     }
 
+    #reservations-quick-count {
+        padding-top: 20px
+    }
+
     #hero {
         height: 450px;
         /* Hero image fit to screen - dont take full height */
