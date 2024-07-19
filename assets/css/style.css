@@ -95,7 +95,15 @@ header a {
     /* Space out menu items */
 }
 
-
+#nav-items {
+    font-size: 110%;
+    /* Make ment text larger */
+    letter-spacing: 4px;
+    /* space menu text out */
+    list-style-type: none;
+    /* remove disc from list item */
+    display: none;
+}
 
 
 .active {
@@ -245,7 +253,7 @@ nav {
 main {
     flex: 1 0 auto;
     /* make main element take up all surplus space */
-    margin-top: 40px;
+    margin-top: 38px;
     /* Push down main content hidden by header */
 }
 
@@ -471,6 +479,14 @@ th {
 footer {
     background-color: #18263d;
     /* Set header bg color */
+    display:flex;
+    justify-content: space-evenly;
+    gap: 5px;
+    align-items: center;
+}
+
+footer > div {
+width: 40%;
 }
 
 #social-networks {
@@ -798,6 +814,9 @@ footer {
 
 
     /* Header */
+    #nav-items {
+        display: flex;
+    }
     nav {
         display: flex;
         /* Always display nav */

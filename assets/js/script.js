@@ -6,15 +6,19 @@ console.log("Script file open");
 function mobileMenu() {
     console.log("menu button click captured")
     // Get menu item by el    const resForm = document.getElementById("menu");ement id
-    const resForm = document.getElementById("menu");
+    const navItems = document.getElementById("nav-items");
+    const menuItems = document.getElementById("menu");
     // check to see if the menu is already drop down
-    if (resForm.style.display === "block") {
+    if (navItems.style.display === "flex") {
         // Hide menu if its open
-        resForm.style.display = "none";
+        navItems.style.display = "none";
+        menuItems.style.display = "none";
         console.log("menu hidden");
     } else {
         // Open menu if closed
-        resForm.style.display = "block";
+        navItems.style.display = "flex";
+        navItems.style.flexDirection = "column";
+        menuItems.style.display = "block";
         console.log("menu shown");
     }
 }

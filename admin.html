@@ -24,7 +24,7 @@
         <a href="index.html">
             <h1 id="logo">aquaStella</h1>
         </a>
-        <nav>
+        <nav id="nav-items">
             <button class="make-reservation" onclick="openReservationForm()">Reservation</button>
             <ul id="menu">
                 <li><a href="index.html" class="active link-hover">Home</a></li>
@@ -217,21 +217,25 @@
 
     <!-- Footer -->
     <footer>
-        <button class="make-reservation" onclick="openReservationForm()">Reservation</button>
-        <ul id="social-networks">
-            <li class="can-hide-on-mobile"><a href="https://www.facebook.com/" target="_blank" rel="noopener"
-                    aria-label="visit our facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"
-                        style="color: #ffffff;"></i></a></li>
-            <li class="can-hide-on-mobile"><a href="https://www.instagram.com/" target="_blank" rel="noopener"
-                    aria-label="visit our insta page (opens in a new tab)"><i class="fa-brands fa-instagram"
-                        style="color: #ffffff;"></i></a></li>
-            <li><a href="https://www.whatsapp.com/" target="_blank" rel="noopener"
-                    aria-label="opening whatsApp in new tab"><i class="fa-brands fa-whatsapp"
-                        style="color: #ffffff;"></i></a></li>
-            <li><a href="tel:5555555555" target="_blank" rel="noopener"
-                    aria-label="Opening phone app to call directly"><i class="fa-solid fa-phone-flip"
-                        style="color: #ffffff;"></i></a></li>
-        </ul>
+        <div>
+            <button class="make-reservation" onclick="openReservationForm()">Reservation</button>
+        </div>
+        <div>
+            <ul id="social-networks">
+                <li class="can-hide-on-mobile"><a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                        aria-label="visit our facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"
+                            style="color: #ffffff;"></i></a></li>
+                <li class="can-hide-on-mobile"><a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                        aria-label="visit our insta page (opens in a new tab)"><i class="fa-brands fa-instagram"
+                            style="color: #ffffff;"></i></a></li>
+                <li><a href="https://www.whatsapp.com/" target="_blank" rel="noopener"
+                        aria-label="opening whatsApp in new tab"><i class="fa-brands fa-whatsapp"
+                            style="color: #ffffff;"></i></a></li>
+                <li><a href="tel:5555555555" target="_blank" rel="noopener"
+                        aria-label="Opening phone app to call directly"><i class="fa-solid fa-phone-flip"
+                            style="color: #ffffff;"></i></a></li>
+            </ul>
+        </div>
     </footer>
     <!-- Add javascript -->
     <!-- load local js scripts here -->
