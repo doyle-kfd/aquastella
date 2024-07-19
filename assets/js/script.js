@@ -3,6 +3,7 @@ console.log("Script file open");
 
 // Function called when reservation menu item is clicked
 
+/*
 function mobileMenu() {
     console.log("menu button click captured")
     // Get menu item by el    const resForm = document.getElementById("menu");ement id
@@ -20,8 +21,50 @@ function mobileMenu() {
         navItems.style.flexDirection = "column";
         menuItems.style.display = "block";
         console.log("menu shown");
+        const menuStatus = "Menu-Open";
+        console.log(menuStatus);
+        
     }
 }
+*/
+
+function mobileMenu() {
+    console.log("menu button click captured");
+
+    const navItems = document.getElementById("nav-items");
+    const menuItems = document.getElementById("menu");
+
+    if (navItems.style.display === "flex") {
+        // Hide menu if it's open
+        navItems.style.display = "none";
+        menuItems.style.display = "none";
+        console.log("menu hidden");
+    } else {
+        // Open menu if closed
+        navItems.style.display = "flex";
+        navItems.style.flexDirection = "column";
+        menuItems.style.display = "block";
+        console.log("menu shown");
+        const menuStatus = "Menu-Open";
+        console.log(menuStatus);
+    }
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+    const navItems = document.getElementById("nav-items");
+    const menuButton = document.getElementById("mobileMenu");
+
+    if (navItems.style.display === "flex" && !navItems.contains(event.target) && event.target !== menuButton) {
+        navItems.style.display = "none";
+        console.log("menu hidden by outside click");
+    }
+});
+
+// Prevent the menu button click from propagating to the document listener
+document.getElementById("mobileMenu").addEventListener('click', function(event) {
+    event.stopPropagation();
+});
 
 
 
