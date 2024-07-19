@@ -794,6 +794,7 @@ footer {
         position: relative;     /* Bring nav inside header */
         /* width: fit-content;     /* Dont take up all the space */
         padding-right: 1rem;    /* move content from the right side */
+        justify-content: right;
     }
 
     /* show menu items side by side instead of a block */
