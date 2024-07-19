@@ -142,7 +142,7 @@ function adminLogout() {
  * Get form button Values
  */
 let findTable = document.getElementById('ftable'); // find table button - used by listner
-let makeReservation = document.getElementById('make-reservation'); // find make reservation button - used by listner
+let makeReservation = document.getElementById('make-booking'); // find make reservation button - used by listner
 
 
 /**
@@ -337,6 +337,7 @@ findTable.addEventListener("click", (event) => {
  */
 makeReservation.addEventListener("click", () => {
     // Second form tab 2 details
+    console.log("PICKING UP THE MAKE RESERVATION BUTTON CLICK");
     let firstName = document.getElementById('fname').value;
     let lastName = document.getElementById('lname').value;
     let email = document.getElementById('email').value;
