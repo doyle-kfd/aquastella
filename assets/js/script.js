@@ -130,11 +130,12 @@ function adminLogout() {
     let adminPassword = 'nothing';
     // Close the menu
     const menu = document.getElementById("menu");
-    menu.style.display = "none"; // Hide menu on logout
+    //menu.style.display = "none"; // Hide menu on logout
     localStorage.setItem('authenticated', 'false');
     document.getElementById('adminPagelink').style.display = 'none'; // hide
     console.log(adminUsername);
     console.log(adminPassword);
+    window.location.href = "index.html";
 }
 
 /**
