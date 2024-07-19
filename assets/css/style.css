@@ -125,7 +125,7 @@ header a {
 
 
 
-#make-reservation {
+.make-reservation {
     margin-top: 10px;
     margin-bottom: 10px;
     border: 2px solid #ffffff;
@@ -725,7 +725,7 @@ footer {
         font-size: 15px;
     }
 
-    #can-hide-on-mobile {
+    .can-hide-on-mobile {
         display: none;
     }
 
@@ -851,7 +851,7 @@ footer {
     }
 
     /* --- Style section breaks ------ */
-    #section-break {
+    .section-break {
         height: 1px;
         width: 80%;
         margin-top: 30px;
@@ -939,7 +939,7 @@ footer {
         display: none;
     }
 
-    #can-hide-on-mobile {
+    .can-hide-on-mobile {
         display: unset;
     }
 
