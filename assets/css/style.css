@@ -794,7 +794,7 @@ footer {
         position: relative;     /* Bring nav inside header */
         /* width: fit-content;     /* Dont take up all the space */
         padding-right: 1rem;    /* move content from the right side */
-        justify-content: right;
+        justify-content: left;
     }
 
     /* show menu items side by side instead of a block */
@@ -919,6 +919,7 @@ footer {
     #photos {
         column-count: 2;
         column-gap: 5px;
+        padding-bottom: 55px;
     }
 
     /* Hide reservation button in footer on devices larger than mobile */
