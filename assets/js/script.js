@@ -51,7 +51,7 @@ function mobileMenu() {
 }
 
 // Close menu when clicking outside
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     const navItems = document.getElementById("nav-items");
     const menuButton = document.getElementById("mobileMenu");
 
@@ -62,7 +62,7 @@ document.addEventListener('click', function(event) {
 });
 
 // Prevent the menu button click from propagating to the document listener
-document.getElementById("mobileMenu").addEventListener('click', function(event) {
+document.getElementById("mobileMenu").addEventListener('click', function (event) {
     event.stopPropagation();
 });
 
@@ -81,27 +81,15 @@ const screenSize = window.matchMedia("(max-width: 280px)")
  */
 function openloginForm() {
     console.log("Login Form Opened")
-    const resForm = document.getElementById("menu"); // get menu by id
+    const navItems = document.getElementById("nav-items");
+    // const resForm = document.getElementById("menu"); // get menu by id
+    const adminLoginForm = document.getElementById("admin-login-form");
     // Check to see if the screen size is mobile 280px if it is, hide the menu when res form opened
     if (screenSize.matches) { // If media query matches
-        resForm.style.display = "none";
+        navItems.style.display = "none";
     }
-    loginForm.style.display = "block"; // display the login form
-    modal.style.backgroundColor = "rgba(0, 0, 0, 0.522)"; // give the bg a color to bring focus to form
-
-    // Reset the window click event handler to ensure the form hides when clicking outside
-    window.onclick = function (event) {
-        // check to see if the button thats bein
-        if (event.target == modal) {
-            /*console.log("clicked outside the admin login form")
-            console.log("Window onclick target == modal");
-            loginForm.style.display = "none"; // Hide the login form
-            modal.style.display = "none"; // hide the modal styling */
-            console.log("Clicked outside the admin login form");
-            closeloginForm();
-        }
+    adminLoginForm.style.display = "block"; // display the login form
     }
-}
 
 /**
  *
@@ -111,7 +99,6 @@ function openloginForm() {
 function closeloginForm() {
     console.log("close login form button click");
     loginForm.style.display = "none"; // display the login form
-    modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
 }
 
 /**
@@ -473,8 +460,7 @@ makeReservation.addEventListener("click", () => {
 
 
 
-// Initialise reservations
-let modal = document.getElementById("resForm");
+
 
 /**
  *    Function opens form tab 1 when "reservation" button is clicked.
@@ -483,20 +469,24 @@ let modal = document.getElementById("resForm");
  */
 function openReservationForm() {
     console.log("Entering reservation popup");
+    // Initialise reservations
     // Get reservation item by element id
+    let resForm = document.getElementById("resForm")
     let reservForm = document.getElementById("reservation-form");
     let tab1 = document.getElementById("tab-1");
     let tab2 = document.getElementById("tab-2");
-    let modal = document.getElementById("resForm");
-    const menu = document.getElementById("menu");
+    let reservCompleted = document.getElementById("reservation-completed");
 
+    const navItems = document.getElementById("nav-items");
+
+    navItems.style.display = "none"; // Hide the menu
     reservForm.style.display = "block"; // Display the reservation form
     console.log("The display value of form is set to block");
-    modal.style.backgroundColor = "rgba(0, 0, 0, 0.522)"; // give the bg a color to bring focus to form
     tab1.style.display = "block"; // Display the stage 1 form
     console.log("Display form tab 1 ");
     tab2.style.display = "none"; // Hide the stage 2 form until completing reservation
     console.log("Hide tab 2");
+    reservCompleted.style.display = "none"; // Hide the reservation completed page
 
     // menu.style.display = "none"; // Hide the menu now that the form is displayed
     console.log("Hide the menu");
@@ -506,24 +496,18 @@ function openReservationForm() {
         menu.style.display = "none";
     }
 
-    modal.style.display = "flex"; // set the modal style to flex
+    resForm.style.display = "flex"; // set the reservation form to flex
+    resForm.style.justifyContent = "space-around"; // space the reservation form evenly
     console.log("Set the reservation form to flex");
-    modal.style.justifyContent = "space-around"; // show space around the form
     console.log("Justify the content space around");
 
-    // Reset the window click event handler to ensure the form hides when clicking outside
-    window.onclick = function (event) {
-        // check to see if the button thats bein
-        if (event.target == modal) {
-            console.log("Window onclick target == modal");
-            reservForm.style.display = "none"; // Hide the reservation form
-            modal.style.display = "none"; // hide the modal styling
-            console.log("Set the modal to none");
-            menu.style.display = "none"; // Show the menu again
-            console.log("Show the menu");
-        }
-    }
+
+
 }
+
+
+
+
 
 // close reservation form if close button pressed
 const reservForm = document.getElementById("reservation-form");
@@ -531,9 +515,6 @@ const reservForm = document.getElementById("reservation-form");
 function closeReservation() {
     console.log("captured close reserv form");
     reservForm.style.display = "none";
-    console.log("tried to reset the modal colour");
-    modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
-
 }
 
 /**
