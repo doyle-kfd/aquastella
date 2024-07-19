@@ -106,18 +106,22 @@ header a {
 /* The Modal (background) */
 
 .modal {
-    display: flex; /* Hidden by default */
+    display: flex;
+    /* Hidden by default */
     /* justify-content: space-around;
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 1;
+    /* Sit on top */
     /* padding-top: 100px; /* Location of the box */
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
     /* overflow: auto; /* Enable scroll if needed */
     /* background-color: rgb(0,0,0); /* Fallback color */
     /* background-color: rgba(0, 0, 0, 0.522); /* Black w/ opacity */
-  } 
+}
 
 
 
@@ -136,6 +140,7 @@ header a {
     font-weight: 700;
 
 }
+
 #reservation-message .normal {
     font-weight: 300;
     color: gold;
@@ -712,7 +717,7 @@ footer {
         align-items: center;
     }
 
-    #social-networks > button {
+    #social-networks>button {
         font-size: 15px;
     }
 
@@ -790,10 +795,13 @@ footer {
 
     /* Header */
     nav {
-        display: flex;          /* Always display nav */
-        position: relative;     /* Bring nav inside header */
+        display: flex;
+        /* Always display nav */
+        position: relative;
+        /* Bring nav inside header */
         /* width: fit-content;     /* Dont take up all the space */
-        padding-right: 1rem;    /* move content from the right side */
+        padding-right: 1rem;
+        /* move content from the right side */
         justify-content: left;
     }
 
@@ -978,4 +986,9 @@ footer {
     #mobileMenu {
         display: none;
     }
+
+    nav {
+        justify-content: center;
+    }
+
 }

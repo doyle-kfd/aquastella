@@ -27,7 +27,6 @@ function mobileMenu() {
 function openloginForm() {
     console.log("Login Form Opened")
     const resForm = document.getElementById("menu"); // get meny by id
-    resForm.style.display = "none"; // Close the menu
     loginForm.style.display = "block"; // display the login form
     modal.style.backgroundColor = "rgba(0, 0, 0, 0.522)"; // give the bg a color to bring focus to form
     // Reset the window click event handler to ensure the form hides when clicking outside
