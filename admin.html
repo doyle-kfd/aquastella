@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script type="text/javascript" async=false defer=false src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body>
@@ -89,7 +89,7 @@
                         <!-- Get date from date picker -->
                         <div class="date">
                             <label for="date">Date:</label>
-                            <input type="date" id="date" name="date" min="01-07-24">
+                            <input type="date" id="date" name="date">
                         </div>
 
                         <!-- Get sit down time from dropdown -->
@@ -150,8 +150,8 @@
                             <p><em>Please ensure you arrive 15 minutes before your booking time.</em></p>
                         </div>
                     </div>
+                </form>
             </div>
-            </form>
         </section>
         <!-- Finish of Header - Form Section -->
 
@@ -238,7 +238,13 @@
     <script src="assets/js/script.js"></script>
     <!-- load emailJS code -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>     (function () {emailjs.init({publicKey: "FNSI1Krox9FkKTPMn",});})();</script>
+    <script>
+        (function () {
+            emailjs.init({
+                publicKey: "FNSI1Krox9FkKTPMn",
+            });
+        })();
+    </script>
     <!-- Font Awesome js -->
     <script src="https://kit.fontawesome.com/bb14665003.js" crossorigin="anonymous"></script>
 </body>
