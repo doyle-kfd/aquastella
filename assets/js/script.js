@@ -409,6 +409,12 @@ makeReservation.addEventListener("click", () => {
 
 });
 
+
+// Create variable to store media query
+
+const screenSize = window.matchMedia("(max-width: 280px)")
+
+
 // Initialise reservations
 let modal = document.getElementById("resForm");
 
@@ -434,8 +440,13 @@ function openReservationForm() {
     tab2.style.display = "none"; // Hide the stage 2 form until completing reservation
     console.log("Hide tab 2");
 
-    menu.style.display = "none"; // Hide the menu now that the form is displayed
+    // menu.style.display = "none"; // Hide the menu now that the form is displayed
     console.log("Hide the menu");
+
+    // Check to see if the screen size is mobile 280px if it is, hide the menu when res form opened
+    if (screenSize.matches) { // If media query matches
+        menu.style.display = "none";
+    }  
 
     modal.style.display = "flex"; // set the modal style to flex
     console.log("Set the reservation form to flex");
