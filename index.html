@@ -27,7 +27,6 @@
         <nav>
             <button class="make-reservation" onclick="openReservationForm()">Reservation</button>
             <ul id="menu">
-
                 <li><a href="index.html" class="active link-hover">Home</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <!-- Capture mobile menu open click -->
@@ -284,7 +283,13 @@
     <script src="assets/js/script.js"></script>
     <!-- load emailJS code -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>     (function () {emailjs.init({publicKey: "FNSI1Krox9FkKTPMn",});})();</script>
+    <script>
+        (function () {
+            emailjs.init({
+                publicKey: "FNSI1Krox9FkKTPMn",
+            });
+        })();
+    </script>
     <!-- Font Awesome js -->
     <script src="https://kit.fontawesome.com/bb14665003.js" crossorigin="anonymous"></script>
 </body>

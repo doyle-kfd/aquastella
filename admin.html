@@ -25,16 +25,16 @@
             <h1 id="logo">aquaStella</h1>
         </a>
         <nav>
+            <button class="make-reservation" onclick="openReservationForm()">Reservation</button>
             <ul id="menu">
-                <button id="make-reservation" onclick="openReservationForm()">Reservation</button>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active link-hover">Home</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <!-- Capture mobile menu open click -->
                 <li><a href="#" id="adminlogin" onclick="openloginForm()">Login <i class="fa-solid fa-user-tie"
                             style="color: #ffffff;"></i></a></li>
                 <li><a href="#" id="adminlogout" onclick="adminLogout()">Logout <i class="fa-solid fa-user-tie"
                             style="color: #ffffff;"></i></a></li>
-                <li id="adminPagelink"><a href="admin.html" class="active link-hover">Admin</a></li>
+                <li id="adminPagelink"><a href="admin.html">Admin</a></li>
             </ul>
         </nav>
         <!-- Capture  menu open click -->
@@ -217,13 +217,12 @@
 
     <!-- Footer -->
     <footer>
-
+        <button class="make-reservation" onclick="openReservationForm()">Reservation</button>
         <ul id="social-networks">
-            <button id="make-reservation" onclick="openReservationForm()">Reservation</button>
-            <li id="can-hide-on-mobile"><a href="https://www.facebook.com/" target="_blank" rel="noopener"
+            <li class="can-hide-on-mobile"><a href="https://www.facebook.com/" target="_blank" rel="noopener"
                     aria-label="visit our facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"
                         style="color: #ffffff;"></i></a></li>
-            <li id="can-hide-on-mobile"><a href="https://www.instagram.com/" target="_blank" rel="noopener"
+            <li class="can-hide-on-mobile"><a href="https://www.instagram.com/" target="_blank" rel="noopener"
                     aria-label="visit our insta page (opens in a new tab)"><i class="fa-brands fa-instagram"
                         style="color: #ffffff;"></i></a></li>
             <li><a href="https://www.whatsapp.com/" target="_blank" rel="noopener"

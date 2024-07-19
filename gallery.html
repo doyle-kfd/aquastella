@@ -24,10 +24,10 @@
             <h1 id="logo">aquaStella</h1>
         </a>
         <nav>
+            <button class="make-reservation" onclick="openReservationForm()">Reservation</button>
             <ul id="menu">
-                <button id="make-reservation" onclick="openReservationForm()">Reservation</button>
-                <li><a href="index.html" >Home</a></li>
-                <li><a href="gallery.html" class="active link-hover">Gallery</a></li>
+                <li><a href="index.html" class="active link-hover">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
                 <!-- Capture mobile menu open click -->
                 <li><a href="#" id="adminlogin" onclick="openloginForm()">Login <i class="fa-solid fa-user-tie"
                             style="color: #ffffff;"></i></a></li>
@@ -88,7 +88,7 @@
                         <!-- Get date from date picker -->
                         <div class="date">
                             <label for="date">Date:</label>
-                            <input type="date" id="date" name="date" min="01-07-24">
+                            <input type="date" id="date" name="date">
                         </div>
 
                         <!-- Get sit down time from dropdown -->
@@ -149,19 +149,24 @@
                             <p><em>Please ensure you arrive 15 minutes before your booking time.</em></p>
                         </div>
                     </div>
+                </form>
             </div>
-            </form>
         </section>
-                <!-- Finish of Header - Form Section -->
+        <!-- Finish of Header - Form Section -->
 
-                <!--  Start of Gallery Section  -->
+        <!--  Start of Gallery Section  -->
         <section id="gallery">
+            <div>
+                <h2>Our Culenary Gallery</h2>
+            </div>
             <div id="photos">
                 <img src="assets/images/aquastella-seafood-gallery1.webp" alt="seafood image salmon">
                 <img src="assets/images/aquastella-seafood-gallery2.webp" alt="seafood image octopus and egg">
                 <img src="assets/images/aquastella-seafood-gallery3.webp" alt="seafood image on bed of avacado">
-                <img src="assets/images/aquastella-seafood-gallery4.webp" alt="desert image of chocolate desert with tuile">
-                <img src="assets/images/aquastella-seafood-gallery5.webp" alt="seafood image salmon on creamed potatoes">
+                <img src="assets/images/aquastella-seafood-gallery4.webp"
+                    alt="desert image of chocolate desert with tuile">
+                <img src="assets/images/aquastella-seafood-gallery5.webp"
+                    alt="seafood image salmon on creamed potatoes">
                 <img src="assets/images/aquastellla-seafood-gallery6.webp" alt="seafood image salmon steak on soysauce">
                 <img src="assets/images/aquastella-seafood-gallery7.webp" alt="seafood image prawns">
                 <img src="assets/images/aquastella-seafood-gallery8.webp" alt="seafood image tuna">
@@ -173,13 +178,12 @@
 
     <!-- Footer -->
     <footer>
-
+        <button class="make-reservation" onclick="openReservationForm()">Reservation</button>
         <ul id="social-networks">
-            <button id="make-reservation" onclick="openReservationForm()">Reservation</button>
-            <li id="can-hide-on-mobile"><a href="https://www.facebook.com/" target="_blank" rel="noopener"
+            <li class="can-hide-on-mobile"><a href="https://www.facebook.com/" target="_blank" rel="noopener"
                     aria-label="visit our facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"
                         style="color: #ffffff;"></i></a></li>
-            <li id="can-hide-on-mobile"><a href="https://www.instagram.com/" target="_blank" rel="noopener"
+            <li class="can-hide-on-mobile"><a href="https://www.instagram.com/" target="_blank" rel="noopener"
                     aria-label="visit our insta page (opens in a new tab)"><i class="fa-brands fa-instagram"
                         style="color: #ffffff;"></i></a></li>
             <li><a href="https://www.whatsapp.com/" target="_blank" rel="noopener"
@@ -195,7 +199,13 @@
     <script src="assets/js/script.js"></script>
     <!-- load emailJS code -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>     (function () {emailjs.init({publicKey: "FNSI1Krox9FkKTPMn",});})();</script>
+    <script>
+        (function () {
+            emailjs.init({
+                publicKey: "FNSI1Krox9FkKTPMn",
+            });
+        })();
+    </script>
     <!-- Font Awesome js -->
     <script src="https://kit.fontawesome.com/bb14665003.js" crossorigin="anonymous"></script>
 </body>
