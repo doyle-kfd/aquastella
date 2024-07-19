@@ -19,6 +19,14 @@ function mobileMenu() {
     }
 }
 
+
+
+// Create variable to store media query
+
+const screenSize = window.matchMedia("(max-width: 280px)")
+
+
+
 /**
  *
  *  Function to open login form
@@ -26,9 +34,14 @@ function mobileMenu() {
  */
 function openloginForm() {
     console.log("Login Form Opened")
-    const resForm = document.getElementById("menu"); // get meny by id
+    const resForm = document.getElementById("menu"); // get menu by id
+    // Check to see if the screen size is mobile 280px if it is, hide the menu when res form opened
+    if (screenSize.matches) { // If media query matches
+        resForm.style.display = "none";
+    }
     loginForm.style.display = "block"; // display the login form
     modal.style.backgroundColor = "rgba(0, 0, 0, 0.522)"; // give the bg a color to bring focus to form
+
     // Reset the window click event handler to ensure the form hides when clicking outside
     window.onclick = function (event) {
         // check to see if the button thats bein
@@ -153,98 +166,98 @@ let makeReservation = document.getElementById('make-booking'); // find make rese
  * 
  */
 // Make sure that the web page has loaded completely
-document.addEventListener("DOMContentLoaded", function() {
-          // When its loaded completly
-          console.log("Starting to check for existing reservations array");
+document.addEventListener("DOMContentLoaded", function () {
+    // When its loaded completly
+    console.log("Starting to check for existing reservations array");
 
-          // Check to see if the reservations array exists... wont overwrite exising data
-          if (!localStorage.getItem("reservations")) {
+    // Check to see if the reservations array exists... wont overwrite exising data
+    if (!localStorage.getItem("reservations")) {
 
-            console.log("Array not found start creating now");
+        console.log("Array not found start creating now");
 
-            const reservations = [];                               // Create a blank reservations array
-            let confirmationNumber = 1;                            // Start with a reservation number of 1
-            const maxSeatsPerSitting = 16;                         // set the max seating possible of 16, per sitting
-            const daysToGenerate = 30;                             // set how many days i want to populate, 30 to start
-            const sittings = ["First - 17:00", "Second - 20:30"];  // sittings are First - 17:00 and Second - 20:30
-            const guestsOptions = [1, 2, 4, 6];                    // guest seats available
-            const startDate = new Date();                          // Date for reservation starts = today
-    
-            // Setup array details
-            const firstNames = ["John", "Jane", "Alice", "Bob", "Charlie", "Diana", "Eve", "Frank"];                // First names
-            const lastNames = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson"];      // Second names
-            const domainNames = ["example.com", "mail.com", "test.com", "demo.com"];                                // Email domains
-    
-            // Random number generator for repeated use
-            function getRandomElement(arr) {
-                return arr[Math.floor(Math.random() * arr.length)]; // Calculates a random number between 0 and 1 inclusive, and multiplies it by the length of the array.
-            }
-            
-            // Generate a random phone number
-            function generateRandomPhoneNumber() {
-                const digits = "0123456789";                       // Define the digits to be used
-                let phoneNumber = "";                              // Define phone number starting out as blank
-                for (let i = 0; i < 10; i++) {                     // start a loop that iterates 10 times, 0 -- 9.
-                    phoneNumber += getRandomElement(digits);       // take digits and pass it through the random generator and append the result to phoneNumber
-                }
-                return phoneNumber;                                // return the phone number generated.
-            }
-            
-            // Generate random email address using first name, last name and domain.
-            function generateRandomEmail(firstName, lastName) {
-                const domain = getRandomElement(domainNames);                                    // get a random domaion name from domainNames
-                return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;         // return value of firstname, last name and domain concatenated using template literals.
-            }
+        const reservations = []; // Create a blank reservations array
+        let confirmationNumber = 1; // Start with a reservation number of 1
+        const maxSeatsPerSitting = 16; // set the max seating possible of 16, per sitting
+        const daysToGenerate = 30; // set how many days i want to populate, 30 to start
+        const sittings = ["First - 17:00", "Second - 20:30"]; // sittings are First - 17:00 and Second - 20:30
+        const guestsOptions = [1, 2, 4, 6]; // guest seats available
+        const startDate = new Date(); // Date for reservation starts = today
 
-            function formatDate(date) {
-                const day = String(date.getDate()).padStart(2, '0');
-                const month = String(date.getMonth() + 1).padStart(2, '0'); // January is 0!
-                const year = date.getFullYear();
-                return `${day}-${month}-${year}`;
-            }
-            
-            // Start the loop for the next 30 days - starting today
-            for (let day = 0; day < daysToGenerate; day++) {                                                       
-                const currentDate = new Date(startDate);                                                         // start date is today, set to current date
-                currentDate.setDate(startDate.getDate() + day);                                                  // set the current date to startdate + 1 , incrementing each day of 30
-                const formattedDate = formatDate(currentDate);                                                   // formatted date converts date string to dd-mm-yyyy
-                
-                // For each day, loop for sittings
-                sittings.forEach(sitting => {
-                    let seatsFilled = 0;                                                                         // Seats counter set to 0
-     
-                    while (seatsFilled < maxSeatsPerSitting / 2) {                                               // while the number of seats filled < 8, only take up half the seats
-                        const guests = guestsOptions[Math.floor(Math.random() * guestsOptions.length)];          // pick a seat option from seat options array, 1,2,4,6
-                        if (seatsFilled + guests > maxSeatsPerSitting / 2) continue;                             // check to see if seatsFilled + guests > 8
-    
-                        seatsFilled += guests;                                                                   // Add guests to seatsFilled, for next loop check
-    
-                        const firstName = getRandomElement(firstNames);                                          // get a first name from the firstNames array
-                        const lastName = getRandomElement(lastNames);                                            // get a last name from the lastNames array
-                        const email = generateRandomEmail(firstName, lastName);                                  // get email address from firstName, lastName@domain
-                        const phone = generateRandomPhoneNumber();                                               // generate a random phone number from function
-                        
+        // Setup array details
+        const firstNames = ["John", "Jane", "Alice", "Bob", "Charlie", "Diana", "Eve", "Frank"]; // First names
+        const lastNames = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson"]; // Second names
+        const domainNames = ["example.com", "mail.com", "test.com", "demo.com"]; // Email domains
 
-                        // Set up the reservations data construct
-                        const reservation = {                                                                         
-                            confirmationNumber: confirmationNumber++,
-                            date: formattedDate,
-                            sitting: sitting,
-                            guests: guests,
-                            firstName: firstName,
-                            lastName: lastName,
-                            email: email,
-                            phone: phone
-                        };
-                        reservations.push(reservation);
-                    }
-                });
-            }
-    
-            // Save bookings to local storage
-            localStorage.setItem("reservations", JSON.stringify(reservations));                                    // write reservations to local string
+        // Random number generator for repeated use
+        function getRandomElement(arr) {
+            return arr[Math.floor(Math.random() * arr.length)]; // Calculates a random number between 0 and 1 inclusive, and multiplies it by the length of the array.
         }
-    });
+
+        // Generate a random phone number
+        function generateRandomPhoneNumber() {
+            const digits = "0123456789"; // Define the digits to be used
+            let phoneNumber = ""; // Define phone number starting out as blank
+            for (let i = 0; i < 10; i++) { // start a loop that iterates 10 times, 0 -- 9.
+                phoneNumber += getRandomElement(digits); // take digits and pass it through the random generator and append the result to phoneNumber
+            }
+            return phoneNumber; // return the phone number generated.
+        }
+
+        // Generate random email address using first name, last name and domain.
+        function generateRandomEmail(firstName, lastName) {
+            const domain = getRandomElement(domainNames); // get a random domaion name from domainNames
+            return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`; // return value of firstname, last name and domain concatenated using template literals.
+        }
+
+        function formatDate(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // January is 0!
+            const year = date.getFullYear();
+            return `${day}-${month}-${year}`;
+        }
+
+        // Start the loop for the next 30 days - starting today
+        for (let day = 0; day < daysToGenerate; day++) {
+            const currentDate = new Date(startDate); // start date is today, set to current date
+            currentDate.setDate(startDate.getDate() + day); // set the current date to startdate + 1 , incrementing each day of 30
+            const formattedDate = formatDate(currentDate); // formatted date converts date string to dd-mm-yyyy
+
+            // For each day, loop for sittings
+            sittings.forEach(sitting => {
+                let seatsFilled = 0; // Seats counter set to 0
+
+                while (seatsFilled < maxSeatsPerSitting / 2) { // while the number of seats filled < 8, only take up half the seats
+                    const guests = guestsOptions[Math.floor(Math.random() * guestsOptions.length)]; // pick a seat option from seat options array, 1,2,4,6
+                    if (seatsFilled + guests > maxSeatsPerSitting / 2) continue; // check to see if seatsFilled + guests > 8
+
+                    seatsFilled += guests; // Add guests to seatsFilled, for next loop check
+
+                    const firstName = getRandomElement(firstNames); // get a first name from the firstNames array
+                    const lastName = getRandomElement(lastNames); // get a last name from the lastNames array
+                    const email = generateRandomEmail(firstName, lastName); // get email address from firstName, lastName@domain
+                    const phone = generateRandomPhoneNumber(); // generate a random phone number from function
+
+
+                    // Set up the reservations data construct
+                    const reservation = {
+                        confirmationNumber: confirmationNumber++,
+                        date: formattedDate,
+                        sitting: sitting,
+                        guests: guests,
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        phone: phone
+                    };
+                    reservations.push(reservation);
+                }
+            });
+        }
+
+        // Save bookings to local storage
+        localStorage.setItem("reservations", JSON.stringify(reservations)); // write reservations to local string
+    }
+});
 
 
 
@@ -410,9 +423,7 @@ makeReservation.addEventListener("click", () => {
 });
 
 
-// Create variable to store media query
 
-const screenSize = window.matchMedia("(max-width: 280px)")
 
 
 // Initialise reservations
@@ -446,7 +457,7 @@ function openReservationForm() {
     // Check to see if the screen size is mobile 280px if it is, hide the menu when res form opened
     if (screenSize.matches) { // If media query matches
         menu.style.display = "none";
-    }  
+    }
 
     modal.style.display = "flex"; // set the modal style to flex
     console.log("Set the reservation form to flex");
@@ -732,75 +743,75 @@ function loadAdminSpecificCode() {
     }
 
     // function to create weekly graph by day
-function drawWeeklyChart(reservations) {
-    // create a new DataTable object to hold the chart data
-    const data = new google.visualization.DataTable();
-    data.addColumn('string', 'Date'); // add a column Date as a string
-    data.addColumn('number', 'Reservations'); // add a column Reservations as a number
+    function drawWeeklyChart(reservations) {
+        // create a new DataTable object to hold the chart data
+        const data = new google.visualization.DataTable();
+        data.addColumn('string', 'Date'); // add a column Date as a string
+        data.addColumn('number', 'Reservations'); // add a column Reservations as a number
 
-    // function to format dates
-    function formatDate(date) {
-        // specify how date should be displayed
-        const options = {
-            weekday: 'short',
-            month: 'short',
-            day: 'numeric'
-        };
-        // return formatted string as date
-        return date.toLocaleDateString(undefined, options);
-    }
-
-    // function to format dates to dd-mm-yyyy
-    function formatDateForComparison(date) {
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const year = date.getFullYear();
-        return `${day}-${month}-${year}`;
-    }
-
-    const today = new Date();
-
-    // Prepare data for the next 7 days
-    for (let i = 0; i < 7; i++) {
-        const date = new Date(today);
-        date.setDate(today.getDate() + i); // get today's date and increment by i
-        const dateString = formatDateForComparison(date); // format date as dd-mm-yyyy
-        const formattedDate = formatDate(date); // format the date to display the day
-
-        let count = 0; // initialise the counter
-
-        // for each reservation in the reservation array
-        reservations.forEach(reservation => {
-            // if the reservation date is the same as the one in the date string
-            if (reservation.date === dateString) {
-                count++; // increment the count
-            }
-        });
-
-        // add a new row to the Google charts data table
-        data.addRow([formattedDate, count]);
-    }
-
-    const options = {
-        title: 'Next 7 Days Reservations', // title of chart
-        chartArea: {
-            width: '100%', // give it the full width
-        },
-        
-        hAxis: {
-            title: 'Date' // horizontal axis title
-        },
-        vAxis: {
-            title: 'Reservations', // vertical axis title
-            minValue: 0, // set the minimum value
-            maxValue: 16
+        // function to format dates
+        function formatDate(date) {
+            // specify how date should be displayed
+            const options = {
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric'
+            };
+            // return formatted string as date
+            return date.toLocaleDateString(undefined, options);
         }
-    };
 
-    // create a chart object at the element weeklyChart
-    const chart = new google.visualization.ColumnChart(document.getElementById('weeklyChart'));
-    chart.draw(data, options); // create the chart using defined data and options
-}
+        // function to format dates to dd-mm-yyyy
+        function formatDateForComparison(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            return `${day}-${month}-${year}`;
+        }
+
+        const today = new Date();
+
+        // Prepare data for the next 7 days
+        for (let i = 0; i < 7; i++) {
+            const date = new Date(today);
+            date.setDate(today.getDate() + i); // get today's date and increment by i
+            const dateString = formatDateForComparison(date); // format date as dd-mm-yyyy
+            const formattedDate = formatDate(date); // format the date to display the day
+
+            let count = 0; // initialise the counter
+
+            // for each reservation in the reservation array
+            reservations.forEach(reservation => {
+                // if the reservation date is the same as the one in the date string
+                if (reservation.date === dateString) {
+                    count++; // increment the count
+                }
+            });
+
+            // add a new row to the Google charts data table
+            data.addRow([formattedDate, count]);
+        }
+
+        const options = {
+            title: 'Next 7 Days Reservations', // title of chart
+            chartArea: {
+                width: '100%', // give it the full width
+            },
+
+            hAxis: {
+                title: 'Date' // horizontal axis title
+            },
+            vAxis: {
+                title: 'Reservations', // vertical axis title
+                minValue: 0, // set the minimum value
+                maxValue: 16
+            }
+        };
+
+        // create a chart object at the element weeklyChart
+        const chart = new google.visualization.ColumnChart(document.getElementById('weeklyChart'));
+        chart.draw(data, options); // create the chart using defined data and options
+    }
 
 }
 
