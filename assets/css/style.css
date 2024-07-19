@@ -110,7 +110,7 @@ header a {
     /* justify-content: space-around;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    // padding-top: 100px; /* Location of the box */
+    /* padding-top: 100px; /* Location of the box */
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
@@ -925,6 +925,9 @@ footer {
         display: none;
     }
 
+    #can-hide-on-mobile {
+        display: unset;
+    }
 
     #stat-counters {
         flex-direction: row;
