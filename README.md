@@ -234,14 +234,35 @@ The link to the live aquastella website is here: [aquastella](https://doyle-kfd.
 
 
 
-- #### Map
-    - The map on the page allows the site visitor see where the course is held.
-    - The map resizes based on the device.
-    - The visitor can use the map to see how far they are from the location and directions to it.
+- #### Admin Page
+    - The admin page holds three main sections
+        -   Counters
+        -   Table of reservations
+        -   Graphs of reservations
+    - The counters and graphs show numerical and graphical represenations of todays reservations and the next 7 days.
+    - The table holding the reservations is populated automatically on the first visit to the site, courtesy of an array.
+        - The array fills the next 30 days for half the seats available for both sittings, to get started.
+        - Following the array populating, each reservation you add will be appended.
 
-![Contact Page Map](docs/readme_images/ksail-location.png)
+#### Mobile Dashboard
 
 
+
+
+The reservations table has a horizontal scroll bar to facilitate mobile table navigation
+
+
+| Counters |   Reservations Table  |     Graphs     |
+|------------|----------------|-------------------|
+|          <img src="docs/readme_images/mobile-phone-counters.png" alt=" Counters on ipad/laptop " width="300"/>      |           <img src="docs/readme_images/mobile-phone-reservations-table.png" alt=" reservations table on ipad/laptop" width="300"/>         |              <img src="docs/readme_images/mobile-phone-graphs.png" alt="graphs on ipad/laptop " width="300"/>   
+
+#### iPad/Laptop Dashboard
+
+
+
+| Counters |   Reservations Table  |     Graphs     |
+|------------|----------------|-------------------|
+|          <img src="docs/readme_images/ipad-laptop-counters.png" alt=" Counters on mobile " width="300"/>      |           <img src="docs/readme_images/ipad-laptop-reservations-table.png" alt=" reservations table on mobile" width="300"/>         |              <img src="docs/readme_images/ipad-laptop-graphs.png" alt="graphs on mobile " width="300"/>   
 
 ## Given the time, I would implement
 
