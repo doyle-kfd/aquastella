@@ -1,63 +1,34 @@
 console.log("Script file open");
-//const resForm = document.getElementById("menu");
 
-// Function called when reservation menu item is clicked
+/**
+*      This function is run only when the mobile menu item is clicked
+*      THe function only runs on mobile phones
+ */
+function mobileMenu() {                   
 
-/*
-function mobileMenu() {
-    console.log("menu button click captured")
-    // Get menu item by el    const resForm = document.getElementById("menu");ement id
-    const navItems = document.getElementById("nav-items");
-    const menuItems = document.getElementById("menu");
-    // check to see if the menu is already drop down
-    if (navItems.style.display === "flex") {
-        // Hide menu if its open
-        navItems.style.display = "none";
-        menuItems.style.display = "none";
-        console.log("menu hidden");
-    } else {
-        // Open menu if closed
-        navItems.style.display = "flex";
-        navItems.style.flexDirection = "column";
-        menuItems.style.display = "block";
-        console.log("menu shown");
-        const menuStatus = "Menu-Open";
-        console.log(menuStatus);
-        
-    }
-}
-*/
-
-function mobileMenu() {
-    console.log("menu button click captured");
-
-    const navItems = document.getElementById("nav-items");
-    const menuItems = document.getElementById("menu");
+    const navItems = document.getElementById("nav-items");             // Get nav items
+    const menuItems = document.getElementById("menu");                 // Get menu items
 
     if (navItems.style.display === "flex") {
         // Hide menu if it's open
-        navItems.style.display = "none";
-        menuItems.style.display = "none";
-        console.log("menu hidden");
+        navItems.style.display = "none";                               // Hide the nab items
+        menuItems.style.display = "none";                              // Hide menu items
     } else {
         // Open menu if closed
-        navItems.style.display = "flex";
-        navItems.style.flexDirection = "column";
-        menuItems.style.display = "block";
-        console.log("menu shown");
-        const menuStatus = "Menu-Open";
-        console.log(menuStatus);
+        navItems.style.display = "flex";                              // Display the nav items
+        navItems.style.flexDirection = "column";                      // Display as column
+        menuItems.style.display = "block";                            // Display the menu items as a block
     }
 }
 
 // Close menu when clicking outside
-document.addEventListener('click', function (event) {
-    const navItems = document.getElementById("nav-items");
-    const menuButton = document.getElementById("mobileMenu");
+document.addEventListener('click', function (event) {                 // Create an event listner. Checks to see if the user clicks outside the menu. If so close.
+    const navItems = document.getElementById("nav-items");            // select the nav items
+    const menuButton = document.getElementById("mobileMenu");         // select the mobile menu item
 
+    // if the nav items are visible and nav items are not clicked and menu button not licked
     if (navItems.style.display === "flex" && !navItems.contains(event.target) && event.target !== menuButton) {
-        navItems.style.display = "none";
-        console.log("menu hidden by outside click");
+        navItems.style.display = "none";                              // Close the menu
     }
 });
 
@@ -80,15 +51,14 @@ const screenSize = window.matchMedia("(max-width: 280px)")
  *
  */
 function openloginForm() {
-    console.log("Login Form Opened")
-    const navItems = document.getElementById("nav-items");
-    // const resForm = document.getElementById("menu"); // get menu by id
-    const adminLoginForm = document.getElementById("admin-login-form");
+    const navItems = document.getElementById("nav-items");                     // Get the nav items
+    const adminLoginForm = document.getElementById("admin-login-form");        // Get the admin login form elements
+
     // Check to see if the screen size is mobile 280px if it is, hide the menu when res form opened
-    if (screenSize.matches) { // If media query matches
-        navItems.style.display = "none";
+    if (screenSize.matches) {                                                  // If media query matches
+        navItems.style.display = "none";                                       // Only on mobile phones, hide the mobile menu
     }
-    adminLoginForm.style.display = "block"; // display the login form
+    adminLoginForm.style.display = "block";                                    // display the login form      
     }
 
 /**
@@ -97,8 +67,7 @@ function openloginForm() {
  *
  */
 function closeloginForm() {
-    console.log("close login form button click");
-    loginForm.style.display = "none"; // display the login form
+    loginForm.style.display = "none";                                         // hide the login form
 }
 
 /**
@@ -108,24 +77,24 @@ function closeloginForm() {
  */
 
 //  Initailse login form variables
-const adminUsername = 'admin';
-const adminPassword = '12345';
-const adminPage = document.getElementById("adminPagelink");
-const loginForm = document.getElementById("admin-login-form");
-const loginMenulink = document.getElementById("adminlogin"); // Get login menu link
-const logoutMenulink = document.getElementById("adminlogout");
-loginForm.style.display = "none"; // Keep login form closed at start
+const adminUsername = 'admin';                                                // admin user default name
+const adminPassword = '12345';                                                // admin user password default
+const adminPage = document.getElementById("adminPagelink");                   // get the admin page link for use
+const loginForm = document.getElementById("admin-login-form");                // get the admin login form elements for use
+const loginMenulink = document.getElementById("adminlogin");                  // Get login menu link
+const logoutMenulink = document.getElementById("adminlogout");                // get the admin logout meny link
+loginForm.style.display = "none";                                             // Keep login form closed at start
 
 // Add listner to see if the admin user is authenticated
 document.addEventListener('DOMContentLoaded', () => {
     // Check if the user is authenticated
-    if (isAuthenticated()) {
-        document.getElementById('adminPagelink').style.display = 'inline'; // show
-        document.getElementById('adminlogin').style.display = 'none';
-        document.getElementById('adminlogout').style.display = 'inline';
-    } else {
-        document.getElementById('adminlogin').style.display = 'inline';
-        document.getElementById('adminPagelink').style.display = 'none'; // hide
+    if (isAuthenticated()) {                                                  // If authenticated
+        document.getElementById('adminPagelink').style.display = 'inline';      // show admin page link
+        document.getElementById('adminlogin').style.display = 'none';           // hide the admin longin link
+        document.getElementById('adminlogout').style.display = 'inline';        // show the admin logout link
+    } else {                                                                  // If not authenticated 
+        document.getElementById('adminlogin').style.display = 'inline';         // Show the admin login link
+        document.getElementById('adminPagelink').style.display = 'none';        // hide the admin page
     }
 });
 
@@ -136,60 +105,55 @@ document.addEventListener('DOMContentLoaded', () => {
 function login() {
 
     // Get userId and password values from form
-    const userId = document.getElementById('userId').value;
-    const password = document.getElementById('password').value;
-    console.log(userId);
-    console.log(password);
+    const userId = document.getElementById('userId').value;                 // Get the submitted user id
+    const password = document.getElementById('password').value;             // Get the submitted user password
+
 
     // check to see if userID and password are correct
-    if (userId === adminUsername && password === adminPassword) {
+    if (userId === adminUsername && password === adminPassword) {           // If admin name and password are correct
         // If yes then display admin page in menu
-        localStorage.setItem('authenticated', 'true');
-        adminPage.style.display = "block"; // Display the admin page
-        console.log("login details accepted");
-        closeloginForm(); // Close the login form
-        logoutMenulink.style.display = "block"; // Show the logout link in the menu
-        loginMenulink.style.display = "none"; // Hide the Login menu link
-    } else {
-        adminPage.style.display = "none";
-        const loginError = document.getElementById("errorLogin");
-        loginError.textContent = "Incorrect Cridentials";
-        console.log("login details not accepted");
-        document.getElementById('userId').value = "";
-        document.getElementById('password').value = "";
+        localStorage.setItem('authenticated', 'true');                          // Set values authenticated and true in local storage for use across tabs
+        adminPage.style.display = "block";                                      // Display the admin page
+        closeloginForm();                                                       // Close the login form
+        logoutMenulink.style.display = "block";                                 // Show the logout link in the menu
+        loginMenulink.style.display = "none";                                   // Hide the Login menu link
+    } else {                                                                // If admin name and password are incorrect
+        adminPage.style.display = "none";                                       // hide the admin page link
+        const loginError = document.getElementById("errorLogin");               // set a login error paramater 
+        loginError.textContent = "Incorrect Cridentials";                       // send text to the login erriir parameter                            
+        document.getElementById('userId').value = "";                           // fill userid value to blank
+        document.getElementById('password').value = "";                         // fill password value to blank
     }
 }
 
-// Is the admin user authenticated
+/**
+ * 
+ *  Function to check and see if the local storage value authenticated is set to true
+ *
+ */
 const isAuthenticated = () => {
-    return localStorage.getItem('authenticated') === 'true';
+    return localStorage.getItem('authenticated') === 'true';                    // Is the local storage value authenticated set to true
 };
 
 /**
  *  Function to logout, on logout remove admin link from menu and add login link
  */
 function adminLogout() {
-    console.log("admin logout clicked");
-    logoutMenulink.style.display = "none"; // Hide the logout link in the menu
-    loginMenulink.style.display = "block"; // Show the Login menu link
+    logoutMenulink.style.display = "none";                                      // Hide the logout link in the menu
+    loginMenulink.style.display = "block";                                      // Show the Login menu link
     // Reset the login credentials
-    let adminUsername = 'anyone';
+    let adminUsername = 'anyone';                                               
     let adminPassword = 'nothing';
-    // Close the menu
-    const menu = document.getElementById("menu");
-    //menu.style.display = "none"; // Hide menu on logout
-    localStorage.setItem('authenticated', 'false');
-    document.getElementById('adminPagelink').style.display = 'none'; // hide
-    console.log(adminUsername);
-    console.log(adminPassword);
-    window.location.href = "index.html";
+    localStorage.setItem('authenticated', 'false');                            // Set local storage authentication to false
+    document.getElementById('adminPagelink').style.display = 'none';           // hide  the admin page link
+    window.location.href = "index.html";                                       // redirect the user to the home page on logout
 }
 
 /**
  * Get form button Values
  */
-let findTable = document.getElementById('ftable'); // find table button - used by listner
-let makeReservation = document.getElementById('make-booking'); // find make reservation button - used by listner
+let findTable = document.getElementById('ftable');                              // find table button - used by listner
+let makeReservation = document.getElementById('make-booking');                  // find make reservation button - used by listner
 
 
 /**
@@ -200,76 +164,72 @@ let makeReservation = document.getElementById('make-booking'); // find make rese
  * 
  */
 // Make sure that the web page has loaded completely
-document.addEventListener("DOMContentLoaded", function () {
-    // When its loaded completly
-    console.log("Starting to check for existing reservations array");
+document.addEventListener("DOMContentLoaded", function () {                 // Create event listner for dom loaded fully
 
-    // Check to see if the reservations array exists... wont overwrite exising data
-    if (!localStorage.getItem("reservations")) {
 
-        console.log("Array not found start creating now");
+    if (!localStorage.getItem("reservations")) {                            // Check to see if the reservations array exists... wont overwrite exising data
 
-        const reservations = []; // Create a blank reservations array
-        let confirmationNumber = 1; // Start with a reservation number of 1
-        const maxSeatsPerSitting = 16; // set the max seating possible of 16, per sitting
-        const daysToGenerate = 30; // set how many days i want to populate, 30 to start
-        const sittings = ["First - 17:00", "Second - 20:30"]; // sittings are First - 17:00 and Second - 20:30
-        const guestsOptions = [1, 2, 4, 6]; // guest seats available
-        const startDate = new Date(); // Date for reservation starts = today
+        const reservations = [];    	                                    // Create a blank reservations array
+        let confirmationNumber = 1;                                         // Start with a reservation number of 1
+        const maxSeatsPerSitting = 16;                                      // set the max seating possible of 16, per sitting
+        const daysToGenerate = 30;                                          // set how many days i want to populate, 30 to start
+        const sittings = ["First - 17:00", "Second - 20:30"];               // sittings are First - 17:00 and Second - 20:30
+        const guestsOptions = [1, 2, 4, 6];                                 // guest seats available
+        const startDate = new Date();                                       // Date for reservation starts = today
 
         // Setup array details
-        const firstNames = ["John", "Jane", "Alice", "Bob", "Charlie", "Diana", "Eve", "Frank"]; // First names
-        const lastNames = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson"]; // Second names
-        const domainNames = ["example.com", "mail.com", "test.com", "demo.com"]; // Email domains
+        const firstNames = ["John", "Jane", "Alice", "Bob", "Charlie", "Diana", "Eve", "Frank"];            // First names
+        const lastNames = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson"];  // Second names
+        const domainNames = ["example.com", "mail.com", "test.com", "demo.com"];                            // Email domains
 
         // Random number generator for repeated use
         function getRandomElement(arr) {
-            return arr[Math.floor(Math.random() * arr.length)]; // Calculates a random number between 0 and 1 inclusive, and multiplies it by the length of the array.
+            return arr[Math.floor(Math.random() * arr.length)];             // Calculates a random number between 0 and 1 inclusive, and multiplies it by the length of the array.
         }
 
         // Generate a random phone number
         function generateRandomPhoneNumber() {
-            const digits = "0123456789"; // Define the digits to be used
-            let phoneNumber = ""; // Define phone number starting out as blank
-            for (let i = 0; i < 10; i++) { // start a loop that iterates 10 times, 0 -- 9.
-                phoneNumber += getRandomElement(digits); // take digits and pass it through the random generator and append the result to phoneNumber
+            const digits = "0123456789";                                    // Define the digits to be used
+            let phoneNumber = "";                                           // Define phone number starting out as blank
+            for (let i = 0; i < 10; i++) {                                  // start a loop that iterates 10 times, 0 -- 9.
+                phoneNumber += getRandomElement(digits);                    // take digits and pass it through the random generator and append the result to phoneNumber
             }
-            return phoneNumber; // return the phone number generated.
+            return phoneNumber;                                             // return the phone number generated.
         }
 
         // Generate random email address using first name, last name and domain.
         function generateRandomEmail(firstName, lastName) {
-            const domain = getRandomElement(domainNames); // get a random domaion name from domainNames
-            return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`; // return value of firstname, last name and domain concatenated using template literals.
+            const domain = getRandomElement(domainNames);                               // get a random domaion name from domainNames
+            return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;    // return value of firstname, last name and domain concatenated using template literals.
         }
 
         function formatDate(date) {
             const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // January is 0!
+            const month = String(date.getMonth() + 1).padStart(2, '0');                 // January is 0!
             const year = date.getFullYear();
             return `${day}-${month}-${year}`;
         }
 
         // Start the loop for the next 30 days - starting today
         for (let day = 0; day < daysToGenerate; day++) {
-            const currentDate = new Date(startDate); // start date is today, set to current date
-            currentDate.setDate(startDate.getDate() + day); // set the current date to startdate + 1 , incrementing each day of 30
-            const formattedDate = formatDate(currentDate); // formatted date converts date string to dd-mm-yyyy
+            const currentDate = new Date(startDate);                                    // start date is today, set to current date
+            currentDate.setDate(startDate.getDate() + day);                             // set the current date to startdate + 1 , incrementing each day of 30
+            const formattedDate = formatDate(currentDate);                              // formatted date converts date string to dd-mm-yyyy
 
             // For each day, loop for sittings
             sittings.forEach(sitting => {
-                let seatsFilled = 0; // Seats counter set to 0
+                let seatsFilled = 0;                                                                    // Sets counter set to 0
 
-                while (seatsFilled < maxSeatsPerSitting / 2) { // while the number of seats filled < 8, only take up half the seats
-                    const guests = guestsOptions[Math.floor(Math.random() * guestsOptions.length)]; // pick a seat option from seat options array, 1,2,4,6
-                    if (seatsFilled + guests > maxSeatsPerSitting / 2) continue; // check to see if seatsFilled + guests > 8
+                while (seatsFilled < maxSeatsPerSitting / 2) {                                          // while the number of seats filled < 8, only take up half the seats
+                    const guests = guestsOptions[Math.floor(Math.random() * guestsOptions.length)];     // pick a seat option from seat options array, 1,2,4,6
+                    if (seatsFilled + guests > maxSeatsPerSitting / 2) continue;                        // check to see if seatsFilled + guests > 8
 
-                    seatsFilled += guests; // Add guests to seatsFilled, for next loop check
+                    seatsFilled += guests;                                                              // Add guests to seatsFilled, for next loop check
 
-                    const firstName = getRandomElement(firstNames); // get a first name from the firstNames array
-                    const lastName = getRandomElement(lastNames); // get a last name from the lastNames array
-                    const email = generateRandomEmail(firstName, lastName); // get email address from firstName, lastName@domain
-                    const phone = generateRandomPhoneNumber(); // generate a random phone number from function
+                    const firstName = getRandomElement(firstNames);                     // get a first name from the firstNames array
+                    const lastName = getRandomElement(lastNames);                       // get a last name from the lastNames array
+                    const email = generateRandomEmail(firstName, lastName);             // get email address from firstName, lastName@domain
+                    const phone = generateRandomPhoneNumber();                          // generate a random phone number from function
 
 
                     // Set up the reservations data construct
@@ -289,7 +249,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Save bookings to local storage
-        localStorage.setItem("reservations", JSON.stringify(reservations)); // write reservations to local string
+        localStorage.setItem("reservations", JSON.stringify(reservations));         // write reservations to local string
     }
 });
 
@@ -302,10 +262,10 @@ document.addEventListener("DOMContentLoaded", function () {
 /**
  * Initialse values for reservation checks.
  */
-let reservations = JSON.parse(localStorage.getItem('reservations')) || []; // Initialise reservations array set to local storate. If not found use empty array/
+let reservations = JSON.parse(localStorage.getItem('reservations')) || [];          // Initialise reservations array set to local storate. If not found use empty array/
 const max_sitting_Seats = 16;
-const tab1 = document.getElementById("tab-1"); // Get the elements of tab-1
-const tab2 = document.getElementById("tab-2"); // Get the elements of tab-2
+const tab1 = document.getElementById("tab-1");                                      // Get the elements of tab-1
+const tab2 = document.getElementById("tab-2");                                      // Get the elements of tab-2
 const reservationSuccessful = document.getElementById("reservation-completed");
 
 /**
@@ -321,22 +281,22 @@ const reservationSuccessful = document.getElementById("reservation-completed");
  */
 findTable.addEventListener("click", (event) => {
     console.log("picked up find table button click");
-    event.preventDefault();
-    openReservationForm(); // Open Form Tab 1
+    event.preventDefault();                                             // Prevent form button from carrying out normal functionlity
+    openReservationForm();                                              // Open Form Tab 1
 
     // Get values from form tab1
-    let guests = document.getElementById('guestNum').value; // number of guests from form
-    let date = document.getElementById('date').value; // reservation date from form
-    let sitting = document.getElementById('sitting').value; // reservation time from form
-    let tab1Message = document.getElementById('tab-1-message'); // message area on tab 1 for giving feedback when button clicked
+    let guests = document.getElementById('guestNum').value;             // number of guests from form
+    let date = document.getElementById('date').value;                   // reservation date from form
+    let sitting = document.getElementById('sitting').value;             // reservation time from form
+    let tab1Message = document.getElementById('tab-1-message');         // message area on tab 1 for giving feedback when button clicked
 
 
 
     // Check to see that the the fields have been filled in
     if (!guests || !sitting || !date) {
-        // alert("Please fill in all fields!");
-        tab1Message.textContent = "Please fill in all fields."; // Message to be displayed to guest booking
-        tab1Message.style = "block"; // Show message content
+
+        tab1Message.textContent = "Please fill in all fields.";         // Message to be displayed to guest booking
+        tab1Message.style = "block";                                    // Show message content
         return;
     }
 
@@ -344,37 +304,24 @@ findTable.addEventListener("click", (event) => {
     let seatsAvailable = checkreservations(date, sitting);
 
     if (seatsAvailable >= guests) {
-        console.log("Seats are available");
-        console.log("Number of guests looking for seats " + guests);
-        console.log("Number of seats available " + seatsAvailable);
-        console.log("The Date of the reservation");
-        completeReservation(); // if seats available display form part 2 to complete reservation.
+          completeReservation();                                            // if seats available display form part 2 to complete reservation.
     } else {
-        console.log("Seats are Not available");
-        console.log("Number of guests looking for seats " + guests);
-        console.log("Number of seats available " + seatsAvailable);
-        console.log("The Date of the reservation");
-        tab1Messageessage.textContent = "Sitting Full! Please Try Again"; // Message to be displayed to guest
-        tab1Message.classList.remove = 'hidden'; // remove the class hidden
-        resetForm();
-        console.log("form values should now be reset");
-
+        tab1Messageessage.textContent = "Sitting Full! Please Try Again";   // Message to be displayed to guest
+        tab1Message.classList.remove = 'hidden';                            // remove the class hidden
+        resetForm();                                                        // reset the form values for next reservaion
     }
 
     function checkreservations(date, sitting) {
+
         // Create a new array existingReservations filtering only reservations matching the date and sitting provided.
 
         let existingReservations = reservations.filter(r => r.date === date && r.sitting === sitting);
-        console.log("Existing reservations: " + JSON.stringify(existingReservations, null, 2));
+
         // Take the existingReservations array and see how many seats are available using reduce method.
         let bookedSeats = existingReservations.reduce((total, reservation) => total + Number(reservation.guests), 0);
-        console.log("booked seats " + bookedSeats);
-        return max_sitting_Seats - bookedSeats;
-    }
 
-    console.log("check reservations numguests contains " + guests);
-    console.log("check reservations Date of reservation " + date);
-    console.log("check reservations Sitting " + sitting);
+        return max_sitting_Seats - bookedSeats;                             // return the number of seats seats left
+    }
 });
 
 /**
@@ -383,38 +330,37 @@ findTable.addEventListener("click", (event) => {
  * It hides the first form with the number of guests, date and sitting
  * then it shows the first name, last name, email, and telephone number form
  */
-makeReservation.addEventListener("click", () => {
+makeReservation.addEventListener("click", () => {                    // event listner for make reservation button click
+    
     // Second form tab 2 details
-    console.log("PICKING UP THE MAKE RESERVATION BUTTON CLICK");
-    let firstName = document.getElementById('fname').value;
-    let lastName = document.getElementById('lname').value;
-    let email = document.getElementById('email').value;
-    let phone = document.getElementById('telephone').value;
+    let firstName = document.getElementById('fname').value;          // First name
+    let lastName = document.getElementById('lname').value;           // Last name
+    let email = document.getElementById('email').value;              // Email Address
+    let phone = document.getElementById('telephone').value;          // Telephone number
+
     // First form tab 1 details
-    let guests = document.getElementById('guestNum').value;
-    let sitting = document.getElementById('sitting').value;
-    let date = document.getElementById('date').value;
-    let tab2Message = document.getElementById('tab-2-message'); // message area on tab 2 for giving feedback when button clicked
+    let guests = document.getElementById('guestNum').value;          // Number of guests
+    let sitting = document.getElementById('sitting').value;          // Sitting selected - First or Second
+    let date = document.getElementById('date').value;                // Date of booking
+    let tab2Message = document.getElementById('tab-2-message');      // message area on tab 2 for giving feedback when button clicked
     
     
     // Function to convert date
 
 
-    let dateObj = new Date(date); // define object as date value
-    let month = dateObj.getUTCMonth() + 1; // get the month part of the date
-    month = month < 10 ? '0' + month : month; // to display month as mm may need to add leading 0
-    let day = dateObj.getUTCDate(); // get day part of the date object
-    day = day < 10 ? '0' + day : day; // to display day as dd may need to add leading 0
-    let year = dateObj.getUTCFullYear(); // get year part of the date
-    let formattedDate = day + "-" + month + "-" + year; // create new variable formattedDate in format dd/mm/yy
-    console.log("New date displayed " + formattedDate);
+    let dateObj = new Date(date);                                   // define object as date value
+    let month = dateObj.getUTCMonth() + 1;                          // get the month part of the date
+    month = month < 10 ? '0' + month : month;                       // to display month as mm may need to add leading 0
+    let day = dateObj.getUTCDate();                                 // get day part of the date object
+    day = day < 10 ? '0' + day : day;                               // to display day as dd may need to add leading 0
+    let year = dateObj.getUTCFullYear();                            // get year part of the date
+    let formattedDate = day + "-" + month + "-" + year;             // create new variable formattedDate in format dd/mm/yy
 
-    console.log("First Name is : " + firstName);
+
     // Validate the second tab fields to see it there are empty fields.
-    if (!firstName || !lastName || !email || !phone) {
-        console.log("I can see the fields are empty");
-        tab2Message.textContent = "Please fill missing fields"; // Message to be displayed to booker
-        tab2Message.style = "block"; // Show message content
+    if (!firstName || !lastName || !email || !phone) {                      // see if values are true... they must all have values
+        tab2Message.textContent = "Please fill missing fields";             // Message to be displayed to booker
+        tab2Message.style = "block";                                        // Show message content
         return;
     }
 
@@ -433,153 +379,121 @@ makeReservation.addEventListener("click", () => {
 
     // push the reservation date, sitting, guestnumbers,  first name, last name email, telephone reservation number to array
     reservations.push(reservation);
-    onlyOnAdminPage(); // call function to write reservation to array and trigger update event.
+    onlyOnAdminPage();                                  // call function to write reservation to array and trigger update event.
 
 
     // Get values for reservation success tab
-    let successName = document.getElementById('reservation-name'); // Success Customer First Name
-    let successDate = document.getElementById('reservation-date'); // Success Date
-    let successTime = document.getElementById('reservation-time'); // Success Sitting
-    let successNumber = document.getElementById('reservation-number'); // Success reservation number
+    let successName = document.getElementById('reservation-name');          // Success Customer First Name
+    let successDate = document.getElementById('reservation-date');          // Success Date
+    let successTime = document.getElementById('reservation-time');          // Success Sitting
+    let successNumber = document.getElementById('reservation-number');      // Success reservation number
 
     // Display reservation values in reservation success tab
-    successName.textContent = firstName + ",";
-    successDate.textContent = formattedDate;
-    successTime.textContent = sitting;
-    successNumber.textContent = reservation.confirmationNumber;
+    successName.textContent = firstName + ",";                              // Display first name
+    successDate.textContent = formattedDate;                                // Display date of reservation
+    successTime.textContent = sitting;                                      // Display which sitting
+    successNumber.textContent = reservation.confirmationNumber;             // Display the confirmation number
 
     const reservationConfirmation = reservation.confirmationNumber;
 
-    displayReservationdetails(); // Show the reservation details to the guest
-    localStorage.setItem('reservations', JSON.stringify(reservations)); // write reservations to localstorage
-    console.log("writing the reservation to loacal storage");
-    console.log("first name for email is: " + firstName);
+    displayReservationdetails();                                            // Show the reservation details to the guest
+    localStorage.setItem('reservations', JSON.stringify(reservations));     // write reservations to localstorage
 
-    sendEmail(firstName, formattedDate, sitting, reservationConfirmation);
-    console.log("send email");
-    console.log(reservations);
-    resetForm();
+    sendEmail(firstName, formattedDate, sitting, reservationConfirmation);  // Send the reservation confirmation to the validated email address
+
+    resetForm();                                                            // reset the form values for next reservation
 
 });
 
 
-
-
-
-
-
 /**
  *    Function opens form tab 1 when "reservation" button is clicked.
+ *    The form has 3 tabs.
  *    It displays tab 1 first. guestnum, sitting, date
  *    When reservation is available it shows tab 2. firstname, lastname, email, telephone.
+ *    The last tab shows the completed reservation detail.
  */
 function openReservationForm() {
-    console.log("Entering reservation popup");
     // Initialise reservations
     // Get reservation item by element id
-    let resForm = document.getElementById("resForm")
-    let reservForm = document.getElementById("reservation-form");
-    let tab1 = document.getElementById("tab-1");
-    let tab2 = document.getElementById("tab-2");
-    let reservCompleted = document.getElementById("reservation-completed");
-
-    const navItems = document.getElementById("nav-items");
+    let resForm = document.getElementById("resForm")                            // get reservation form div
+    let reservForm = document.getElementById("reservation-form");               // get reservation form itself
+    let tab1 = document.getElementById("tab-1");                                // get the first tab of the reservation form
+    let tab2 = document.getElementById("tab-2");                                // get the second tab of the reservation form
+    let reservCompleted = document.getElementById("reservation-completed");     // get the reservation completed tab of the form
+    const navItems = document.getElementById("nav-items");                      // get the nav items
+ 
+ 
     // Check to see if the device is a mobile phone 280px or <. If yes then hide menu.
-    if (screenSize.matches) { // If media query matches
-        navItems.style.display = "none";
+    if (screenSize.matches) {                                                   // If screen size is mobile phone
+        navItems.style.display = "none";                                        // hide the mobile menu
     }
 
-    //navItems.style.display = "none"; // Hide the menu
-    reservForm.style.display = "block"; // Display the reservation form
-    console.log("The display value of form is set to block");
-    tab1.style.display = "block"; // Display the stage 1 form
-    console.log("Display form tab 1 ");
-    tab2.style.display = "none"; // Hide the stage 2 form until completing reservation
-    console.log("Hide tab 2");
-    reservCompleted.style.display = "none"; // Hide the reservation completed page
+    reservForm.style.display = "block";                                     // Display the reservation form
+    tab1.style.display = "block";                                           // Display the stage 1 form
+    tab2.style.display = "none";                                            // Hide the stage 2 form until completing reservation
+    reservCompleted.style.display = "none";                                 // Hide the reservation completed page
 
-    // menu.style.display = "none"; // Hide the menu now that the form is displayed
-    console.log("Hide the menu");
 
     // Check to see if the screen size is mobile 280px if it is, hide the menu when res form opened
-    if (screenSize.matches) { // If media query matches
-        menu.style.display = "none";
+    if (screenSize.matches) {                                               // If screen size is mobile phone
+        menu.style.display = "none";                                        // Hide the menu items
     }
 
-    resForm.style.display = "flex"; // set the reservation form to flex
-    resForm.style.justifyContent = "space-around"; // space the reservation form evenly
-    console.log("Set the reservation form to flex");
-    console.log("Justify the content space around");
-
-
-
+    resForm.style.display = "flex";                                         // set the reservation form to flex
+    resForm.style.justifyContent = "space-around";                          // space the reservation form evenly
 }
 
-
-
-
-
 // close reservation form if close button pressed
-const reservForm = document.getElementById("reservation-form");
+const reservForm = document.getElementById("reservation-form");             // Get the reservation form element
 
+/**
+ * Function that closes the reservation form
+ * sets the form display to none
+ */
 function closeReservation() {
-    console.log("captured close reserv form");
-    reservForm.style.display = "none";
+    reservForm.style.display = "none";                                      // Hide the reservation form on close button click
 }
 
 /**
  *  Function to close tab 1 and show tab 2 when reservation is being made
  */
 function completeReservation() {
-    console.log("Entering reservation popup");
-    tab1.style.display = "none"; // Hide tab1
-    tab2.style.display = "block"; // Display tab2
+    tab1.style.display = "none";                // Hide tab1
+    tab2.style.display = "block";               // Display tab2
 }
 
 /**
  *   Function to display reservation details on success
  */
 function displayReservationdetails() {
-    tab1.style.display = "none"; // Hide tab-1
-    tab2.style.display = "none"; // Hide tab-2
-    reservationSuccessful.style.display = "block"; // Display Confirmation tab
+    tab1.style.display = "none";                    // Hide tab-1
+    tab2.style.display = "none";                    // Hide tab-2
+    reservationSuccessful.style.display = "block";  // Display Confirmation tab
 }
 
-/**
- * Create function to change input date from format yyyy-mm-dd to dd-mm-yy
- */
-function convertDate() {
-    console.log("date conversion function started")
-    let dateObj = new Date(date.value); // define object as date value
-    let month = dateObj.getUTCMonth() + 1; // get the month part of the date
-    month = month < 10 ? '0' + month : month; // to display month as mm may need to add leading 0
-    let day = dateObj.getUTCDate(); // get day part of the date object
-    day = day < 10 ? '0' + day : day; // to display day as dd may need to add leading 0
-    let year = dateObj.getUTCFullYear(); // get year part of the date
-    let formattedDate = day + "/" + month + "/" + year; // create new variable formattedDate in format dd/mm/yy
-    console.log(formattedDate);
-}
 
 /**
  *  Function to create reservation confirmation number
+ *  it returns the length of the array and adds 1
+ *  to generate a unique number
  */
 function generateConfirmationNumber() {
-    return reservations.length + 1; // get length of reservations array and increment by 1
+    return reservations.length + 1;                 // get length of reservations array and increment by 1
 }
 
 /**
  * Function to reset form after reservation made
+ * the function is called from other functions and is reusable
  */
 function resetForm() {
-    console.log("started google initialisation");
-    document.getElementById('guestNum').value = 1;
-    document.getElementById('date').value = null;
-    document.getElementById('sitting').value = 'First - 17:00';
-    document.getElementById('message').value = '';
-    document.getElementById('fname').value = '';
-    document.getElementById('lname').value = '';
-    document.getElementById('telephone').value = '';
-    document.getElementById('email').value = '';
+    document.getElementById('guestNum').value = 1;                      // Default number of guests to 1
+    document.getElementById('date').value = null;                       // Defaults date to null
+    document.getElementById('sitting').value = 'First - 17:00';         // Defaults sitting to first
+    document.getElementById('fname').value = '';                        // Defaults First Name to null
+    document.getElementById('lname').value = '';                        // Defaults Last Name to null
+    document.getElementById('telephone').value = '';                    // Defaults telephone to null
+    document.getElementById('email').value = '';                        // Defaults email to null   
 
 }
 
