@@ -321,11 +321,11 @@ The project was deployed using GitHub pages. The steps to deploy using GitHub pa
 5. Once selected, click the 'Save'.
 6. Deployment should be confirmed by a message on a green background saying "Your site is published at" followed by the web address. 
 
-Live site can be viewed here: [KSail](https://doyle-kfd.github.io/KSail/)
+Live site can be viewed here: [aquastella](https://doyle-kfd.github.io/aquastella/admin.html)
 
 ## Cloning
 
-To clone the KSail repository
+To clone the aquastella repository
 1. On GitHub.com, navigate to the main page of the repository.
 2. Above the list of files, click  Code.
 3. Copy the URL for the repository.
@@ -342,9 +342,14 @@ Full instructions on cloning can be found here: [Cloning Instructions ](https://
 
 The concept for the KSail website is based on the real life offerings from the RSGYC.
 
-[Royal St. George Yacht Club](https://www.rsgyc.ie/training-3/usail/)
+[Michelin Star Seafood Restaraunts Ireland](https://guide.michelin.com/ie/en/best-of/best-of-fish-and-seafood-restaurants-in-the-republic-of-ireland)
 
 The responsive design is based on the "I love running site"
+
+Restaraunts used in reference:
+-  [Coletta](https://www.collettarestaurant.com/)
+-  [The Original](https://www.theogdenver.com/our-story/)
+-  [Cush](https://cush.ie/)
 
 ### Features
 - Header, Footer Styling, Flex concept - Love Running Tutorial
