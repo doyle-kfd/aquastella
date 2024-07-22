@@ -1,13 +1,14 @@
-# KSail - Adult sailing courses
+# aquaStella - 2 Michelin Star Restaraunt
 
-KSail is a microsite focused on adult sailing courses.
-It is broadly designed around an exisiting page on the Royal St. George Yacht Club.
-The KSail site is how I would invisage a website for adult sailing courses would look if I was asked to design and develop one.
+Aqua’ Stella is a fictitious Michelin star restaurant that styles itself around seafood.
 
-KSail is developed, based on real discussions and observations.
-While the information on the KSail site is not real, the methodology of providing a business case, personas and user stories is real life.
+The restaurant is a small and unique dining experience with only 16 seats catering for 2 sittings, so 32 possible seats per night.
 
-The link to the live KSail website is here: [KSail](https://doyle-kfd.github.io/KSail/)
+The target audience is based on fictitious data that the website will cater for in voice and imagery.
+ 
+This project will focus on the table booking feature for the visitor and the provision of a data dashboard for the owner.
+
+The link to the live aquastella website is here: [aquastella](https://doyle-kfd.github.io/aquastella/index.html)
 
 ![KSail am i responsive image](docs/readme_images/am-i-responsive.png)
 
