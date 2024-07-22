@@ -613,8 +613,8 @@ width: 40%;
 }
 
 
-/* Create hidden attribute for messages in form */
-#message {
+/* Create hidden attribute for messages in reservation form tab1 and tab2 */
+#tab-1-message, #tab-2-message {
     color: #ffffff;
     font-size: .8rem;
     text-align: center;

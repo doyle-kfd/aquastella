@@ -26,8 +26,8 @@
         <nav id="nav-items">
             <button class="make-reservation" onclick="openReservationForm()">Reservation</button>
             <ul id="menu">
-                <li><a href="index.html" class="active link-hover">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html" class="active link-hover">Gallery</a></li>
                 <!-- Capture mobile menu open click -->
                 <li><a href="#" id="adminlogin" onclick="openloginForm()">Login <i class="fa-solid fa-user-tie"
                             style="color: #ffffff;"></i></a></li>
@@ -99,9 +99,9 @@
                         </div>
                         <div id="findtable-btn-container">
                             <button id="ftable" type="button">Find Table</button>
-                            <div id="msg-box">
+                            <div>
                                 <!-- Hidden message box for displaying feedback-->
-                                <p id="message"></p>
+                                <p id="tab-1-message"></p>
                             </div>
                         </div>
                     </div>
@@ -111,25 +111,29 @@
                         <!-- Get first name-->
                         <div class="fname">
                             <label for="fname">First Name:</label>
-                            <input type="text" id="fname" name="fname">
+                            <input type="text" id="fname" name="fname" required>
                         </div>
 
                         <!-- Get last name-->
                         <div class="lname">
                             <label for="lname">Last Name:</label>
-                            <input type="text" id="lname" name="lname">
+                            <input type="text" id="lname" name="lname" required>
                         </div>
                         <div class="phone">
                             <label for="telephone">Telephone:</label>
-                            <input type="number" id="telephone" name="telephone">
+                            <input type="number" id="telephone" name="telephone" required>
                         </div>
                         <div class="email">
                             <label for="email">Email:</label>
-                            <input type="email" id="email" name="email">
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div id="make-res-container">
                             <!-- Make Reservation-->
                             <button id="make-booking" type="button">Make Reservation</button>
+                            <div>
+                                <!-- Hidden message box for displaying feedback-->
+                                <p id="tab-2-message"></p>
+                            </div>
                         </div>
                     </div>
                     <!-- Create a third tab to display conformation details when reservation made-->

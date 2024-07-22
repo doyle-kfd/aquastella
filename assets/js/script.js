@@ -328,14 +328,15 @@ findTable.addEventListener("click", (event) => {
     let guests = document.getElementById('guestNum').value; // number of guests from form
     let date = document.getElementById('date').value; // reservation date from form
     let sitting = document.getElementById('sitting').value; // reservation time from form
-    let message = document.getElementById('message'); // message area under find table button for displaying feedback
+    let tab1Message = document.getElementById('tab-1-message'); // message area on tab 1 for giving feedback when button clicked
+
 
 
     // Check to see that the the fields have been filled in
     if (!guests || !sitting || !date) {
         // alert("Please fill in all fields!");
-        message.textContent = "Please fill in all fields."; // Message to be displayed to booker
-        message.style = "block"; // Show message content
+        tab1Message.textContent = "Please fill in all fields."; // Message to be displayed to guest booking
+        tab1Message.style = "block"; // Show message content
         return;
     }
 
@@ -353,8 +354,8 @@ findTable.addEventListener("click", (event) => {
         console.log("Number of guests looking for seats " + guests);
         console.log("Number of seats available " + seatsAvailable);
         console.log("The Date of the reservation");
-        message.textContent = "Sitting Full! Please Try Again"; // Message to be displayed to guest
-        message.classList.remove = 'hidden'; // remove the class hidden
+        tab1Messageessage.textContent = "Sitting Full! Please Try Again"; // Message to be displayed to guest
+        tab1Message.classList.remove = 'hidden'; // remove the class hidden
         resetForm();
         console.log("form values should now be reset");
 
@@ -393,6 +394,9 @@ makeReservation.addEventListener("click", () => {
     let guests = document.getElementById('guestNum').value;
     let sitting = document.getElementById('sitting').value;
     let date = document.getElementById('date').value;
+    let tab2Message = document.getElementById('tab-2-message'); // message area on tab 2 for giving feedback when button clicked
+    
+    
     // Function to convert date
 
 
@@ -405,9 +409,12 @@ makeReservation.addEventListener("click", () => {
     let formattedDate = day + "-" + month + "-" + year; // create new variable formattedDate in format dd/mm/yy
     console.log("New date displayed " + formattedDate);
 
+    console.log("First Name is : " + firstName);
+    // Validate the second tab fields to see it there are empty fields.
     if (!firstName || !lastName || !email || !phone) {
-        message.textContent = "Please fill in all fields."; // Message to be displayed to booker
-        message.style = "block"; // Show message content
+        console.log("I can see the fields are empty");
+        tab2Message.textContent = "Please fill missing fields"; // Message to be displayed to booker
+        tab2Message.style = "block"; // Show message content
         return;
     }
 
