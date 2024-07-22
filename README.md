@@ -353,9 +353,36 @@ Restaraunts used in reference:
 
 ### Features
 - Header, Footer Styling, Flex concept - Love Running Tutorial
-- Box Shadow generation: [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders/Box-shadow_generator)
-- Telephone link in footer: [W3Schools](https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_link_phoneto)
-- Contact form input types: [W3Schools](https://www.w3schools.com/html/html_form_input_types.asp)
+- Using Local Storage to store values of arrays for use across tabs [stackoverflow](https://stackoverflow.com/questions/2010892/how-to-store-objects-in-html5-localstorage-sessionstorage)
+- Date formatting [stackoverflow](https://stackoverflow.com/questions/3552461/how-do-i-format-a-date-in-javascript)
+- Js Mobile Menu: [W3Schools](https://www.w3schools.com/howto/howto_js_mobile_navbar.asp)
+- JS login form:  [W3Schools](https://www.w3schools.com/howto/howto_css_login_form.asp)
+- JS multiple step form: [W3Schools](https://www.w3schools.com/howto/howto_js_form_steps.asp)
+    - Form Validation for reservations:
+        - [geeksforgeeks](https://www.geeksforgeeks.org/form-validation-using-javascript/)
+        - [W3Schools](https://www.w3schools.com/js/js_validation.asp)
+-   Codinstitue JS essentials
+    -   iteration
+    -   Listners
+    -   Template literals
+    -   Getting elements by class and Id
+    -   Setting style values
+    -   Event Listners
+    -   Checking for page load
+    -   Arrays
+        -   pair keys
+        -   filter
+        -   reduce
+        -   arrow functions
+
+-   W3Sschools
+    - [array methods](https://www.w3schools.com/js/js_array_methods.asp)
+    - [array iteration](https://www.w3schools.com/js/js_array_iteration.asp)
+    - [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp)
+
+-   MDN
+    -   [array methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+    -   [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 
 ### CSS References

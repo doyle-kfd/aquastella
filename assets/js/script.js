@@ -281,7 +281,6 @@ const reservationSuccessful = document.getElementById("reservation-completed");
  *        write reservation to array and give customer reservation number
  */
 findTable.addEventListener("click", (event) => {
-    console.log("picked up find table button click");
     event.preventDefault();                                             // Prevent form button from carrying out normal functionlity
     openReservationForm();                                              // Open Form Tab 1
 
