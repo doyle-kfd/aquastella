@@ -10,38 +10,38 @@ This project will focus on the table booking feature for the visitor and the pro
 
 The link to the live aquastella website is here: [aquastella](https://doyle-kfd.github.io/aquastella/index.html)
 
-![KSail am i responsive image](docs/readme_images/am-i-responsive.png)
+![aquaStella am i responsive image](docs/readme_images/aquastella-am-i-responsive.png)
 
 ## The approach I took
 
 <details>
 <summary>Intro</summary>
 
-![PP1 Intro](docs/readme_images/pp1-intro.png)
+![PP2 Intro](docs/readme_images/pp2-intro.png)
 
 </details>
 <details>
 <summary>Agenda</summary>
 
-![Agenda for kickoff](docs/readme_images/pp1-agenda.png)
+![Agenda for kickoff](docs/readme_images/pp2-agenda.png)
 
 </details>
 <details>
 <summary>Project Introduction</summary>
 
-![General Introduction](docs/readme_images/pp1-general-introduction.png)
+![General Introduction](docs/readme_images/pps-general-intor.png)
 
 </details>
 <details>
 <summary>What Problem I Solve</summary>
 
-![Problem I Solve](docs/readme_images/pp1-the-problem.png)
+![Problem I Solve](docs/readme_images/pp2-the-problem.png)
 
 </details>
 <details>
 <summary>Target Audience</summary>
 
-![Our Target Audience](docs/readme_images/pp1-our-target-audience.png)
+![Our Target Audience](docs/readme_images/pp2-target-audience.png)
 
 
 
@@ -49,40 +49,39 @@ The link to the live aquastella website is here: [aquastella](https://doyle-kfd.
 <details>
 <summary>Persona 1</summary>
 
-![Our Target Persona 1](docs/readme_images/pp1-persona-1.png)
+![Our Target Persona 1](docs/readme_images/pp2-persona-1.png)
 
 </details>
 <details>
 <summary>Persona 2</summary>
 
-![Our Target Persona 2](docs/readme_images/pp1-persona-2.png)
+![Our Target Persona 2](docs/readme_images/pp2-persona-2.png)
 
 </details>
 <details>
 <summary>User Story - Sid The Sailor</summary>
 
-![User Story - Sid THe Sailor](docs/readme_images/pp1-user-story-sid-the-sailor.png)
+![User Story - Sid The Sailor](docs/readme_images/pp2-sid-the-sailor.png)
 
 </details>
 <details>
-<summary>User Story - Mary The Mermaid</summary>
+<summary>User Story - Michelin Mike</summary>
 
-![User Story - Mary The Mermaid](docs/readme_images/pp1-user-story-mary-the-mermaid.png)
+![User Story - Michelin Mike](docs/readme_images/pp2-user-story-mike.png)
 
 </details>
 
 <details>
 <summary>Proposed Solution</summary>
 
-![Proposed Solution](docs/readme_images/pp1-proposed-solution.png)
-![My proposed solution](docs/readme_images/pp1-my-solutuion.png)
+![Proposed Solution](docs/readme_images/pp2-proposed-solution.png)
 
 </details>
 
 <details>
 <summary>I Will Deliver</summary>
 
-![What I Will Deliver](docs/readme_images/pp1-i-will-deliver.png)
+![What I Will Deliver](docs/readme_images/pp2-i-will-deliver.png)
 
 </details>
 
