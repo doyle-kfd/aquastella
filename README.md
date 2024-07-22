@@ -266,30 +266,30 @@ The reservations table has a horizontal scroll bar to facilitate mobile table na
 
 ## Given the time, I would implement
 
-- a proper scoping phase
+- a proper scoping phase, talking to a real restaraunt
 - surveys and workshops to find out the bullseye customer in order to increase sales
-- eCommerce integration for direct payment
-- sales pages for each course
-- a proper drodown menu
-- a privacy option on the contact form
-- a live js chatbot
-- a faq page answering all known questions to allow a clearer sales process
+- eCommerce integration to take booking fee
+- Dashboards to show the monetary value of reservations and historical sales
+- in depth validation of the forms
+- On the reservation page, a suitable graphic to offer sittings available on specific upcoming dates
+- a database integration for adminstrator authentication
+- a CRUD interface on the authenticated dashboard for reservation updates
 
 ## Design
 
 ### Overall comments
-The current Adult Sailing web presence does not give the site visitors a "WOW" feeling. The textual content is clear and informative but is not supported by a user experience which will encourage the site visitor to make a decision to sign up or pay.
+The imagery and textual content is combined to give a sense of value. The voice is used to convey the authenticity of the restaraunt as a seafood specialist.
 
 ### Imagery
-The imagery used in the KSail is selected to give the visitor a comfort feeling that they have arrived in the right place. It features sailboats similar to those that they will train on with imagery of people from the age demographic that KSail is targeting.
+The imagery used is cohesive. The message is seemless. It build credibility during the visit.
 
 ### Colours
-THe colors are those of the RSGYC, Royal St. George Yacht Club. I have used the blue as much as possible and gone as light on the red as possible.
+THe colors are used to add a richer feel to the restaraunt.
 
 ### Fonts
 The fonts used are from Google's library
-- For Headings [Roboto](https://fonts.google.com/specimen/Roboto)
-- For Text [Lato](https://fonts.google.com/specimen/Lato)
+- For Headings [Syne](https://fonts.google.com/specimen/Syne)
+- For Text [Montserrat](https://fonts.google.com/specimen/Montserrat)
 
 
 ## Wireframes
