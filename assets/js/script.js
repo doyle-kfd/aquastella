@@ -494,14 +494,11 @@ function resetForm() {
     document.getElementById('lname').value = '';                        // Defaults Last Name to null
     document.getElementById('telephone').value = '';                    // Defaults telephone to null
     document.getElementById('email').value = '';                        // Defaults email to null   
-
 }
 
 
 // Run admin page specific code
 onlyOnAdminPage();
-
-
 /**
  * 
  * 
@@ -511,9 +508,9 @@ onlyOnAdminPage();
  */
 
 function onlyOnAdminPage() {
-    const currentPageUrl = window.location.pathname;
-    if (currentPageUrl.includes('/admin')) {
-        loadAdminSpecificCode();
+    const currentPageUrl = window.location.pathname;                // Set the variable of current path name
+    if (currentPageUrl.includes('/admin')) {                        // check to see if the current path is the admin page
+        loadAdminSpecificCode();                                    // If it is, then run loadAdminSpecificCode function. Stops function errors on non admin page.
     }
 }
 
@@ -525,33 +522,16 @@ function onlyOnAdminPage() {
  * 
  * 
  */
-
-
-
-
 function loadAdminSpecificCode() {
 
     // Initialise google charts
-    google.charts.load('current', {
-        packages: ['corechart']
-    });
+    google.charts.load('current', {packages: ['corechart']});
 
-    google.charts.setOnLoadCallback(drawCharts);
+    google.charts.setOnLoadCallback(drawCharts);                // Run the google charts js on function drwCharts
 
-    console.log("ended google initialisation");
 
     function drawCharts() {
         updateReservationsTable();
-    }
-
-    /**
-     *
-     *  Function to write reservation to array local storage
-     *
-     */
-    function updateAdminPage() {
-        // localStorage.setItem('reservations', JSON.stringify(reservations)); // write reservations to localstorage
-        window.dispatchEvent(new Event('storage')); // trigger event to check for updates in local storage
     }
 
     /**
@@ -563,49 +543,44 @@ function loadAdminSpecificCode() {
      *
      */
     function updateReservationsTable() {
-        const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
-        const tableBody = document.getElementById('reservationsTableBody');
-        console.log("starting Update Reservations Display Table");
-        // Clear the existing table rows
-        tableBody.innerHTML = '';
+        const reservations = JSON.parse(localStorage.getItem('reservations')) || [];        // set the reservations variable to localSorage array reservations or blank if none found
+        const tableBody = document.getElementById('reservationsTableBody');                 // get reservations table body for creating reservations table
+       
+        // Clear the existing table rows                
+        tableBody.innerHTML = '';                                       // Set the inner html of table body to null                  
 
         // Populate the table with reservations
-        reservations.forEach(reservation => {
-            const row = document.createElement('tr');
+        reservations.forEach(reservation => {                           // For each reservation
+            const row = document.createElement('tr');                   // Create a row
 
-            for (const key in reservation) {
-                const cell = document.createElement('td');
-                cell.innerText = reservation[key];
-                row.appendChild(cell);
+            for (const key in reservation) {                            // For each key pair in the reservation
+                const cell = document.createElement('td');              // Create a table data cell
+                cell.innerText = reservation[key];                      // set the cells inner text to the reservation value of key
+                row.appendChild(cell);                                  // append the cell date to the row
             }
 
-            tableBody.appendChild(row);
+            tableBody.appendChild(row);                                 // with the cells completed, append the row to the table
         });
-        console.log("completed Update Reservations Table");
 
-        // Update the stats
+        // Update the stats for the reservations
         updateStats(reservations);
     }
 
     // Update the reservation stats for displaying
     function updateStats(reservations) {
-        console.log(reservations);
+
         // Get todays date and as an ISOString and split it on the T to give yyyy-mm-dd
         const today = new Date().toISOString().split('T')[0];
-        //console.log(today);
 
         // Convert todays date to dd-mm-yy
-        let dateObj = new Date(today); // define object as date value
-        let month = dateObj.getUTCMonth() + 1; // get the month part of the date
-        month = month < 10 ? '0' + month : month; // to display month as mm may need to add leading 0
-        let day = dateObj.getUTCDate(); // get day part of the date object
-        day = day < 10 ? '0' + day : day; // to display day as dd may need to add leading 0
-        let year = dateObj.getUTCFullYear(); // get year part of the date
+        let dateObj = new Date(today);                      // define object as date value
+        let month = dateObj.getUTCMonth() + 1;              // get the month part of the date
+        month = month < 10 ? '0' + month : month;           // to display month as mm may need to add leading 0
+        let day = dateObj.getUTCDate();                     // get day part of the date object
+        day = day < 10 ? '0' + day : day;                   // to display day as dd may need to add leading 0
+        let year = dateObj.getUTCFullYear();                // get year part of the date
         let formattedDate = day + "-" + month + "-" + year; // create new variable formattedDate in format dd/mm/yy
-        console.log("New date displayed " + formattedDate);
-
-
-
+  
         // Initialise the variable next7Days
         const next7Days = new Date();
 
@@ -630,24 +605,26 @@ function loadAdminSpecificCode() {
 
             // Check and see if the date is today
             if (reservation.date === formattedDate) {
-                totalToday++; // If it is, increment todays date counter by 1
+                totalToday++;                                   // If it is, increment todays date counter by 1
+
                 // Check to see of there are reservations for first sitting
                 if (reservation.sitting === 'First - 17:00') {
-                    firstSittingToday++; // If there are, then increment first sitting by 1
-                } else if (reservation.sitting === 'Second - 20:30') { // Check to see if the resevation is for second sitting
-                    secondSittingToday++; // increment counter by 1
+                    firstSittingToday++;                                    // If there are, then increment first sitting by 1
+                } else if (reservation.sitting === 'Second - 20:30') {      // Check to see if the resevation is for second sitting
+                    secondSittingToday++;                                   // increment counter by 1
                 }
             }
 
             // Calculate counters for next 7 days
             // Check to see if the reservation date is greater than today and its less than the calculated ISO string
             if (reservation.date > formattedDate && reservation.date <= next7DaysISOString) {
-                totalNext7Days++; // If it is then increment the counter for the total next 7 days.
+                totalNext7Days++;                                               // If it is then increment the counter for the total next 7 days.
+
                 // Check to see if the reservation is for the first sitting
                 if (reservation.sitting === 'First - 17:00') {
-                    firstSittingNext7Days++; // If it is, then increment
-                } else if (reservation.sitting === 'Second - 20:30') { // check to see if the reservation is for the second sitting
-                    secondSittingNext7Days++; // Increment the counter by 1
+                    firstSittingNext7Days++;                                    // If it is, then increment
+                } else if (reservation.sitting === 'Second - 20:30') {          // check to see if the reservation is for the second sitting
+                    secondSittingNext7Days++;                                   // Increment the counter by 1
                 }
             }
         });
@@ -667,42 +644,45 @@ function loadAdminSpecificCode() {
 
     // function to create daily chart
     function drawDailyChart(total, firstSitting, secondSitting) {
+        
         // create a data table from an array
         const data = google.visualization.arrayToDataTable([
-            ['Sitting', 'Reservations'], // array header
-            ['Total', total], // total sittings
-            ['First Sitting', firstSitting], //total first sittings
-            ['Second Sitting', secondSitting] // total second sittings
+            ['Sitting', 'Reservations'],                        // array header
+            ['Total', total],                                   // total sittings
+            ['First Sitting', firstSitting],                    //total first sittings
+            ['Second Sitting', secondSitting]                   // total second sittings
         ]);
 
         const options = {
-            title: 'Today\'s Reservations', // Title of chart
+            title: 'Today\'s Reservations',                     // Title of chart
             chartArea: {
                 width: '100%'
-            }, // give it full width
+            },                                                  // give it full width
             hAxis: {
-                title: 'Total Reservations', // Horizontal axis title
-                minValue: 0 // give it a minimum value
+                title: 'Total Reservations',                    // Horizontal axis title
+                minValue: 0                                     // give it a minimum value
             },
             vAxis: {
-                title: 'Sitting' // vertical access heading
+                title: 'Sitting'                                // vertical access heading
             }
         };
 
         // create a BarChart object at the element dailyChart
         const chart = new google.visualization.BarChart(document.getElementById('dailyChart'));
-        chart.draw(data, options); // create the chart using defined data and options
+        chart.draw(data, options);                              // create the chart using defined data and options
     }
 
     // function to create weekly graph by day
     function drawWeeklyChart(reservations) {
+
         // create a new DataTable object to hold the chart data
         const data = new google.visualization.DataTable();
-        data.addColumn('string', 'Date'); // add a column Date as a string
-        data.addColumn('number', 'Reservations'); // add a column Reservations as a number
+        data.addColumn('string', 'Date');                           // add a column Date as a string
+        data.addColumn('number', 'Reservations');                   // add a column Reservations as a number
 
         // function to format dates
         function formatDate(date) {
+
             // specify how date should be displayed
             const options = {
                 weekday: 'short',
@@ -715,10 +695,10 @@ function loadAdminSpecificCode() {
 
         // function to format dates to dd-mm-yyyy
         function formatDateForComparison(date) {
-            const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0');
-            const year = date.getFullYear();
-            return `${day}-${month}-${year}`;
+            const day = String(date.getDate()).padStart(2, '0');            // Convert date of getDate to a string and pad with zeros if its not to characters wide
+            const month = String(date.getMonth() + 1).padStart(2, '0');     // Gets month from getMonth and adds 1 to allow for 0=jan, adds a zero if there are not two chars
+            const year = date.getFullYear();                                // Gets the date of full year as yyyy
+            return `${day}-${month}-${year}`;                               // returns the combines template literal as dd-mm-yyyy
         }
 
         const today = new Date();
@@ -726,17 +706,17 @@ function loadAdminSpecificCode() {
         // Prepare data for the next 7 days
         for (let i = 0; i < 7; i++) {
             const date = new Date(today);
-            date.setDate(today.getDate() + i); // get today's date and increment by i
-            const dateString = formatDateForComparison(date); // format date as dd-mm-yyyy
-            const formattedDate = formatDate(date); // format the date to display the day
+            date.setDate(today.getDate() + i);                              // get today's date and increment by i
+            const dateString = formatDateForComparison(date);               // format date as dd-mm-yyyy
+            const formattedDate = formatDate(date);                         // format the date to display the day
 
-            let count = 0; // initialise the counter
+            let count = 0;                                                  // initialise the counter
 
             // for each reservation in the reservation array
             reservations.forEach(reservation => {
                 // if the reservation date is the same as the one in the date string
                 if (reservation.date === dateString) {
-                    count++; // increment the count
+                    count++;                                                // increment the count
                 }
             });
 
@@ -745,61 +725,41 @@ function loadAdminSpecificCode() {
         }
 
         const options = {
-            title: 'Next 7 Days Reservations', // title of chart
+            title: 'Next 7 Days Reservations',                          // title of chart
             chartArea: {
-                width: '100%', // give it the full width
+                width: '100%',                                          // give it the full width
             },
 
             hAxis: {
-                title: 'Date' // horizontal axis title
+                title: 'Date'                                           // horizontal axis title
             },
             vAxis: {
-                title: 'Reservations', // vertical axis title
-                minValue: 0, // set the minimum value
+                title: 'Reservations',                                  // vertical axis title
+                minValue: 0,                                            // set the minimum value
                 maxValue: 16
             }
         };
 
         // create a chart object at the element weeklyChart
         const chart = new google.visualization.ColumnChart(document.getElementById('weeklyChart'));
-        chart.draw(data, options); // create the chart using defined data and options
+        chart.draw(data, options);                                      // create the chart using defined data and options
     }
 
 }
 
-//////////////////////////////   Use as needed ////////////////////////////
-/*
-console.log("guestNumbers");
-console.log("sitting");
-console.log("firstname");
-console.log("lastname");
-console.log("email");
-console.log("phone");
-console.log("confirmationNumber");
+/**
+ * 
+ *  Function to send reservation details to guest with confirmation details
+ *  Email used it the one in the reservation form
+ *  Using emailJS as the integrator
+ *  
  */
-
-////////////////////////////////////////////////////////////////////
-////////
-///////////
-//////////           Setting up email conformation using emailJS
-///////
-//////
-////////////////////////////////////////////////////////////////
-/*
-(function() {
-emailjs.init('FNSI1Krox9FkKTPMn'); // Replace 'YOUR_USER_ID' with your actual EmailJS user ID
-})();
- */
-
 function sendEmail(firstName, date, sitting, reservationConfirmation) {
 
-    console.log("trying to send confirmation email")
-
-    const successName = document.getElementById('reservation-name').value;
-    console.log("Name of reservation" + successName);
-    const successDate = document.getElementById('reservation-date').value;
-    const successTime = document.getElementById('reservation-time').value;
-    const successNumber = document.getElementById('reservation-number').value;
+    const successName = document.getElementById('reservation-name').value;              // Name on reservation details
+    const successDate = document.getElementById('reservation-date').value;              // Date of confirmation
+    const successTime = document.getElementById('reservation-time').value;              // Time and sitting of reservtion made
+    const successNumber = document.getElementById('reservation-number').value;          // Reservation number condirmed
 
     const templateParams = {
         successName: firstName,
