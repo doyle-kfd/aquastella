@@ -433,7 +433,6 @@ makeReservation.addEventListener("click", () => {
 
     // push the reservation date, sitting, guestnumbers,  first name, last name email, telephone reservation number to array
     reservations.push(reservation);
-    alert('Reservation completed successfully!');
     onlyOnAdminPage(); // call function to write reservation to array and trigger update event.
 
 
@@ -894,9 +893,7 @@ function sendEmail(firstName, date, sitting, reservationConfirmation) {
     emailjs.send('service_lgiwr1r', 'template_0fj9hod', templateParams)
         .then((response) => {
             console.log('SUCCESS!', response.status, response.text);
-            alert('Email sent successfully!');
         }, (error) => {
             console.log('FAILED...', error);
-            alert('Failed to send email. Please try again later.');
         });
 }
