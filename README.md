@@ -296,19 +296,19 @@ The fonts used are from Google's library
 <details>
 <summary>Mobile Phone</summary>
 
-![Mobile Phone Wireframe](docs/wireframes/Mobile%20Phone%20Wireframe.png)
+![Mobile Phone Wireframe](docs/wireframes/mobile-phone-wireframe.png)
 
 </details>
 <details>
 <summary>Tablet</summary>
 
-![Tablet Wireframe](docs/wireframes/Tablet%20Wireframe.png)
+![Tablet Wireframe](docs/wireframes/tablet-wireframe.png)
 
 </details>
 <details>
 <summary>Laptop</summary>
 
-![Laptop Wireframe](docs/wireframes/Laptop%20Screen%201024px%20Wide.png)
+![Laptop Wireframe](docs/wireframes/laptop-wireframe.png)
 
 </details>
 
