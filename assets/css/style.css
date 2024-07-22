@@ -749,7 +749,6 @@ footer > div {
         display: flex;                                      /* Always display nav */
         position: relative;                                 /* Bring nav inside header */
         padding-right: 1rem;
-        justify-content: center;
     }
 
     /* show menu items side by side instead of a block */
