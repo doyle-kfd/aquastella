@@ -90,9 +90,26 @@ The link to the live aquastella website is here: [aquastella](https://doyle-kfd.
 ## Features and benefits
 
 ### Navigation
-- The responsive navigation bar links the logo, Home, About, Gallery and Contact pages.
-- Th Nav bar is fixed in position, allowing navigation while scrolling
-- Aesthetically, there is a drop shadow which gives a 3D effect.
+- The responsive navigation bar links the logo, Home, Gallery and login pages.
+    - There is an admin page which is accessed through the login option on the main navigation.
+    - Once logged in, the admin page is added to the main navigation and a logout link is added, while the login link is removed.
+-   The main navigation has a drop shadow to give a 3D effect.
+
+## Mobile phone Navigation
+
+| Mobile Phone  |   Mobile Dropdown Admin Logged Out  |   Mobile Dropdown Admin  Logged In    |
+|------------|----------------|----------------|
+|          <img src="docs/readme_images/menu-bar-mobile.png" alt="mobile phone menu" width="500"/>      |           <img src="docs/readme_images/menu-bar-mobile-logged-out.png " alt="mobile menu admin logged out" width="300"/>         |             <img src="docs/readme_images/menu-bar-mobile-logged-in.png " alt="mobile menu admin logged in" width="500"/> 
+
+
+
+
+## Ipad - Laptop Navigation
+
+
+| Admin Logged Out |   Admin Logged In  |
+|------------|----------------|
+|          <img src="docs/readme_images/ipad-laptop-menu-admin-logged-out.png" alt="ipad-laptop navigation logged out" width="300"/>      |           <img src="docs/readme_images/ipad-laptop-menu-admin-logged-in.png " alt="ipad-laptop navigation logged out" width="300"/>         |     
 
 ![Navigation Bar](docs/readme_images/menu-bar.png)
 
