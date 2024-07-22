@@ -12,7 +12,7 @@ The link to the live aquastella website is here: [aquastella](https://doyle-kfd.
 
 ![aquaStella am i responsive image](docs/readme_images/aquastella-am-i-responsive.png)
 
-## The approach I took
+# The approach I took
 
 <details>
 <summary>Intro</summary>
@@ -87,15 +87,15 @@ The link to the live aquastella website is here: [aquastella](https://doyle-kfd.
 
 
 
-## Features and benefits
+# Features and benefits
 
-### Navigation
+## Navigation
 - The responsive navigation bar links the logo, Home, Gallery and login pages.
     - There is an admin page which is accessed through the login option on the main navigation.
     - Once logged in, the admin page is added to the main navigation and a logout link is added, while the login link is removed.
 -   The main navigation has a drop shadow to give a 3D effect.
 
-## Mobile phone Navigation
+### Mobile phone Navigation
 
 | Mobile Phone  |   Mobile Dropdown Admin Logged Out  |   Mobile Dropdown Admin  Logged In    |
 |------------|----------------|----------------|
@@ -104,116 +104,135 @@ The link to the live aquastella website is here: [aquastella](https://doyle-kfd.
 
 
 
-## Ipad - Laptop Navigation
+### Ipad - Laptop Navigation
 
 
 | Admin Logged Out |   Admin Logged In  |
 |------------|----------------|
 |          <img src="docs/readme_images/ipad-laptop-menu-admin-logged-out.png" alt="ipad-laptop navigation logged out" width="300"/>      |           <img src="docs/readme_images/ipad-laptop-menu-admin-logged-in.png " alt="ipad-laptop navigation logged out" width="300"/>         |     
 
-![Navigation Bar](docs/readme_images/menu-bar.png)
 
-### Footer
-- The footer is visible on each page and has links to Facebook, Instagram, YouTube, WhatsApp and a phone number. These links have been selected based on customer feedback. The idea of having a phone number and a WhatsApp icon on the footer is to allow the site visitor contact the sales team directly from the phone.
-- The drop shadow on the footer is in reverse of the header one. It give the aesthetically pleasing effect of a 3D experience.
-- The social icons open in a new tab to ensure the visitor stays on the KSail site.
-- The two direct call to action buttons, WhatsApp and phone icons will start a direct action with the KSail team.
 
-![Footer](docs/readme_images/ksail-footer.png)
+### Footer 
+- The footer is displayed differently on mobile and Ipad/Laptop screens
+- The footer is primarly displayed on mobile with CTA'S ( calls to action).
+- The footer on ipad/Laptop devices in includes the social media icons.
 
-### Index
+
+| Mobile Phone |   iPad - Laptop   |
+|------------|----------------|
+|          <img src="docs/readme_images/footer-mobile-phone.png" alt="mobile phone footer" width="500"/>      |           <img src="docs/readme_images/footer-ipad-laptop.png" alt="ipad-laptop footer" width="500"/>         |  
+
+
+
+
+## Index
 
 - #### Note:
-    - The index page has been designed with the visitors first impression in mind.
-    - The page is focused on selling the experience, from whats in it for you to what we provide.
+    - The index page sets the scene for the Michelin feel
+        - Images reflecting the speciality
+        - The chef
+        - The produce used
+    - It explains the category the restaraunt focuses on.
     - The imagery and text is based on the targeted demographic in the personas.
 
 - ####  Hero Section 
 
-    - The hero image with text sets the scene for the site visitors first experience.
-    - The image is one from the type of sailing boat they will use on the course.
-    - The image and the text provides a clear expectation of what the visitor will experience.
-    - The text with the opque background have both  been given a drop shadow to make them stand out for contrast purposes.
+    - The hero image with text sets the shows that we specialise in seafood.
+    - The image and the text provides a clear expectation of what the visitor should expect on arrival.
+    - The contrasting text over the image delivers the usp to the website visitor.
 
-![Index Page Hero Image](docs/readme_images/index-hero.png)
 
-- #### Reasons Section
-    - The reasons section is used to articlate the exciting and fun reasons that a visitor would want to join KSail.
-    - These 4 reasons are based on the bullseye customer that signs up for a KSail course.
-    - These 4 reasons are used to set the fun and excitement element to the Ksail courses.
 
-![Index Page KSail Reasons](docs/readme_images/ksail-reasons.png)
+| Mobile Phone |   iPad - Laptop   |
+|------------|----------------|
+|          <img src="docs/readme_images/hero-image-mobile.png" alt="mobile phone hero section" width="500"/>      |           <img src="docs/readme_images/hero-image-ipad-laptop.png" alt="ipad-laptop hero section" width="500"/>         |  
 
-- #### KSail Intro
-    - The KSail hero image is the introduction section to the page. The visitor has seen at the top they are in the right place. The benefits have been explained, now I introduce the courses.
-    - The KSail hero image shows the type of sailboats the visitor would be on.
-    - The KSail hero image shows the type of people I am targeting.
-    - The text has been given a drop shadow on an opqaue background which has a drop shadow in order to give it a contrast.
 
-![Index Page KSail Image](docs/readme_images/ksail-hero.png)
 
-- #### KSail Courses
-    - The KSail courses are fully responsive.
-    - The KSail courses detail exactly what they can expect from each course.
-    - The KSail courses show the progression possible from sampler to starter to improver.
-    - There is no disctraction with other unrelated courses or detail.
-    - The courses are layered over a background image with an opaque color for text contrast.
-    - The titles have been given a drop shadow to help them stand out.
 
-![Index Page KSail Courses](docs/readme_images/ksail-courses.png)
 
-### About
 
-- #### Note:
-    - I consider the About page as a necessity but was not initially included as MVP.
-    - The About page lends credibility to the courses by showing that we have a club with offerings that would suit someone who is looking for more than a weekend of sailing.
 
-- #### About Hero Section
-    - The hero image and the supporting text is used to show that behind KSail there is a club and the clubs motto.
-    - The motto "No Boat No Problem" is used to give the site visitor the message that you dont need to own your own boat to sail.
-    - The club is always looking for suitable members and KSail is an opportunity to offer trainees the opportunity to sample club life.
+- #### Welcome Section
+    - The welcome section explains how the restaraunt name came about.
+    - Educating the website visitor will add to the experience.
+    - The welcome section educates the visitor about the speciality and states the value propisition.
 
-![About Page Hero section](docs/readme_images/ksail-about-hero.png)
+![Index Page Welcome Section](docs/readme_images/welcome-ipad-laptop.png)
 
-- #### Welcome to the club section
-    - The welcome section displays the club sailor offering. 
-    - The 5 sections detail what the club has to offer with a color overlay on a background image to give textual contrast.
+- #### Our Story
+    - The image in our story shows the inside of the proposed restaraunt with a table setting.
+    - The complimenting text sells the story of passion and creativity.
+    - The message explains that its not just about the food, its the experience.
+    - The quote from the chef sells the focus of the restaraunt. Let the food speak.
 
-![About Page Welcome section](docs/readme_images/welcome-to-the-club.png)
+![Index Page Our Story](docs/readme_images/our-story-ipad-laptop.png)
 
-- #### Clubs within the club section
-    - This section details the depth within the sialing club. There are numerous options available if you are a member.
-    - The imagery used in this section is all selected to imply quality.
-    - The use of the age differences in the snooker image are chosen to show the age differences that members cover.
-    - The title in each section has been given an opaque background and a drop shadow to make the text stand out.
+- #### Chef Marco
+    - The picture and narative of chef marco complement eachother.
+    - The image is indicitive of the typo of male chef that would come from the local village in Sardinia.
+    - The textual content sells the experience of the chef, having understudied with the greats.
 
-![About Page Clubs section](docs/readme_images/clubs-within-the-club.png)
+![Index Page Chef Marco](docs/readme_images/chef-marco.png)
+
+
+- #### What Matters
+    - The imagery and the textual content are complimentary.
+    - Like all exceptional chefs, its about the ingredients.
+    - Selling the relationship with the local skippers, as a result getting the best produce.
+
+![Index Page What Matters](docs/readme_images/what-matters.png)
+
+
 
 ### Gallery
 - #### Note:
     - The gallery is based on a responsive masonary style.
-    - The images used are based on the target demographic from our personas and show the type of sailing boats the visitor can expect to use.
+    - The images showcase they type of food the website visitor can expect.
+    - The gallery supports the index page to sell the experience to the website visitor.
 
 - #### Masonary Gallery
     - The gallery has been designed using flexbox.
-    - The gallery grows as the device breakpoints are engaged.
-
-![Gallery Page Masonary](docs/readme_images/ksail-gallery.png)
+    - The three devices, mobile, iPad and laptop display differently based on responsiveness.
 
 
-### Contact
+| Mobile Phone |   iPad  |     Laptop |
+|------------|----------------|-------------------|
+|          <img src="docs/readme_images/mobile-gallery.png" alt="mobile phone gallery" height="400"/>      |           <img src="docs/readme_images/ipad-gallery.png" alt="ipad-laptop gallery" width="300"/>         |              <img src="docs/readme_images/laptop-gallery.png" alt="laptop gallery" width="500"/>                                                                                                             |
+
+
+
+
+
+
+## Forms
 - #### Note:
-    - The contact form has been given its own page.
-    - The contact page gives all the details necessary to make an enquiry or visit or phone.
+    - There are two forms on the website
+        -   Admin login
+        -   Reservation form
 
-- #### Contact Form
-    - The contact form is overlaying a background image.
-    - The form has an opqaue background to give the text contrast.
-    - The contact form also has the postal address if the site visitor would like to do more research or visit.
-    - The form allows the user make a selection based on the course they would like to discuss.
-    - The course option on the form is used to help the club sales team understand the context of the form enquiry upon submission.
 
-![Contact Page Form](docs/readme_images/ksail-contact-hero-form.png)
+### Admin Login Form
+<img src="docs/readme_images/admin-login.png" alt="Admin Login Form" width="300"/>  
+
+ The admin login form is accessed throught the login link in the main menu.
+ To gain access, the credentials are Userid: admin Password: 12345
+
+ On authentication, two new links will appear in the main menu, admin, and the logout link.
+ On clicking the logout link, the admin page will be removed and the logout link will be removed.
+
+
+
+### Reservation Form
+
+| Tab 1 |   Tav 2  |     Confirmation        |
+|------------|----------------|-------------------|
+|          <img src="docs/readme_images/reservation-tab-1.png" alt=" reservation tab 1 " width="300"/>      |           <img src="docs/readme_images/reservation-tab-2.png" alt="reservation tab 2" width="300"/>         |              <img src="docs/readme_images/reservation-confirmation.png" alt="reservation confirmation" width="300"/>    
+
+
+
+
 
 - #### Map
     - The map on the page allows the site visitor see where the course is held.
