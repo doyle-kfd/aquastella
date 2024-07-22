@@ -484,8 +484,12 @@ function openReservationForm() {
     let reservCompleted = document.getElementById("reservation-completed");
 
     const navItems = document.getElementById("nav-items");
+    // Check to see if the device is a mobile phone 280px or <. If yes then hide menu.
+    if (screenSize.matches) { // If media query matches
+        navItems.style.display = "none";
+    }
 
-    navItems.style.display = "none"; // Hide the menu
+    //navItems.style.display = "none"; // Hide the menu
     reservForm.style.display = "block"; // Display the reservation form
     console.log("The display value of form is set to block");
     tab1.style.display = "block"; // Display the stage 1 form
