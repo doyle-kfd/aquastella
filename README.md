@@ -379,11 +379,19 @@ Restaraunts used in reference:
     - [array methods](https://www.w3schools.com/js/js_array_methods.asp)
     - [array iteration](https://www.w3schools.com/js/js_array_iteration.asp)
     - [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp)
+    - [redirect to another page](https://www.w3schools.com/howto/howto_js_redirect_webpage.asp)
 
 -   MDN
     -   [array methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
     -   [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
+
+
+-   emailJS - Sendmail for order confirmation
+
+-   Google Charts
+    - [drawchart](https://developers.google.com/chart/interactive/docs/quick_start)
+    
 
 ### CSS References
 - Flexbox   
