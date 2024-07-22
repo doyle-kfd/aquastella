@@ -272,6 +272,7 @@ const reservationSuccessful = document.getElementById("reservation-completed");
  *  Create Listner for "find a table button click"
  *
  *  Step 1:
+ * 
  *        it takes, number of guests, sitting and date and checks to see if there are seats available.
  *        If there are seats it goes to step 2
  *
@@ -298,7 +299,7 @@ findTable.addEventListener("click", (event) => {
         tab1Message.textContent = "Please fill in all fields.";         // Message to be displayed to guest booking
         tab1Message.style = "block";                                    // Show message content
         return;
-    }
+    } 
 
     // Check to see if a reservation exists taking date and sitting.
     let seatsAvailable = checkreservations(date, sitting);
