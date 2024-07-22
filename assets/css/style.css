@@ -10,18 +10,13 @@
 }
 
 
-
-
 /* General style section */
 body {
-    min-height: 100vh;
-    /* Take full height of viewport */
-    display: flex;
-    /* enable flex for responsiveness */
-    flex-direction: column;
-    color: #3a3a3a;
-    /* set text color */
-    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;                        /* Take full height of viewport */
+    display: flex;                            /* enable flex for responsiveness */
+    flex-direction: column;                   /* Set flex direction */
+    color: #3a3a3a;                         /* set text color */
+    font-family: 'Montserrat', sans-serif;    /* Set font family for normal text */
 
 }
 
@@ -29,10 +24,8 @@ body {
 h1,
 h2,
 h3 {
-    font-family: 'Syne', sans-serif;
-    /* set font family */
-    letter-spacing: 2px;
-    /* space out text */
+    font-family: 'Syne', sans-serif;        /* set font family */
+    letter-spacing: 2px;                    /* space out text */
 }
 
 /* style h2 text */
@@ -47,120 +40,100 @@ p {
 
 /* Header */
 header {
-    background-color: #18263d;
-    /* Set header bg color */
-    padding: 0 1rem;
-    /* add padding left and right to text */
-    position: fixed;
-    /* keep nav at top during scrolling */
-    z-index: 99;
-    /* raise header to keep it on top of any other elements */
-    width: 100%;
-    /* take up full width of screen */
-    display: flex;
-    /* show header elements in a row */
-    justify-content: space-between;
-    /* Space out elements */
-    align-items: baseline;
-    /* Aline along baseline */
+    background-color: #18263d;    /* Set header bg color */
+    padding: 0 1rem;                /* add padding left and right to text */
+    position: fixed;                /* keep nav at top during scrolling */
+    z-index: 99;                    /* raise header to keep it on top of any other elements */
+    width: 100%;                    /* take up full width of screen */
+    display: flex;                  /* show header elements in a row */
+    justify-content: space-between; /* Space out elements */
+    align-items: baseline;          /* Align along baseline */
 }
 
 header a {
-    text-decoration: none;
-    /* remove underline from nav items */
-    color: #ffffff;
-    letter-spacing: 2px;
-    /* space out the logo text */
-    font-style: italic;
+    text-decoration: none;          /* remove underline from nav items */
+    color: #ffffff;     
+    letter-spacing: 2px;            /* space out the logo text */
+    font-style: italic;             /* set header font style to italic */
 }
 
 
 
 /* style menu bar */
 #menu {
-    font-size: 110%;
-    /* Make ment text larger */
-    letter-spacing: 4px;
-    /* space menu text out */
-    list-style-type: none;
-    /* remove disc from list item */
-    display: none;
+    font-size: 110%;                /* Make ment text larger */
+    letter-spacing: 4px;            /* space menu text out */
+    list-style-type: none;          /* remove disc from list item */
+    display: none;                  /* Hide by default */
 }
 
 /* style menu items */
 #menu>li {
-    margin-top: .5em;
-    /* Space out menu items */
-    margin-bottom: .5em;
-    /* Space out menu items */
+    margin-top: .5em;               /* Space out menu items */
+    margin-bottom: .5em;            /* Space out menu items */
 }
-
+/* Style items in navigation */
 #nav-items {
-    font-size: 110%;
-    /* Make ment text larger */
-    letter-spacing: 4px;
-    /* space menu text out */
-    list-style-type: none;
-    /* remove disc from list item */
-    display: none;
+    font-size: 110%;                /* Make ment text larger */
+    letter-spacing: 4px;            /* space menu text out */
+    list-style-type: none;          /* remove disc from list item */
+    display: none;                  /* Hide by default */
 }
 
-
+/* Style active menu item with bottom border*/
 .active {
     border-bottom: 1px solid #ffffff;
 }
 
 
 
-
+/* Style make reservation button */
 .make-reservation {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 2px solid #ffffff;
-    font-size: 20px;
-    color: #ffffff;
-    background-color: #18263d;
-    border-radius: 8px;
-    padding: 5px 10px;
+    margin-top: 10px;                   /* top margin */
+    margin-bottom: 10px;                /* bottom margin */
+    border: 2px solid #ffffff;        /* border */
+    font-size: 20px;                    /* font size */
+    color: #ffffff;                   /* color of text */
+    background-color: #18263d;        /* background colour */
+    border-radius: 8px;                 /* give it a border radius */
+    padding: 5px 10px;                  /* add padding top, bottom - left,right */
 }
 
+/* style reservation message */
 #reservation-message p {
-    font-weight: 700;
+    font-weight: 700;                   /* make font heavy to stand out */
 
 }
 
-#reservation-message .normal {
-    font-weight: 300;
-    color: gold;
+/* style the normal reservation message */
+#reservation-message .normal {  
+    font-weight: 300;                   /* light font weight */
+    color: gold;                      /* give it gold colour to contrast */
 }
 
 /* Navbar styling */
 nav {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    padding: 0 1rem;
-    background-color: #18263d;
-    display: block;
-    top: 100%;
-    /* Tell navbar to start at bottom of parent element */
-    box-shadow: 0px 2px 6px 0px #3a3a3a;
+    width: 100%;                            /* fill widht */
+    position: absolute;                     /* position relative to ancestor */
+    left: 0;                                /* start on left with 0px */
+    padding: 0 1rem;                        /* 0 padding top and bottom, 1rem left and right */
+    background-color: #18263d;            /* give it a bg colour */
+    display: block;                         /* display as block, make visible */
+    top: 100%;                              /* Tell navbar to start at bottom of parent element */
+    box-shadow: 0px 2px 6px 0px #3a3a3a;  /* Give a box shadow */
 }
 
 /*--------------- Admin login specific form styling ------------------*/
 #admin-login-container {
-    display: flex;
-    justify-content: space-around;
+    display: flex;                      /* use flex for responsive and positioning */
+    justify-content: space-around;      /* center it in container */
 }
 
-
+/* style the admin login form */
 #admin-login-form {
-    display: none;
-    /*   Hide */
-    position: fixed;
-    /* fix the position */
-    z-index: 99;
-    /* Keep on top */
+    display: none;                      /*   Hide */
+    position: fixed;                    /* fix the position */
+    z-index: 99;                        /* Keep on top */
     width: 250px;
     height: 350px;
     top: 30%;
@@ -183,7 +156,6 @@ nav {
     flex-direction: row;
 
 }
-
 
 #login-head {
     padding: 10px;
@@ -229,12 +201,10 @@ nav {
     display: none;
 }
 
-/* Main */
+/* Main styling */
 main {
-    flex: 1 0 auto;
-    /* make main element take up all surplus space */
-    margin-top: 38px;
-    /* Push down main content hidden by header */
+    flex: 1 0 auto;    /* make main element take up all surplus space */
+    margin-top: 38px;  /* Push down main content hidden by header */
 }
 
 /**************       Index page specific    *****************/
@@ -243,179 +213,170 @@ main {
 #hero {
     height: 600px;
     width: 100%;
-    background: url("../images/hero-image-aquastella.webp") no-repeat center center/cover;
-    /* give hero section a background image */
-    position: relative;
+    background: url("../images/hero-image-aquastella.webp") no-repeat center center/cover;    /* give hero section a background image */
+    position: relative;                                                                       /* position it relative to normal position */
 }
 
+/* Style the hero text */
 #hero-text {
-    background-color: #18263dcc;
-    /* create transparent bg for overlay text */
-    position: absolute;
-    /* position hero text relative to hero section */
-    bottom: 10px;
-    /* position of text off bottom */
-    width: 80%;
-    /* set width of cover textv */
-    min-height: 100px;
-    /* give text a minimum height */
-    padding-top: 10px;
-    /* prevent text sticking to top */
-    padding-left: 10px;
-    /* prevent text sticking to left */
+    background-color: #18263dcc;                /* create transparent bg for overlay text */
+    position: absolute;                           /* position hero text relative to hero section */
+    bottom: 10px;                                 /* position of text off bottom */
+    width: 80%;                                   /* set width of cover textv */
+    min-height: 100px;                            /* give text a minimum height */
+    padding-top: 10px;                            /* prevent text sticking to top */
+    padding-left: 10px;                           /* prevent text sticking to left */
 }
 
-#hero-text>h2,
-#hero-text>h3 {
+/* target the styling of the hero text, h2 and h3 tags*/
+#hero-text>h2, #hero-text>h3 {
     color: #ffffff;
 }
 
 
 /*---------  Welcome Section Index Page  ------------*/
 .welcome-text {
-    padding: 5px;
-    /* add padding around text */
+    padding: 5px;                                 /* add padding around text */
 }
 
 
 /* our story container styling index page */
 #our-story {
-    padding: 5px;
-    /* add padding around text */
+    padding: 5px;                                 /* add padding around text */
 }
 
-
+/* Style the our story image */
 #our-story-image {
     height: 500px;
     width: 100%;
-    background: url("../images/aquastella-table-setting.webp") no-repeat center center/cover;
-    /* give our story section a background image */
-    position: relative;
-    /* make image relative to container */
+    background: url("../images/aquastella-table-setting.webp") no-repeat center center/cover;   /* give our story section a background image */
+    position: relative;                                                                         /* make image relative to container */
 
 }
 
+/* Style the our story image */
 #our-story img {
-    display: block;
-    width: 80%;
-    margin: 0 auto;
+    display: block;                                 /* display as block */
+    width: 80%;                                     /* give the image a width of 80% */
+    margin: 0 auto;                                 /* center using margin */
 }
 
 /* our chef container styling index page */
 #chef-bio {
-    padding: 5px;
-    /* add padding around text */
+    padding: 5px;                                   /* add padding around text */
 }
 
 /* Add image to div as bg and style */
 #about-chef-image {
     height: 500px;
     width: 100%;
-    background: url("../images/chef-marco.webp") no-repeat center center/cover;
-    /* give our story section a background image */
-    position: relative;
-    /* make image relative to container */
-
+    background: url("../images/chef-marco.webp") no-repeat center center/cover;    /* give our story section a background image */
+    position: relative;                                                            /* make image relative to container */
 }
 
 /* What matters section index page */
 #what-matters-text {
-    padding: 5px;
-    /*  add padding around text */
+    padding: 5px;                                   /*  add padding around text */
 }
 
 /* Add image to div as bg and style */
 #what-matters-image {
     height: 500px;
     width: 100%;
-    background: url("../images/local-fish-market.webp") no-repeat center center/cover;
-    /* give our story section a background image */
-    position: relative;
-    /* make image relative to container */
+    background: url("../images/local-fish-market.webp") no-repeat center center/cover;    /* give our story section a background image */
+    position: relative;                                                                   /* make image relative to container */
 
 }
 
 /*--------------- Gallery Specific Styling ----------------*/
 #photos img {
-    width: 100%;
-    /* give all images 100% of screen width */
-    line-height: 1em;
-    /* add line height in case of broken link */
+    width: 100%;                                /* give all images 100% of screen width */
+    line-height: 1em;                           /* add line height in case of broken link */
 }
 
 
 
 /*--------------------- Admin Page Specific Styling -------------------------------*/
+
+/* Style the h2 text on resevations counters */
 #reservations-quick-count h2 {
     text-align: center;
 }
 
+/* style the stat counters using flex for responsiveness */
 #stat-counters {
     display: flex;
 }
 
+/* style the daily stat counter containers */
 #daily-stats {
-    width: 90%;
-    margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    width: 90%;                                     /* Width of 90% */
+    margin: 20px auto;                              /* center using margin */
+    display: flex;                                  /* set the stat counter boxes to flex for responsiveness */
+    flex-direction: column;                         /* set the flex direction to column, underneath eachother */
+    justify-content: space-around;                  /* give space around the elements */
 }
 
 
-
+/* style the stat divs */
 #daily-stats>div {
-    margin: 5px;
-    padding: 10px 25px;
-    border-radius: 8px;
-    background-color: #18263d;
-    color: #ffffff;
-    box-shadow: 0px 2px 5px 0px #717271;
+    margin: 5px;                                    /* give a margin for spacing */
+    padding: 10px 25px;                             /* pad the contents */
+    border-radius: 8px;                             /* give a border radius */
+    background-color: #18263d;                    /* give a background colour */
+    color: #ffffff;                               /* contrast the text */
+    box-shadow: 0px 2px 5px 0px #717271;          /* give a box shadow */
 }
 
+/*  target the h2 text in the daily stats divs */
 #daily-stats h2 {
-    color: gold
+    color: gold;
 }
 
+/* Style the weekly stat container */
 #weekly-stats {
-    width: 90%;
-    margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    width: 90%;                                     /* make it 90% widht */
+    margin: 20px auto;                              /* center using margin auto */
+    display: flex;                                  /* set the conainer to responsive using flex */
+    flex-direction: column;                         /* direction of flex content column */
+    justify-content: space-around;                  /* space the contets with space around */
 }
 
+/* target styling of weekly stat divs */
 #weekly-stats>div {
-    margin: 5px;
-    padding: 10px 25px;
-    border-radius: 8px;
-    background-color: #18263d;
-    color: #ffffff;
-    box-shadow: 0px 2px 5px 0px #717271;
+    margin: 5px;                                    /* give  a margin */
+    padding: 10px 25px;                             /* pad the elements */
+    border-radius: 8px;                             /* give a border radius */
+    background-color: #18263d;                    /* give a bg colour */
+    color: #ffffff;                               /* text white */
+    box-shadow: 0px 2px 5px 0px #717271;          /* box shadow */
 }
 
+/* target weekly stats h2 text */
 #weekly-stats h2 {
     color: gold;
 }
 
 /*------------------------ Admin Page Table Specific -----------*/
 #reservations-table h2 {
-    text-align: center;
+    text-align: center;                             /* align the text to center */
 }
 
-
+/* Style the wrapper aound the table on the admin page */
 #table-wrapper {
-    overflow-x: auto;
+    overflow-x: auto;                               /* show scroll bar on x axis if necessary */
 }
 
 
-
+/* Style the table on the admin page */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #18263d;
+    width: 100%;                                    /* make the table 100% wide */
+    border-collapse: collapse;                      /* collapse the borders into single border */
+    border: 1px solid #18263d;                    /* style the border */
 }
 
+
+/* style table, th, td as one */
 table,
 th,
 td {
@@ -424,10 +385,12 @@ td {
     text-align: center;
 }
 
+/* style td only */
 td {
-    text-wrap: nowrap;
+    text-wrap: nowrap;                              /* dont wrap the text */
 }
 
+/* style the th only */
 th {
     background-color: #18263d;
     color: gold;
@@ -435,17 +398,19 @@ th {
 
 
 
-
+/* style the charting div in the admin page */
 #charting {
     width: 90%;
     margin: 20px auto;
     padding-bottom: 50px;
 }
 
+/* target the chart div */
 #chart {
     margin-top: 20px;
 }
 
+/* target the chart div h2 text */
 #chart h2 {
     text-align: center;
 }
@@ -457,56 +422,45 @@ th {
 /*------------ Footer specific styling across site ----------*/
 /* Footer */
 footer {
-    background-color: #18263d;
-    /* Set header bg color */
-    display:flex;
-    justify-content: space-evenly;
-    gap: 5px;
-    align-items: center;
+    background-color: #18263d;                      /* Set header bg color */
+    display:flex;                                     /* footer responsive using flex */
+    justify-content: space-evenly;                    /* space the content using justify */
+    gap: 5px;                                         /* put a gap between the footer divs */   
+    align-items: center;                              /* align the items along the center */
 }
 
+/* style the footer divs */
 footer > div {
-width: 40%;
+    width: 40%;                                        /* give the divs a width of 40% */
 }
 
+/* target the social networks div */
 #social-networks {
-    text-align: center;
-    /* align icons as text along center */
-    padding: 2px 0;
-    /* add space above and below */
-    display: flex;
-    /* align icons along footer */
-    justify-content: space-evenly;
-    /* Space icons evenly */
-    list-style-type: none;
-    /* remove bullet points from list icons */
+    text-align: center;                                /* align icons as text along center */
+    padding: 2px 0;                                    /* add space above and below */
+    display: flex;                                     /* use flex for responsiveness */
+    justify-content: space-evenly;                     /* Space icons evenly */
+    list-style-type: none;                             /* remove bullet points from list icons */
 }
 
+/* style social networks italic elements */
 #social-networks i {
-    font-size: 120%;
-    padding: 5%;
+    font-size: 120%;                                   /* increase the font size */
+    padding: 5%;                                       /* padd the element */
     color: #ffffff;
 }
 
 /* style reservation container to center content */
 #reservation-container {
     display: flex;
-    justify-content: space-around;
-    /* add space around form */
+    justify-content: space-around;                      /* add space around form */
 }
 
-
-
-
-
-
+/* style the reservations form itself */
 #reservation-form {
-    display: none;
-    /*   Hide */
-    position: fixed;
-    /* fix the position */
-    z-index: 99;
-    /* Keep on top */
+    display: none;                                      /*   Hide */
+    position: fixed;                                    /* fix the position */
+    z-index: 99;                                        /* Keep on top */
     width: 250px;
     height: 350px;
     top: 20%;
@@ -531,52 +485,48 @@ width: 40%;
 
 /* Reservation form header */
 #reserv-head {
-    display: flex;
-    /* enable flex control */
-    flex-direction: row;
-    /* align in a row */
-    justify-content: space-around;
-    /* Space out elements */
-    align-items: baseline;
-    /* Aline along baseline */
+    display: flex;                                  /* enable flex control */
+    flex-direction: row;                            /* align in a row */
+    justify-content: space-around;                  /* Space out elements */
+    align-items: baseline;                          /* Aline along baseline */
     padding-top: 15px;
     padding-bottom: 15px;
     border-bottom: 1px solid #ffffff;
 }
 
 /* style tab 1 form input fields */
-#guestNum {
+#guestNum {                                         /* Number of guests */
     text-align: center;
     margin-top: 5px;
     font-size: 1.15rem;
 }
 
-#date {
+#date {                                             /* date of reservation */
     text-align: center;
     margin-top: 5px;
     font-size: 1.15rem;
 }
 
-#sitting {
+#sitting {                                          /* sitting - first or second */
     text-align: center;
     margin-top: 5px;
     font-size: 1.15rem;
 }
 
 /* style tab 2 form input fields */
-#fname {
+#fname {                                            /* first name */
     margin-top: 1px;
 }
 
-#lname {
+#lname {                                            /* Last name */
     margin-top: 1px;
 }
 
-#telephone {
+#telephone {                                        /* Telephone */
     margin-top: 1px;
 }
 
-#email {
+#email {                                            /* email */
     margin-top: 1px;
 }
 
@@ -620,6 +570,7 @@ width: 40%;
     text-align: center;
 }
 
+/* Style the make booking form */
 #make-booking {
     color: #ffd700;
     background-color: #18263d;
@@ -632,17 +583,18 @@ width: 40%;
 }
 
 /* target div's with tab1 and tab2 */
-#tab-1>div,
-#tab-2>div {
+#tab-1>div, #tab-2>div {
     margin: 10px;
     display: flex;
     flex-direction: column;
 }
 
+/* Style the reservation completed box default will be targeted in js */
 #reservation-completed {
     display: none;
 }
 
+/* Style the reservation completed tab */
 #reservation-completed h2 {
     color: #ffffff;
     font-size: 1rem;
@@ -678,8 +630,7 @@ width: 40%;
     }
 
     #hero {
-        height: 450px;
-        /* Hero image fit to screen - dont take full height */
+        height: 450px;                      /* Hero image fit to screen - dont take full height */
     }
 
     /* Target h2 welcome message h2 text specifically */
@@ -690,8 +641,7 @@ width: 40%;
 
     /* target text to center it */
     #welcome-text>p {
-        text-align: center;
-        /* align content to center */
+        text-align: center;                 /* align content to center */
     }
 
     /* Use flexbox to re-order image and text on mobile devices */
@@ -700,26 +650,29 @@ width: 40%;
         flex-direction: column;
     }
 
+    /* Target the what matters image on mobile to reverse display order */
     #what-matters-image {
-        order: 1;
-        /* Make this div second in flexbox */
+        order: 1;                           /* Make this div second in flexbox - used on mobile phones to stack content properly */
     }
 
+    /* Target the what matters text on mobile to reverse display order */
     #what-matters-text {
-        order: 0;
-        /* make this div first in flexbox */
+        order: 0;                           /* make this div first in flexbox  - used on mobile phones to stack content properly */
     }
 
+    /* Target the social networks div on mobile */
     #social-networks {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
     }
 
+    /*  target the styling of the reservation button on mobile phones */
     #social-networks>button {
         font-size: 15px;
     }
 
+    /* use on mobile phone to hide elements not necessary e.g. social media taking up space */
     .can-hide-on-mobile {
         display: none;
     }
@@ -741,16 +694,12 @@ width: 40%;
 
     /* style reservation button in footer on mobile */
     #make-reservation-footer {
-        background-color: #18263d;
-        /* adjust bg color */
+        background-color: #18263d;                          /* adjust bg color */
         color: #ffffff;
         border: 1px solid #ffffff;
-        padding-left: 5px;
-        /* add padding on left */
-        padding-right: 5px;
-        /* add padding on right */
-        border-radius: 8px;
-        /* give border corners radius */
+        padding-left: 5px;                                    /* add padding on left */
+        padding-right: 5px;                                   /* add padding on right */
+        border-radius: 8px;                                   /* give border corners radius */
     }
 
 
@@ -797,13 +746,9 @@ width: 40%;
         display: flex;
     }
     nav {
-        display: flex;
-        /* Always display nav */
-        position: relative;
-        /* Bring nav inside header */
-        /* width: fit-content;     /* Dont take up all the space */
+        display: flex;                                      /* Always display nav */
+        position: relative;                                 /* Bring nav inside header */
         padding-right: 1rem;
-        /* move content from the right side */
         justify-content: center;
     }
 
@@ -825,26 +770,19 @@ width: 40%;
 
 
     #logo {
-        font-size: 1.75rem;
-        /* Increase font size for tablet */
-        line-height: 75px;
-        /* Increase line heighj */
-        margin: 0 0.5rem;
-        /* add margin */
+        font-size: 1.75rem;                             /* Increase font size for tablet */
+        line-height: 75px;                              /* Increase line heighj */
+        margin: 0 0.5rem;                               /* add margin */
     }
 
     main {
-        margin-top: 75px;
-        /* push main down to prevent nav covering */
+        margin-top: 75px;                               /* push main down to prevent nav covering */
     }
 
     #hero-text {
-        width: 300px;
-        /* change width of hero-text div */
-        bottom: 150px;
-        /* position of text off bottom */
-        left: 10px;
-        /* position hero-text div 10px from left */
+        width: 300px;                                   /* change width of hero-text div */
+        bottom: 150px;                                  /* position of text off bottom */
+        left: 10px;                                     /* position hero-text div 10px from left */
         padding-top: 20px;
     }
 
@@ -863,55 +801,41 @@ width: 40%;
     /* style page sections side by side using flex */
     #welcome {
         display: flex;
-        flex-direction: row;
-        /* align divs in row */
+        flex-direction: row;                            /* align divs in row */
     }
 
-    #our-story,
-    #our-story-image {
-        flex-direction: row;
-        /* align divs in row */
-        align-items: center;
-        /* align divs along center */
-        flex: 50%;
-        /* make sure the width is spilt 50/50 */
+    #our-story, #our-story-image {
+        flex-direction: row;                            /* align divs in row */
+        align-items: center;                            /* align divs along center */
+        flex: 50%;                                      /* make sure the width is spilt 50/50 */
     }
 
     #about-chef {
         display: flex;
         flex-direction: row;
-        align-items: center;
-        /* align divs in row */
+        align-items: center;                            /* align divs in row */
     }
 
     #chef-bio,
     #about-chef-image {
-        flex: 50%;
-        /* make sure the width is spilt 50/50 */
+        flex: 50%;                                      /* make sure the width is spilt 50/50 */
     }
 
     #what-matters {
         display: flex;
-        flex-direction: row;
-        /* align divs in row */
-        padding-bottom: 60px;
-        /* add padding to bottom to prevent footer covering section */
-        align-items: center;
-        /* align divs along center */
+        flex-direction: row;                            /* align divs in row */
+        padding-bottom: 60px;                           /* add padding to bottom to prevent footer covering section */
+        align-items: center;                            /* align divs along center */
     }
 
     #what-matters-image {
-        order: 0;
-        /* Make this div second in flexbox */
-        flex: 50%;
-        /* make sure the width is spilt 50/50 */
+        order: 0;                                       /* Make this div second in flexbox */
+        flex: 50%;                                      /* make sure the width is spilt 50/50 */
     }
 
     #what-matters-text {
-        order: 1;
-        /* make this div first in flexbox */
-        flex: 50%;
-        /* make sure the width is spilt 50/50 */
+        order: 1;                                       /* make this div first in flexbox */
+        flex: 50%;                                      /* make sure the width is spilt 50/50 */
 
     }
 
@@ -921,8 +845,7 @@ width: 40%;
 
     #welcome-text>p {
         font-size: 18px;
-        text-align: center;
-        /* align content to center */
+        text-align: center;                             /* align content to center */
     }
 
     /* Gallery Specefic */
@@ -969,8 +892,7 @@ width: 40%;
     }
 
     #what-matters {
-        padding-bottom: 70px;
-        /* add padding to bottom of section to uncover from behind footer */
+        padding-bottom: 70px;                           /* add padding to bottom of section to uncover from behind footer */
     }
 
 }
