@@ -544,13 +544,6 @@ use values:
 | ipad              |       Good                  |            Good            |          Good               |      Good          |
 | Laptop            |       Good                  |             Good           |         Good                |      Good          |
 
-### Responsive Test Screenshots
-
-| Mobile Phone  |   Tablet  |   Laptop     |
-|-------------------|-------------------------|-------------------------------|
-| <img src="docs/readme_images/galaxy-fold-280-653.png" alt="mobile phone responsive test" width="300"/>       |   <img src="docs/readme_images/ipad-768-1024.png" alt="mobile phone responsive test" width="300"/>                    |            <img src="docs/readme_images/laptop-1200-979.png" alt="mobile phone responsive test" width="300"/>              |
-
-
 
 
 ## Code Validation
@@ -563,7 +556,7 @@ use values:
 
 <summary>index.html</summary>
 
-![Index](/docs/readme_images/index-validation.png)
+![Index](/docs/readme_images/index-html-validation.png)
 
 </details>
 
@@ -571,27 +564,18 @@ use values:
 
 <details>
 
-<summary>about.html</summary>
+<summary>gallery.html</summary>
 
-![About](/docs/readme_images/about-validation.png)
+![Gallery](/docs/readme_images/gallery-html-validation.png)
 
 </details>
 
-### Gallery page validation
+### CSS Vaalidation
 
 <details>
-<summary>gallery.html</summary>
+<summary>CSS Validation</summary>
 
-![gallery](/docs/readme_images/gallery-validation.png)
-
-</details>
-
-### Contact page validation
-
-<details>
-<summary>gallery.html</summary>
-
-![contact](/docs/readme_images/contact-validation.png)
+![CSS](/docs/readme_images/CSS-validation.png)
 
 </details>
 
@@ -599,89 +583,80 @@ use values:
 ## Bugs
 
 <details>
+<summary>White border around index page bottom image.</summary>
 
-<summary>Adding favicon</summary>
+- Bug: Menu item active status under page title not working across all pages.
+- Reason: targeting wrong id.
+- Fix: Target the correct id.
 
-- Bug: Favicon would not show
-- Solution: change directory structure and add to link tag
+    Before:
+    ```
+    /* What matters section index page */
+    #what-matters {
+    padding: 5px; /*  add padding around text */
+    }
+    ```
+    After:
+    ```
+    /* What matters section index page */
+    #what-matters-text {
+    padding: 5px; /*  add padding around text */
+    }
+    ``` 
+
+
 </details>
 
 <details>
 
-<summary>Active status under active page title not working</summary>
+<summary>On admin page, graphs loading correctly but still showing error</summary>
 
-- Bug: Active menu item not showing on menu bar
-- Fix: changed bottom border in css
-
-Before:
-```
-#menu a:hover {
-      border-bottom: 1 solid #3a3a3a;
-  }
-```
-
-
-After
-```
-#menu a:hover {
-      border-bottom: 1px solid #3a3a3a;
-  }
-```
-</details>
-<details>
-
-<summary>Form does not hold position during resizing in responsive mode</summary>
+-   Solution: Remove event listner.  
+-   Reason: google related js already loading on page load, then when the listner runs it updates the google code unnecessarily giving the error.   
 
     Before:
 
-      ```
-      #ksail-form {
-          max-width: 400px;
-          /* Move it outside the normal document */
-          position: absolute;
-         left: 15%;
-         /* position it from the top */
-         top: 250px;
-      }
-      ```
+    ```
+    // Add event listner to check when DOM is fully loaded.
+    document.addEventListener('DOMContentLoaded', function () {
+        updateReservationsTable();
 
-    Solution: Remove position attribute.
+        // Listen for storage events-----------------------------------------------------------/////////////
+        window.addEventListener('storage', function () {
+            updateReservationsTable();
+        });
+    });
+    ```
+
+    
 </details>
 
 <details>
 
-<summary>KSail choice boxes appear as different heights on tablet and laptop</summary>
+<summary>On login form click, menu disappears</summary>
 
-|           Before               |                         After               |
-|--------------------------------|---------------------------------------------|
-| <img src="docs/readme_images/ksail-choice-bug.png " alt="Ksail choices bug" height="300"/> |     <img src="docs/readme_images/ksail-choice-fix.png " alt="Ksail choices fix" height="300"/>        |
-
+- Problem: When the login form on tablets and laptops is clicked, the main menu disappears.
+- Solution: css style on form being activated unnecessarily, remove the js code to display:block as default
 
 
->Solution
-
+Before:
 ```
-  <ul class="ksail-choice-list">
-```
-    
-Mobile Phone:
-
-```
-    .ksail-choice-list {
-           min-height:  300px;
-     }
-```
-        
-Tablet:
-
-```
-    .ksail-choice-list {
-        min-height:  250px;
-    }
+resForm.style.display = "none"; // Close the menu
 ```
 
 </details>
+<details>
 
+<summary>Counter checking available seats on a sitting on a specific date not working</summary>
+
+
+
+- Problem: Counter checking available seats on a sitting on a specific date not working. This lead to over booking.
+- Reason: date being set as dd-mm-yyyy and compared to yyyy-mm-dd.
+- Solution: add date conversion code to compare dd-mm-yyyy to dd-mm-yyyy
+
+
+</details>
 
 
 ## Lighthouse
