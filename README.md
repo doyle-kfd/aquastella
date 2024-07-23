@@ -418,7 +418,7 @@ Restaraunts used in reference:
     - Chef Marco        [Pixbay](https://pixabay.com/photos/platting-fine-dining-vegan-4282018/)
     - What matters to us [Pixbay](https://pixabay.com/photos/fish-food-market-sale-seafood-1841183/)
 
-
+-   Gallery Page [Pixbay](https://pixabay.com/photos/)
 
 
 
@@ -439,11 +439,12 @@ Restaraunts used in reference:
 | Feature    |   Test Case    |   Outcome      |
 |------------|----------------|----------------|
 | Logo       |  Click On Logo |  User brought to home page   |
-| Navbar - Home Page | Click on Home link on each page | User is brought to Home page |
-| Navbar - About Page | Click on About link on each page | User is brought to About page |
+| Navbar - Reservation Button | Click on reservation button on each page | Reservation popup works on each page |
 | Navbar - Gallery Page | Click on Gallery link on each page | User is brought to Gallery page |
-| Navbar - Contact Page | Click on the Contact link on each page | User is brought to Contact page |
-| Navbar - Active Status | On each page, active status should show under page name | Bar under page name shows |
+| Navbar - Login Page | Click on the login link on each page | Login popup works on each page |
+| Navbar - Admin Page | Once logged in, admin page link in menu should be visible on each page | Login page is visible on each page |
+| Navbar - Logout Link Visible | Once logged in, logout link should be visible on each page | Logout link is visible on each page |
+| Navbar - Logout Link Click | Once clicked, logout link should remove admin page and logout link from menu. Redirecing to home page | Logout link works on each page, removes admin link from menu and redirects to home page |
 
 
 
