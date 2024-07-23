@@ -286,11 +286,25 @@ findTable.addEventListener("click", (event) => {
 
     // Get values from form tab1
     let guests = document.getElementById('guestNum').value;             // number of guests from form
-    let date = document.getElementById('date').value;                   // reservation date from form
+    let inputDate = document.getElementById('date').value;                   // reservation date from form
     let sitting = document.getElementById('sitting').value;             // reservation time from form
     let tab1Message = document.getElementById('tab-1-message');         // message area on tab 1 for giving feedback when button clicked
 
+    console.log(" CHecking for tab 1 data started");
+    console.log(guests);
+    console.log(inputDate);
+    console.log(sitting);
 
+    // Start date conversion for comparison to array date
+    let dateObj = new Date(inputDate);                                   // define object as date value
+    let month = dateObj.getUTCMonth() + 1;                          // get the month part of the date
+    month = month < 10 ? '0' + month : month;                       // to display month as mm may need to add leading 0
+    let day = dateObj.getUTCDate();                                 // get day part of the date object
+    day = day < 10 ? '0' + day : day;                               // to display day as dd may need to add leading 0
+    let year = dateObj.getUTCFullYear();                            // get year part of the date
+    let date = day + "-" + month + "-" + year;             // create new variable formattedDate in format dd/mm/yy
+    
+    console.log("This is teh converted date" + date);
 
     // Check to see that the the fields have been filled in
     if (!guests || !sitting || !date) {
@@ -306,7 +320,7 @@ findTable.addEventListener("click", (event) => {
     if (seatsAvailable >= guests) {
           completeReservation();                                            // if seats available display form part 2 to complete reservation.
     } else {
-        tab1Messageessage.textContent = "Sitting Full! Please Try Again";   // Message to be displayed to guest
+        tab1Message.textContent = "Sitting Full! Please Try Again";   // Message to be displayed to guest
         tab1Message.classList.remove = 'hidden';                            // remove the class hidden
         resetForm();                                                        // reset the form values for next reservaion
     }
@@ -319,6 +333,7 @@ findTable.addEventListener("click", (event) => {
 
         // Take the existingReservations array and see how many seats are available using reduce method.
         let bookedSeats = existingReservations.reduce((total, reservation) => total + Number(reservation.guests), 0);
+        console.log("There are these many seats available on date requested : " + bookedSeats);
 
         return max_sitting_Seats - bookedSeats;                             // return the number of seats seats left
     }
@@ -442,6 +457,8 @@ function openReservationForm() {
 
     resForm.style.display = "flex";                                         // set the reservation form to flex
     resForm.style.justifyContent = "space-around";                          // space the reservation form evenly
+
+    console.log("completed the open tab 1 function");
 }
 
 // close reservation form if close button pressed
