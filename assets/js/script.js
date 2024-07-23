@@ -76,7 +76,7 @@ function openloginForm() {
         navItems.style.display = "none";                                       // Only on mobile phones, hide the mobile menu
     }
 
-    adminLoginModal.classList.add("modal");
+    adminLoginModal.classList.add("modal");                                    // add a modal class to the background when the form opens
     adminLoginForm.style.display = "block";                                    // display the login form 
 
 
@@ -89,8 +89,9 @@ function openloginForm() {
  */
 function closeloginForm() {
     loginForm.style.display = "none";                                         // hide the login form
-    adminLoginModal.classList.remove("modal");
+    adminLoginModal.classList.remove("modal");                                // remove the modal class when close button is clicked
 }
+
 
 /**
  *
@@ -452,6 +453,7 @@ function openReservationForm() {
     let tab2 = document.getElementById("tab-2");                                // get the second tab of the reservation form
     let reservCompleted = document.getElementById("reservation-completed");     // get the reservation completed tab of the form
     const navItems = document.getElementById("nav-items");                      // get the nav items
+    const reservationModal = document.getElementById("reservation-container")
  
  
     // Check to see if the device is a mobile phone 280px or <. If yes then hide menu.
@@ -459,6 +461,7 @@ function openReservationForm() {
         navItems.style.display = "none";                                        // hide the mobile menu
     }
 
+    reservationModal.classList.add("modal");
     reservForm.style.display = "block";                                     // Display the reservation form
     tab1.style.display = "block";                                           // Display the stage 1 form
     tab2.style.display = "none";                                            // Hide the stage 2 form until completing reservation
@@ -477,14 +480,30 @@ function openReservationForm() {
 
 // close reservation form if close button pressed
 const reservForm = document.getElementById("reservation-form");             // Get the reservation form element
-
+const reservationModal = document.getElementById("reservation-container")
 /**
  * Function that closes the reservation form
  * sets the form display to none
  */
 function closeReservation() {
     reservForm.style.display = "none";                                      // Hide the reservation form on close button click
+    reservationModal.classList.remove("modal");
 }
+
+// When the user clicks anywhere outside of the modal, close it. Used for popup forms
+window.onclick = function(event) {
+    // See if an event is triggered for the reservation form
+    if (event.target == reservationModal) {
+        reservForm.style.display = "none";                                   // hide the login form
+        reservationModal.classList.remove("modal");                          // remove the modal class
+    }
+
+    // See if an event is triggered for the Admin Login
+    if (event.target == adminLoginModal) {
+        loginForm.style.display = "none";                                   // hide the login form
+        adminLoginModal.classList.remove("modal");                          // remove the modal class
+    }
+  }
 
 /**
  *  Function to close tab 1 and show tab 2 when reservation is being made
