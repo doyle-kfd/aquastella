@@ -352,15 +352,10 @@ Restaraunts used in reference:
 -  [Cush](https://cush.ie/)
 
 ### Features
-- Header, Footer Styling, Flex concept - Love Running Tutorial
-- Using Local Storage to store values of arrays for use across tabs [stackoverflow](https://stackoverflow.com/questions/2010892/how-to-store-objects-in-html5-localstorage-sessionstorage)
-- Date formatting [stackoverflow](https://stackoverflow.com/questions/3552461/how-do-i-format-a-date-in-javascript)
-- Js Mobile Menu: [W3Schools](https://www.w3schools.com/howto/howto_js_mobile_navbar.asp)
-- JS login form:  [W3Schools](https://www.w3schools.com/howto/howto_css_login_form.asp)
-- JS multiple step form: [W3Schools](https://www.w3schools.com/howto/howto_js_form_steps.asp)
-    - Form Validation for reservations:
-        - [geeksforgeeks](https://www.geeksforgeeks.org/form-validation-using-javascript/)
-        - [W3Schools](https://www.w3schools.com/js/js_validation.asp)
+
+-   Codeinstitute 
+    -   Header, Footer Styling, Flex concept - Love Running Tutorial
+
 -   Codinstitue JS essentials
     -   iteration
     -   Listners
@@ -375,16 +370,28 @@ Restaraunts used in reference:
         -   reduce
         -   arrow functions
 
+-   geeksforgeeks
+        - [Form Validation](https://www.geeksforgeeks.org/form-validation-using-javascript/)
+       
+
+
 -   W3Sschools
     - [array methods](https://www.w3schools.com/js/js_array_methods.asp)
     - [array iteration](https://www.w3schools.com/js/js_array_iteration.asp)
     - [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp)
     - [redirect to another page](https://www.w3schools.com/howto/howto_js_redirect_webpage.asp)
+    - [Js Mobile Menu](https://www.w3schools.com/howto/howto_js_mobile_navbar.asp)
+    - [JS login form](https://www.w3schools.com/howto/howto_css_login_form.asp)
+    - [JS multiple step form](https://www.w3schools.com/howto/howto_js_form_steps.asp)
+    - [Form Validation](https://www.w3schools.com/js/js_validation.asp)
 
 -   MDN
     -   [array methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
     -   [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
+-   Stackoverflow
+    -  [Date formatting](https://stackoverflow.com/questions/3552461/how-do-i-format-a-date-in-javascript)
+    -  [Local Storage](https://stackoverflow.com/questions/2010892/how-to-store-objects-in-html5-localstorage-sessionstorage)
 
 
 -   emailJS - Sendmail for order confirmation
@@ -401,33 +408,22 @@ Restaraunts used in reference:
 
 ### Favicon
 
-- [Favicon generator ](https://favicon.io/emoji-favicons/sailboat)
+- [Favicon generator ](https://favicon.io/favicon-generator/)
 
 ### Images
 
-- [Unsplash](https://unsplash.com/photos/)
-    - Index page:
-        - hero image
+-   Index Page:
+    - Hero Section      [Unsplash](https://unsplash.com/photos/person-holding-stainless-steel-spoon-ZW9CSUdANqw)
+    - Our Story Section [Opentable](https://www.opentable.com/r/moonstone-grill-trinidad?corrid=515922c4-5f4f-48d5-ac45-95c4944415ae&avt=eyJ2IjoyLCJtIjoxLCJwIjowLCJzIjowLCJuIjowfQ&p=2&sd=2024-07-22T23%3A30%3A00)
+    - Chef Marco        [Pixbay](https://pixabay.com/photos/platting-fine-dining-vegan-4282018/)
+    - What matters to us [Pixbay](https://pixabay.com/photos/fish-food-market-sale-seafood-1841183/)
 
-- [Freepik](https://www.freepik.com/free-photos-vectors/sailing)
-    - Index page:
-        - Welcome to KSail hero image
-        - KSail course options background
 
-- [Pexels](https://www.pexels.com/)
-    - About us page:
-        - Snooker
-        - Keep Fit
-        - Dining
-        - Bridge
-        - Art
 
-    - Gallery page:
-        - All sailing photos
 
-    
-    - Contact page:
-        - Enquiry hero image
+
+
+
 
 
 
