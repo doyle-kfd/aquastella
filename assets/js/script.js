@@ -290,12 +290,7 @@ findTable.addEventListener("click", (event) => {
     let sitting = document.getElementById('sitting').value;             // reservation time from form
     let tab1Message = document.getElementById('tab-1-message');         // message area on tab 1 for giving feedback when button clicked
 
-    console.log(" CHecking for tab 1 data started");
-    console.log(guests);
-    console.log(inputDate);
-    console.log(sitting);
-
-    // Start date conversion for comparison to array date
+     // Start date conversion for comparison to array date
     let dateObj = new Date(inputDate);                                   // define object as date value
     let month = dateObj.getUTCMonth() + 1;                          // get the month part of the date
     month = month < 10 ? '0' + month : month;                       // to display month as mm may need to add leading 0
@@ -304,8 +299,7 @@ findTable.addEventListener("click", (event) => {
     let year = dateObj.getUTCFullYear();                            // get year part of the date
     let date = day + "-" + month + "-" + year;             // create new variable formattedDate in format dd/mm/yy
     
-    console.log("This is teh converted date" + date);
-
+ 
     // Check to see that the the fields have been filled in
     if (!guests || !sitting || !date) {
 
@@ -333,7 +327,6 @@ findTable.addEventListener("click", (event) => {
 
         // Take the existingReservations array and see how many seats are available using reduce method.
         let bookedSeats = existingReservations.reduce((total, reservation) => total + Number(reservation.guests), 0);
-        console.log("There are these many seats available on date requested : " + bookedSeats);
 
         return max_sitting_Seats - bookedSeats;                             // return the number of seats seats left
     }
@@ -458,7 +451,6 @@ function openReservationForm() {
     resForm.style.display = "flex";                                         // set the reservation form to flex
     resForm.style.justifyContent = "space-around";                          // space the reservation form evenly
 
-    console.log("completed the open tab 1 function");
 }
 
 // close reservation form if close button pressed
