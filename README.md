@@ -540,9 +540,9 @@ use values:
 ## Responsiveness
 | Device Tested     |   Site Responsive >= 280px  |   Site Responsive >=768    |     Site Responsive >=1200  | Render As Expected |
 |-------------------|-----------------------------|----------------------------|-----------------------------|--------------------|
-| Galaxy Fold       |      Good                   |             N/A            |          N/A                |      Good          |
-| ipad              |       N/A                   |            Good            |          N/A                |      Good          |
-| Laptop            |       N/A                   |             N/A            |         Good                |      Good          |
+| Galaxy Fold       |      Good                   |             Good          |          Good               |      Good          |
+| ipad              |       Good                  |            Good            |          Good               |      Good          |
+| Laptop            |       Good                  |             Good           |         Good                |      Good          |
 
 ### Responsive Test Screenshots
 
