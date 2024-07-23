@@ -498,20 +498,34 @@ The reservation form is made of of three forms,
 | Reservation Form Tab-2 | Leave all fields empty -  click make reservation |  Please fill in all fields message appears under button|
 | Reservation Form Tab-2 | Close button top right of form -  click  |  Reservations form closes|
 
-| Sitting Full Message  |   Missing fields  |   Improver     |
+| Sitting Full Message  |   Missing fields  |      |
 |------------|----------------|----------------|
 |      <img src="docs/readme_images/reservation-form-sitting-full.png " alt="reservation sitting full message" width="300"/>                                                                 |                   <img src="docs/readme_images/missing-fields-data.png " alt="missing fields fille in message" width="300"/>                                                                               |                                                      |
 
 
->Testing of the form was carried out for the three options
-- KSail Taster
-- KSail Starter
-- KSail Improver
+### admin login form
+The admin login form is on form.
+The userid and password are required for validation
+use values:
+    userid : admin
+    password: 12345
 
-
-| Taster Output  |   Starter Output  |   Improver     |
+| Feature    |   Test Case    |   Outcome      |
 |------------|----------------|----------------|
-|          <img src="docs/readme_images/ksail-contact-taster.png " alt="Ksail taster" width="300"/>      |           <img src="docs/readme_images/ksail-contact-starter.png " alt="Ksail starter" width="300"/>         |             <img src="docs/readme_images/ksail-contact-improver.png " alt="Ksail choices improver" width="300"/>       | 
+|      Click on login link in menu      |    login admin menu item clicked           |        Admin login form opens        |
+|      Click on login button on form     |    login button clicked with no credentials entered          |       Message below login button displaying "Incorrect Credentials"       |
+|      Click on login button on form     |    login button clicked with password and no username entered       |       Message below login button displaying "Incorrect Credentials"       |
+|      Click on login button on form     |    login button clicked with username entered and no password       |       Message below login button displaying "Incorrect Credentials"       |
+|      Click on login button on form     |    login button clicked with username entered and  password entered       |       login form closes, link to admin page added to menu       |
+
+
+
+| No username error  |   No password error  |      |
+|------------|----------------|----------------|
+|      <img src="docs/readme_images/admin-login-form-error.png" alt="admin login error no userid" width="300"/>                                                                 |                   <img src="docs/readme_images/admin-login-form-error.png" alt="admin login error no password" width="300"/>                                                                               |                                                      |
+
+
+
 
 
 ## Browser Compatability
