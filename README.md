@@ -453,36 +453,24 @@ Restaraunts used in reference:
 
 | Feature    |   Test Case    |   Outcome      |
 |------------|----------------|----------------|
+| Footer - Index Page -  Reservation button | Click on footer reservation button | Reservation popup opens |
 | Footer - Index Page -  Facebook link | Click on footer Facebook link | New Tab opens with Facebook |
 | Footer - Index Page -  Instagram link | Click on footer Instagram  link | New Tab opens with Instagram |
-| Footer - Index Page -  YouTube link | Click on footer Youtube link | New Tab opens with Youtube |
 | Footer - Index Page -  WhatsApp link | Click on footer WhatsApp link | New Tab opens with WhatsApp |
 | Footer - Index Page -  Telephone link | Click on footer Telephone link | On Mobile Phone, Phone dialer with phone number ready |
 | Footer - Index Page -  Telephone link | Click on footer Telephone link | On Tablet or Laptop, Popup with pick an app message |
-| Footer - About Page -  Facebook link | Click on footer Facebook link | New Tab opens with Facebook |
-| Footer - About Page -  Facebook link | Click on footer Facebook link | New Tab opens with Facebook |
-| Footer - About Page -  Instagram link | Click on footer Instagram  link | New Tab opens with Instagram |
-| Footer - About Page -  YouTube link | Click on footer Youtube link | New Tab opens with Youtube |
-| Footer - About Page -  WhatsApp link | Click on footer WhatsApp link | New Tab opens with WhatsApp |
-| Footer - About Page -  Telephone link | Click on footer Telephone link | On Mobile Phone, Phone dialer with phone number ready |
-| Footer - About Page -  Telephone link | Click on footer Telephone link | On Tablet or Laptop, Popup with pick an app message |
-| Footer - About Page -  Facebook link | Click on footer Facebook link | New Tab opens with Facebook |
-| Footer - Gallery Page -  Facebook link | Click on footer Facebook link | New Tab opens with Facebook |
+| Footer - Gallery Page -  Reservation button | Click on footer reservation button | Reservation popup opens |
 | Footer - Gallery Page -  Facebook link | Click on footer Facebook link | New Tab opens with Facebook |
 | Footer - Gallery Page -  Instagram link | Click on footer Instagram  link | New Tab opens with Instagram |
-| Footer - Gallery Page -  YouTube link | Click on footer Youtube link | New Tab opens with Youtube |
 | Footer - Gallery Page -  WhatsApp link | Click on footer WhatsApp link | New Tab opens with WhatsApp |
 | Footer - Gallery Page -  Telephone link | Click on footer Telephone link | On Mobile Phone, Phone dialer with phone number ready |
 | Footer - Gallery Page -  Telephone link | Click on footer Telephone link | On Tablet or Laptop, Popup with pick an app message |
-| Footer - Gallery Page -  Facebook link | Click on footer Facebook link | New Tab opens with Facebook |
-| Footer - Contact Page -  Facebook link | Click on footer Facebook link | New Tab opens with Facebook |
-| Footer - Contact Page -  Facebook link | Click on footer Facebook link | New Tab opens with Facebook |
-| Footer - Contact Page -  Instagram link | Click on footer Instagram  link | New Tab opens with Instagram |
-| Footer - Contact Page -  YouTube link | Click on footer Youtube link | New Tab opens with Youtube |
-| Footer - Contact Page -  WhatsApp link | Click on footer WhatsApp link | New Tab opens with WhatsApp |
-| Footer - Contact Page -  Telephone link | Click on footer Telephone link | On Mobile Phone, Phone dialer with phone number ready |
-| Footer - Contact Page -  Telephone link | Click on footer Telephone link | On Tablet or Laptop, Popup with pick an app message |
-| Footer - Contact Page -  Facebook link | Click on footer Facebook link | New Tab opens with Facebook |
+| Footer - Admin Page -  Reservation button | Click on footer reservation button | Reservation popup opens |
+| Footer - Admin Page -  Facebook link | Click on footer Facebook link | New Tab opens with Facebook |
+| Footer - Admin Page -  Instagram link | Click on footer Instagram  link | New Tab opens with Instagram |
+| Footer - Admin Page -  WhatsApp link | Click on footer WhatsApp link | New Tab opens with WhatsApp |
+| Footer - Admin Page -  Telephone link | Click on footer Telephone link | On Mobile Phone, Phone dialer with phone number ready |
+| Footer - Admin Page -  Telephone link | Click on footer Telephone link | On Tablet or Laptop, Popup with pick an app message |
 
 
 ### Contact Form
