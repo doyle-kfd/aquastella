@@ -473,16 +473,34 @@ Restaraunts used in reference:
 | Footer - Admin Page -  Telephone link | Click on footer Telephone link | On Tablet or Laptop, Popup with pick an app message |
 
 
-### Contact Form
+### Reservation Form
 
+The reservation form is made of of three forms,
+
+-   Tab 1 : Number of guests, date and sitting
+-   Tab 2 : First name, Last name, Telephone, Email
+-   Tab 3 : Reservation confirmation - if successful. 
 
 
 | Feature    |   Test Case    |   Outcome      |
 |------------|----------------|----------------|
-| Contact Form | First name required - leave out first name | ! Please fill out this field |
-| Contact Form | Last name required - leave out last name | ! Please fill out this field |
-| Contact Form | Email required - leave out Email | ! Please fill out this field |
-| Contact Form | Telephone number not required - leave out  Telephone | No error |
+| Reservation Form Tab-1 | Close button top right of form -  click  |  Reservations form closes|
+| Reservation Form Tab-1 | Number of guests - leave out,click find a table |  Please fill in all fields message appears under button|
+| Reservation Form Tab-1 | Date - leave out, click find a table |  Please fill in all fields message appears under button|
+| Reservation Form Tab-1 | Sitting Time  - leave out, click find a table |  Please fill in all fields message appears under button|
+| Reservation Form Tab-1 | Leave all fields empty -  click find a table |  Please fill in all fields message appears under button|
+| Reservation Form Tab-1 | Test for overbooking on sitting, max 16 seats available  |  Message under find a table button "Sitting full Pleast try again"|
+| Reservation Form Tab-2 | Close button top right of form -  click  |  Reservations form closes|
+| Reservation Form Tab-2 | First name - leave out, click make reservation |  Please fill in all fields message appears under button|
+| Reservation Form Tab-2 | Last name - leave out, click make reservation |  Please fill in all fields message appears under button|
+| Reservation Form Tab-2 | Telephone - leave out, click make reservation |  Please fill in all fields message appears under button|
+| Reservation Form Tab-2 | Email - leave out, click make reservation |  Please fill in all fields message appears under button|
+| Reservation Form Tab-2 | Leave all fields empty -  click make reservation |  Please fill in all fields message appears under button|
+| Reservation Form Tab-2 | Close button top right of form -  click  |  Reservations form closes|
+
+| Sitting Full Message  |   Starter Output  |   Improver     |
+|------------|----------------|----------------|
+|      <img src="docs/readme_images/reservation-form-sitting-full.png " alt="reservation sitting full message" width="300"/>                                                                 |                                                                 |                                                      |
 
 
 >Testing of the form was carried out for the three options
