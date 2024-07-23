@@ -498,9 +498,9 @@ The reservation form is made of of three forms,
 | Reservation Form Tab-2 | Leave all fields empty -  click make reservation |  Please fill in all fields message appears under button|
 | Reservation Form Tab-2 | Close button top right of form -  click  |  Reservations form closes|
 
-| Sitting Full Message  |   Starter Output  |   Improver     |
+| Sitting Full Message  |   Missing fields  |   Improver     |
 |------------|----------------|----------------|
-|      <img src="docs/readme_images/reservation-form-sitting-full.png " alt="reservation sitting full message" width="300"/>                                                                 |                                                                 |                                                      |
+|      <img src="docs/readme_images/reservation-form-sitting-full.png " alt="reservation sitting full message" width="300"/>                                                                 |                   <img src="docs/readme_images/missing-fields-data.png " alt="missing fields fille in message" width="300"/>                                                                               |                                                      |
 
 
 >Testing of the form was carried out for the three options
