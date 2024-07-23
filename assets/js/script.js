@@ -39,10 +39,26 @@ document.getElementById("mobileMenu").addEventListener('click', function (event)
 
 
 
+
+
+
+
+/**
+ * 
+ * 
+ *  #####################
+ *  #####################         Modal section functions
+ *  #####################
+ * 
+ * 
+ * +
+ */
 // Create variable to store media query
 
 const screenSize = window.matchMedia("(max-width: 280px)")
 
+const adminLoginModal = document.getElementById("admin-login-container");
+const adminCloseModal = document.getElementById("close-login-form")
 
 
 /**
@@ -54,11 +70,16 @@ function openloginForm() {
     const navItems = document.getElementById("nav-items");                     // Get the nav items
     const adminLoginForm = document.getElementById("admin-login-form");        // Get the admin login form elements
 
+    
     // Check to see if the screen size is mobile 280px if it is, hide the menu when res form opened
     if (screenSize.matches) {                                                  // If media query matches
         navItems.style.display = "none";                                       // Only on mobile phones, hide the mobile menu
     }
-    adminLoginForm.style.display = "block";                                    // display the login form      
+
+    adminLoginModal.classList.add("modal");
+    adminLoginForm.style.display = "block";                                    // display the login form 
+
+
     }
 
 /**
@@ -68,6 +89,7 @@ function openloginForm() {
  */
 function closeloginForm() {
     loginForm.style.display = "none";                                         // hide the login form
+    adminLoginModal.classList.remove("modal");
 }
 
 /**

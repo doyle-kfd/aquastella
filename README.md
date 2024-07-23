@@ -665,51 +665,9 @@ resForm.style.display = "none"; // Close the menu
 
 <summary>index.html</summary>
 
-| Before   |                                 After                                          |
+|  |                                                             |
 |-------------------|---------------------------------------------------------------------------------------------|
-| <img src="docs/readme_images/index-lighthouse.png " alt="lighthouse mobile" height="150"/>         | <img src="docs/readme_images/index-lighthouse-fix.png " alt="lighthouse mobile" height="150"/> |   
-
-
-
-### Understanding the problem
-
-- The biggest factor in increasing the score was related to LCP (Largest Content Paintful)[LCP](https://web.dev/articles/optimize-lcp)
-- The hero image on the page was delaying rendering.
-
->Steps Taken
-- Resize hero image
-- Moved loading of hero image from css to index.html
-- added preload command to html
-
-```
-    <link rel="preload" fetchpriority="high" as="image" href="assets/images/hero-image-learn-to-sail.webp" type="image/webp">
-```
-
-</details>
-
-<details>
-
-<summary>about.html</summary>
-
-| Before   |                                 After                                          |
-|-------------------|---------------------------------------------------------------------------------------------|
-| <img src="docs/readme_images/about-lighthouse-score-before.png " alt="lighthouse mobile" height="150"/>        | <img src="docs/readme_images/about-lighthouse-score-after.png" alt="lighthouse mobile" height="150"/> |   
-
-
-
-### Understanding the problem
-
-- The biggest factor in increasing the score was related to LCP (Largest Content Paintful)[LCP](https://web.dev/articles/optimize-lcp)
-- The hero image on the page was delaying rendering.
-
->Steps Taken
-- Resize hero image
-- Moved loading of hero image from css to about.html
-- added preload command to html
-```
-    <link rel="preload" fetchpriority="high" as="image" href="assets/images/ksail-sailing-club.webp"
-        type="image/webp">
-```
+| <img src="docs/readme_images/index-page-lighthouse-score.png" alt="lighthouse mobile" height="150"/>         |  |   
 
 </details>
 
@@ -717,39 +675,21 @@ resForm.style.display = "none"; // Close the menu
 
 <summary>gallery.html</summary>
 
-| Before   |                                 After                                          |
+|    |                                                                       |
 |-------------------|---------------------------------------------------------------------------------------------|
-| <img src="docs/readme_images/ksail-gallery-lighthouse-before.png " alt="lighthouse mobile" height="150"/>        | <img src="docs/readme_images/ksail-gallery-lighthouse-after.png" alt="lighthouse mobile" height="150"/> |   
+| <img src="docs/readme_images/gallery-page-lighthouse-score.png " alt="lighthouse mobile" height="150"/>        | |   
 
-
-
-### Understanding the problem
-
-- The biggest factor in increasing the score was related to LCP (Largest Content Paintful)[LCP](https://web.dev/articles/optimize-lcp)
-- The images on the gallery page were delaying rendering.
-
->Steps Taken
-- Resized all gallery images
-- added preload command to html
-```
-    <link rel="preload" fetchpriority="high" as="image" href="assets/images/ksail-img2.webp"
-    type="image/webp">
-```
 
 </details>
 
-
 <details>
 
-<summary>contact.html</summary>
+<summary>admin.html</summary>
 
-| Before   |
-|-------------------|
-| <img src="docs/readme_images/contact-lighthouse-before.png" alt="lighthouse mobile" height="150"/>       |
+| |                                                                     |
+|-------------------|---------------------------------------------------------------------------------------------|
+| <img src="docs/readme_images/admin-page-lighthouse-score.png" alt="lighthouse mobile" height="150"/>        |  |   
 
-
-
->No remedial steps were needeed 
 
 </details>
 
@@ -758,6 +698,6 @@ resForm.style.display = "none"; // Close the menu
 
 ### Tool used WAVE "Web Accessibility Evaluation Tool"
 
-| index.html    |      about.html            |             gallery.html   |     contact.html      |
+| index.html    |      gallery.html            |             admin.html   |          |
 |---------------|----------------------------|----------------------------|-----------------------|
-|   <img src="docs/readme_images/accessibility-testing-index.png" alt="wave index.html" width="150"/>            |  <img src="docs/readme_images/accessibility-testing-about.png" alt="wave about.html" width="150"/>                          |     <img src="docs/readme_images/accessibility-testing-gallery.png" alt="wave gallery.html" width="150"/>                       |             <img src="docs/readme_images/accessibility-testing-contact.png" alt="wave xontact.html" width="150"/>          | 
+|   <img src="docs/readme_images/wave-accessibility-index.png" alt="wave index.html" width="150"/>            |  <img src="docs/readme_images/wave-accessibility-gallery.png" alt="wave gallery.html" width="150"/>                          |     <img src="docs/readme_images/wave-accessibility-admin.png" alt="wave admin.html" width="150"/>                       |                    | 
