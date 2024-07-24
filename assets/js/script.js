@@ -194,6 +194,18 @@ let makeReservation = document.getElementById('make-booking');                  
 // Make sure that the web page has loaded completely
 document.addEventListener("DOMContentLoaded", function () {                 // Create event listner for dom loaded fully
 
+    const reservations = [];    	                                    // Create a blank reservations array
+    let confirmationNumber = 1;                                         // Start with a reservation number of 1
+    const maxSeatsPerSitting = 16;                                      // set the max seating possible of 16, per sitting
+    const daysToGenerate = 30;                                          // set how many days i want to populate, 30 to start
+    const sittings = ["First - 17:00", "Second - 20:30"];               // sittings are First - 17:00 and Second - 20:30
+    const guestsOptions = [1, 2, 4, 6];                                 // guest seats available
+    const startDate = new Date();                                       // Date for reservation starts = today
+
+    // Setup array details
+    const firstNames = ["John", "Jane", "Alice", "Bob", "Charlie", "Diana", "Eve", "Frank"];            // First names
+    const lastNames = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson"];  // Second names
+    const domainNames = ["example.com", "mail.com", "test.com", "demo.com"];                            // Email domains
 
             // Random number generator for repeated use
             function getRandomElement(arr) {
@@ -226,18 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {                 // C
 
     if (!localStorage.getItem("reservations")) {                            // Check to see if the reservations array exists... wont overwrite exising data
 
-        const reservations = [];    	                                    // Create a blank reservations array
-        let confirmationNumber = 1;                                         // Start with a reservation number of 1
-        const maxSeatsPerSitting = 16;                                      // set the max seating possible of 16, per sitting
-        const daysToGenerate = 30;                                          // set how many days i want to populate, 30 to start
-        const sittings = ["First - 17:00", "Second - 20:30"];               // sittings are First - 17:00 and Second - 20:30
-        const guestsOptions = [1, 2, 4, 6];                                 // guest seats available
-        const startDate = new Date();                                       // Date for reservation starts = today
 
-        // Setup array details
-        const firstNames = ["John", "Jane", "Alice", "Bob", "Charlie", "Diana", "Eve", "Frank"];            // First names
-        const lastNames = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson"];  // Second names
-        const domainNames = ["example.com", "mail.com", "test.com", "demo.com"];                            // Email domains
 
 
 
