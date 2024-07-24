@@ -1,6 +1,7 @@
 // Set up JShint paramaters
 
 /*jshint esversion: 6 */
+/* jshint unused:false */
 
 // Js code to be executed in strict mode
 function strict_function() {
@@ -194,6 +195,35 @@ let makeReservation = document.getElementById('make-booking');                  
 document.addEventListener("DOMContentLoaded", function () {                 // Create event listner for dom loaded fully
 
 
+            // Random number generator for repeated use
+            function getRandomElement(arr) {
+                return arr[Math.floor(Math.random() * arr.length)];             // Calculates a random number between 0 and 1 inclusive, and multiplies it by the length of the array.
+            }
+    
+            // Generate a random phone number
+            function generateRandomPhoneNumber() {
+                const digits = "0123456789";                                    // Define the digits to be used
+                let phoneNumber = "";                                           // Define phone number starting out as blank
+                for (let i = 0; i < 10; i++) {                                  // start a loop that iterates 10 times, 0 -- 9.
+                    phoneNumber += getRandomElement(digits);                    // take digits and pass it through the random generator and append the result to phoneNumber
+                }
+                return phoneNumber;                                             // return the phone number generated.
+            }
+    
+            // Generate random email address using first name, last name and domain.
+            function generateRandomEmail(firstName, lastName) {
+                const domain = getRandomElement(domainNames);                               // get a random domaion name from domainNames
+                return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;    // return value of firstname, last name and domain concatenated using template literals.
+            }
+    
+            function formatDate(date) {
+                const day = String(date.getDate()).padStart(2, '0');
+                const month = String(date.getMonth() + 1).padStart(2, '0');                 // January is 0!
+                const year = date.getFullYear();
+                return `${day}-${month}-${year}`;
+            }
+
+
     if (!localStorage.getItem("reservations")) {                            // Check to see if the reservations array exists... wont overwrite exising data
 
         const reservations = [];    	                                    // Create a blank reservations array
@@ -209,33 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {                 // C
         const lastNames = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson"];  // Second names
         const domainNames = ["example.com", "mail.com", "test.com", "demo.com"];                            // Email domains
 
-        // Random number generator for repeated use
-        function getRandomElement(arr) {
-            return arr[Math.floor(Math.random() * arr.length)];             // Calculates a random number between 0 and 1 inclusive, and multiplies it by the length of the array.
-        }
 
-        // Generate a random phone number
-        function generateRandomPhoneNumber() {
-            const digits = "0123456789";                                    // Define the digits to be used
-            let phoneNumber = "";                                           // Define phone number starting out as blank
-            for (let i = 0; i < 10; i++) {                                  // start a loop that iterates 10 times, 0 -- 9.
-                phoneNumber += getRandomElement(digits);                    // take digits and pass it through the random generator and append the result to phoneNumber
-            }
-            return phoneNumber;                                             // return the phone number generated.
-        }
-
-        // Generate random email address using first name, last name and domain.
-        function generateRandomEmail(firstName, lastName) {
-            const domain = getRandomElement(domainNames);                               // get a random domaion name from domainNames
-            return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;    // return value of firstname, last name and domain concatenated using template literals.
-        }
-
-        function formatDate(date) {
-            const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0');                 // January is 0!
-            const year = date.getFullYear();
-            return `${day}-${month}-${year}`;
-        }
 
         // Start the loop for the next 30 days - starting today
         for (let day = 0; day < daysToGenerate; day++) {
