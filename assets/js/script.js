@@ -1,4 +1,16 @@
+// Set up JShint paramaters
+
+/*jshint esversion: 6 */
+
+// Js code to be executed in strict mode
+function strict_function() {
+  'use strict'; 
+}
+
+
+
 console.log("Script file open");
+
 
 /**
 *      This function is run only when the mobile menu item is clicked
@@ -38,11 +50,6 @@ document.getElementById("mobileMenu").addEventListener('click', function (event)
 });
 
 
-
-
-
-
-
 /**
  * 
  * 
@@ -55,10 +62,10 @@ document.getElementById("mobileMenu").addEventListener('click', function (event)
  */
 // Create variable to store media query
 
-const screenSize = window.matchMedia("(max-width: 280px)")
+const screenSize = window.matchMedia("(max-width: 280px)");
 
 const adminLoginModal = document.getElementById("admin-login-container");
-const adminCloseModal = document.getElementById("close-login-form")
+const adminCloseModal = document.getElementById("close-login-form");
 
 
 /**
@@ -164,9 +171,6 @@ const isAuthenticated = () => {
 function adminLogout() {
     logoutMenulink.style.display = "none";                                      // Hide the logout link in the menu
     loginMenulink.style.display = "block";                                      // Show the Login menu link
-    // Reset the login credentials
-    let adminUsername = 'anyone';                                               
-    let adminPassword = 'nothing';
     localStorage.setItem('authenticated', 'false');                            // Set local storage authentication to false
     document.getElementById('adminPagelink').style.display = 'none';           // hide  the admin page link
     window.location.href = "index.html";                                       // redirect the user to the home page on logout
@@ -447,13 +451,13 @@ makeReservation.addEventListener("click", () => {                    // event li
 function openReservationForm() {
     // Initialise reservations
     // Get reservation item by element id
-    let resForm = document.getElementById("resForm")                            // get reservation form div
+    let resForm = document.getElementById("resForm");                            // get reservation form div
     let reservForm = document.getElementById("reservation-form");               // get reservation form itself
     let tab1 = document.getElementById("tab-1");                                // get the first tab of the reservation form
     let tab2 = document.getElementById("tab-2");                                // get the second tab of the reservation form
     let reservCompleted = document.getElementById("reservation-completed");     // get the reservation completed tab of the form
     const navItems = document.getElementById("nav-items");                      // get the nav items
-    const reservationModal = document.getElementById("reservation-container")
+    const reservationModal = document.getElementById("reservation-container");
  
  
     // Check to see if the device is a mobile phone 280px or <. If yes then hide menu.
@@ -480,7 +484,7 @@ function openReservationForm() {
 
 // close reservation form if close button pressed
 const reservForm = document.getElementById("reservation-form");             // Get the reservation form element
-const reservationModal = document.getElementById("reservation-container")
+const reservationModal = document.getElementById("reservation-container");
 /**
  * Function that closes the reservation form
  * sets the form display to none
@@ -503,7 +507,7 @@ window.onclick = function(event) {
         loginForm.style.display = "none";                                   // hide the login form
         adminLoginModal.classList.remove("modal");                          // remove the modal class
     }
-  }
+  };
 
 /**
  *  Function to close tab 1 and show tab 2 when reservation is being made
@@ -805,11 +809,6 @@ function loadAdminSpecificCode() {
  *  
  */
 function sendEmail(firstName, date, sitting, reservationConfirmation) {
-
-    const successName = document.getElementById('reservation-name').value;              // Name on reservation details
-    const successDate = document.getElementById('reservation-date').value;              // Date of confirmation
-    const successTime = document.getElementById('reservation-time').value;              // Time and sitting of reservtion made
-    const successNumber = document.getElementById('reservation-number').value;          // Reservation number condirmed
 
     const templateParams = {
         successName: firstName,
