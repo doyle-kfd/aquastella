@@ -240,6 +240,21 @@ document.addEventListener("DOMContentLoaded", function () {                 // C
             };
 
 
+        // refactored function to generate a confirmation - used within the loop
+        const generateReservation = (confirmationNumber, date, sitting, guests, firstName, lastName, email, phone) => {
+        return {
+            confirmationNumber,
+            date,
+            sitting,
+            guests,
+            firstName,
+            lastName,
+            email,
+            phone
+        };
+    };
+
+
     if (!localStorage.getItem("reservations")) {                            // Check to see if the reservations array exists... wont overwrite exising data
 
         console.log("first time visit, i need to create data");
@@ -268,19 +283,20 @@ document.addEventListener("DOMContentLoaded", function () {                 // C
                     const phone = generateRandomPhoneNumber();                          // generate a random phone number from function
 
 
-                    // Set up the reservations data construct
-                    const reservation = {
-                        confirmationNumber: confirmationNumber++,
-                        date: formattedDate,
-                        sitting: sitting,
-                        guests: guests,
-                        firstName: firstName,
-                        lastName: lastName,
-                        email: email,
-                        phone: phone
-                    };
-                    reservations.push(reservation);
-                }
+                    // Generate reservation using reservation function
+                    const reservation = generateReservation(
+                        confirmationNumber++,
+                        formattedDate,
+                        sitting,
+                        guests,
+                        firstName,
+                        lastName,
+                        email,
+                        phone
+                    );
+
+                reservations.push(reservation);
+            }
             });
         }
 
