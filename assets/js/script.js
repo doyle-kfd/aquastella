@@ -68,6 +68,7 @@ const screenSize = window.matchMedia("(max-width: 280px)");
 const adminLoginModal = document.getElementById("admin-login-container");
 
 
+
 /**
  *
  *  Function to open login form
