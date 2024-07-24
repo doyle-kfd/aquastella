@@ -499,12 +499,12 @@ function openReservationForm() {
     tab2.style.display = "none";                                            // Hide the stage 2 form until completing reservation
     reservCompleted.style.display = "none";                                 // Hide the reservation completed page
 
-
+/*
     // Check to see if the screen size is mobile 280px if it is, hide the menu when res form opened
     if (screenSize.matches) {                                               // If screen size is mobile phone
         menu.style.display = "none";                                        // Hide the menu items
     }
-
+*/
     resForm.style.display = "flex";                                         // set the reservation form to flex
     resForm.style.justifyContent = "space-around";                          // space the reservation form evenly
 
