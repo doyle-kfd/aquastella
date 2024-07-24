@@ -66,7 +66,6 @@ document.getElementById("mobileMenu").addEventListener('click', function (event)
 const screenSize = window.matchMedia("(max-width: 280px)");
 
 const adminLoginModal = document.getElementById("admin-login-container");
-const adminCloseModal = document.getElementById("close-login-form");
 
 
 /**
@@ -498,13 +497,6 @@ function openReservationForm() {
     tab1.style.display = "block";                                           // Display the stage 1 form
     tab2.style.display = "none";                                            // Hide the stage 2 form until completing reservation
     reservCompleted.style.display = "none";                                 // Hide the reservation completed page
-
-/*
-    // Check to see if the screen size is mobile 280px if it is, hide the menu when res form opened
-    if (screenSize.matches) {                                               // If screen size is mobile phone
-        menu.style.display = "none";                                        // Hide the menu items
-    }
-*/
     resForm.style.display = "flex";                                         // set the reservation form to flex
     resForm.style.justifyContent = "space-around";                          // space the reservation form evenly
 

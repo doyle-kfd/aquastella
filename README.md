@@ -701,3 +701,54 @@ resForm.style.display = "none"; // Close the menu
 | index.html    |      gallery.html            |             admin.html   |          |
 |---------------|----------------------------|----------------------------|-----------------------|
 |   <img src="docs/readme_images/wave-accessibility-index.png" alt="wave index.html" width="150"/>            |  <img src="docs/readme_images/wave-accessibility-gallery.png" alt="wave gallery.html" width="150"/>                          |     <img src="docs/readme_images/wave-accessibility-admin.png" alt="wave admin.html" width="150"/>                       |                    | 
+
+
+
+## JS Linter (JShint)
+
+Using JShint, the following output was generated
+
+|    Warnings        |  Undefined Variables   |       Unused Variables          |  
+|--------------------|------------------------|---------------------------------|
+|       <img src="docs/readme_images/warnings.png" alt="JShint Warnings" height="150"/>               |           <img src="docs/readme_images/undefined-variables.png" alt="JShint Warnings" width="150"/>               |                   <img src="docs/readme_images/unused-variables.png" alt="JShint Warnings" width="150"/>                |
+
+
+### JShint explanation
+
+<details>
+
+<summary>JShint Warnings</summary>
+
+-   277 - eronious warning, no function within loop
+-   792 - eronious warning, no function within loop
+
+</details> 
+
+<details>
+
+<summary>Undefined Variables</summary>
+
+-   603 - google    Google is defined in the google js loaded in the body of the admin page
+-   605 - google    Google is defined in the google js loaded in the body of the admin page
+-   725 - google    Google is defined in the google js loaded in the body of the admin page
+-   747 - google    Google is defined in the google js loaded in the body of the admin page
+-   755 - google    Google is defined in the google js loaded in the body of the admin page
+-   820 - google    Google is defined in the google js loaded in the body of the admin page
+-   842 - google    Google is defined in the google js loaded in the body of the admin page
+
+
+</details> 
+
+<details>
+
+<summary>Undefined Variables</summary>
+
+-   7 - strict_function - required by JShint config
+-   20  -   mobileMenu  -   used by html to open mobile phone menu
+-   76  -   openloginForm   -   used by admin form to open the login form on click within html
+-   135  -   login   -   used to validate admin login
+-   171 -   adminLogout -   used when logout link in main menu is clicked
+-   512 -   closeReservation - used to close reservation form by clicking in html 
+
+
+</details> 
