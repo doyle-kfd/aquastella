@@ -212,18 +212,6 @@ document.addEventListener("DOMContentLoaded", function () {                 // C
             // Refactored getRandomElement function for JShint compliance
             const getRandomElement = arr => arr[Math.floor(Math.random() * arr.length)];  
     
-            /*
-            // Generate a random phone number
-            function generateRandomPhoneNumber() {
-                const digits = "0123456789";                                    // Define the digits to be used
-                let phoneNumber = "";                                           // Define phone number starting out as blank
-                for (let i = 0; i < 10; i++) {                                  // start a loop that iterates 10 times, 0 -- 9.
-                    phoneNumber += getRandomElement(digits);                    // take digits and pass it through the random generator and append the result to phoneNumber
-                }
-                return phoneNumber;                                             // return the phone number generated.
-            }
-                */
-
             // Refactored generateRandomPhoneNumber function assignment
 
             const generateRandomPhoneNumber = () => {
@@ -233,30 +221,15 @@ document.addEventListener("DOMContentLoaded", function () {                 // C
                     phoneNumber += getRandomElement(digits);                    // take digits and pass it through the random generator and append the result to phoneNumber
                 }
                 return phoneNumber;                                             // return the phone number generated.
-            }
+            };
     
-            /*
-            // Generate random email address using first name, last name and domain.
-            function generateRandomEmail(firstName, lastName) {
-                const domain = getRandomElement(domainNames);                               // get a random domaion name from domainNames
-                return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;    // return value of firstname, last name and domain concatenated using template literals.
-            }
-            */
 
             // refactored generateRandonEmail function assignment
             const generateRandomEmail = (firstName, lastName) => {
                 const domain = getRandomElement(domainNames);                               // get a random domaion name from domainNames
                 return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;    // return value of firstname, last name and domain concatenated using template literals.
-            }
+            };
             
-            /*
-            function formatDate(date) {
-                const day = String(date.getDate()).padStart(2, '0');
-                const month = String(date.getMonth() + 1).padStart(2, '0');                 // January is 0!
-                const year = date.getFullYear();
-                return `${day}-${month}-${year}`;
-            }
-            */
 
             // refactored formatDate function assignment
             const formatDate = (date) => {
@@ -264,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {                 // C
                 const month = String(date.getMonth() + 1).padStart(2, '0');                 // January is 0!
                 const year = date.getFullYear();
                 return `${day}-${month}-${year}`;
-            }
+            };
 
 
     if (!localStorage.getItem("reservations")) {                            // Check to see if the reservations array exists... wont overwrite exising data
