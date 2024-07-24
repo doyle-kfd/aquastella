@@ -193,7 +193,7 @@ let makeReservation = document.getElementById('make-booking');                  
  */
 // Make sure that the web page has loaded completely
 document.addEventListener("DOMContentLoaded", function () {                 // Create event listner for dom loaded fully
-
+    console.log("started initialising the variables for array creation");
     const reservations = [];    	                                    // Create a blank reservations array
     let confirmationNumber = 1;                                         // Start with a reservation number of 1
     const maxSeatsPerSitting = 16;                                      // set the max seating possible of 16, per sitting
@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {                 // C
 
     if (!localStorage.getItem("reservations")) {                            // Check to see if the reservations array exists... wont overwrite exising data
 
-
+        console.log("first time visit, i need to create data");
 
 
 
