@@ -665,6 +665,9 @@ function loadAdminSpecificCode() {
 
         // Set the variavle next7DaysISOString to newt7Days and split on the T to give yyyy-mm-dd
         const next7DaysISOString = next7Days.toISOString().split('T')[0];
+        
+        console.log("next 7 days to iso string" +next7DaysISOString);
+        console.log("formatted Date" + formattedDate);
 
         // Initialise the values for the stat counters
         let totalToday = 0;
@@ -681,7 +684,7 @@ function loadAdminSpecificCode() {
 
             // Check and see if the date is today
             if (reservation.date === formattedDate) {
-                totalToday++;                                   // If it is, increment todays date counter by 1
+                totalToday++;                                               // If it is, increment todays date counter by 1
 
                 // Check to see of there are reservations for first sitting
                 if (reservation.sitting === 'First - 17:00') {
