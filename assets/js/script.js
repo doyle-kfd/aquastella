@@ -240,6 +240,12 @@ document.addEventListener("DOMContentLoaded", function () {                 // C
             };
 
 
+        // move functions here, outside the reservations loop
+        const firstName = getRandomElement(firstNames);                     // get a first name from the firstNames array
+        const lastName = getRandomElement(lastNames);                       // get a last name from the lastNames array
+        const email = generateRandomEmail(firstName, lastName);             // get email address from firstName, lastName@domain
+        const phone = generateRandomPhoneNumber();                          // generate a random phone number from function
+        const guests = guestsOptions[Math.floor(Math.random() * guestsOptions.length)];     // pick a seat option from seat options array, 1,2,4,6
         // refactored function to generate a confirmation - used within the loop
         const generateReservation = (confirmationNumber, date, sitting, guests, firstName, lastName, email, phone) => {
         return {
@@ -272,15 +278,12 @@ document.addEventListener("DOMContentLoaded", function () {                 // C
                 let seatsFilled = 0;                                                                    // Sets counter set to 0
 
                 while (seatsFilled < maxSeatsPerSitting / 2) {                                          // while the number of seats filled < 8, only take up half the seats
-                    const guests = guestsOptions[Math.floor(Math.random() * guestsOptions.length)];     // pick a seat option from seat options array, 1,2,4,6
+
                     if (seatsFilled + guests > maxSeatsPerSitting / 2) continue;                        // check to see if seatsFilled + guests > 8
 
                     seatsFilled += guests;                                                              // Add guests to seatsFilled, for next loop check
 
-                    const firstName = getRandomElement(firstNames);                     // get a first name from the firstNames array
-                    const lastName = getRandomElement(lastNames);                       // get a last name from the lastNames array
-                    const email = generateRandomEmail(firstName, lastName);             // get email address from firstName, lastName@domain
-                    const phone = generateRandomPhoneNumber();                          // generate a random phone number from function
+
 
 
                     // Generate reservation using reservation function
