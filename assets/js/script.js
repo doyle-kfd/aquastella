@@ -207,10 +207,15 @@ document.addEventListener("DOMContentLoaded", function () {                 // C
     const lastNames = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson"];  // Second names
     const domainNames = ["example.com", "mail.com", "test.com", "demo.com"];                            // Email domains
 
+            /*
             // Random number generator for repeated use
             function getRandomElement(arr) {
                 return arr[Math.floor(Math.random() * arr.length)];             // Calculates a random number between 0 and 1 inclusive, and multiplies it by the length of the array.
             }
+            */
+
+            // Refactored getRandomElement function for JShint compliance
+            const getRandomElement = arr => arr[Math.floor(Math.random() * arr.length)];  
     
             // Generate a random phone number
             function generateRandomPhoneNumber() {
