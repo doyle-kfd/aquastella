@@ -636,11 +636,12 @@ function loadAdminSpecificCode() {
             const row = document.createElement('tr');                   // Create a row
 
             for (const key in reservation) {                            // For each key pair in the reservation
+                if (reservation.hasOwnProperty(key)) {
                 const cell = document.createElement('td');              // Create a table data cell
                 cell.innerText = reservation[key];                      // set the cells inner text to the reservation value of key
                 row.appendChild(cell);                                  // append the cell date to the row
             }
-
+        }
             tableBody.appendChild(row);                                 // with the cells completed, append the row to the table
         });
 
