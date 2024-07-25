@@ -649,23 +649,18 @@ function loadAdminSpecificCode() {
 
         // Get todays date and as an ISOString and split it on the T to give yyyy-mm-dd
         const today = new Date().toISOString().split('T')[0];
-
+        const dateObj = new Date(today);
+        const dateObjParsed = Date.parse(dateObj);
+        console.log("TODAYS DATE <<<<<<<<<<<<<<<<<< " , dateObjParsed);
+        const formattedDate = dateObj.toLocaleDateString('en-GB').split('/').join('-');
+        console.log("FORMATTED DATE <<<<<<<<<<<<<<<<<<<<< ", formattedDate);
 
         // Get the date 7 days from now in format yyyy-mm-dd
         const next7Days = new Date();
-        //console.log("7 days from now ", next7Days.setDate(next7Days.getDate() + 7));
         const next7DaysISOString = next7Days.toISOString().split('T')[0];
-        //console.log("Next 7 DAYS AS ISO STRING", next7DaysISOString);
-
-        // Convert today's date to dd-mm-yyyy format
-        const dateObj = new Date(today);
-        const formattedDate = dateObj.toLocaleDateString('en-GB').split('/').join('-');
-
-        // Convert the date 7 days from now to dd-mm-yyyy format
-        
+  
         const next7DaysDateObj = new Date(next7DaysISOString);
         next7DaysDateObj.setDate(next7DaysDateObj.getDate() + 7)
-
         const formattedNext7DaysDate = next7DaysDateObj.toLocaleDateString('en-GB').split('/').join('-');
         console.log("Formatted Date : ",formattedNext7DaysDate);
 
@@ -722,15 +717,15 @@ function loadAdminSpecificCode() {
             const secondDate = formattedDate;
             const thirdDate = formattedNext7DaysDate;
             const firstIsoDate =  Date.parse(reservation.date);
-            const secondIsoDate = Date.parse(secondDate);
+            const secondIsoDate = dateObjParsed;
             const thirdIsoDate = Date.parse(thirdDate);
-            console.log(` Reservation Date: ${firstIsoDate} Todays Date : ${secondIsoDate}  7 Days From Now:  ${thirdIsoDate} `)
+            console.log(` Reservation Date: ${firstDate} Todays Date : ${secondIsoDate}  7 Days From Now:  ${thirdIsoDate} `)
 
             if (firstIsoDate > secondIsoDate) {
                 console.log("picking up the reservations date is greater than the formatted date for today");
             }
-            if (firstDate <= thirdDate) {
-                console.log("Picking up the fact that the date 7 days from now is less than the reservations date");
+            if (secondIsoDate <= thirdIsoDate) {
+                console.log("Picking up todays date is less than the date 7 days from now");
             }
 
 
