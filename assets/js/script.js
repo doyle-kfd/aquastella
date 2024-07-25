@@ -647,6 +647,32 @@ function loadAdminSpecificCode() {
 
         // Get todays date and as an ISOString and split it on the T to give yyyy-mm-dd
         const today = new Date().toISOString().split('T')[0];
+        const aweek = today + '1';
+        const realToday = new Date();
+
+
+        // Initialise the variable next7Days
+        
+        const next7Days = new Date();
+
+        // Get todays date and add 7 days to return new date of 7 days from
+        const aWeekFromNow = new Date(new Date().setDate(new Date().getDate() + 7));
+        const sevenDaysFromNowConverted = aWeekFromNow.toISOString().split('T')[0];
+
+        let sevenDaysFromNow = new Date(sevenDaysFromNowConverted);
+        let month7 = sevenDaysFromNow.getUTCMonth()+ 1;
+        month7 = month7 < 10 ? '0' + month7 : month7;
+        let day7 = sevenDaysFromNow.getUTCDate();
+        day7 = day7 < 10 ? '0' + day7 : day7;
+        let year7 = sevenDaysFromNow.getUTCFullYear();
+        let oneWeekFromToday = day7 + "-" + month7 + '-'+ year7;
+
+        // set the value of next7Days to todays date + 7
+        next7Days.setDate(next7Days.getDate() + 7);
+
+        // Set the variable next7DaysISOString to newt7Days and split on the T to give yyyy-mm-dd
+        const next7DaysISOString = next7Days.toISOString().split('T')[0];
+
 
         // Convert todays date to dd-mm-yy
         let dateObj = new Date(today);                      // define object as date value
@@ -657,17 +683,6 @@ function loadAdminSpecificCode() {
         let year = dateObj.getUTCFullYear();                // get year part of the date
         let formattedDate = day + "-" + month + "-" + year; // create new variable formattedDate in format dd/mm/yy
   
-        // Initialise the variable next7Days
-        const next7Days = new Date();
-
-        // set the value of next7Days to todays date + 7
-        next7Days.setDate(next7Days.getDate() + 7);
-
-        // Set the variavle next7DaysISOString to newt7Days and split on the T to give yyyy-mm-dd
-        const next7DaysISOString = next7Days.toISOString().split('T')[0];
-        
-        console.log("next 7 days to iso string" +next7DaysISOString);
-        console.log("formatted Date" + formattedDate);
 
         // Initialise the values for the stat counters
         let totalToday = 0;
@@ -677,6 +692,7 @@ function loadAdminSpecificCode() {
         let firstSittingNext7Days = 0;
         let secondSittingNext7Days = 0;
 
+
         // Create loop checks on array date to see if there are reservations
         // The calculations will be used for output to counters
         // For each reservation starting with [0]
@@ -685,7 +701,7 @@ function loadAdminSpecificCode() {
             // Check and see if the date is today
             if (reservation.date === formattedDate) {
                 totalToday++;                                               // If it is, increment todays date counter by 1
-
+                console.log("daily counter : " + totalToday);
                 // Check to see of there are reservations for first sitting
                 if (reservation.sitting === 'First - 17:00') {
                     firstSittingToday++;                                    // If there are, then increment first sitting by 1
@@ -694,10 +710,18 @@ function loadAdminSpecificCode() {
                 }
             }
 
+
+            console.log("Variables used in checking for sittings")
+            console.log("The reservation Date is: " + reservation.date);
+            console.log("Formatted Date is : " + formattedDate);
+
+            console.log("One Week From Today is : " + oneWeekFromToday);
             // Calculate counters for next 7 days
             // Check to see if the reservation date is greater than today and its less than the calculated ISO string
-            if (reservation.date > formattedDate && reservation.date <= next7DaysISOString) {
+            //if (reservation.date > formattedDate && reservation.date <= oneWeekFromToday) {
+                if (reservation.date > formattedDate && reservation.date <= oneWeekFromToday) {
                 totalNext7Days++;                                               // If it is then increment the counter for the total next 7 days.
+                console.log("incrementing the 7 day stat counter" + totalNext7Days);
 
                 // Check to see if the reservation is for the first sitting
                 if (reservation.sitting === 'First - 17:00') {
@@ -706,6 +730,7 @@ function loadAdminSpecificCode() {
                     secondSittingNext7Days++;                                   // Increment the counter by 1
                 }
             }
+            console.log(`Im comparing ${reservation.date} and ${oneWeekFromToday}`);
         });
 
         // Update the counter text inner with the incremented counter values
