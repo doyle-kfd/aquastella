@@ -662,6 +662,17 @@ function loadAdminSpecificCode() {
         const formattedNext7DaysDate = next7DaysDateObj.toLocaleDateString('en-GB').split('/').join('-');
         
 
+            const todayDay = Date.parse(dateObj);
+            console.log(`Todays Date converted using Date.parse:  ${todayDay} `);
+            console.log(`Todays Date is: ${dateObj}`)
+            const sevenDaysFromToday = Date.parse(formattedNext7DaysDate);
+            console.log(`Seven days from today: ${sevenDaysFromToday}`);
+            console.log(`The Date 7 Days from today is: ${formattedNext7DaysDate}`);
+
+
+
+
+
         // Initialise the values for the stat counters
         let totalToday = 0;
         let firstSittingToday = 0;
@@ -721,17 +732,13 @@ function loadAdminSpecificCode() {
             console.log("7 Days from today date :" , thirdDate);
             */
 
-            const reservationDate = Date.parse(reservation.date);
-            console.log(`The reservation date from the array is:  ${reservationDate}`);
-            const todayDay = Date.parse(dateObj);
-            console.log(`Todays Date converted using Date.parse:  ${todayDay} `);
-            const sevenDaysFromToday = Date.parse(formattedNext7DaysDate);
-            console.log(`Seven days from today: ${sevenDaysFromToday}`);
+            // const reservationDate = Date.parse(reservation.date);
 
+            console.log("The timestamp for the reservation date is : " , Date.parse(reservation.date));
+            console.log(`The reservation date is: ${reservation.date}`);
 
-
-            console.log(`if Reservation Date: ${Date.parse(reservation.date)}  > Formatted Date for Today ${Date.parse(formattedDate)} &&  Reservation Date: ${reservation.date} <= A Date 7 days from now ${formattedNext7DaysDate}`);
-            if (reservationDate > todayDay && reservationDate <= formattedNext7DaysDate) {
+            console.log(` IF ${reservation.date}  >  ${today} &&   ${reservation.date} <= ${formattedNext7DaysDate}`);
+            if (Date.parse(reservation.date) > todayDay && Date.parse(reservation.date) <= sevenDaysFromToday) {
                 totalNext7Days++; // If it is then increment the counter for the total next 7 days.
                 console.log("incrementing the 7 day stat counter" + totalNext7Days);
 
