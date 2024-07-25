@@ -644,23 +644,30 @@ function loadAdminSpecificCode() {
     // Update the reservation stats for displaying
     function updateStats(reservations) {
 
+
+
+
         // Get todays date and as an ISOString and split it on the T to give yyyy-mm-dd
         const today = new Date().toISOString().split('T')[0];
 
+
         // Get the date 7 days from now in format yyyy-mm-dd
         const next7Days = new Date();
-        next7Days.setDate(next7Days.getDate() + 7);
+        //console.log("7 days from now ", next7Days.setDate(next7Days.getDate() + 7));
         const next7DaysISOString = next7Days.toISOString().split('T')[0];
+        //console.log("Next 7 DAYS AS ISO STRING", next7DaysISOString);
 
         // Convert today's date to dd-mm-yyyy format
         const dateObj = new Date(today);
         const formattedDate = dateObj.toLocaleDateString('en-GB').split('/').join('-');
 
         // Convert the date 7 days from now to dd-mm-yyyy format
+        
         const next7DaysDateObj = new Date(next7DaysISOString);
+        next7DaysDateObj.setDate(next7DaysDateObj.getDate() + 7)
 
         const formattedNext7DaysDate = next7DaysDateObj.toLocaleDateString('en-GB').split('/').join('-');
-
+        console.log("Formatted Date : ",formattedNext7DaysDate);
 
         // Initialise the values for the stat counters
         let totalToday = 0;
@@ -680,45 +687,6 @@ function loadAdminSpecificCode() {
         // Convert formattedDate and formattedNext7DaysDate to Date objects for comparison
         const formattedDateObj = parseDate(formattedDate);
         const formattedNext7DaysDateObj = parseDate(formattedNext7DaysDate);
-        
-
-
-
-
-
-
-        /*
-
-        // Convert todays date to dd-mm-yy
-        let dateObj = new Date(today); // define object as date value
-        let month = dateObj.getUTCMonth() + 1; // get the month part of the date
-        month = month < 10 ? '0' + month : month; // to display month as mm may need to add leading 0
-        let day = dateObj.getUTCDate(); // get day part of the date object
-        day = day < 10 ? '0' + day : day; // to display day as dd may need to add leading 0
-        let year = dateObj.getUTCFullYear(); // get year part of the date
-        let formattedDate = day + "-" + month + "-" + year; // create new variable formattedDate in format dd/mm/yy
-
-        // Get todays date and add 7 days to return new date of 7 days from
-        const aWeekFromNow = new Date(new Date().setDate(new Date().getDate() + 7));
-        const sevenDaysFromNowConverted = aWeekFromNow.toISOString().split('T')[0];
-
-        let sevenDaysFromNow = new Date(sevenDaysFromNowConverted);
-        let month7 = sevenDaysFromNow.getUTCMonth() + 1;
-        month7 = month7 < 10 ? '0' + month7 : month7;
-        let day7 = sevenDaysFromNow.getUTCDate();
-        day7 = day7 < 10 ? '0' + day7 : day7;
-        let year7 = sevenDaysFromNow.getUTCFullYear();
-        let oneWeekFromToday = day7 + "-" + month7 + '-' + year7;
-
-        // set the value of next7Days to todays date + 7
-        next7Days.setDate(next7Days.getDate() + 7);
-
-        // Set the variable next7DaysISOString to newt7Days and split on the T to give yyyy-mm-dd
-        const next7DaysISOString = next7Days.toISOString().split('T')[0];
-
-        */
-
-
 
 
         // Create loop checks on array date to see if there are reservations
@@ -726,12 +694,12 @@ function loadAdminSpecificCode() {
         // For each reservation starting with [0]
         reservations.forEach(reservation => {
 
+
             
 
             // Check and see if the date is today
             if (reservation.date === formattedDate) {
                 totalToday++; // If it is, increment todays date counter by 1
-                console.log("daily counter : " + totalToday);
                 // Check to see of there are reservations for first sitting
                 if (reservation.sitting === 'First - 17:00') {
                     firstSittingToday++; // If there are, then increment first sitting by 1
@@ -741,22 +709,32 @@ function loadAdminSpecificCode() {
             }
 
 
-            const   reservationDate = reservation.date;
-            console.log("Reservation Date in array is : " + reservation.date);
-            const reservationDateObject = parseDate(reservationDate);
-
-            console.log("FORMATTED DATE ROUTINE : " + formattedDate);
-            console.log("FORMATTED 7 DAYS FROM NOW : " + formattedNext7DaysDate);
-            console.log("RESERVATION DATE" + reservation.date);
-
-            if ( reservation.date <= formattedNext7DaysDate) {
-                console.log("RESERVATION FOUND FOR TODAY");
-            }
-
 
             // Calculate counters for next 7 days
             // Check to see if the reservation date is greater than today and its less than the calculated ISO string
             //if (reservation.date > formattedDate && reservation.date <= oneWeekFromToday) {
+
+            console.log(`Reservation Date : ${reservation.date}`);
+            console.log(`Todays Date : ${formattedDate}`);
+            console.log(`Date 7 days from today : ${formattedNext7DaysDate}`);
+
+            const firstDate = reservation.date;
+            const secondDate = formattedDate;
+            const thirdDate = formattedNext7DaysDate;
+            const firstIsoDate =  Date.parse(reservation.date);
+            const secondIsoDate = Date.parse(secondDate);
+            const thirdIsoDate = Date.parse(thirdDate);
+            console.log(` Reservation Date: ${firstIsoDate} Todays Date : ${secondIsoDate}  7 Days From Now:  ${thirdIsoDate} `)
+
+            if (firstIsoDate > secondIsoDate) {
+                console.log("picking up the reservations date is greater than the formatted date for today");
+            }
+            if (firstDate <= thirdDate) {
+                console.log("Picking up the fact that the date 7 days from now is less than the reservations date");
+            }
+
+
+            console.log(`if Reservation Date: ${reservation.date} > Formatted Date for Today ${formattedDate} &&  Reservation Date: ${reservation.date} <= A Date 7 days from now ${formattedNext7DaysDate}`);
             if (reservation.date > formattedDate && reservation.date <= formattedNext7DaysDate) {
                 totalNext7Days++; // If it is then increment the counter for the total next 7 days.
                 console.log("incrementing the 7 day stat counter" + totalNext7Days);
@@ -767,8 +745,7 @@ function loadAdminSpecificCode() {
                 } else if (reservation.sitting === 'Second - 20:30') { // check to see if the reservation is for the second sitting
                     secondSittingNext7Days++; // Increment the counter by 1
                 }
-            }
-            console.log(`Im comparing ${reservationDateObject} and ${formattedNext7DaysDateObj}`);
+            } 
         });
 
         // Update the counter text inner with the incremented counter values
