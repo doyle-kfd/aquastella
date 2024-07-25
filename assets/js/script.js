@@ -660,6 +660,7 @@ function loadAdminSpecificCode() {
         const next7DaysDateObj = new Date(next7DaysISOString);
         next7DaysDateObj.setDate(next7DaysDateObj.getDate() + 7)
         const formattedNext7DaysDate = next7DaysDateObj.toLocaleDateString('en-GB').split('/').join('-');
+        
 
         // Initialise the values for the stat counters
         let totalToday = 0;
@@ -714,20 +715,23 @@ function loadAdminSpecificCode() {
 
 
             const secondDate = dateObjParsed;
-            const thirdDate = Date.parse(formattedNext7DaysDate);
+            cothirdDate = Date.parse(formattedNext7DaysDate);
             console.log("Reservations Date after new date",firstDate);
             console.log("Todays date formatted : ", secondDate);
             console.log("7 Days from today date :" , thirdDate);
             */
 
-            let reservationDate = Date.parse(reservation.date);
-            console.log(reservationDate);
-            console.log(typeof(reservationDate));
+            const reservationDate = Date.parse(reservation.date);
+            console.log(`The reservation date from the array is:  ${reservationDate}`);
+            const todayDay = Date.parse(dateObj);
+            console.log(`Todays Date converted using Date.parse:  ${todayDay} `);
+            const sevenDaysFromToday = Date.parse(formattedNext7DaysDate);
+            console.log(`Seven days from today: ${sevenDaysFromToday}`);
 
 
 
             console.log(`if Reservation Date: ${Date.parse(reservation.date)}  > Formatted Date for Today ${Date.parse(formattedDate)} &&  Reservation Date: ${reservation.date} <= A Date 7 days from now ${formattedNext7DaysDate}`);
-            if (Date.parse(reservation.date) > formattedDate && Date.parse(reservation.date) <= formattedNext7DaysDate) {
+            if (reservationDate > todayDay && reservationDate <= formattedNext7DaysDate) {
                 totalNext7Days++; // If it is then increment the counter for the total next 7 days.
                 console.log("incrementing the 7 day stat counter" + totalNext7Days);
 
