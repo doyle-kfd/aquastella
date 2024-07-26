@@ -652,6 +652,7 @@ function loadAdminSpecificCode() {
         const dateObj = new Date(today);
         const dateObjParsed = Date.parse(dateObj);
         const formattedDate = dateObj.toLocaleDateString('en-GB').split('/').join('-');
+        
 
         // Get the date 7 days from now in format yyyy-mm-dd
         const next7Days = new Date();
@@ -736,9 +737,9 @@ function loadAdminSpecificCode() {
 
             console.log("The timestamp for the reservation date is : " , Date.parse(reservation.date));
             console.log(`The reservation date is: ${reservation.date}`);
-
-            console.log(` IF ${reservation.date}  >  ${today} &&   ${reservation.date} <= ${formattedNext7DaysDate}`);
-            if (Date.parse(reservation.date) > todayDay && Date.parse(reservation.date) <= sevenDaysFromToday) {
+            console.log(reservation);
+            console.log(` IF ${reservation.date}  >  ${formattedDate} &&   ${reservation.date} <= ${formattedNext7DaysDate}`);
+            if (Date.parse(reservation.date) > Date.parse(formattedDate) && Date.parse(reservation.date) <= Date.parse(sevenDaysFromToday)) {
                 totalNext7Days++; // If it is then increment the counter for the total next 7 days.
                 console.log("incrementing the 7 day stat counter" + totalNext7Days);
 
