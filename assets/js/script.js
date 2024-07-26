@@ -646,29 +646,28 @@ function loadAdminSpecificCode() {
 
 
 
+        // function to format dates to dd-mm-yyyy
+        function formatDate(date) {
+            const day = String(date.getDate()).padStart(2, '0'); // Convert date of getDate to a string and pad with zeros if its not to characters wide
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Gets month from getMonth and adds 1 to allow for 0=jan, adds a zero if there are not two chars
+            const year = date.getFullYear(); // Gets the date of full year as yyyy
+            return `${day}-${month}-${year}`; // returns the combines template literal as dd-mm-yyyy
 
-        // Get todays date and as an ISOString and split it on the T to give yyyy-mm-dd
-        const today = new Date().toISOString().split('T')[0];
-        const dateObj = new Date(today);
-        const dateObjParsed = Date.parse(dateObj);
-        const formattedDate = dateObj.toLocaleDateString('en-GB').split('/').join('-');
-        
+        }
 
-        // Get the date 7 days from now in format yyyy-mm-dd
-        const next7Days = new Date();
-        const next7DaysISOString = next7Days.toISOString().split('T')[0];
-  
-        const next7DaysDateObj = new Date(next7DaysISOString);
-        next7DaysDateObj.setDate(next7DaysDateObj.getDate() + 7)
-        const formattedNext7DaysDate = next7DaysDateObj.toLocaleDateString('en-GB').split('/').join('-');
-        
+        // Create function to get todays date in date format dd-mm-yyyy
+        const today = formatDate(new Date());
 
-            const todayDay = Date.parse(dateObj);
-            console.log(`Todays Date converted using Date.parse:  ${todayDay} `);
-            console.log(`Todays Date is: ${dateObj}`)
-            const sevenDaysFromToday = Date.parse(formattedNext7DaysDate);
-            console.log(`Seven days from today: ${sevenDaysFromToday}`);
-            console.log(`The Date 7 Days from today is: ${formattedNext7DaysDate}`);
+        console.log(today);
+
+
+        // Get the date 7 days from now in the format dd-mm-yyyy
+        const next7DaysDate = new Date();
+        next7DaysDate.setDate(next7DaysDate.getDate() + 7);
+        const sevenDaysFromToday = formatDate(next7DaysDate);
+
+        console.log(sevenDaysFromToday);
+
 
 
 
@@ -683,16 +682,6 @@ function loadAdminSpecificCode() {
         let secondSittingNext7Days = 0;
 
 
-        // Helper function to parse dd-mm-yyyy to Date object
-        function parseDate(dateStr) {
-            const [day, month, year] = dateStr.split('-').map(Number);
-            return new Date(year, month - 1, day);
-        }
-
-        // Convert formattedDate and formattedNext7DaysDate to Date objects for comparison
-        const formattedDateObj = parseDate(formattedDate);
-        const formattedNext7DaysDateObj = parseDate(formattedNext7DaysDate);
-
 
         // Create loop checks on array date to see if there are reservations
         // The calculations will be used for output to counters
@@ -700,46 +689,24 @@ function loadAdminSpecificCode() {
         reservations.forEach(reservation => {
 
 
-            
 
-            // Check and see if the date is today
-            if (reservation.date === formattedDate) {
-                totalToday++; // If it is, increment todays date counter by 1
-                // Check to see of there are reservations for first sitting
-                if (reservation.sitting === 'First - 17:00') {
-                    firstSittingToday++; // If there are, then increment first sitting by 1
-                } else if (reservation.sitting === 'Second - 20:30') { // Check to see if the resevation is for second sitting
-                    secondSittingToday++; // increment counter by 1
+
+                // Check and see if the date is today
+                if (reservation.date === today) {
+                    totalToday++; // If it is, increment todays date counter by 1
+                    // Check to see of there are reservations for first sitting
+                    if (reservation.sitting === 'First - 17:00') {
+                        firstSittingToday++; // If there are, then increment first sitting by 1
+                    } else if (reservation.sitting === 'Second - 20:30') { // Check to see if the resevation is for second sitting
+                        secondSittingToday++; // increment counter by 1
+                    }
                 }
-            }
 
 
 
-            // Calculate counters for next 7 days
-            // Check to see if the reservation date is greater than today and its less than the calculated ISO string
-            //if (reservation.date > formattedDate && reservation.date <= oneWeekFromToday) {
 
-/*
-            const getReservationsDate = reservation.date;
-            const setReservationDate = new Date(getReservationsDate);
-
-            const firstDate = setReservationDate.toISOString;
-
-
-            const secondDate = dateObjParsed;
-            cothirdDate = Date.parse(formattedNext7DaysDate);
-            console.log("Reservations Date after new date",firstDate);
-            console.log("Todays date formatted : ", secondDate);
-            console.log("7 Days from today date :" , thirdDate);
-            */
-
-            // const reservationDate = Date.parse(reservation.date);
-
-            console.log("The timestamp for the reservation date is : " , Date.parse(reservation.date));
-            console.log(`The reservation date is: ${reservation.date}`);
-            console.log(reservation);
-            console.log(` IF ${reservation.date}  >  ${formattedDate} &&   ${reservation.date} <= ${formattedNext7DaysDate}`);
-            if (Date.parse(reservation.date) > Date.parse(formattedDate) && Date.parse(reservation.date) <= Date.parse(sevenDaysFromToday)) {
+            
+            if (reservation.date > today && reservation.date <= sevenDaysFromToday) {
                 totalNext7Days++; // If it is then increment the counter for the total next 7 days.
                 console.log("incrementing the 7 day stat counter" + totalNext7Days);
 
@@ -749,124 +716,124 @@ function loadAdminSpecificCode() {
                 } else if (reservation.sitting === 'Second - 20:30') { // check to see if the reservation is for the second sitting
                     secondSittingNext7Days++; // Increment the counter by 1
                 }
-            } 
+            }
         });
 
-        // Update the counter text inner with the incremented counter values
-        document.getElementById('totalReservationsToday').innerText = `Total: ${totalToday}`;
-        document.getElementById('firstSittingToday').innerText = `First Sitting: ${firstSittingToday}`;
-        document.getElementById('secondSittingToday').innerText = `Second Sitting: ${secondSittingToday}`;
-        document.getElementById('totalReservationsNext7Days').innerText = `Total: ${totalNext7Days}`;
-        document.getElementById('firstSittingNext7Days').innerText = `First Sitting: ${firstSittingNext7Days}`;
-        document.getElementById('secondSittingNext7Days').innerText = `Second Sitting: ${secondSittingNext7Days}`;
+    // Update the counter text inner with the incremented counter values
+    document.getElementById('totalReservationsToday').innerText = `Total: ${totalToday}`;
+    document.getElementById('firstSittingToday').innerText = `First Sitting: ${firstSittingToday}`;
+    document.getElementById('secondSittingToday').innerText = `Second Sitting: ${secondSittingToday}`;
+    document.getElementById('totalReservationsNext7Days').innerText = `Total: ${totalNext7Days}`;
+    document.getElementById('firstSittingNext7Days').innerText = `First Sitting: ${firstSittingNext7Days}`;
+    document.getElementById('secondSittingNext7Days').innerText = `Second Sitting: ${secondSittingNext7Days}`;
 
-        drawDailyChart(totalToday, firstSittingToday, secondSittingToday);
-        drawWeeklyChart(reservations);
+    drawDailyChart(totalToday, firstSittingToday, secondSittingToday);
+    drawWeeklyChart(reservations);
 
-    }
+}
 
-    // function to create daily chart
-    function drawDailyChart(total, firstSitting, secondSitting) {
+// function to create daily chart
+function drawDailyChart(total, firstSitting, secondSitting) {
 
-        // create a data table from an array
-        const data = google.visualization.arrayToDataTable([
-            ['Sitting', 'Reservations'], // array header
-            ['Total', total], // total sittings
-            ['First Sitting', firstSitting], //total first sittings
-            ['Second Sitting', secondSitting] // total second sittings
-        ]);
+    // create a data table from an array
+    const data = google.visualization.arrayToDataTable([
+        ['Sitting', 'Reservations'], // array header
+        ['Total', total], // total sittings
+        ['First Sitting', firstSitting], //total first sittings
+        ['Second Sitting', secondSitting] // total second sittings
+    ]);
 
+    const options = {
+        title: 'Today\'s Reservations', // Title of chart
+        chartArea: {
+            width: '100%'
+        }, // give it full width
+        hAxis: {
+            title: 'Total Reservations', // Horizontal axis title
+            minValue: 0 // give it a minimum value
+        },
+        vAxis: {
+            title: 'Sitting' // vertical access heading
+        }
+    };
+
+    // create a BarChart object at the element dailyChart
+    const chart = new google.visualization.BarChart(document.getElementById('dailyChart'));
+    chart.draw(data, options); // create the chart using defined data and options
+}
+
+// function to create weekly graph by day
+function drawWeeklyChart(reservations) {
+
+    // create a new DataTable object to hold the chart data
+    const data = new google.visualization.DataTable();
+    data.addColumn('string', 'Date'); // add a column Date as a string
+    data.addColumn('number', 'Reservations'); // add a column Reservations as a number
+
+    // function to format dates
+    function formatDate(date) {
+
+        // specify how date should be displayed
         const options = {
-            title: 'Today\'s Reservations', // Title of chart
-            chartArea: {
-                width: '100%'
-            }, // give it full width
-            hAxis: {
-                title: 'Total Reservations', // Horizontal axis title
-                minValue: 0 // give it a minimum value
-            },
-            vAxis: {
-                title: 'Sitting' // vertical access heading
-            }
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric'
         };
-
-        // create a BarChart object at the element dailyChart
-        const chart = new google.visualization.BarChart(document.getElementById('dailyChart'));
-        chart.draw(data, options); // create the chart using defined data and options
+        // return formatted string as date
+        return date.toLocaleDateString(undefined, options);
     }
 
-    // function to create weekly graph by day
-    function drawWeeklyChart(reservations) {
-
-        // create a new DataTable object to hold the chart data
-        const data = new google.visualization.DataTable();
-        data.addColumn('string', 'Date'); // add a column Date as a string
-        data.addColumn('number', 'Reservations'); // add a column Reservations as a number
-
-        // function to format dates
-        function formatDate(date) {
-
-            // specify how date should be displayed
-            const options = {
-                weekday: 'short',
-                month: 'short',
-                day: 'numeric'
-            };
-            // return formatted string as date
-            return date.toLocaleDateString(undefined, options);
-        }
-
-        // function to format dates to dd-mm-yyyy
-        function formatDateForComparison(date) {
-            const day = String(date.getDate()).padStart(2, '0'); // Convert date of getDate to a string and pad with zeros if its not to characters wide
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // Gets month from getMonth and adds 1 to allow for 0=jan, adds a zero if there are not two chars
-            const year = date.getFullYear(); // Gets the date of full year as yyyy
-            return `${day}-${month}-${year}`; // returns the combines template literal as dd-mm-yyyy
-        }
-
-        const today = new Date();
-
-        // Prepare data for the next 7 days
-        for (let i = 0; i < 7; i++) {
-            const date = new Date(today);
-            date.setDate(today.getDate() + i); // get today's date and increment by i
-            const dateString = formatDateForComparison(date); // format date as dd-mm-yyyy
-            const formattedDate = formatDate(date); // format the date to display the day
-
-            let count = 0; // initialise the counter
-
-            // for each reservation in the reservation array
-            reservations.forEach(reservation => {
-                // if the reservation date is the same as the one in the date string
-                if (reservation.date === dateString) {
-                    count++; // increment the count
-                }
-            });
-
-            // add a new row to the Google charts data table
-            data.addRow([formattedDate, count]);
-        }
-
-        const options = {
-            title: 'Next 7 Days Reservations', // title of chart
-            chartArea: {
-                width: '100%', // give it the full width
-            },
-
-            hAxis: {
-                title: 'Date' // horizontal axis title
-            },
-            vAxis: {
-                title: 'Reservations', // vertical axis title
-                minValue: 0, // set the minimum value
-                maxValue: 16
-            }
-        };
-
-        // create a chart object at the element weeklyChart
-        const chart = new google.visualization.ColumnChart(document.getElementById('weeklyChart'));
-        chart.draw(data, options); // create the chart using defined data and options
+    // function to format dates to dd-mm-yyyy
+    function formatDateForComparison(date) {
+        const day = String(date.getDate()).padStart(2, '0'); // Convert date of getDate to a string and pad with zeros if its not to characters wide
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Gets month from getMonth and adds 1 to allow for 0=jan, adds a zero if there are not two chars
+        const year = date.getFullYear(); // Gets the date of full year as yyyy
+        return `${day}-${month}-${year}`; // returns the combines template literal as dd-mm-yyyy
     }
+
+    const today = new Date();
+
+    // Prepare data for the next 7 days
+    for (let i = 0; i < 7; i++) {
+        const date = new Date(today);
+        date.setDate(today.getDate() + i); // get today's date and increment by i
+        const dateString = formatDateForComparison(date); // format date as dd-mm-yyyy
+        const formattedDate = formatDate(date); // format the date to display the day
+
+        let count = 0; // initialise the counter
+
+        // for each reservation in the reservation array
+        reservations.forEach(reservation => {
+            // if the reservation date is the same as the one in the date string
+            if (reservation.date === dateString) {
+                count++; // increment the count
+            }
+        });
+
+        // add a new row to the Google charts data table
+        data.addRow([formattedDate, count]);
+    }
+
+    const options = {
+        title: 'Next 7 Days Reservations', // title of chart
+        chartArea: {
+            width: '100%', // give it the full width
+        },
+
+        hAxis: {
+            title: 'Date' // horizontal axis title
+        },
+        vAxis: {
+            title: 'Reservations', // vertical axis title
+            minValue: 0, // set the minimum value
+            maxValue: 16
+        }
+    };
+
+    // create a chart object at the element weeklyChart
+    const chart = new google.visualization.ColumnChart(document.getElementById('weeklyChart'));
+    chart.draw(data, options); // create the chart using defined data and options
+}
 
 }
 
