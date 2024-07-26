@@ -668,11 +668,6 @@ function loadAdminSpecificCode() {
 
         console.log(sevenDaysFromToday);
 
-
-
-
-
-
         // Initialise the values for the stat counters
         let totalToday = 0;
         let firstSittingToday = 0;
@@ -689,8 +684,6 @@ function loadAdminSpecificCode() {
         reservations.forEach(reservation => {
 
 
-
-
                 // Check and see if the date is today
                 if (reservation.date === today) {
                     totalToday++; // If it is, increment todays date counter by 1
@@ -702,6 +695,16 @@ function loadAdminSpecificCode() {
                     }
                 }
 
+
+            //if  (reservation.date > today){
+            //    console.log("Reservation Date Is Greater than today");
+            //    console.log(` Reservation Date: ${reservation.date} > ${today}`);
+            // }
+            console.log(`Reservation Date: ${reservation.date}  <=  ${sevenDaysFromToday}`);
+            if (Date.parse(reservation.date) <= Date.parse(sevenDaysFromToday)) {
+                console.log("Reservation Date is Less than seven days from now");
+                console.log(`Reservation Date when its completed the if statment: ${reservation.date} <= ${sevenDaysFromToday}`);
+            }
 
 
 
