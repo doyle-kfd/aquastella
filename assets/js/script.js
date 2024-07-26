@@ -675,6 +675,7 @@ function loadAdminSpecificCode() {
         let totalNext7Days = 0;
         let firstSittingNext7Days = 0;
         let secondSittingNext7Days = 0;
+        let testcounter =0;
 
 
 
@@ -700,10 +701,18 @@ function loadAdminSpecificCode() {
             //    console.log("Reservation Date Is Greater than today");
             //    console.log(` Reservation Date: ${reservation.date} > ${today}`);
             // }
-            console.log(`Reservation Date: ${reservation.date}  <=  ${sevenDaysFromToday}`);
-            if (Date.parse(reservation.date) <= Date.parse(sevenDaysFromToday)) {
+            
+
+            console.log(`Reservation Date: ${reservation.date}  <  ${sevenDaysFromToday}`);
+            if (Date.parse(reservation.date) < Date.parse(sevenDaysFromToday)) {
                 console.log("Reservation Date is Less than seven days from now");
-                console.log(`Reservation Date when its completed the if statment: ${reservation.date} <= ${sevenDaysFromToday}`);
+                console.log(`Reservation Date when its completed the if statment: ${reservation.date} < ${sevenDaysFromToday}`);
+                testcounter++; 
+                if (reservation.sitting === 'First - 17:00') {
+                    firstSittingNext7Days++; // If it is, then increment
+                } else if (reservation.sitting === 'Second - 20:30') { // check to see if the reservation is for the second sitting
+                    secondSittingNext7Days++; // Increment the counter by 1
+                }
             }
 
 
@@ -721,6 +730,8 @@ function loadAdminSpecificCode() {
                 }
             }
         });
+
+        console.log("TEST COUNTER ----------->" , testcounter);
 
     // Update the counter text inner with the incremented counter values
     document.getElementById('totalReservationsToday').innerText = `Total: ${totalToday}`;
