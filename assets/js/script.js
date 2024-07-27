@@ -406,10 +406,10 @@ makeReservation.addEventListener("click", () => { // event listner for make rese
     // First form tab 1 details
     let guests = document.getElementById('guestNum').value; // Number of guests
     let sitting = document.getElementById('sitting').value; // Sitting selected - First or Second
-    let date = document.getElementById('date').value; // Date of booking
-    console.log("THE VALUE OF THE DATE FIELD IS--------->", date);
+    let dateFromForm = document.getElementById('date').value; // Date of booking
+    console.log("THE VALUE OF THE DATE FIELD IS--------->", dateFromForm);
 
-    console.log("THE DATE IS--------->", Date.parse(date));
+    console.log("THE DATE IS--------->", Date.parse(dateFromForm));
     let tab2Message = document.getElementById('tab-2-message'); // message area on tab 2 for giving feedback when button clicked
 
 
@@ -426,7 +426,7 @@ makeReservation.addEventListener("click", () => { // event listner for make rese
     let year = dateObj.getUTCFullYear(); // get year part of the date
     let formattedDate = day + "-" + month + "-" + year; // create new variable formattedDate in format dd/mm/yy
 
-    */
+    
 
     const formattedDate = formatDate(date);
  
@@ -442,7 +442,16 @@ makeReservation.addEventListener("click", () => { // event listner for make rese
             return `${day}${month}${year}`; // returns the combines template literal as dd-mm-yyyy
 
         }
+
+        */
     
+    // Start Locale date conversion
+    console.log(dateFromForm.toLocaleDateString('en-GB'));
+    //const date = dateFromForm.toLocaleDateString('en-GB');
+    console.log(`The formatted date of the date taken in from the form is ${date}`);
+
+    ///// Just for temp.... fix before submitting
+    const formattedDate = date;
 
     // Validate the second tab fields to see it there are empty fields.
     if (!firstName || !lastName || !email || !phone) { // see if values are true... they must all have values
@@ -454,7 +463,7 @@ makeReservation.addEventListener("click", () => { // event listner for make rese
     // Create reservation object
     const reservation = {
         confirmationNumber: generateConfirmationNumber(), // Add generated confirmation number
-        date: formattedDate,
+        date: date,
         sitting,
         guests,
         firstName,
@@ -683,7 +692,12 @@ function loadAdminSpecificCode() {
         }
 
         // Create function to get todays date in date format dd-mm-yyyy
-        const today = formatDate(new Date());
+        //const today = formatDate(new Date());
+        const today = new Date();
+        const todaysDateFormatted = Date.parse(today);
+        console.log(`TODAYS DATE FORMATTED ${todaysDateFormatted}`);
+        console.log(`Todays Date is ------>>>>> ${today}`);
+        console.log("TODAYS DATE IS ------->>>>>" ,Date.parse(today));
 
         console.log(today);
 
@@ -711,10 +725,13 @@ function loadAdminSpecificCode() {
         // For each reservation starting with [0]
         reservations.forEach(reservation => {
 
-            console.log(`Reservation Date is ------> ${Date.parse(reservation.date)}`);
+
+            console.log("Started reservations date checking");
+            console.log(` Reservations Date: ${Date.parse(reservation.date)} is === to todays date ${todaysDateFormatted}`);
 
             // Check and see if the date is today
-            if (reservation.date === today) {
+            if (reservation.date === todaysDateFormatted) {
+                console.log("TODAYS DATE IS EQUAL TO THE ARRAY STORED RESERVATIONS.DATE");
                 totalToday++; // If it is, increment todays date counter by 1
                 // Check to see of there are reservations for first sitting
                 if (reservation.sitting === 'First - 17:00') {
