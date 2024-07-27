@@ -407,6 +407,8 @@ makeReservation.addEventListener("click", () => { // event listner for make rese
     let guests = document.getElementById('guestNum').value; // Number of guests
     let sitting = document.getElementById('sitting').value; // Sitting selected - First or Second
     let date = document.getElementById('date').value; // Date of booking
+    console.log("THE VALUE OF THE DATE FIELD IS--------->", date);
+    console.log("THE DATE IS--------->", Date.parse(date));
     let tab2Message = document.getElementById('tab-2-message'); // message area on tab 2 for giving feedback when button clicked
 
 
@@ -425,11 +427,18 @@ makeReservation.addEventListener("click", () => { // event listner for make rese
 
     */
 
-    let formattedDate = (date) => {
-            const day = String(date.getDate()).padStart(2, '0'); // Convert date of getDate to a string and pad with zeros if its not to characters wide
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // Gets month from getMonth and adds 1 to allow for 0=jan, adds a zero if there are not two chars
-            const year = date.getFullYear(); // Gets the date of full year as yyyy
-            return `${day}-${month}-${year}`; // returns the combines template literal as dd-mm-yyyy
+    const formattedDate = formatDate(date);
+ 
+        // function to format dates to dd-mm-yyyy
+        function formatDate(date) {
+            console.log("DATE FORMATTING NOW STARTING");
+            const dateObj = new Date(date);
+            const day = String(dateObj.getDate()).padStart(2, '0'); // Convert date of getDate to a string and pad with zeros if its not to characters wide
+            const month = String(dateObj.getMonth() + 1).padStart(2, '0'); // Gets month from getMonth and adds 1 to allow for 0=jan, adds a zero if there are not two chars
+            const year = dateObj.getFullYear(); // Gets the date of full year as yyyy
+            let newNum = `${day}/${month}/${year}`;
+            console.log("DATE JUST CREATED AND FORMATTED IS ------> ", Date.parse(newNum));
+            return `${day}${month}${year}`; // returns the combines template literal as dd-mm-yyyy
 
         }
     
