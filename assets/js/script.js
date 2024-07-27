@@ -189,6 +189,8 @@ let makeReservation = document.getElementById('make-booking'); // find make rese
  * 
  */
 // Make sure that the web page has loaded completely
+
+/*
 document.addEventListener("DOMContentLoaded", function () { // Create event listner for dom loaded fully
     console.log("started initialising the variables for array creation");
     const reservations = []; // Create a blank reservations array
@@ -305,7 +307,7 @@ document.addEventListener("DOMContentLoaded", function () { // Create event list
     }
 });
 
-
+*/
 
 
 
@@ -684,6 +686,7 @@ function loadAdminSpecificCode() {
         // For each reservation starting with [0]
         reservations.forEach(reservation => {
 
+                console.log(`Reservation Date is ------> ${Date.parse(reservation.date)}`);
 
                 // Check and see if the date is today
                 if (reservation.date === today) {
