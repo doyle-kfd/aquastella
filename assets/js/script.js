@@ -408,6 +408,7 @@ makeReservation.addEventListener("click", () => { // event listner for make rese
     let sitting = document.getElementById('sitting').value; // Sitting selected - First or Second
     let date = document.getElementById('date').value; // Date of booking
     console.log("THE VALUE OF THE DATE FIELD IS--------->", date);
+
     console.log("THE DATE IS--------->", Date.parse(date));
     let tab2Message = document.getElementById('tab-2-message'); // message area on tab 2 for giving feedback when button clicked
 
