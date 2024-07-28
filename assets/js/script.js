@@ -1,4 +1,3 @@
-console.log("Script file open");
 /**
  *      This function is run only when the mobile menu item is clicked
  *      THe function only runs on mobile phones
@@ -521,38 +520,17 @@ function loadAdminSpecificCode() {
     // Update the reservation stats for displaying
     function updateStats(reservations) {
 
+        // Function to format the date into dd-mm-yyyy for comparison to the reservation.date value
         function formatDateForComparison(date) {
             const day = String(date.getDate()).padStart(2, '0'); // Convert date of getDate to a string and pad with zeros if its not to characters wide
             const month = String(date.getMonth() + 1).padStart(2, '0'); // Gets month from getMonth and adds 1 to allow for 0=jan, adds a zero if there are not two chars
             const year = date.getFullYear(); // Gets the date of full year as yyyy
             return `${day}-${month}-${year}`; // returns the combines template literal as dd-mm-yyyy
         }
-        const today = new Date();
-        const date = new Date(today);
-        const dateString = formatDateForComparison(date);
+        const today = new Date();                                   // Set today = todays date
+        const date = new Date(today);                               // set date to the date for use in comparion.
+        const dateString = formatDateForComparison(date);           // set date string to the date formatted as dd-mm-yyyy
 
-        // Get todays date and as an ISOString and split it on the T to give yyyy-mm-dd
-        //const today = new Date().toISOString().split('T')[0];
-
-        /*
-        // Convert todays date to dd-mm-yy
-        let dateObj = new Date(today);                      // define object as date value
-        let month = dateObj.getUTCMonth() + 1;              // get the month part of the date
-        month = month < 10 ? '0' + month : month;           // to display month as mm may need to add leading 0
-        let day = dateObj.getUTCDate();                     // get day part of the date object
-        day = day < 10 ? '0' + day : day;                   // to display day as dd may need to add leading 0
-        let year = dateObj.getUTCFullYear();                // get year part of the date
-        let formattedDate = day + "-" + month + "-" + year; // create new variable formattedDate in format dd/mm/yy
-        */
-
-        // Initialise the variable next7Days
-        const next7Days = new Date();
-
-        // set the value of next7Days to todays date + 7
-        next7Days.setDate(next7Days.getDate() + 7);
-
-        // Set the variavle next7DaysISOString to newt7Days and split on the T to give yyyy-mm-dd
-        const next7DaysISOString = next7Days.toISOString().split('T')[0];
 
         // Initialise the values for the stat counters
         let totalToday = 0;
@@ -590,8 +568,7 @@ function loadAdminSpecificCode() {
             reservations.forEach(reservation => {
                 // if the reservation date is the same as the one in the date string
                 if (reservation.date === dateString) {
-                    totalNext7Days++; // increment the count
-                    console.log(`Week counter of i = ${i}`);
+                    totalNext7Days++;                                               // increment the count
                     if (reservation.sitting === 'First - 17:00') {
                         firstSittingNext7Days++;                                    // If it is, then increment
                     } else if (reservation.sitting === 'Second - 20:30') {          // check to see if the reservation is for the second sitting
@@ -601,23 +578,6 @@ function loadAdminSpecificCode() {
             });
         }
 
-
-
-        /*
-        reservations.forEach(reservation => {
-            
-            // Calculate counters for next 7 days
-            // Check to see if the reservation date is greater than today and its less than the calculated ISO string
-            if (reservation.date > formattedDate && reservation.date <= next7DaysISOString) {
-                totalNext7Days++;                                               // If it is then increment the counter for the total next 7 days.
-                // Check to see if the reservation is for the first sitting
-                if (reservation.sitting === 'First - 17:00') {
-                    firstSittingNext7Days++;                                    // If it is, then increment
-                } else if (reservation.sitting === 'Second - 20:30') {          // check to see if the reservation is for the second sitting
-                    secondSittingNext7Days++;                                   // Increment the counter by 1
-                }
-            }
-        }); */
 
         // Update the counter text inner with the incremented counter values
         document.getElementById('totalReservationsToday').innerText = `Total: ${totalToday}`;
@@ -695,7 +655,6 @@ function loadAdminSpecificCode() {
                 // if the reservation date is the same as the one in the date string
                 if (reservation.date === dateString) {
                     count++; // increment the count
-                    console.log(`Graph counter of i = ${i}`);
                 }
             });
             // add a new row to the Google charts data table
