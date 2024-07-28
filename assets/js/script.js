@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 /**
  *      This function is run only when the mobile menu item is clicked
  *      THe function only runs on mobile phones
@@ -40,9 +42,9 @@ document.getElementById("mobileMenu").addEventListener('click', function (event)
  * +
  */
 // Create variable to store media query
-const screenSize = window.matchMedia("(max-width: 280px)")
+const screenSize = window.matchMedia("(max-width: 280px)");
 const adminLoginModal = document.getElementById("admin-login-container");
-const adminCloseModal = document.getElementById("close-login-form")
+const adminCloseModal = document.getElementById("close-login-form");
 /**
  *
  *  Function to open login form
@@ -384,13 +386,13 @@ makeReservation.addEventListener("click", () => { // event listner for make rese
 function openReservationForm() {
     // Initialise reservations
     // Get reservation item by element id
-    let resForm = document.getElementById("resForm")                            // get reservation form div
+    let resForm = document.getElementById("resForm");                            // get reservation form div
     let reservForm = document.getElementById("reservation-form");               // get reservation form itself
     let tab1 = document.getElementById("tab-1");                                // get the first tab of the reservation form
     let tab2 = document.getElementById("tab-2");                                // get the second tab of the reservation form
     let reservCompleted = document.getElementById("reservation-completed");     // get the reservation completed tab of the form
     const navItems = document.getElementById("nav-items");                      // get the nav items
-    const reservationModal = document.getElementById("reservation-container")
+    const reservationModal = document.getElementById("reservation-container");
 
 
     // Check to see if the device is a mobile phone 280px or <. If yes then hide menu.
@@ -415,7 +417,7 @@ function openReservationForm() {
 // close reservation form if close button pressed
 const reservForm = document.getElementById("reservation-form"); // Get the reservation form element
 
-const reservationModal = document.getElementById("reservation-container")
+const reservationModal = document.getElementById("reservation-container");
 /**
  * Function that closes the reservation form
  * sets the form display to none
@@ -438,7 +440,7 @@ window.onclick = function (event) {
         loginForm.style.display = "none";                                       // hide the login form
         adminLoginModal.classList.remove("modal");                              // remove the modal class
     }
-}
+};
 
 /**
  *  Function to close tab 1 and show tab 2 when reservation is being made
