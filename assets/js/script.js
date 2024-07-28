@@ -514,10 +514,24 @@ function loadAdminSpecificCode() {
         // Update the stats for the reservations
         updateStats(reservations);
     }
+    
     // Update the reservation stats for displaying
     function updateStats(reservations) {
+
+        function formatDateForComparison(date) {
+            const day = String(date.getDate()).padStart(2, '0');            // Convert date of getDate to a string and pad with zeros if its not to characters wide
+            const month = String(date.getMonth() + 1).padStart(2, '0');     // Gets month from getMonth and adds 1 to allow for 0=jan, adds a zero if there are not two chars
+            const year = date.getFullYear();                                // Gets the date of full year as yyyy
+            return `${day}-${month}-${year}`;                               // returns the combines template literal as dd-mm-yyyy
+        }
+        const today = new Date();
+        const date = new Date(today);
+        const dateString = formatDateForComparison(date);
+
         // Get todays date and as an ISOString and split it on the T to give yyyy-mm-dd
-        const today = new Date().toISOString().split('T')[0];
+        //const today = new Date().toISOString().split('T')[0];
+
+        /*
         // Convert todays date to dd-mm-yy
         let dateObj = new Date(today);                      // define object as date value
         let month = dateObj.getUTCMonth() + 1;              // get the month part of the date
@@ -526,13 +540,17 @@ function loadAdminSpecificCode() {
         day = day < 10 ? '0' + day : day;                   // to display day as dd may need to add leading 0
         let year = dateObj.getUTCFullYear();                // get year part of the date
         let formattedDate = day + "-" + month + "-" + year; // create new variable formattedDate in format dd/mm/yy
-  
+        */
+     
         // Initialise the variable next7Days
         const next7Days = new Date();
+
         // set the value of next7Days to todays date + 7
         next7Days.setDate(next7Days.getDate() + 7);
+
         // Set the variavle next7DaysISOString to newt7Days and split on the T to give yyyy-mm-dd
         const next7DaysISOString = next7Days.toISOString().split('T')[0];
+
         // Initialise the values for the stat counters
         let totalToday = 0;
         let firstSittingToday = 0;
@@ -540,12 +558,15 @@ function loadAdminSpecificCode() {
         let totalNext7Days = 0;
         let firstSittingNext7Days = 0;
         let secondSittingNext7Days = 0;
+
         // Create loop checks on array date to see if there are reservations
         // The calculations will be used for output to counters
         // For each reservation starting with [0]
         reservations.forEach(reservation => {
+            const today = new Date();
             // Check and see if the date is today
-            if (reservation.date === formattedDate) {
+            console.log(`Reservation Date is: ${reservation.date} === Today ${dateString}`);
+            if (reservation.date === dateString) {
                 totalToday++;                                   // If it is, increment todays date counter by 1
                 // Check to see of there are reservations for first sitting
                 if (reservation.sitting === 'First - 17:00') {
@@ -554,6 +575,34 @@ function loadAdminSpecificCode() {
                     secondSittingToday++;                                   // increment counter by 1
                 }
             }
+        });
+
+
+        // New loop to calculate reservations for next 7 days
+        for (let i = 0; i < 7; i++) {
+
+            date.setDate(today.getDate() + i);                              // get today's date and increment by i
+            const dateString = formatDateForComparison(date);               // format date as dd-mm-yyyy
+            // for each reservation in the reservation array
+            reservations.forEach(reservation => {
+                // if the reservation date is the same as the one in the date string
+                if (reservation.date === dateString) {
+                    totalNext7Days++;                                               // If it is then increment the counter for the total next 7 days.
+                    // Check to see if the reservation is for the first sitting
+                    if (reservation.sitting === 'First - 17:00') {
+                        firstSittingNext7Days++;                                    // If it is, then increment
+                    } else if (reservation.sitting === 'Second - 20:30') {          // check to see if the reservation is for the second sitting
+                        secondSittingNext7Days++;                                   // Increment the counter by 1
+                    }
+                }
+            });
+        }
+
+
+
+        /*
+        reservations.forEach(reservation => {
+            
             // Calculate counters for next 7 days
             // Check to see if the reservation date is greater than today and its less than the calculated ISO string
             if (reservation.date > formattedDate && reservation.date <= next7DaysISOString) {
@@ -565,7 +614,8 @@ function loadAdminSpecificCode() {
                     secondSittingNext7Days++;                                   // Increment the counter by 1
                 }
             }
-        });
+        }); */
+
         // Update the counter text inner with the incremented counter values
         document.getElementById('totalReservationsToday').innerText = `Total: ${totalToday}`;
         document.getElementById('firstSittingToday').innerText = `First Sitting: ${firstSittingToday}`;
@@ -620,6 +670,7 @@ function loadAdminSpecificCode() {
             // return formatted string as date
             return date.toLocaleDateString(undefined, options);
         }
+
         // function to format dates to dd-mm-yyyy
         function formatDateForComparison(date) {
             const day = String(date.getDate()).padStart(2, '0');            // Convert date of getDate to a string and pad with zeros if its not to characters wide
@@ -635,6 +686,7 @@ function loadAdminSpecificCode() {
             const dateString = formatDateForComparison(date);               // format date as dd-mm-yyyy
             const formattedDate = formatDate(date);                         // format the date to display the day
             let count = 0;                                                  // initialise the counter
+
             // for each reservation in the reservation array
             reservations.forEach(reservation => {
                 // if the reservation date is the same as the one in the date string
