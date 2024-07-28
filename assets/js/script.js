@@ -314,7 +314,7 @@ findTable.addEventListener("click", (event) => {
  * It hides the first form with the number of guests, date and sitting
  * then it shows the first name, last name, email, and telephone number form
  */
-makeReservation.addEventListener("click", () => { // event listner for make reservation button click
+makeReservation.addEventListener("click", () => {                               // event listner for make reservation button click
 
     // Second form tab 2 details
     let firstName = document.getElementById('fname').value;                     // First name
